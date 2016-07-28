@@ -1,0 +1,26 @@
+{
+  "name": "mtc",
+  "version": "0.1.1",
+  "description": "Match The Coach",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon start.js"
+  },
+  "engines": {
+    "node": "~4.4.5",
+    "npm": "~2.15.5"
+  },
+  "author": "Sermkiat Lolak",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "debug": "^2.2.0",
+    "express": "^4.14.0",
+    "mongoose": "^4.5.4",
+    "nodemon": "^1.9.2",
+    "readline": "^1.3.0",
+    "serve-static": "^1.11.1"
+  }
+}
