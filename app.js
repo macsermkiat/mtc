@@ -7,10 +7,14 @@ var serveStatic = require('serve-static');
 
 require('./app_api/models/db');
 
-// var routesApi = require('./app_api/routes/index');
+var routesApi = require('./app_api/routes/index');
+var router = express.Router();
 
 var app = express();
 
+// view engine setup
+app.set('views', path.join(__dirname, 'app_server', 'views'));
+app.set('view engine', 'ejs');
 
 // error handlers
 // Catch unauthorised errors
@@ -29,11 +33,18 @@ app.use(cookieParser());
 app.use(serveStatic(path.join(__dirname, 'public')));
 app.use(serveStatic(path.join(__dirname, 'app_client')));
 
-// app.use('/api', routesApi);
 
-app.use(function(req, res) {
-    res.sendFile(path.join(__dirname, 'app_client', 'index.html'));
-});
+app.use('/api', routesApi);
+// app.use('/', router);
+
+
+// app.get('/', function(req, res) {
+//     res.sendFile('index.html');
+// });
+// router.get('/', function(req, res) {
+//     res.sendFile(path.join(__dirname, 'app_client', 'index.html'));
+// });
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

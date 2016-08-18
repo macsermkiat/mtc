@@ -83,8 +83,19 @@ body {
     height: 100%;
 }
 
+@font-face {
+  font-family: 'MyWebFont';
+  src: url('webfont.eot'); /* IE9 Compat Modes */
+  src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+       url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+       url('webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
 body {
-    font-family: "Lato";
+
+    font-family: "Lato", sans-serif;
     font-weight: 300;
     font-size: 16px;
     color: #555;
@@ -418,7 +429,7 @@ a:after {
 }
 
 .divider2 {
-	background-image: url('../img/bg/divider2.jpg')
+	background-image: url('../image/divider2.jpg')
 }
 
 .divider3 {
