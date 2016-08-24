@@ -1,6 +1,6 @@
 <!-- <script type="text/ng-template" id="home/home.view.html"> -->
  <navigation></navigation>
-  
+
 		<!-- ==== HEADERWRAP ==== -->
 		<div id="scroll-container">
 	    <div id="headerwrap" id="home" name="home">
@@ -15,11 +15,11 @@
 					<div class="row">
 					<div id="imaginary-container">
 				        <div class="col-sm-6 col-sm-offset-3">		       
-			                <div class="input-group stylish-input-group">
-			                    <input type="text" class="form-control"  placeholder="Search" >
+			                <div class="input-group stylish-input-group" ng-submit="vm.onSubmit()">
+			                    <input type="text" ng-model="vm.text" class="form-control"  placeholder="Search" name="text">
 			                    <span class="input-group-addon">
-			                        <button type="submit">
-			                            <a href="/#/search"><span class="icon ion-ios-search"></span></a>
+			                        <button type="button" ng-click="vm.onSubmit()">
+			                            <!-- <a href="/#/coaches"> --><span class="icon ion-ios-search"></span><!-- </a> -->
 			                        </button>  
 			                    </span>
 			                </div>		            

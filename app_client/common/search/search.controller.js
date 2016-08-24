@@ -1,56 +1,41 @@
+(function () {
+
 angular
 	.module('mtcApp')
 	.controller('searchCtrl', searchCtrl);
 
-searchCtrl.$inject = ['$http', 'mtcData', '$log', '$uibModal'];
+searchCtrl.$inject = ['$stateParams', '$http', 'mtcData', '$log'];
 
 
 //For IE 8-9
 if (window.location.pathname !== '/') {
 window.location.href = '/#' + window.location.pathname;
-}
+};
 
-function searchCtrl($http, mtcData, $log, $uibModal) {
+function searchCtrl($stateParams, $http, mtcData, $log) {
 	var vm = this;
 	// vm.allCoaches = allCoaches;
-	vm.coaches = [];
+	// vm.coaches = [];
+	vm.text = $stateParams.text;
+	
 	activate();
 
 	function activate() {
-		return allCoaches().then(function() {
-			$log.info('All coaches View');
+		return searchingCoaches().then(function() {
+			$log.info('Search coaches by keyword.');
 		});
 	}
 
-	function allCoaches() {
-		return mtcData.allCoaches()
-			.then(function(data) {
-				console.log(data);
-
-				vm.coaches = data;
-				return vm.coaches;
+	function searchingCoaches() {
+		return mtcData.searchCategoryService(vm.text)
+			.success(function(data) {
+				vm.data = { coach: data }
 			});
+	};
+
+	
 			
-	}
-	console.log(vm.coaches);
-
-	vm.popupCreateCoachForm = function () {
-			var uibModalInstance = $uibModal.open({
-				templateUrl: '/addCoach/addCoach.view.html',
-				controller: 'addCoachCtrl',
-				controllerAs: 'vm',
-				resolve : {
-					coachData : function () {
-						return {
-							coachid : vm.coachid,
-							coachName : vm.data.coach.name
-						};
-					}
-				}
-			});
-
-			uibModalInstance.result.then(function (data) {
-				vm.data.location.reviews.push(data);
-			});
-		};
 }
+
+
+})();

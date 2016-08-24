@@ -5,6 +5,7 @@ if (process.env.NODE_ENV === 'production') {
     dbURI = 'mongodb://heroku_59np200j:lh4k1agqsqiebu5tvi7af7h4h3@ds019678.mlab.com:19678/heroku_59np200j';
 }
 
+mongoose.Promise = global.Promise;
 mongoose.connect(dbURI);
 
 // SIGINTT for Windows

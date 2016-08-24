@@ -5,9 +5,9 @@ var coachSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    parent: {
-        type: String
-        // required: true
+    category: {
+        type: String,
+        required: true
     },
     subject: {
         type: String,
@@ -28,9 +28,10 @@ var coachSchema = new mongoose.Schema({
     preparation: String,
     group: String,
     time: String,
-    courseLength: Number,
-    level: String,
-    category: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Category' }]
+    location: String,
+    courseLength: String,
+    level: String
+    // category: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Category' }]
 
     // Always store coordinates longitude, latitude order.
     // coords: {
@@ -43,7 +44,7 @@ var coachSchema = new mongoose.Schema({
 
 var categorySchema = new mongoose.Schema ({
     category : String,
-    child : [{ type: String, ref: 'Coach' }]
+    child : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Coach' }]
 });
 
 // categorySchema.virtual('members', {

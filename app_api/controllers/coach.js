@@ -95,32 +95,47 @@ module.exports.coachesBrowse = function(req, res) {
         }
         console.log(coach);
         sendJSONresponse(res, 200, coach);
-      });
-    
+      });   
 };
 
 // GET coach by parent category
-module.exports.coachesParent = function(req, res) {
-    Cat
-      .find({})
-      .populate('members')
-      .exec(function (err, names) {
-         if (!names) {
-          sendJSONresponse(res, 404, {
-            "message": "coach not found"
-          });
-          return;
-        } else if (err) {
-          console.log(err);
-          sendJSONresponse(res, 404, err);
-          return;
-        }
-        console.log(names);
-        sendJSONresponse(res, 200, names);
-      });    
-};
+module.exports.keywordSearch = function(req, res, next) {
+      console.log('Finding coach by keyword', req.query);
+      var textSearchBody = req.query.text;
+      console.log(textSearchBody);
 
-/* GET a location by the id */
+      if (req.query && req.query.text) {   
+        // 
+        Mtc
+          .find({ $or:[{category: new RegExp (textSearchBody, "i")},
+                       {name: new RegExp (textSearchBody, "i")},
+                       {subject: new RegExp (textSearchBody, "i")},
+                       {shortDescription: new RegExp (textSearchBody, "i")}] })
+          // .populate('child')
+          .exec(function(err, coach) {
+            if (!coach) {
+                sendJSONresponse(res, 404, {
+                "message": "Search not found"
+                });
+                return;
+            } else if (err) {
+              console.log(err);
+              sendJSONresponse(res, 404, err);
+              return;
+            }
+            
+            sendJSONresponse(res, 200, coach);
+            });    
+      } else {
+        console.log('No Search specified');
+        sendJSONresponse(res, 404, {
+          "message": "No Search in request"
+        });
+      };
+};
+  
+
+/* GET a coach by the id */
 module.exports.coachesReadOne = function(req, res) {
   console.log('Finding coach details', req.params);
   if (req.params && req.params.coachid) {
@@ -150,9 +165,9 @@ module.exports.coachesReadOne = function(req, res) {
 
 /* POST a new coach */
 /* /api/coaches */
-module.exports.coachesCreate = function(req, res) {
+module.exports.coachesCreate = function(req, res, next) {
   console.log(req.body);
-  Mtc.save({
+  var mtcSave = new Mtc({
     name: req.body.name,
     price: req.body.price,
     subject: req.body.subject,
@@ -160,12 +175,34 @@ module.exports.coachesCreate = function(req, res) {
     shortDescription: req.body.shortDescription,
     courseDescription: req.body.courseDescription,
     preparation: req.body.preparation,
+    category: req.body.category,
     group: req.body.group,
     time: req.body.time,
     courseLength: req.body.courseLength,
+    location: req.body.location,
     level: req.body.level,
     parent: req.body.parent
-  }, function(err, coach) {
+  });
+
+  mtcSave.save(function (err){
+   if (err) {
+      console.log('Saving:', err);
+      sendJSONresponse(res, 404, err);
+    } else {
+      Cat.findOne({ category: req.body.category })
+             .exec(function (err) {
+                Cat.update({category: req.body.category},
+                {$push: {child: mtcSave._id}},{upsert:true}
+                ,function(err)   {
+                  if (err) {
+                    console.log(err);
+                  }else{
+                    console.log("Success");
+                  }
+                })
+            });
+    }
+    }), function(err, coach) {
     if (err) {
       console.log(err);
       sendJSONresponse(res, 400, err);
@@ -173,21 +210,10 @@ module.exports.coachesCreate = function(req, res) {
       console.log(coach);
       sendJSONresponse(res, 201, coach);
     }
-  });
-
-  Cat.create({
-    category: req.body.category,
-    child: req.body.shortDescription
-  });
-
-  Cat
-    .findOne({ category: req.body.category })
-    .populate('child')
-    .exec(function (err, cat) {
-      if (err) return handleError(err);
-      console.log('The child is %s', cat.child.name);
-    });
+  };
+   
 };
+
 
 /* PUT /api/coaches/:coachid */
 module.exports.coachesUpdateOne = function(req, res) {

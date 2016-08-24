@@ -5,14 +5,21 @@ function config ($stateProvider, $urlRouterProvider) {
 	.state('home', {
 		url: '/home',
 		templateUrl: 'home/home.view.html',
-		// controller: 'homeCtrl'
-		// controllerAs :'vm'
+		controller: 'homeCtrl',
+		controllerAs :'vm'
 	})
 	.state('search' , {
-		url: '/search',
+		url: '/coaches/search/?text',
+		params: {text:null},
 		templateUrl: 'common/search/search.template.html',
 		controller: 'searchCtrl',
 		controllerAs : 'vm'		
+	})
+	.state('coachDetail', {
+		url: '/coaches/:coachid',
+		templateUrl: 'common/coachDetail/coachDetail.view.html',
+		controller: 'coachDetailCtrl',
+		controllerAs : 'vm'
 	})
 	.state('addCoach', {
 		url: '/addCoach',

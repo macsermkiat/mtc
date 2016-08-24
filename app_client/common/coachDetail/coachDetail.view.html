@@ -1,0 +1,48 @@
+<navigation></navigation>
+	<div class="container clear-fix">
+	
+	    <hgroup class="mb20">
+			<h1>{{ vm.data.coach.name }}</h1>
+			<h2 class="lead">{{ vm.data.coach.subject }}</h2>								
+		</hgroup>
+		
+	    <section class="col-xs-12 col-sm-6 col-md-12">
+			<article class="search-result row">
+				<div class="col-xs-12 col-sm-12 col-md-3"  >
+					<a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/people" alt="Lorem ipsum" /></a>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-2">
+					<ul class="meta-search">
+						<li><i class="glyphicon glyphicon-user"></i> <span>{{ coach.name }}</span></li>
+						<li><i class="glyphicon glyphicon-education"></i> <span>{{ coach.subject.join(', ') }}</span></li>
+						<li><i class="icon ion-person-stalker"></i> <span>{{ coach.price }}</span></li>
+						<li><i class="glyphicon glyphicon-star"></i>
+							<i class="glyphicon glyphicon-star"></i>
+							<i class="glyphicon glyphicon-star"></i>
+							<i class="glyphicon glyphicon-star"></i>
+							<i class="glyphicon glyphicon-star-empty"></i>
+						</li>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-7 excerpet">
+					<h4><strong>Course Description</strong></h4>
+					<p>{{ vm.data.coach.courseDescription }}</p>
+					<h4><strong>Preparation</strong></h4>
+					<p>{{ vm.data.coach.preparation }}</p>
+					<h4><strong>Group</strong></h4>				
+	                <p>{{ vm.data.coach.group }}</p>
+	                <h4><strong>Time</strong></h4>
+	                <p>{{ vm.data.coach.time }}</p>
+	                <h4><strong>Suitable for</strong></h4>
+	                <p>{{ vm.data.coach.level }}</p>
+	                <h4><strong>Course Length</strong></h4>
+	                <p>{{ vm.data.coach.courseLength }}</p>
+	                <h4><strong>Price</strong></h4>
+	                <p>{{ vm.data.coach.price }}</p>
+				</div>
+				<span class="clearfix borda"></span>
+			</article>
+		</section>
+	</div>
+
+<footer-generic></footer-generic>
