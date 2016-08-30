@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Mtc = mongoose.model('Coach');
 var Cat = mongoose.model('Category');
+var Mail = mongoose.model('EmailNewsLetter');
 
 var sendJSONresponse = function(res, status, content) {
   res.status(status);
@@ -80,8 +81,18 @@ var buildCoachList = function(req, res, results, stats) {
 /* GET a coach by Browsing */
 module.exports.coachesBrowse = function(req, res) {
   console.log('Browsing coaches');
-  Mtc
-    .find({})
+    console.log('Finding coach by keyword', req.query);
+      var typeaheadSearchBody = req.query.text;
+      console.log(typeaheadSearchBody);
+  
+    // .find({})
+       
+        // 
+        Mtc
+          .find({ $or:[{category: new RegExp (typeaheadSearchBody, "i")},
+                       {name: new RegExp (typeaheadSearchBody, "i")},
+                       {subject: new RegExp (typeaheadSearchBody, "i")},
+                       {shortDescription: new RegExp (typeaheadSearchBody, "i")}] })
     .exec(function (err, coach) {
       if (!coach) {
           sendJSONresponse(res, 404, {
@@ -96,6 +107,7 @@ module.exports.coachesBrowse = function(req, res) {
         console.log(coach);
         sendJSONresponse(res, 200, coach);
       });   
+  
 };
 
 // GET coach by parent category
@@ -112,7 +124,12 @@ module.exports.keywordSearch = function(req, res, next) {
                        {subject: new RegExp (textSearchBody, "i")},
                        {shortDescription: new RegExp (textSearchBody, "i")}] })
           // .populate('child')
+          // .count(function(err, count){
+          //   if (!err) 
+          //   var length = count;
+          // })
           .exec(function(err, coach) {
+            var count = coach.length;
             if (!coach) {
                 sendJSONresponse(res, 404, {
                 "message": "Search not found"
@@ -165,7 +182,7 @@ module.exports.coachesReadOne = function(req, res) {
 
 /* POST a new coach */
 /* /api/coaches */
-module.exports.coachesCreate = function(req, res, next) {
+module.exports.coachesCreate = function(req, res) {
   console.log(req.body);
   var mtcSave = new Mtc({
     name: req.body.name,
@@ -181,7 +198,9 @@ module.exports.coachesCreate = function(req, res, next) {
     courseLength: req.body.courseLength,
     location: req.body.location,
     level: req.body.level,
-    parent: req.body.parent
+    parent: req.body.parent,
+    videoid: req.body.videoid,
+    picture: req.body.picture
   });
 
   mtcSave.save(function (err){
@@ -282,3 +301,25 @@ module.exports.coachesDeleteOne = function(req, res) {
     });
   }
 };
+
+// Email NewsLetter
+
+module.exports.eMailNewsLetterCollect = function(req, res) {
+  console.log('New Email for NewsLetter: ' + req.body);
+  var checkExistingMail = req.body.email;
+  console.log(checkExistingMail);
+  var mailSave = new Mail({
+        name: req.body.name,
+        email: req.body.email
+      });
+  mailSave.save(function (err, mail){
+   if (err) {
+      console.log('Saving:', err);
+      sendJSONresponse(res, 404, err);
+    } else {
+      console.log(mail);
+      sendJSONresponse(res, 201, mail);
+    }
+  });  
+};
+          

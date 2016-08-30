@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var serveStatic = require('serve-static');
 
+
+
 require('./app_api/models/db');
 
 var routesApi = require('./app_api/routes/index');
@@ -31,12 +33,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(serveStatic(path.join(__dirname, 'public')));
+app.use(serveStatic(path.join(__dirname, 'node_modules')));
 app.use(serveStatic(path.join(__dirname, 'app_client')));
 
 
 app.use('/api', routesApi);
 // app.use('/', router);
-
 
 // app.get('/', function(req, res) {
 //     res.sendFile('index.html');

@@ -4,6 +4,7 @@ angular
 	.component('navigation', {
 			restrict: 'EA',
 			templateUrl: '/common/navigationAndfooter/navigation.template.html'
+			// controller: 'loginController'
 		});
 
 })();

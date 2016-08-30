@@ -283,19 +283,22 @@ a:after {
 
 #headerwrap {
 	
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(http://localhost:3000/image/homeland-min.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),url(http://localhost:3000/image/hand.jpg);
 	/*margin-top: -50px;*/
-	padding-top:120px;
+	padding-top:60px;
+    
 	text-align:center;
 	background-attachment: relative;
 	background-position: center center;
+    /*position: fixed;*/
 	min-height: 650px;
 	width: 100%;
+    background-repeat: no-repeat;
 	
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%;
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -305,12 +308,20 @@ a:after {
 
 #headerwrap h1 {
 	color:#ffffff;
-	margin-top: 90px;
+	margin-top: 60px;
 	padding-bottom: 30px;
 	letter-spacing: 8px;
-	font-size: 100px;
+	font-size: 2em;
 	font-weight: bold;
 	text-shadow: 2px 2px 2px #000;
+}
+
+#headerwrap h3 {
+    color:#ffffff;
+    font-size: 30px;
+    background-color: rgba(89,89, 89, 0.3);
+    padding: 10px 5px 10px 5px;
+    text-shadow: 2px 2px 2px #000;
 }
 
 #headerwrap p {
@@ -429,7 +440,7 @@ a:after {
 }
 
 .divider2 {
-	background-image: url('../image/divider2.jpg')
+	background-image: url('../image/friend.jpg')
 }
 
 .divider3 {
@@ -637,17 +648,49 @@ a:after {
 @media only screen and (min-device-width:768px) and (max-device-width : 1024px) and (orientation : portrait){
 	.header{background-attachment: scroll;}
 }
+    #headerwrap h1{
+        font-size: 80px;
+    }
+
+    #headerwrap p{
+        margin-top: 40px;
+        margin-bottom: 40px;
+        padding-bottom: 40px;
+    }
+
+    #headerwrap h3{
+        font-size: 25px;
+    }
+
 
 @media screen and (max-width:769px) {
 	#headerwrap h1 {
-		font-size: 80px;
+		font-size: 60px;
+        margin-top: 0px;
+        padding-top: 0;
+        /*margin-bottom: 0;*/
+        /*padding-bottom: 0px;*/
 	}
+    
+    #headerwrap{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),url(http://localhost:3000/image/hand-small.jpg);
+    }
+
+
 	#headerwrap p {
 		font-size: 20px;
 		line-height: 38px;
+        margin-top: 20px;
 	}
     #navbar-main {
         margin-bottom: 60px;
+    }
+
+    #headerwrap h3{
+        font-size: 18px;
+        letter-spacing: 1px;
+        word-spacing: 2px;
+        line-height: 30px;
     }
 }
 

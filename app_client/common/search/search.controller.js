@@ -17,7 +17,7 @@ function searchCtrl($stateParams, $http, mtcData, $log) {
 	// vm.allCoaches = allCoaches;
 	// vm.coaches = [];
 	vm.text = $stateParams.text;
-	
+
 	activate();
 
 	function activate() {
@@ -30,6 +30,10 @@ function searchCtrl($stateParams, $http, mtcData, $log) {
 		return mtcData.searchCategoryService(vm.text)
 			.success(function(data) {
 				vm.data = { coach: data }
+
+			})
+			.error(function (e) {
+				vm.message = "Sorry, something's gone wrong";
 			});
 	};
 

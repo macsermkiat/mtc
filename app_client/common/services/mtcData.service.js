@@ -12,11 +12,11 @@ function mtcData ($http, $log) {
 		// var searchCategory;
 		// searchCategory = {};
 		// searchCategory.arrSearchResults = [];
-		return $http.get('api/coaches/search/?text=' + text);
+		return $http.get('/api/coaches/search/?text=' + text);
 	};
 
 	var allCoaches = function() {
-		return $http.get('api/coaches')
+		return $http.get('/api/allcoaches')
 		// .then(allCoachesComplete)
 		// .catch(allCoachesFailed);
 
@@ -58,15 +58,23 @@ function mtcData ($http, $log) {
 		// function createCoachFailed(error) {
 		// 	$log.error('XHR Failed for allCoaches.' + error.data)
 		// }
+
 	};
 
-
+	var addNewsLetter = function (news) {
+		return $http.post('/api/newsletter', news)
+		.then(function(response) {
+			return response.news;
+		})
+	};
 
 	return {
 		allCoaches: allCoaches,
 		coachById: coachById,
 		createCoach: createCoach,
+		addNewsLetter: addNewsLetter,
 		searchCategoryService: searchCategoryService
+		
 	};
 	
 
