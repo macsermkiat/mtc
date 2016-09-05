@@ -41,20 +41,34 @@ function config ($stateProvider, $urlRouterProvider) {
 		controllerAs : 'vm'
 	})
 	.state('addCoach', {
+		
 		url: '/addCoach',
 		templateUrl: 'common/addCoach/addCoach.view.html',
 		controller: 'addCoachCtrl',
-		controllerAs: 'vm'
+		controllerAs: 'vm',
+		redirectTo: 'addPic'
 	})
 	
 	
+	
 	$urlRouterProvider.otherwise('home');
+
+	// lockProvider.init({
+	//     clientID: 2m8hbwYC8UdyjITdKGDptrRvF6BXweY7,
+	//     domain: royyak.auth0.com
+ //  	});
 };
 
 
 
 app.config(['$stateProvider', '$urlRouterProvider', config]);
 
+// app.config(function(lockProvider) {
+//   lockProvider.init({
+//     clientID: 2m8hbwYC8UdyjITdKGDptrRvF6BXweY7,
+//     domain: royyak.auth0.com
+//   });
+// });
 // app.config(function($sceDelegateProvider) {
 //   $sceDelegateProvider.resourceUrlWhitelist([
 //     'self',

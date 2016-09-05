@@ -18,9 +18,12 @@ var router = express.Router();
 // var serveStatic = require('serve-static');
 // var app = express();
 
+var aws = require('../controllers/awsPolicy');
 var ctrlCoaches = require('../controllers/coach');
 // var nodeMail = require('../controllers/nodemail');
 
+// AWS
+router.get('/awsPolicy', aws.getS3Policy);
 // app.use(serveStatic(./public));
 // app.use(serveStatic(path.join(__dirname, './public')));
 // app.use(serveStatic(path.join(__dirname, '../../app_client')));
@@ -31,8 +34,9 @@ router.post('/coaches', ctrlCoaches.coachesCreate);
 router.get('/allcoaches', ctrlCoaches.coachesBrowse);
 router.get('/coaches/search/', ctrlCoaches.keywordSearch);
 router.get('/coaches/:coachid', ctrlCoaches.coachesReadOne);
-router.put('/coaches/:coachid', ctrlCoaches.coachesUpdateOne);
-router.delete('/coaches/:coachid', ctrlCoaches.coachesDeleteOne);
+// router.put('/coaches/:coachid', ctrlCoaches.coachesUpdateOne);
+// router.delete('/coaches/:coachid', ctrlCoaches.coachesDeleteOne);
+
 // router.get('/coachesParent', ctrlCoaches.coachesParent);
 
 // Category
@@ -44,5 +48,8 @@ router.delete('/coaches/:coachid', ctrlCoaches.coachesDeleteOne);
 
 // Newsletter
 router.post('/newsletter', ctrlCoaches.eMailNewsLetterCollect);
+
+
+
 
 module.exports = router;

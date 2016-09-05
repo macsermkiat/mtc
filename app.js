@@ -1,3 +1,4 @@
+require('dotenv').config();
 var http = require('http');
 var express = require('express');
 var path = require('path');
@@ -9,8 +10,9 @@ var serveStatic = require('serve-static');
 
 require('./app_api/models/db');
 
-var routesApi = require('./app_api/routes/index');
 var router = express.Router();
+var routesApi = require('./app_api/routes/index');
+
 
 var app = express();
 

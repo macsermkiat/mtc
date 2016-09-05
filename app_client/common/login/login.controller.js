@@ -13,8 +13,8 @@
       // Put the authService on $scope to access
       // the login method in the view
       var vm = this;
-
-      var lock = new Auth0Lock("2m8hbwYC8UdyjITdKGDptrRvF6BXweY7" ,"royyak.auth0.com");
+      vm.lock = lock;
+      // var lock = new Auth0Lock("2m8hbwYC8UdyjITdKGDptrRvF6BXweY7" ,"royyak.auth0.com");
 
       // Listening for the authenticated event
       lock.on("authenticated", function(authResult) {

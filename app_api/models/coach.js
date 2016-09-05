@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 
+
 var coachSchema = new mongoose.Schema({
+    createdDate: String,
     name: {
         type: String,
         required: true
@@ -32,7 +34,7 @@ var coachSchema = new mongoose.Schema({
     courseLength: String,
     level: String,
     videoid: String,
-    picture: { data: Buffer, contentType: String }
+    imageUrl: String
     // category: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Category' }]
 
     // Always store coordinates longitude, latitude order.
@@ -74,6 +76,7 @@ var emailnewsletterSchema = new mongoose.Schema ({
 
 // index
 coachSchema.index({name:1, shortDescription:1}, {unique: true});
+
 
 mongoose.model('Coach', coachSchema);
 mongoose.model('Category', categorySchema);

@@ -4,6 +4,35 @@
 	
 	
 	<div class ="row white centered">
+
+	<h1 style="margin-bottom: 40px">Application form</h1>
+	<form name="PicForm" enctype="multipart/form-data" role="form"  class="container form-horizontal">
+		<div class="form-group" >
+				<label for="picture" class="col-xs-2 col-sm-2 control-label">Picture</label>
+				<div class="col-xs-8 col-sm-10">
+					<input type ="file" 
+					 ngf-select accept="image/*"
+					 ngf-max-size="5MB"
+					 ngf-fix-orientation="true" 
+					 ngf-model-invalid="errorFile"
+					 ngf-resize="{width: 240, height: 160, quality: .8, type: 'image/jpeg', centerCrop: true}" 
+					 id="picfile" name="picfile"  ng-model="picfile" class="form-control" placeholder="Your picture here">
+					 <br>
+					 <i ng-show="PicForm.picfile.$error.maxSize">File too large 
+          			{{errorFile.size / 5000000|number:5}}MB: max 5M</i>
+          			<img ng-show="PicForm.picfile.$valid" ngf-thumbnail="picfile" class="thumb"> 
+          			<button class="btn btn-primary" ng-show="picfile" ng-click="uploadPic(picfile)">Submit</button>
+          			<button class="btn btn-default" ng-click="picfile = null" ng-show="picfile">Remove</button>
+          			<span class="progress" ng-show="picfile.progress >= 0">
+			        <div class="progress-bar" role="progressbar" style="width:{{picfile.progress}}%" 
+			            ng-bind="picfile.progress + '%'"></div>
+				    </span>
+				    <span ng-show="picfile.result">Upload Successful</span>
+				    <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+				</div>
+			</div>
+		</form>
+	<h5 class="text-danger"> Please wait picture to load and submit the picture before continue </h5>
 	<form id="addCoach" name="vm.addCoach" role="form" ng-submit="vm.onSubmit()"
 	class="container form-horizontal" novalidate>
 		<!-- <div class="modal-header">
@@ -14,7 +43,7 @@
 			<div class="modal-body">
 				<div role="alert" ng-show="vm.formError" class="alert alert-danger">{{ vm.formError }}
 				</div> -->
-			<h1 style="margin-bottom: 40px">Application form</h1>
+			
 			
 			<div class="form-group" ng-class="{ 'has-error': vm.addCoach.name.$touched  && vm.addCoach.name.$invalid }">
 				<label for="name" class="col-xs-2 col-sm-2 control-label">Name</label>
@@ -114,29 +143,19 @@
 					<input id="preparation" name="preparation"  ng-model="vm.formData.preparation" class="form-control" placeholder="book, tools, computer etc..">
 				</div>
 			</div>
-			<div class="form-group">
-				<label for="picture" class="col-xs-2 col-sm-2 control-label">Picture</label>
-				<div class="col-xs-8 col-sm-10">
-					<input type ="file" ngf-select accept="image/*"
-					 ngf-max-size="1MB" ngf-model-invalid="errorFile" 
-					 id="picture" name="picture"  ng-model="vm.formData.picture" class="form-control" placeholder="Your picture here">
-					 <i ng-show="myForm.file.$error.maxSize">File too large 
-          			{{errorFile.size / 1000000|number:1}}MB: max 1M</i>
-          			<img ng-show="myForm.file.$valid" ngf-thumbnail="vm.formData.picture" class="thumb"> <button ng-click="vm.formData.picture = null" ng-show="vm.formData.picture">Remove</button>
-          			<span class="progress" ng-show="vm.formData.picture.progress >= 0">
-			        <div style="width:{{picFile.progress}}%" 
-			            ng-bind="vm.formData.picture.progress + '%'"></div>
-				    </span>
-				    <span ng-show="vm.formData.picture.result">Upload Successful</span>
-				    <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
-				</div>
-			</div>
+			
+			
 			<div class="form-group">
 				<label for="videoid" class="col-xs-2 col-sm-2 control-label">Video</label>
 				<div class="col-xs-8 col-sm-10">
 					<input id="videoid" name="videoid"  ng-model="vm.formData.videoid" class="form-control" placeholder="Youtube video ID">
 				</div>
 			</div>
+			
+
+
+
+
 			<!-- <div class="form-group">
 				<label for="rating" class="col-xs-10 col-sm-2 control-label">Rating
 				</label>
@@ -163,6 +182,12 @@
 			<button ng-click="vm.onSubmit()" ng-disabled="vm.isDisabled" type="button" class="btn btn-primary">Submit</button>
 		</div>
 	</form>
+
+
+		
+		
+	
+
 		<div ng-show="vm.message.success">
 			<button class="btn btn-success btn-block">Coach Successfully added!
 			</button>

@@ -185,6 +185,7 @@ module.exports.coachesReadOne = function(req, res) {
 module.exports.coachesCreate = function(req, res) {
   console.log(req.body);
   var mtcSave = new Mtc({
+    createdDate: req.body.createdDate,
     name: req.body.name,
     price: req.body.price,
     subject: req.body.subject,
@@ -200,7 +201,7 @@ module.exports.coachesCreate = function(req, res) {
     level: req.body.level,
     parent: req.body.parent,
     videoid: req.body.videoid,
-    picture: req.body.picture
+    picture: req.body.pictureUrl,
   });
 
   mtcSave.save(function (err){
@@ -208,6 +209,15 @@ module.exports.coachesCreate = function(req, res) {
       console.log('Saving:', err);
       sendJSONresponse(res, 404, err);
     } else {
+      var mtcId = mtcSave._id;
+      Mtc.findOneAndUpdate({ _id: mtcSave._id},
+                          {imageUrl: "https://s3-ap-southeast-1.amazonaws.com/matchthecoach/" + mtcSave.createdDate},
+                           {upsert:true}, function(err, doc){
+              if (err) return res.send(500, { error: err });
+              return res.send("succesfully saved");
+          });
+             
+            
       Cat.findOne({ category: req.body.category })
              .exec(function (err) {
                 Cat.update({category: req.body.category},
@@ -216,7 +226,7 @@ module.exports.coachesCreate = function(req, res) {
                   if (err) {
                     console.log(err);
                   }else{
-                    console.log("Success");
+                    console.log("Success add in CategorySchema");
                   }
                 })
             });
