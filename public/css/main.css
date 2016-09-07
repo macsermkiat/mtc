@@ -283,7 +283,7 @@ a:after {
 
 #headerwrap {
 	
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),url(http://localhost:3000/image/hand.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),url(../image/hand.jpg);
 	/*margin-top: -50px;*/
 	padding-top:60px;
     
@@ -673,7 +673,7 @@ a:after {
 	}
     
     #headerwrap{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),url(http://localhost:3000/image/hand-small.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),url(../image/hand-small.jpg);
     }
 
 
