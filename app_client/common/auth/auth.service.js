@@ -29,16 +29,17 @@
     // This method is called from app.run.js
     function registerAuthenticationListener() {
       lock.on('authenticated', function(authResult) {
+        
         localStorage.setItem('id_token', authResult.idToken);
         authManager.authenticate();
 
         lock.getProfile(authResult.idToken, function(error, profile) {
           if (error) {
             console.log(error);
+          }  else {
+            localStorage.setItem('profile', JSON.stringify(profile));
+            $rootScope.$broadcast('userProfileSet', profile);
           }
-
-          localStorage.setItem('profile', JSON.stringify(profile));
-          $rootScope.$broadcast('userProfileSet', profile);
         });
       });
     }

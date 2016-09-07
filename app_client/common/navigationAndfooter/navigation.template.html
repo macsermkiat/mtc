@@ -10,16 +10,19 @@
         </div>
         <div class="navbar-collapse collapse" id="navbar-ex-collapse" uib-collapse="navCollapsed">
           <ul class="nav navbar-nav">
-            <li> <a href="#home" du-smooth-scroll>Home</a></li>
-      			<li> <a href="#about" du-smooth-scroll> About</a></li>
-      			<li> <a href="#services" du-smooth-scroll> Services</a></li>
-      			<li> <a href="#team" du-smooth-scroll> Team</a></li>
-      			<li> <a href="#portfolio" du-smooth-scroll> Portfolio</a></li>
-      			<li> <a href="#blog" du-smooth-scroll> Blog</a></li>
-      			<li> <a href="#contact" du-smooth-scroll> Contact</a></li>
+            <li aria-label="Home"> <a href="#home" du-smooth-scroll>Home</a></li>
+      			<li aria-label="About"> <a href="#about" du-smooth-scroll> About</a></li>
+      			<li aria-label="Service"> <a href="#services" du-smooth-scroll> Services</a></li>
+      			<li aria-label="Team"> <a href="#team" du-smooth-scroll> Team</a></li>
+      			<li aria-label="Portfolio"> <a href="#portfolio" du-smooth-scroll> Portfolio</a></li>
+      			<li aria-label="Blog"> <a href="#blog" du-smooth-scroll> Blog</a></li>
+      			<li aria-label="Contact"> <a href="#contact" du-smooth-scroll> Contact</a></li>
       		  </ul>
       		  <ul class="nav navbar-nav navbar-right">
-      		  	<li ng-hide="$ctrl.isLoggedIn"><a ng-click="login.lock.show()">Sign in</a></li>
+      		  	<li aria-label="Login"><a ng-click="authService.login()">Sign in</a></li>
+              <li aria-label="Logout"><a href="#/" ng-click="authService.logout()">Log Out</a></li>
+              <li aria-label="Add Coach"><a ui-sref="addCoach" >Add Coach</a></li>
+              <li aria-label="Profile"><a ui-sref="profile" >Profile</a></li>
       		  	<li><a href="#signup" class="smoothScroll">Sign up</a></li>
               <li ng-show="$ctrl.isLoggedIn" class="dropdown">
                   <a href="" class="dropdown-toggle" data-toggle="dropdown">{{ $ctrl.nickname }}<span class="caret"></span></a>

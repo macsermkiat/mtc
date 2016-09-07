@@ -3,8 +3,8 @@ angular
 	.module('mtcApp')
 	.component('navigation', {
 			restrict: 'EA',
-			templateUrl: '/common/navigationAndfooter/navigation.template.html'
-			// controller: 'loginController',
+			templateUrl: '/common/navigationAndfooter/navigation.template.html',
+			controller: 'loginController'
 			// controllerAs: 'vm'
 		});
 

@@ -3,16 +3,41 @@
 var app = angular.module('mtcApp', 	['ui.router',
 									 'youtube-embed',
 									 'ngFileUpload',
-									 // 'auth0.lock',
-									 
-									 // 'angular-jwt',
+									 'auth0.lock',
+
+									 // 'auth0',
+									 'angular-jwt',
 									 'ngSanitize', 
 									 'ngMessages', 
 									 'ui.bootstrap', 
 									 'duScroll']);
 
 
-function config ($stateProvider, $urlRouterProvider) {
+function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $httpProvider, $stateProvider, $urlRouterProvider) {
+
+	lockProvider.init({
+      domain: 'royyak.auth0.com',
+      clientID: '2m8hbwYC8UdyjITdKGDptrRvF6BXweY7',
+      options: {
+    	auth: {
+      		redirect: false
+    	}
+  	  }
+  	});
+
+	jwtOptionsProvider.config({
+        tokenGetter: function() {
+          return localStorage.getItem('id_token');
+        }
+    });
+
+    jwtInterceptorProvider.tokenGetter = function() {
+  	  return localStorage.getItem('id_token');
+  	}
+
+    
+
+
 
 	$stateProvider
 	.state('home', {
@@ -20,6 +45,12 @@ function config ($stateProvider, $urlRouterProvider) {
 		templateUrl: 'home/home.view.html',
 		controller: 'homeCtrl',
 		controllerAs :'vm'
+	})
+	.state('profile', {
+		url: '/profile',
+		templateUrl: 'common/profile/profile.template.html',
+		controller: 'profileController',
+		controllerAs: 'user'
 	})
 	// .state('newsletter', {
 	// 	url: '/newsletter',
@@ -57,12 +88,17 @@ function config ($stateProvider, $urlRouterProvider) {
 	//     clientID: 2m8hbwYC8UdyjITdKGDptrRvF6BXweY7,
 	//     domain: royyak.auth0.com
  //  	});
+ 	$httpProvider.interceptors.push('jwtInterceptor');
 };
 
 
 
-app.config(['$stateProvider', '$urlRouterProvider', config]);
 
+app.config(['lockProvider', 'jwtOptionsProvider', 'jwtInterceptorProvider', '$httpProvider', '$stateProvider', '$urlRouterProvider', config]);
+
+// app.run(function(auth) {
+//     auth.hookEvents();
+//     });
 // app.config(function(lockProvider) {
 //   lockProvider.init({
 //     clientID: 2m8hbwYC8UdyjITdKGDptrRvF6BXweY7,
