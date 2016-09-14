@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var gracefulShutdown;
 var dbURI = 'mongodb://localhost/mtc';
 if (process.env.NODE_ENV === 'production') {
-    dbURI = 'mongodb://heroku_59np200j:lh4k1agqsqiebu5tvi7af7h4h3@ds019678.mlab.com:19678/heroku_59np200j';
+    dbURI = 'mongodb://macsermkiat:017338373@http://ec2-54-169-217-40.ap-southeast-1.compute.amazonaws.com:27017/mtc';
 }
 
 mongoose.Promise = global.Promise;
@@ -60,3 +60,4 @@ process.on('SIGTERM', function() {
 
 // BRING IN YOUR SCHEMAS & MODELS
 require('./coach');
+require('./users');

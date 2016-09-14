@@ -28,17 +28,21 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $http
 	jwtOptionsProvider.config({
         tokenGetter: function() {
           return localStorage.getItem('id_token');
-        }
+        },
+        whiteListedDomains: [
+        	'localhost', 
+        	'ec2-54-169-217-40.ap-southeast-1.compute.amazonaws.com'
+        ],
+        unauthicatedRedirectPath: '/login'
     });
+
+	$httpProvider.interceptors.push('jwtInterceptor');
 
     jwtInterceptorProvider.tokenGetter = function() {
   	  return localStorage.getItem('id_token');
   	}
 
-    
-
-
-
+   
 	$stateProvider
 	.state('home', {
 		url: '/home',
@@ -47,11 +51,36 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $http
 		controllerAs :'vm'
 	})
 	.state('profile', {
+		// abstract: true,
 		url: '/profile',
 		templateUrl: 'common/profile/profile.template.html',
 		controller: 'profileController',
 		controllerAs: 'user'
+		// template: '<ui-view>'
 	})
+	.state('profile.courses', {
+		url: '/courses',
+		templateUrl: 'common/profile/profile.courses.template.html',
+		controller: 'profileCoursesController',
+		controllerAs: 'user'
+	})
+	.state('profile.bio', {
+		url: '/bio',
+		templateUrl: 'common/profile/profile.bio.template.html',
+		controller: 'profileBioController',
+		controllerAs: 'user'
+	})
+	.state('profile.edit', {
+		url: '/edit',
+		templateUrl: 'common/profile/profile.edit.template.html',
+		controller: 'profileEditController',
+		controllerAs: 'vm'
+	})
+	// .state('login', {
+	// 	url: '/login',
+	// 	controller: 'loginController',
+	// 	templateUrl: 'common/login/login.html'
+	// })
 	// .state('newsletter', {
 	// 	url: '/newsletter',
 	// 	params: {name:null, email:null},
@@ -71,13 +100,18 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $http
 		controller: 'coachDetailCtrl',
 		controllerAs : 'vm'
 	})
-	.state('addCoach', {
-		
+	.state('addCoach', {		
 		url: '/addCoach',
 		templateUrl: 'common/addCoach/addCoach.view.html',
 		controller: 'addCoachCtrl',
 		controllerAs: 'vm',
 		redirectTo: 'addPic'
+	})
+	.state('subscription', {		
+		url: '/subscription',
+		templateUrl: 'common/subscription/subscription.template.html',
+		controller: 'subscriptionCtrl',
+		controllerAs: 'vm'
 	})
 	
 	
@@ -88,7 +122,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $http
 	//     clientID: 2m8hbwYC8UdyjITdKGDptrRvF6BXweY7,
 	//     domain: royyak.auth0.com
  //  	});
- 	$httpProvider.interceptors.push('jwtInterceptor');
+ 	
 };
 
 
@@ -112,6 +146,44 @@ app.config(['lockProvider', 'jwtOptionsProvider', 'jwtInterceptorProvider', '$ht
 //   ]);
 // });
 
+
+// app.run(function($rootScope, $location, authService, $state) {
+//     $rootScope.$on( "$stateChangeStart", function(event, next, current) {
+//       if ($rootScope.isAuthenticated == false) {
+//       	console.log('DENY : Redirecting to Login');
+      	
+      	
+//       	authService.login();
+//       	event.preventDefault();
+//         // no logged user, redirect to /login
+//         // if ( next.templateUrl === "partials/login.html") {
+//         } else {
+//           console.log('ALLOW');
+//           return;
+//         }
+//     });
+//  });
+
+app.run(function($rootScope, authService, authManager) {
+
+      // Put the authService on $rootScope so its methods
+      // can be accessed from the nav bar
+      $rootScope.authService = authService;
+      
+      // Register the authentication listener that is
+      // set up in auth.service.js
+      authService.registerAuthenticationListener();
+
+       // Use the authManager from angular-jwt to check for
+      // the user's authentication state when the page is
+      // refreshed and maintain authentication
+      authManager.checkAuthOnRefresh();
+
+      // Listen for 401 unauthorized requests and redirect
+      // the user to the login page
+      authManager.redirectWhenUnauthenticated();
+
+  });
 
 app.run(function($anchorScroll, $window, $rootScope) {
   // hack to scroll to top when navigating to new URLS but not back/forward

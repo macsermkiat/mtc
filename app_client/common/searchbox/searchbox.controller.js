@@ -27,19 +27,29 @@ function SearchBoxController ($state, mtcData, $timeout, $http) {
 		}
 	};
 
-	
+// Search Category Schema
 	vm.searching = function(val) {
-		return $http.get('http://localhost:3000/api/coaches/search', {params: {text:val}})
+		return $http.get('api/coaches/searchCat', {params: {text:val}})
 		.then(function(response) {
+			console.log(response.data);
 			return response.data;
+		})
+	};
+
+
+// Search Coach Schema	
+	// vm.searching = function(val) {
+	// 	return $http.get('/api/coaches/search', {params: {text:val}})
+	// 	.then(function(response) {
+	// 		return response.data;
 		
-		});
+	// 	});
 		
 
 		
 	};
 
 
-};
+
 
 })();

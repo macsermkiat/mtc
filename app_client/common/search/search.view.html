@@ -6,7 +6,7 @@
 			<h2 class="lead"><strong class="text-danger">{{vm.count}}</strong> Results found for the search for <strong class="text-danger">{{vm.text}}</strong></h2>								
 		</hgroup>
 		
-	    <section class="col-xs-12 col-sm-6 col-md-12">
+	    <section class="col-xs-12 col-sm-12 col-md-12">
 			<article class="search-result row" ng-repeat="coach in vm.data.coach">
 				<div class="col-xs-12 col-sm-12 col-md-3"  >
 					<a ui-sref="coachDetail({coachid : coach._id})" title={{coach.name}} class="thumbnail">

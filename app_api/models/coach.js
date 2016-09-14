@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 
 var coachSchema = new mongoose.Schema({
     createdDate: String,
+    createdBy: String,
     name: {
         type: String,
         required: true
