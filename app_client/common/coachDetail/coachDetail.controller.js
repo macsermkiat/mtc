@@ -17,6 +17,7 @@ function coachDetailCtrl($stateParams, $http, mtcData, $log, $scope) {
 	// vm.allCoaches = allCoaches;
 	vm.coachid = $stateParams.coachid;
 	$scope.playerVars = { autoplay: 0};
+	$scope.vdo=null;
 	// vm.coaches = {};
 	activate();
 
@@ -29,8 +30,13 @@ function coachDetailCtrl($stateParams, $http, mtcData, $log, $scope) {
 	function idCoaches() {
 		return mtcData.coachById(vm.coachid)
 			.success(function(data) {
-				vm.data = { coach: data};
-				$scope.videoid = data.videoid;
+				if (data) {
+					vm.data = { coach: data};
+					$scope.videoid = data.videoid;
+					$scope.vdo = true;
+				} else {
+					$scope.vdo = false;
+				}
 
 				
 				console.log(vm.data);

@@ -21,6 +21,7 @@ var router = express.Router();
 
 var aws = require('../controllers/awsPolicy');
 var ctrlCoaches = require('../controllers/coach');
+
 // var nodeMail = require('../controllers/nodemail');
 
 // AWS
@@ -33,11 +34,18 @@ router.get('/awsPolicy', aws.getS3Policy);
 // router.get('/coaches', ctrlCoaches.coachesBrowse);
 router.post('/coaches', ctrlCoaches.coachesCreate);
 router.get('/allcoaches', ctrlCoaches.coachesBrowse);
+router.get('/coaches/searchCat', ctrlCoaches.categorySearch);
 router.get('/coaches/search/', ctrlCoaches.keywordSearch);
 router.get('/coaches/:coachid', ctrlCoaches.coachesReadOne);
 // router.put('/coaches/:coachid', ctrlCoaches.coachesUpdateOne);
 // router.delete('/coaches/:coachid', ctrlCoaches.coachesDeleteOne);
 
+
+// User
+router.get('/users/course', ctrlCoaches.usersCourse);
+router.get('/users/bio', ctrlCoaches.usersBio);
+router.post('/users/create', ctrlCoaches.usersCreate);
+router.put('/users/update', ctrlCoaches.usersUpdate);
 // router.get('/coachesParent', ctrlCoaches.coachesParent);
 
 // Category

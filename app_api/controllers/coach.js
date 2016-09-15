@@ -1,7 +1,9 @@
 var mongoose = require('mongoose');
 var Mtc = mongoose.model('Coach');
 var Cat = mongoose.model('Category');
+var User = mongoose.model('User');
 var Mail = mongoose.model('EmailNewsLetter');
+var async = require('async');
 
 var sendJSONresponse = function(res, status, content) {
   res.status(status);
@@ -110,6 +112,29 @@ module.exports.coachesBrowse = function(req, res) {
   
 };
 
+// GET category
+module.exports.categorySearch = function(req, res) {
+      console.log('Browsinging category');
+      var catSearchBody = req.query.text;
+      Cat.find({ $or:[{category: new RegExp (catSearchBody, "i")}]}
+        ).exec(function(err, catmember) {
+         if (!catmember) {
+                sendJSONresponse(res, 404, {
+                "message": "Search not found"
+                });
+                return;
+            } else if (err) {
+              console.log(err);
+              sendJSONresponse(res, 404, err);
+              return;
+            }
+            console.log(catmember);
+            sendJSONresponse(res, 200, catmember);
+      });       
+};
+
+
+
 // GET coach by parent category
 module.exports.keywordSearch = function(req, res, next) {
       console.log('Finding coach by keyword', req.query);
@@ -117,17 +142,21 @@ module.exports.keywordSearch = function(req, res, next) {
       console.log(textSearchBody);
 
       if (req.query && req.query.text) {   
-        // 
+        
         Mtc
           .find({ $or:[{category: new RegExp (textSearchBody, "i")},
-                       {name: new RegExp (textSearchBody, "i")},
+                       // {name: new RegExp (textSearchBody, "i")},
                        {subject: new RegExp (textSearchBody, "i")},
-                       {shortDescription: new RegExp (textSearchBody, "i")}] })
-          // .populate('child')
-          // .count(function(err, count){
-          //   if (!err) 
-          //   var length = count;
-          // })
+                       {shortDescription: new RegExp (textSearchBody, "i")}
+                       ] 
+                })
+        // Cat.find({category: textSearchBody})
+        //    .exec(function(err, courses) {
+        //     var js = Array.from(courses[0].child);
+        //     console.log(js+"js");
+        //     js.forEach(function(course) {
+        //       console.log(course+"course");
+        //       Mtc.find({_id: course})
           .exec(function(err, coach) {
             var count = coach.length;
             if (!coach) {
@@ -140,15 +169,16 @@ module.exports.keywordSearch = function(req, res, next) {
               sendJSONresponse(res, 404, err);
               return;
             }
-            
-            sendJSONresponse(res, 200, coach);
-            });    
+        console.log(coach+"coach");
+        sendJSONresponse(res, 200, coach);
+        }); 
       } else {
         console.log('No Search specified');
         sendJSONresponse(res, 404, {
           "message": "No Search in request"
         });
       };
+    
 };
   
 
@@ -180,12 +210,56 @@ module.exports.coachesReadOne = function(req, res) {
   }
 };
 
+// GET User Courses
+module.exports.usersCourse = function(req, res) {
+      console.log('Get courses create by User');
+      var id = req.query.id;
+      Mtc.find({createdBy: id })
+        .exec(function(err, course) {
+         if (!course) {
+                sendJSONresponse(res, 404, {
+                "message": "Search not found"
+                });
+                return;
+            } else if (err) {
+              console.log(err);
+              sendJSONresponse(res, 404, err);
+              return;
+            }
+            console.log(course);
+            sendJSONresponse(res, 200, course);
+      });       
+};
+
+// GET User Bio
+module.exports.usersBio = function(req, res) {
+      console.log('Get User Bio');
+      var id = req.query.id;
+      User.find({identity: id })
+        .exec(function(err, bio) {
+         if (!bio) {
+                sendJSONresponse(res, 404, {
+                "message": "Search not found"
+                });
+                return;
+            } else if (err) {
+              console.log(err);
+              sendJSONresponse(res, 404, err);
+              return;
+            }
+            console.log(bio);
+            sendJSONresponse(res, 200, bio);
+      });       
+};
+
+
 /* POST a new coach */
 /* /api/coaches */
 module.exports.coachesCreate = function(req, res) {
   console.log(req.body);
   var mtcSave = new Mtc({
     createdDate: req.body.createdDate,
+    createdBy: req.body.createdBy,
     name: req.body.name,
     price: req.body.price,
     subject: req.body.subject,
@@ -201,23 +275,27 @@ module.exports.coachesCreate = function(req, res) {
     level: req.body.level,
     parent: req.body.parent,
     videoid: req.body.videoid,
-    picture: req.body.pictureUrl,
+    picture: req.body.pictureUrl 
   });
 
-  mtcSave.save(function (err){
-   if (err) {
-      console.log('Saving:', err);
-      sendJSONresponse(res, 404, err);
-    } else {
-      var mtcId = mtcSave._id;
-      Mtc.findOneAndUpdate({ _id: mtcSave._id},
-                          {imageUrl: "https://s3-ap-southeast-1.amazonaws.com/matchthecoach/" + mtcSave.createdDate},
-                           {upsert:true}, function(err, doc){
-              if (err) return res.send(500, { error: err });
-              return res.send("succesfully saved");
-          });
-             
-            
+  async.parallel ([
+    function(cb) {
+      mtcSave.save(function (err){
+          var mtcId = mtcSave._id;
+          Mtc.findOneAndUpdate({ _id: mtcSave._id},
+                              {imageUrl: "https://s3-ap-southeast-1.amazonaws.com/matchthecoach/" + mtcSave.createdDate},
+                              {upsert:true}
+                              ,function(err, doc){
+                                if (err) {
+                                  console.log(error)
+                                  return res.send(500, { error: err })
+                                } else {
+                                  return res.send("succesfully add in CoachSchema");
+                                 }
+                               });   
+    });
+    },      
+    function(cb) {       
       Cat.findOne({ category: req.body.category })
              .exec(function (err) {
                 Cat.update({category: req.body.category},
@@ -230,17 +308,103 @@ module.exports.coachesCreate = function(req, res) {
                   }
                 })
             });
+    },
+    function(cb) {       
+      User.findOne({ identity: req.body.createdBy })
+             .exec(function (err) {
+                User.update({identity: req.body.createdBy},
+                {$push: {course: mtcSave._id}},{upsert:true}
+                ,function(err)   {
+                  if (err) {
+                    console.log(err);
+                  }else{
+                    console.log("Success add in UserSchema");
+                  }
+                })
+            });
     }
-    }), function(err, coach) {
+  ], function(err, coach) {
     if (err) {
       console.log(err);
       sendJSONresponse(res, 400, err);
     } else {
-      console.log(coach);
+      console.log(coach + "save done");
       sendJSONresponse(res, 201, coach);
     }
-  };
+  }
+  )
+};
    
+module.exports.usersCreate = function(req, res) {
+  console.log(req.body);
+  var userSave = new User({
+    memberSince : req.body.memberSince,
+    identity : req.body.identity,
+    picture : req.body.picture,
+    name : req.body.name,
+    surname : req.body.surname,
+    email : req.body.email,
+    address : req.body.address,
+    experience : req.body.experience,
+    telephone : req.body.telephone,
+    lineid : req.body.lineid,
+    idnumber : req.body.idnumber,
+    education: req.body.education,
+    term: req.body.term
+  });
+
+  userSave.save(function(err, user) {
+    if (err) {
+      console.log(err);
+      sendJSONresponse(res, 400, err);
+    } else {
+      console.log(user + "save done");
+      sendJSONresponse(res, 201, user);
+    }
+
+    });
+};
+
+// Update User
+module.exports.usersUpdate = function(req, res) {
+  if (!req.body.identity) {
+    sendJSONresponse(res, 404, {
+      "message": "Not found, User ID is required"
+    });
+    return;
+  }
+  User
+    .findOne({identity: req.body.identity})
+    .exec(
+      function(err, user) {
+        if (!user) {
+          sendJSONresponse(res, 404, {
+            "message": "User id not found"
+          });
+          return;
+        } else if (err) {
+          sendJSONresponse(res, 400, err);
+          return;
+        }
+        user.name = req.body.name,
+        user.surname = req.body.surname,
+        user.email = req.body.email,
+        user.address = req.body.address,
+        user.experience = req.body.experience,
+        user.telephone = req.body.telephone,
+        user.lineid = req.body.lineid,
+        user.idnumber = req.body.idnumber,
+        user.education = req.body.education,
+        user.term = req.body.term;
+        user.save(function(err, user) {
+          if (err) {
+            sendJSONresponse(res, 404, err);
+          } else {
+            sendJSONresponse(res, 200, user);
+          }
+        });
+      }
+  );
 };
 
 

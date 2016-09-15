@@ -9,6 +9,7 @@ var serveStatic = require('serve-static');
 var jwt = require('express-jwt');
 
 
+
 var authCheck = jwt({
     secret: new Buffer(process.env.AUTH_SECRET, 'base64'),
     audience: process.env.AUTH_AUDIENCE

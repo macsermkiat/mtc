@@ -1,98 +1,73 @@
 <navigation></navigation>
-<div class="clear-fix profile-body" >
-	
-	    <hgroup class="mb20 container">
-			<h1>{{user.profile.nickname}}</h1>
-			<h2 class="lead"><strong class="text-danger">{{user.profile.email}}</strong> User Profile <strong class="text-danger">{{vm.text}}</strong></h2>								
-		</hgroup>
-	<div class="container">	
-	    <section class="col-xs-12 col-sm-6 col-md-12">
-			<article class="search-result row">
-				<div class="col-xs-12 col-sm-12 col-md-3 profile">
-				  <div class="profile-sidebar">
-				<!-- SIDEBAR USERPIC -->
-					<div class="profile-userpic">
-						<img src={{user.profile.picture}} class="img-responsive" alt="{{user.profile.picture}}">
-					</div>
-				<!-- END SIDEBAR USERPIC -->
-				<!-- SIDEBAR USER TITLE -->
-					<div class="profile-usertitle">
-						<div class="profile-usertitle-name">
-						{{user.profile.name}}
-						</div>
-						<div class="profile-usertitle-job">
-						{{user.profile.email}}
-						</div>
-					</div>
-				<!-- END SIDEBAR USER TITLE -->
-				<!-- SIDEBAR BUTTONS -->
-					<div class="profile-userbuttons">
-						<button type="button" class="btn btn-success btn-sm">Follow</button>
-						<button type="button" class="btn btn-danger btn-sm">Message</button>
-					</div>
-				<!-- END SIDEBAR BUTTONS -->
-				<!-- SIDEBAR MENU -->
-					<div class="profile-usermenu">
-						<ul class="nav">
-							<li class="active">
-								<a href="#">
-								<i class="glyphicon glyphicon-home"></i>
-								Overview </a>
-							</li>
-							<li>
-								<a href="#">
-								<i class="glyphicon glyphicon-user"></i>
-								Account Settings </a>
-							</li>
-							<li>
-								<a href="#" target="_blank">
-								<i class="glyphicon glyphicon-ok"></i>
-								Tasks </a>
-							</li>
-							<li>
-								<a href="#">
-								<i class="glyphicon glyphicon-flag"></i>
-								Help </a>
-							</li>
-						</ul>
-					</div>
-				  </div>
-				<!-- END MENU -->
+<section class="container">
+  <section id="main-content">
+    <section class="wrapper">
+		  <div class="row">
+				<div class="col-lg-12">
+					<h3 class="page-header"><i class="fa fa-user-md"></i> Profile</h3>
+					<ol class="breadcrumb">
+						<li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+						<li><i class="icon_documents_alt"></i>Pages</li>
+						<li><i class="fa fa-user-md"></i>Profile</li>
+					</ol>
 				</div>
-				
-					<div class="col-xs-12 col-sm-12 col-md-9 profile">
-			            <div class="profile-content">
-						   <p>Name: {{user.profile.name}}<p><br>
-						   <p>Email: {{user.profile.email}}<p><br>
-						   <p>Address:  <p><br>
-						   <p>Telephone :  09x-xxxxxxx <p><br>
-						   <p>LINE ID : <p><br>
-			            </div>
-					</div>
-				
-				<!-- <div class="col-xs-12 col-sm-12 col-md-2">
-					<ul class="meta-search">
-						<li><i class="glyphicon glyphicon-user"></i> <span>{{ coach.name }}</span></li>
-						<li><i class="glyphicon glyphicon-education"></i> <span>{{ coach.subject.join(', ') }}</span></li>
-						<li><i class="icon ion-person-stalker"></i> <span>{{ coach.price }}</span></li>
-						<li><i class="glyphicon glyphicon-star"></i>
-							<i class="glyphicon glyphicon-star"></i>
-							<i class="glyphicon glyphicon-star"></i>
-							<i class="glyphicon glyphicon-star"></i>
-							<i class="glyphicon glyphicon-star-empty"></i>
-						</li>
-					</ul>
-				</div> -->
-
-				<div class="col-xs-12 col-sm-12 col-md-7 excerpet">
-					<h3><a ui-sref="coachDetail({coachid : coach._id})" title="">{{ coach.shortDescription }}</a></h3>
-					<p>{{ coach.courseDescription }}</p>						
-	                <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
-				</div>
-				<span class="clearfix borda"></span>
-			</article>	      	
-
-		</section>
-	</div>
-</div>
+			</div>
+              <div class="row">
+                <!-- profile-widget -->
+                <div class="col-lg-12">
+                    <div class="profile-widget profile-widget-info">
+                          <div class="panel-body">
+                            <div class="col-lg-2 col-sm-2">
+                              <h4 style="color: white"><h4>               
+                              <div class="follow-ava">
+                                  <img src="{{user.profile.picture}}" alt="{{user.profile.name}}">
+                              </div>
+                              <h6>Administrator</h6>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 follow-info">
+                                <p>Hello I’m {{user.profile.name}}, a leading expert in interactive and creative design.</p>
+                                <p>@jenifersmith</p>
+								<p><i class="fa fa-twitter">jenifertweet</i></p>
+                                <h6>
+                                    <span>Since</span>
+                                    <span><i class="icon ion-calendar"></i>25.10.13</span>
+                                    <span><i class="icon icon_pin_alt"></i>NY</span>
+                                </h6>
+                            </div>
+                            <div class="col-lg-2 col-sm-6 follow-info weather-category "style="font-size: 20px;">
+                                      <ul class="checked">
+                                          <li class="active">
+                                              
+                                              <i class="icon ion-android-person"> </i><br>
+											  
+											  ID card : checked
+                                          </li>
+										   
+                                      </ul>
+                            </div>
+							<div class="col-lg-2 col-sm-6 follow-info weather-category" style="font-size: 20px;">
+                                      <ul>
+                                          <li class="active">
+                                            <i class="icon ion-ios-paper-outline"> </i>
+                                            <br>	Criminal recorded 
+                                          </li>										   
+                                      </ul>
+                            </div>
+							<div class="col-lg-2 col-sm-6 follow-info weather-category" style="font-size: 20px;">
+                                      <ul>
+                                          <li class="active">      
+                                            <i class="icon ion-android-happy"> </i>				Lorem ipsum: rotundum
+                                          </li>										   
+                                      </ul>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+              </div>
+                                                        
+                                      <ui-view autoscroll="false"></ui-view>
+                                    
+    </section>
+  </section>
+</section>
 <footer-generic></footer-generic>

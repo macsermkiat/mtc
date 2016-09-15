@@ -65,6 +65,10 @@
 }
 
 
+/*ID card-Criminal check\*/
+.checked {
+  color: #79FE2C;
+}
 
 /*ngAnimate*/
 
@@ -98,7 +102,7 @@
 
 /*Profile*/
 /* Profile container */
-.profile-body {
+/*.profile-body {
   background: #F1F3FA;
 }
 
@@ -112,7 +116,7 @@
 
 /* Profile sidebar */
 
-.profile-sidebar {
+./*profile-sidebar {
   padding: 20px 0 10px 0;
   background: #fff;
 }
@@ -204,8 +208,8 @@
 }
 
 /* Profile Content */
-.profile-content {
+/*.profile-content {
   padding: 20px;
   background: #fff;
   min-height: 460px;
-}
+}*/

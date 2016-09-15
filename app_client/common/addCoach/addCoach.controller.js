@@ -12,7 +12,10 @@ angular
 		var sign =awsPolicy.getSign();
 		console.log(sign);
 
-		
+		// Get profile from localStorage
+		var accessData = localStorage.getItem('profile');
+		var profile = angular.fromJson(accessData);
+		var identity = profile.identities[0].user_id;
 		
 		// vm.coachData = coachData;
 		
@@ -22,12 +25,15 @@ angular
 
 		vm.onSubmit = function () {
 			vm.formError = "";
-			if(!vm.formData.name || !vm.formData.subject || !vm.formData.price) { 
+			if(!vm.formData.name || !vm.formData.subject || !vm.formData.price ||
+				!vm.formData.shortDescription || !vm.formData.courseDescription ||
+				 !vm.formData.time || !vm.formData.location|| !vm.formData.category) { 
 				vm.formError = "All fields required, please try again";
 				return false;
 			} else {
-				
-				vm.doAddCoach(vm.formData);
+				var data = vm.formData
+				vm.doAddCoach(data);
+					
 				vm.isDisabled = true;
 				vm.message.success = true;
 				$timeout(function () {
@@ -66,10 +72,9 @@ angular
 			    level: formData.level,
 			    location: formData.location,
 			    category: formData.category,
-			    videoid: formData.videoid
-			    
-			    
-			});
+			    videoid: formData.videoid,
+			    createdBy: identity
+			})
 
 			
 			// .then(function (error, coach) {

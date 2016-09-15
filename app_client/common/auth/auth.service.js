@@ -6,14 +6,15 @@
     .module('mtcApp')
     .service('authService', authService);
 
-  authService.$inject = ['$rootScope', 'lock', 'authManager'];
+  authService.$inject = ['$rootScope', 'lock', 'authManager', '$location', '$window', '$state'];
 
-  function authService($rootScope, lock, authManager) {
+  function authService($rootScope, lock, authManager, $location, $window, $state) {
 
     var userProfile = JSON.parse(localStorage.getItem('profile')) || {};
 
     function login() {
       lock.show();
+      
     }
 
     // Logging out just requires removing the user's
@@ -23,6 +24,8 @@
       localStorage.removeItem('profile');
       authManager.unauthenticate();
       userProfile = {};
+      $state.go('home');
+      $window.location.reload();
     }
 
     // Set up the logic for when a user authenticates
@@ -32,13 +35,13 @@
         
         localStorage.setItem('id_token', authResult.idToken);
         authManager.authenticate();
-
         lock.getProfile(authResult.idToken, function(error, profile) {
           if (error) {
             console.log(error);
           }  else {
             localStorage.setItem('profile', JSON.stringify(profile));
             $rootScope.$broadcast('userProfileSet', profile);
+            
           }
         });
       });
@@ -51,4 +54,6 @@
       registerAuthenticationListener: registerAuthenticationListener,
     }
   }
+
+
 })();
