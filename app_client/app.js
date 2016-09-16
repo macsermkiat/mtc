@@ -13,7 +13,7 @@ var app = angular.module('mtcApp', 	['ui.router',
 									 'duScroll']);
 
 
-function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $httpProvider, $stateProvider, $urlRouterProvider) {
+function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $locationProvider, $httpProvider, $stateProvider, $urlRouterProvider) {
 
 	lockProvider.init({
       domain: 'royyak.auth0.com',
@@ -21,6 +21,9 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $http
       options: {
     	auth: {
       		redirect: false
+      		// params: {
+      		// 	scope:'openid'
+      		// }
     	}
   	  }
   	});
@@ -31,11 +34,12 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $http
         },
         whiteListedDomains: [
         	'localhost', 
-        	'ec2-54-169-217-40.ap-southeast-1.compute.amazonaws.com'
+        	'ec2-54-251-155-133.ap-southeast-1.compute.amazonaws.com'
         ],
         unauthicatedRedirectPath: '/login'
     });
 
+	// $locationProvider.html5Mode(true);
 	$httpProvider.interceptors.push('jwtInterceptor');
 
     jwtInterceptorProvider.tokenGetter = function() {
@@ -128,7 +132,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $http
 
 
 
-app.config(['lockProvider', 'jwtOptionsProvider', 'jwtInterceptorProvider', '$httpProvider', '$stateProvider', '$urlRouterProvider', config]);
+app.config(['lockProvider', 'jwtOptionsProvider', 'jwtInterceptorProvider', '$locationProvider', '$httpProvider', '$stateProvider', '$urlRouterProvider', config]);
 
 // app.run(function(auth) {
 //     auth.hookEvents();

@@ -45,7 +45,7 @@ body {
 }
 
 /*
- * A better looking default horizontal rule
+ * A better default horizontal rule
  */
 
  hr {
@@ -361,6 +361,30 @@ a:after {
 	line-height: 30px;
 	margin-bottom: 10px;
 }
+
+/*#matchwrap {
+  
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../image/nb.jpg);
+  padding-top:60px;
+    
+  text-align:center;
+  background-attachment: relative;
+  background-position: center center;
+  min-height: 650px;
+  width: 100%;
+    background-repeat: no-repeat;
+  
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}*/
+
 
 #footerwrap {
 	background: #2b2b2b;

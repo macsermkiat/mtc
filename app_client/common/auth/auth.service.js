@@ -6,17 +6,23 @@
     .module('mtcApp')
     .service('authService', authService);
 
-  authService.$inject = ['$rootScope', 'lock', 'authManager', '$location', '$window', '$state'];
+  authService.$inject = ['$timeout', '$window', '$rootScope', 'lock', 'authManager', '$location', '$state'];
 
-  function authService($rootScope, lock, authManager, $location, $window, $state) {
+  function authService($timeout, $window, $rootScope, lock, authManager, $location,  $state) {
 
     var userProfile = JSON.parse(localStorage.getItem('profile')) || {};
 
-    function login() {
-      lock.show();
-      
+    function getUserProfile() {
+      return userProfile;
     }
 
+    function setUserProfile(profile) {
+      userProfile = profile;
+    }
+
+    function login() {  
+        lock.show()
+    };
     // Logging out just requires removing the user's
     // id_token and profile
     function logout() {
@@ -35,11 +41,17 @@
         
         localStorage.setItem('id_token', authResult.idToken);
         authManager.authenticate();
+
         lock.getProfile(authResult.idToken, function(error, profile) {
           if (error) {
             console.log(error);
           }  else {
             localStorage.setItem('profile', JSON.stringify(profile));
+            setUserProfile(profile);
+            $timeout(function() {
+              $window.location.reload();
+            },1000)
+            $state.go('home');
             $rootScope.$broadcast('userProfileSet', profile);
             
           }

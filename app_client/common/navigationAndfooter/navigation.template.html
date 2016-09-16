@@ -11,12 +11,12 @@
         <div class="navbar-collapse collapse" id="navbar-ex-collapse" uib-collapse="navCollapsed">
           <ul class="nav navbar-nav">
             <li aria-label="Home"> <a href="#home" du-smooth-scroll>Home</a></li>
-      			<li aria-label="About"> <a href="#about" du-smooth-scroll> About</a></li>
+      			<li aria-label="About"> <a href="#match" offset ="30" du-smooth-scroll> How to</a></li>
       			
       			<li aria-label="Team"> <a href="#team" du-smooth-scroll> Team</a></li>
       			
       			<li aria-label="Contact"> <a href="#contact" du-smooth-scroll> Contact</a></li>
-            <li aria-label="Add Coach"><a data-toggle="tooltip" title="Please login to continue" ng-click="lgin.addCoach(isAuthenticated)">Become a coach</a></li>
+            <li aria-label="Add Coach"><a href="#become" offset="60" du-smooth-scroll>Become a coach</a></li>
       		  </ul>
       		  <ul class="nav navbar-nav navbar-right">
       		  	<li aria-label="Login" ng-if="!lgin.isAuthenticated"><a ng-click="lgin.authService.login()">Sign in</a></li>

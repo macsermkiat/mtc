@@ -6,9 +6,9 @@
     .module('mtcApp')
     .controller('loginController', loginController);
 
-    loginController.$inject = ['authService', '$rootScope', '$window', '$state'];
+    loginController.$inject = ['authService', '$rootScope', '$window', '$state', '$timeout'];
 
-    function loginController(authService, $rootScope, $window, $state) {
+    function loginController(authService, $rootScope, $window, $state, $timeout) {
 
       var lgin = this;
 
@@ -31,28 +31,30 @@
           console.log(authResult.idToken);
           if (error) {
             console.log(error);
+            return;
           }
           if (result) {
             localStorage.setItem('id_token', authResult.idToken);
             localStorage.setItem('profile', JSON.stringify(profile));
-            
           };
-
-          
-
-
-          var id_token = localStorage.getItem('id_token');
-          if (id_token) {
-    // the user is logged in, we show the nickname
+          return;
+      
+    //       var id_token = localStorage.getItem('id_token');
+    //       if (id_token) {
+    // // the user is logged in, we show the nickname
             
-            // lgin.profile = JSON.parse(localStorage.getItem('profile'));
-            // document.getElementById('profile').textContent = profile.nickname;
-          } else {
-            // the user is not logged in, we show a button to log in (asumming
-            //  it was hidden)
-            document.getElementById('loginBtn').style = "visibilty: visible";
-          }
+    //         // lgin.profile = JSON.parse(localStorage.getItem('profile'));
+    //         // document.getElementById('profile').textContent = profile.nickname;
+    //       } else {
+    //         // the user is not logged in, we show a button to log in (asumming
+    //         //  it was hidden)
+    //         document.getElementById('loginBtn').style = "visibilty: visible";
+    //       }
         });
+
+       
+       
+       
       });
 
       // document.getElementById('btn-login').addEventListener('click', function() {

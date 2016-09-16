@@ -213,3 +213,55 @@
   background: #fff;
   min-height: 460px;
 }*/
+
+/*Become a coach*/
+
+
+.work-step  {
+  font-size: 60px;
+
+}
+
+.steps-box:first-child {
+    text-align: right;
+    padding-right: 3%;
+    margin-top: 10px;
+    
+}
+
+.steps-box:last-child {
+    padding-left: 3%;
+    /*margin-top: 70px;*/
+    font-size: 130%;
+}
+.app-screen {
+    width: 90%;
+    
+}
+
+.work-step h4 {
+  padding-top: 10px;
+  font-size: 22px;
+}
+.work-step {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.work-step:last-of-type {
+    margin-bottom: 80px;
+}
+
+.work-step div {
+    color: #e67e22;
+    border: 2px solid #e67e22;
+    display: inline-block;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    padding: 5px;
+    float: left;
+    font-size: 20px;
+    margin-right: 25px;
+}
