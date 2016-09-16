@@ -12,8 +12,13 @@
 
       var lgin = this;
 
+
       lgin.authService = authService;
       lgin.isAuthenticated = $rootScope.isAuthenticated;
+
+      // Checking whether user already fill in subscription form or not
+      lgin.getSubscription = localStorage.getItem('subscription');
+
 
       var accessData = localStorage.getItem('profile');
       lgin.profile = angular.fromJson(accessData);

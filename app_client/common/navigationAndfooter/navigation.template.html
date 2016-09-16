@@ -26,8 +26,8 @@
                   <img src="{{lgin.profile.picture}}" alt="{{lgin.profile.name}}" height="32" width="32">
                   <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li aria-label="Subscription"><a ui-sref="subscription" >Subscription form</a></li>
-                    <li aria-label="Profile"><a ui-sref="profile.courses" >Profile</a></li>
+                    <li ng-if="lgin.getSubscription == 'false'" aria-label="Subscription"><a ui-sref="subscription" >Subscription form</a></li>
+                    <li ng-if="lgin.getSubscription == 'true'" aria-label="Profile"><a ui-sref="profile.courses" >Profile</a></li>
                     <li aria-label="Log out"><a ng-click="lgin.authService.logout()">Logout</a></li>
                   </ul>
               <!-- <li aria-label="Logout" ng-if="lgin.isAuthenticated"><a ng-click="lgin.authService.logout()">Log Out</a></li> -->
