@@ -32,12 +32,12 @@ angular
 			} else {
 				var data = vm.formData
 				vm.doSubscription(data);
-					
+				vm.doAddNewsLetter(data);	
 				vm.isDisabled = true;
 				vm.message.success = true;
 				$timeout(function () {
 			    	vm.message.success = false;
-						}, 1000)
+						}, 3000)
 				.then(function(err) {
 						if (err) {
 							console.log(error);
@@ -45,9 +45,9 @@ angular
 						} else {
 							console.log("YES!")
 						}
-						
-								
+														
 				})
+				localStorage.setItem('subscription', true);
 				$state.go('home');	
 			}	
 		};	
@@ -88,7 +88,13 @@ angular
 			vm.subscription.$setPristine();
 		};
 
-		
+		vm.doAddNewsLetter = function (formData) {
+			console.log(formLetter);
+			mtcData.addNewsLetter({
+				name : formData.name,
+				email : formData.email
+			})
+		};
 		
 		
 		// $scope.uploadPic = function(file) {

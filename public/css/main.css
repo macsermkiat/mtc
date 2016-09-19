@@ -143,7 +143,14 @@ border: 0px solid transparent;
 	color: white;
 }
 
+.navbar-right {float: right !impotant;}
+/*.nav > li {
+    display: inline-block;
+    }*/
 
+.navbar-nav > li > a#navtopspace{
+    margin-top: 4px;
+}
 
 hr {
     position: relative;
@@ -657,7 +664,6 @@ a:after {
 	background: #f2f2f2;
 }
 
-
 /* ==========================================================================
    MEDIA QUERIES
    ========================================================================== */
@@ -686,7 +692,7 @@ a:after {
         font-size: 25px;
     }
 
-
+/*@media screen and (max-device-width : 767px) {*/
 @media screen and (max-device-width:480px) {
 	#headerwrap h1 {
 		font-size: 60px;
@@ -696,11 +702,11 @@ a:after {
         /*padding-bottom: 0px;*/
 	}
     
-    #headerwrap {
+    /*#headerwrap {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(../image/hand-small.jpg);
-    }
+    }*/
 
-
+    
 	#headerwrap p {
 		font-size: 20px;
 		line-height: 38px;
@@ -716,7 +722,26 @@ a:after {
         word-spacing: 2px;
         line-height: 30px;
     }
-
     
+
+    .min-width{ 
+    overflow-x:auto 
+}
+    ul.nav{
+    display:inline-flex
+}
+    /*.nav > li {
+    display: inline-block;
+    }
+
+    .navbar-right {
+        margin-right: 20px;
+    }
+    .navbar-header:after {
+        clear: none;
+    }
+    .navbar-nav.navbar-right > li {
+        float: left;
+    }*/
 }
 
