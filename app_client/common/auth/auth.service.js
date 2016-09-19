@@ -32,7 +32,7 @@
       authManager.unauthenticate();
       userProfile = {};
       $state.go('home');
-      $window.location.reload();
+      $rootScope.$broadcast('userProfileSet', null);
     }
 
     // Set up the logic for when a user authenticates
@@ -71,9 +71,6 @@
             localStorage.setItem('profile', JSON.stringify(profile));
             setUserProfile(profile);
             subscriptionYet();
-            $timeout(function() {
-              $window.location.reload();
-            },1000)
             $state.go('home');
 
             $rootScope.$broadcast('userProfileSet', profile);
