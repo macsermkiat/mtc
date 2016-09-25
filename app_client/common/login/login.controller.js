@@ -6,19 +6,36 @@
     .module('mtcApp')
     .controller('loginController', loginController);
 
-    loginController.$inject = ['authService', '$rootScope', '$window', '$state', '$timeout'];
+    loginController.$inject = ['authService', '$rootScope', '$scope', '$window', '$state', '$timeout'];
 
-    function loginController(authService, $rootScope, $window, $state, $timeout) {
+    function loginController(authService, $rootScope, $scope, $window, $state, $timeout) {
 
       var lgin = this;
-
-
       lgin.authService = authService;
-      lgin.isAuthenticated = $rootScope.isAuthenticated;
+      // Set the user profile when the page is refreshed
+      
+      // lgin.isAuthenticated = $rootScope.isAuthenticated;
+      $timeout(function() {
 
-      // Checking whether user already fill in subscription form or not
-      lgin.getSubscription = localStorage.getItem('subscription');
 
+        lgin.getSubscription = $rootScope.isSubscribed;
+        console.log("Subscription form fill: " + lgin.getSubscription);
+        // Checking whether user already fill in subscription form or not
+        // lgin.getSubscription = localStorage.getItem('subscription');
+      },1000);
+
+      $rootScope.$on('userProfileSet', function(event, profile) {
+        lgin.isAuthenticated = $rootScope.isAuthenticated;
+        lgin.profile = profile;
+      });
+
+      $rootScope.$on('subscriptionSet', function(event, subscription) {
+        $timeout(function() {
+        lgin.getSubscription = $rootScope.isSubscribed;
+        // lgin.subscription = subscription;
+        console.log("Subscription form fill: " + lgin.getSubscription);
+      },500);
+      });
 
       var accessData = localStorage.getItem('profile');
       lgin.profile = angular.fromJson(accessData);
@@ -79,17 +96,16 @@
         if (val = true) {
           $state.go ('addCoach');
         } else {
-          
           return false;
         }
       };
 
 
-      function showLoggedIn() {
-          var profile = JSON.parse(localStorage.getItem('profile'));
+      // function showLoggedIn() {
+      //     var profile = JSON.parse(localStorage.getItem('profile'));
           
-          document.getElementById('nick').textContent = profile.nickname;
-      };
+      //     document.getElementById('nick').textContent = profile.nickname;
+      // };
         
     //   vm.onLogin = function() {
     //     activate();

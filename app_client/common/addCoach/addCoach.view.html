@@ -1,4 +1,4 @@
-<navigation></navigation>
+<!-- <navigation></navigation> -->
 
 	<div class="container clear-fix">
 	
@@ -6,21 +6,26 @@
 	<div class ="row white centered">
 
 	<h1 style="margin-bottom: 40px">Application form</h1>
+	
 	<form name="PicForm" enctype="multipart/form-data" role="form"  class="container form-horizontal">
 		<div class="form-group" >
-				<label for="picture" class="col-xs-3 col-sm-2 control-label">Picture</label>
+				<label for="picture" class="col-xs-3 col-sm-2 control-label">Image</label>
 				<div class="col-xs-9 col-sm-10">
 					<input type ="file" 
+					 ngf-before-model-change="beforeResizingImages($file)"
+					 ngf-select="afterResizingImages($file)"
 					 ngf-select accept="image/*"
 					 ngf-max-size="5MB"
 					 ngf-fix-orientation="true" 
 					 ngf-model-invalid="errorFile"
-					 ngf-resize="{width: 240, height: 160, quality: .8, type: 'image/jpeg', centerCrop: true}" 
-					 id="picfile" name="picfile"  ng-model="picfile" class="form-control" placeholder="Your picture here">
+					 ngf-resize="{width: 320, height: 240, quality: .8, type: 'image/jpeg', centerCrop: true}" 
+					 id="picfile" name="picfile"  ng-model="picfile" class="form-control" >
 					 <br>
+					 <spinner name="picturespinner" img-src="image/balls.gif"></spinner>
 					 <i ng-show="PicForm.picfile.$error.maxSize">File too large 
           			{{errorFile.size / 5000000|number:5}}MB: max 5M</i>
-          			<img ng-show="PicForm.picfile.$valid" ngf-thumbnail="picfile" class="thumb"> 
+          			<img ng-show="PicForm.picfile.$valid" ngf-thumbnail="picfile" class="thumb">
+          			<br> 
           			<button class="btn btn-primary" ng-show="picfile" ng-click="uploadPic(picfile)">Submit</button>
           			<button class="btn btn-default" ng-click="picfile = null" ng-show="picfile">Remove</button>
           			<span class="progress" ng-show="picfile.progress >= 0">
@@ -32,7 +37,9 @@
 				</div>
 			</div>
 		</form>
-	<h5 class="text-danger"> Please wait picture to load and submit the picture before continue </h5>
+		
+			<h4 class="text-danger col-xs-9-offset-3 col-sm-10-offset-2"> Please wait picture to<strong> Load</strong> and<strong> Submit</strong> the picture before continue fill in the form.<h4><br>
+		
 	<form id="addCoach" name="vm.addCoach" role="form" ng-submit="vm.onSubmit()"
 	class="container form-horizontal" novalidate>
 		<!-- <div class="modal-header">
@@ -48,7 +55,7 @@
 			<div class="form-group" ng-class="{ 'has-error': vm.addCoach.name.$touched  && vm.addCoach.name.$invalid }">
 				<label for="name" class="col-xs-3 col-sm-2 control-label">Name<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
-					<input id="name" name="name" required ng-model="vm.formData.name" class="form-control">
+					<input id="name" name="name" required ng-model="vm.formData.name" class="form-control" placeholder="Your name or nickname">
 					<div class="help-block" ng-messages="vm.addCoach.name.$error" ng-show="vm.addCoach.name.$touched">
 					    <div ng-messages-include="/common/addCoach/messages.html"></div>
 					</div>
@@ -66,16 +73,16 @@
 			<div class="form-group" ng-class="{ 'has-error': vm.addCoach.shortDescription.$touched  && vm.addCoach.shortDescription.$invalid }">
 				<label for="shortDescription" class="col-xs-3 col-sm-2 control-label">Course name<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
-					<input id="shortDescription" name="shortDescription" required ng-model="vm.formData.shortDescription" class="form-control" placeholder="English for TOEFL">
+					<input id="shortDescription" name="shortDescription" required ng-model="vm.formData.shortDescription" class="form-control" placeholder="Course name must be unique in your account">
 					<div class="help-block" ng-messages="vm.addCoach.shortDescription.$error" ng-if="vm.addCoach.shortDescription.$touched">
 					    <div ng-messages-include="/common/addCoach/messages.html"></div>
 					</div>
 				</div>
 			</div>
-			<div class="form-group" ng-class="{ 'has-error': vm.addCoach.courseDescription.$touched  && vm.addCoach.courseDescription.$invalid }">
+			<div class="form-group" ng-class="{ 'has-error': vm.addCoach.courseDescription.$touched  && vm.addCoach.courseDescription.$invalid}">
 				<label for="courseDescription" class="col-xs-3 col-sm-2 control-label">Course Description<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
-					<textarea rows="3" cols="30" id="courseDescription" name="courseDescription" required ng-model="vm.formData.courseDescription" class="form-control"></textarea>
+					<textarea rows="3" cols="30" id="courseDescription" name="courseDescription" required ng-model="vm.formData.courseDescription" class="form-control" ng-change=""></textarea>
 					<div class="help-block" ng-messages="vm.addCoach.courseDescription.$error" ng-if="vm.addCoach.courseDescription.$touched">
 					    <div ng-messages-include="/common/addCoach/messages.html"></div>
 					</div>
@@ -116,9 +123,12 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="time" class="col-xs-3 col-sm-2 control-label">Time</label>
+				<label for="time" class="col-xs-3 col-sm-2 control-label">Time<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
 					<input id="time" name="time" ng-model="vm.formData.time" class="form-control" placeholder="Weekday, Sunday, or Any">
+					<div class="help-block" ng-messages="vm.addCoach.time.$error" ng-if="vm.addCoach.time.$touched">
+					    <div ng-messages-include="/common/addCoach/messages.html"></div>
+					</div>
 				</div>
 			</div>
 			
@@ -131,7 +141,68 @@
 			<div class="form-group" ng-class="{ 'has-error': vm.addCoach.category.$touched  && vm.addCoach.category.$invalid }">
 				<label for="category" class="col-xs-3 col-sm-2 control-label">category<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
-					<input type="text" id="category" name="category" required ng-model="vm.formData.category" class="form-control">
+					<div class="input-group">
+						<input type="text" id="category" name="category" required ng-model="vm.formData.category" ng-change="vm.xxx =vm.formData.category" class="form-control" placeholder="Browse form a list or add a new one if not available">
+						<span class="input-group-addon" style="padding:0 5px;border:0;width:25%;">
+								<select class="form-control" ng-model="vm.formData.category"  placeholder="Category" >
+								<option>-- choose category --</option>
+								<optgroup label="Language">
+								<option>English</option>
+								<option>Thai</option>
+								<option>Deutsch</option>
+								<option>Japanese</option>
+								<option>français</option>
+								</optgroup>
+								<optgroup label="Music">
+								<option>Piano</option>
+								<option>Violin</option>
+								<option>Guitar</option>
+								<option>Drums</option>
+								<option>Bass</option>
+								</optgroup>
+								<optgroup label="School subject">
+								<option>Homework</option>
+								<option>Math</option>
+								<option>Biology</option>
+								<option>Physics</option>
+								<option>Chemistry</option>
+								</optgroup>
+								<optgroup label="Sports">
+								<option>Swimming</option>
+								<option>Badminton</option>
+								<option>Tennis</option>
+								<option>Golf</option>
+								</optgroup>
+								<optgroup label="Programming">
+								<option>C, C##</option>
+								<option>Website development</option>
+								<option>Mobile App development</option>
+								<option>React, Redux</option>
+								<option>NodeJS</option>
+								<option>Python</option>
+								</optgroup>
+								<optgroup label="Stocks market">
+								<option>Techincal</option>
+								<option>VI and Financial Analysis</option>
+								</optgroup>
+								<optgroup label="Research">
+								<option>Statistics</option>
+								<option>Methdology</option>
+								</optgroup>
+								</select>
+								
+
+								<!-- <div class="btn-group" uib-dropdown>
+		    						<button class="btn btn-default" uib-dropdown-toggle type="button" id="category">Category
+		    						<span class="caret"></span></button>
+		    						<ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu role="menu" aria-labelledby="category"  ng-model="vm.xxx">
+		    							<li role="presentation" class="dropdown-header">Dropdown header 1</li>
+			      						<li><a  ng-repeat="cat in vm.data.cat" tabindex="-1" ng-click="vm.addModel(cat.category)">{{cat.category}}</a></li>
+			      						
+		    						</ul>
+		  						</div> -->
+						</span>	
+					</div>
 					<div class="help-block" ng-messages="vm.addCoach.category.$error" ng-if="vm.addCoach.category.$touched">
 					    <div ng-messages-include="/common/addCoach/messages.html"></div>
 					</div>
@@ -145,10 +216,13 @@
 			</div>
 			
 			
-			<div class="form-group">
+			<div class="form-group" ng-class="{ 'has-error': vm.addCoach.videoid.$touched  && vm.addCoach.videoid.$invalid }">
 				<label for="videoid" class="col-xs-3 col-sm-2 control-label">Video</label>
 				<div class="col-xs-9 col-sm-10">
-					<input id="videoid" name="videoid"  ng-model="vm.formData.videoid" class="form-control" placeholder="Youtube video ID">
+					<input id="videoid" name="videoid"  ng-model="vm.formData.videoid" class="form-control" placeholder="Youtube video ID eg. CYJEsVFs_cc" ng-minlength="11" ng-maxlength="24">
+					<div class="help-block" ng-messages="vm.addCoach.videoid.$error" ng-if="vm.addCoach.videoid.$touched">
+					    <div ng-messages-include="/common/addCoach/messages.html"></div>
+					</div>
 				</div>
 			</div>
 			
@@ -199,4 +273,4 @@
 	</div>
 	</div>
 	
-<footer-generic></footer-generic>
+<!-- <footer-generic></footer-generic> -->

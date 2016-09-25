@@ -4,9 +4,9 @@ angular
 	.module('mtcApp')
 	.controller('addCoachCtrl', addCoachCtrl);
 
-	addCoachCtrl.$inject = ['mtcData', '$state', '$timeout','Upload','$scope', 'awsPolicy'];
+	addCoachCtrl.$inject = ['mtcData', '$state', '$timeout','Upload','$scope', 'awsPolicy', 'spinnerService'];
 
-	function addCoachCtrl (mtcData, $state, $timeout, Upload, $scope, awsPolicy) {
+	function addCoachCtrl (mtcData, $state, $timeout, Upload, $scope, awsPolicy, spinnerService) {
 		var vm = this;
 		
 		var sign =awsPolicy.getSign();
@@ -19,6 +19,7 @@ angular
 		
 		// vm.coachData = coachData;
 		
+
 		vm.message = {};
 		vm.isDisabled = false;
 
@@ -43,17 +44,23 @@ angular
 						if (err) {
 							console.log(error);
 							vm.formError = "Your review has not been saved, try again";
+							
 						} else {
 							console.log("YES!")
 						}
-						
+					
 								
 				})
-				$state.go('home');	
-			}	
+				$state.go('home');
+					
+			}
+				
 		};	
 
-		var createdDate = new Date;
+		var now = new Date;
+		var createdDate = now.toISOString();
+		console.log(createdDate);
+		
 
 		vm.doAddCoach = function (formData) {
 
@@ -92,17 +99,23 @@ angular
 		};
 
 		
-		
+		$scope.beforeResizingImages = function(images) {
+				spinnerService.show('picturespinner')
+		};
+
+		$scope.afterResizingImages = function(images) {
+			spinnerService.hide('picturespinner');
+		};
 		
 		$scope.uploadPic = function(file) {
 			Promise.resolve(sign).then(function(s3) {	
 				return s3;
 			}).then(function(s3) {
 				file.upload = Upload.upload({
-					url: 'https://matchthecoach.s3.amazonaws.com/', //S3 upload url including bucket name
+					url: 'https://matchthecoach.s3.amazonaws.com', //S3 upload url including bucket name
 				    method: 'POST',
 				    data: {
-				        key: createdDate, // the key to store the file on S3, could be file name or customized
+				        key: 'coaches/' + createdDate,// the key to store the file on S3, could be file name or customized
 				        AWSAccessKeyId: s3.s3AccessKeyId,
 				        acl: 'public-read', // sets the access to the uploaded file in the bucket: private, public-read, ...
 				        policy: s3.s3Policy, // base64-encoded json policy (see article below)
@@ -120,11 +133,33 @@ angular
 				}, function(response) {
 					if (response.status > 0)
 						vm.errorMsg = response.status + ':' + response.data;
-				},function (evt) {
+					
+				}, function (evt) {
 					file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
 				});
 			});
+			
 		};
+
+		function browsingCat() {
+		return mtcData.allCats()
+			.success(function(data) {
+				vm.data = { cat: data }
+
+			})
+			.error(function (e) {
+				vm.message = "Sorry, something's gone wrong";
+			});
+		};
+		browsingCat();
+
+		
+		// vm.addModel = function (select) {
+		// 	vm.formData.category = select;
+		// };
+
+		
+
 		
 	
 		

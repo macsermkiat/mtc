@@ -6,6 +6,8 @@
 #filter {margin-left: 4px;}
 #facility {margin-right: 4px;}
 
+/*Image Cover*/
+
 
 /*Search box*/
 #imaginary-container{
@@ -116,7 +118,7 @@
 
 /* Profile sidebar */
 
-./*profile-sidebar {
+/*profile-sidebar {
   padding: 20px 0 10px 0;
   background: #fff;
 }

@@ -133,6 +133,24 @@ module.exports.categorySearch = function(req, res) {
       });       
 };
 
+module.exports.allCats = function(req, res) {
+      console.log('Browsinging category');
+      Cat.find({})
+      .exec(function(err, catmember) {
+         if (!catmember) {
+                sendJSONresponse(res, 404, {
+                "message": "Search not found"
+                });
+                return;
+            } else if (err) {
+              console.log(err);
+              sendJSONresponse(res, 404, err);
+              return;
+            }
+            console.log(catmember);
+            sendJSONresponse(res, 200, catmember);
+      });       
+};
 
 
 // GET coach by parent category
@@ -278,62 +296,134 @@ module.exports.coachesCreate = function(req, res) {
     picture: req.body.pictureUrl 
   });
 
-  async.parallel ([
-    function(cb) {
-      mtcSave.save(function (err){
-          var mtcId = mtcSave._id;
-          Mtc.findOneAndUpdate({ _id: mtcSave._id},
-                              {imageUrl: "https://s3-ap-southeast-1.amazonaws.com/matchthecoach/" + mtcSave.createdDate},
-                              {upsert:true}
-                              ,function(err, doc){
-                                if (err) {
-                                  console.log(error)
-                                  return res.send(500, { error: err })
-                                } else {
-                                  return res.send("succesfully add in CoachSchema");
-                                 }
-                               });   
-    });
-    },      
-    function(cb) {       
-      Cat.findOne({ category: req.body.category })
-             .exec(function (err) {
-                Cat.update({category: req.body.category},
-                {$push: {child: mtcSave._id}},{upsert:true}
-                ,function(err)   {
-                  if (err) {
-                    console.log(err);
-                  }else{
-                    console.log("Success add in CategorySchema");
-                  }
-                })
-            });
-    },
-    function(cb) {       
-      User.findOne({ identity: req.body.createdBy })
-             .exec(function (err) {
-                User.update({identity: req.body.createdBy},
-                {$push: {course: mtcSave._id}},{upsert:true}
-                ,function(err)   {
-                  if (err) {
-                    console.log(err);
-                  }else{
-                    console.log("Success add in UserSchema");
-                  }
-                })
-            });
-    }
-  ], function(err, coach) {
-    if (err) {
-      console.log(err);
-      sendJSONresponse(res, 400, err);
-    } else {
-      console.log(coach + "save done");
-      sendJSONresponse(res, 201, coach);
-    }
-  }
-  )
-};
+
+//   mtcSave.save(function(err, coach) {
+//     if (err) {
+//       console.log(err);
+//       sendJSONresponse(res, 400, err);
+//     } else {
+//       console.log(mtcSave + "save done");
+//       sendJSONresponse(res, 201, coach);
+//     }
+
+//   }).then(function(mtcSave) {
+
+  
+//   async.parallel ([
+//     function(cb) {
+//       // mtcSave.save(function (err){
+//           var mtcId = mtcSave._id;
+//           Mtc.findOneAndUpdate({ _id: mtcSave._id},
+//                               {imageUrl: "https://s3-ap-southeast-1.amazonaws.com/matchthecoach/coaches/" + mtcSave.createdDate},
+//                               {upsert:true, new:true}
+//                               ,function(err, doc){
+//                                 if (err) {
+//                                   console.log(error);
+//                                   return res.send(500, { error: err });
+                                  
+//                                 } else {
+//                                   return res.send("succesfully add in CoachSchema");
+//                                  }
+//                                });   
+//     // });
+//     },      
+//     function(cb) {       
+//       Cat.findOne({ category: req.body.category })
+//              .exec(function (err) {
+//                 Cat.update({category: req.body.category},
+//                 {$push: {child: mtcSave._id}},{upsert:true}
+//                 ,function(err)   {
+//                   if (err) {
+//                     console.log(err);
+//                   }else{
+//                     console.log("Success add in CategorySchema");
+//                   }
+//                 })
+//             });
+//     },
+//     function(cb) {       
+//       User.findOne({ identity: req.body.createdBy })
+//              .exec(function (err) {
+//                 User.update({identity: req.body.createdBy},
+//                 {$push: {course: mtcSave._id}},{upsert:true}
+//                 ,function(err)   {
+//                   if (err) {
+//                     console.log(err);
+//                   }else{
+//                     console.log("Success add in UserSchema");
+//                   }
+//                 })
+//             });
+//     }
+//   ], function(err, coach) {
+//     if (err) {
+//       console.log(err);
+//       sendJSONresponse(res, 400, err);
+//     } else {
+//       console.log(coach + "save done");
+//       sendJSONresponse(res, 201, coach);
+//     }
+//   }
+//   )
+// });
+// };
+
+    async.parallel ([
+        function(cb) {
+          mtcSave.save(function (err){
+              var mtcId = mtcSave._id;
+              Mtc.findOneAndUpdate({ _id: mtcSave._id},
+                                  {imageUrl: "https://s3-ap-southeast-1.amazonaws.com/matchthecoach/coaches/" + mtcSave.createdDate},
+                                  {upsert:true}
+                                  ,function(err, doc){
+                                    if (err) {
+                                      console.log(error)
+                                      return res.send(500, { error: err })
+                                    } else {
+                                      return res.send("succesfully add in CoachSchema");
+                                     }
+                                   });   
+        });
+        },      
+        function(cb) {       
+          Cat.findOne({ category: req.body.category })
+                 .exec(function (err) {
+                    Cat.update({category: req.body.category},
+                    {$push: {child: mtcSave._id}},{upsert:true}
+                    ,function(err)   {
+                      if (err) {
+                        console.log(err);
+                      }else{
+                        console.log("Success add in CategorySchema");
+                      }
+                    })
+                });
+        },
+        function(cb) {       
+          User.findOne({ identity: req.body.createdBy })
+                 .exec(function (err) {
+                    User.update({identity: req.body.createdBy},
+                    {$push: {course: mtcSave._id}},{upsert:true}
+                    ,function(err)   {
+                      if (err) {
+                        console.log(err);
+                      }else{
+                        console.log("Success add in UserSchema");
+                      }
+                    })
+                });
+        }
+      ], function(err, coach) {
+        if (err) {
+          console.log(err);
+          sendJSONresponse(res, 400, err);
+        } else {
+          console.log(coach + "save done");
+          sendJSONresponse(res, 201, coach);
+        }
+      }
+      )
+    };
    
 module.exports.usersCreate = function(req, res) {
   console.log(req.body);

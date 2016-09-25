@@ -28,6 +28,10 @@ function mtcData ($http, $log) {
 		// }
 	};
 
+	var allCats = function() {
+		return $http.get('/api/allcats')
+	};
+
 	// function coachesParent() {
 	// 	return $http.get('api/coachesParent')
 	// 	.then(coachesParentComplete)
@@ -70,6 +74,7 @@ function mtcData ($http, $log) {
 
 	return {
 		allCoaches: allCoaches,
+		allCats: allCats,
 		coachById: coachById,
 		createCoach: createCoach,
 		addNewsLetter: addNewsLetter,

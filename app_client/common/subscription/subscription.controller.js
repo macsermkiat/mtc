@@ -4,9 +4,9 @@ angular
 	.module('mtcApp')
 	.controller('subscriptionCtrl', subscriptionCtrl);
 
-	subscriptionCtrl.$inject = ['userService', '$state', '$timeout','Upload','$scope', 'awsPolicy'];
+	subscriptionCtrl.$inject = ['userService', '$state', '$timeout','Upload','$scope', 'awsPolicy', 'mtcData'];
 
-	function subscriptionCtrl (userService, $state, $timeout, Upload, $scope, awsPolicy) {
+	function subscriptionCtrl (userService, $state, $timeout, Upload, $scope, awsPolicy, mtcData) {
 		var vm = this;
 		
 		var sign =awsPolicy.getSign();
@@ -89,7 +89,7 @@ angular
 		};
 
 		vm.doAddNewsLetter = function (formData) {
-			console.log(formLetter);
+			console.log(formData);
 			mtcData.addNewsLetter({
 				name : formData.name,
 				email : formData.email

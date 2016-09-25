@@ -34,6 +34,7 @@ router.get('/awsPolicy', aws.getS3Policy);
 // router.get('/coaches', ctrlCoaches.coachesBrowse);
 router.post('/coaches', ctrlCoaches.coachesCreate);
 router.get('/allcoaches', ctrlCoaches.coachesBrowse);
+router.get('/allcats', ctrlCoaches.allCats);
 router.get('/coaches/searchCat', ctrlCoaches.categorySearch);
 router.get('/coaches/search/', ctrlCoaches.keywordSearch);
 router.get('/coaches/:coachid', ctrlCoaches.coachesReadOne);

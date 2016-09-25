@@ -16,7 +16,7 @@ function SearchBoxController ($state, mtcData, $timeout, $http) {
 	
 	
 	var vm = this;
-	// vm.text = "";
+	vm.text = "";
 	// vm.message = {};
 
 	vm.onSubmit = function(err) {
@@ -36,7 +36,23 @@ function SearchBoxController ($state, mtcData, $timeout, $http) {
 		})
 	};
 
+	function browsingCat() {
+		return mtcData.allCats()
+			.success(function(data) {
+				vm.data = { cat: data }
 
+			})
+			.error(function (e) {
+				vm.message = "Sorry, something's gone wrong";
+			});
+	};
+	browsingCat();
+
+	vm.addModel = function (select) {
+		vm.text = select;
+	}
+
+	
 // Search Coach Schema	
 	// vm.searching = function(val) {
 	// 	return $http.get('/api/coaches/search', {params: {text:val}})

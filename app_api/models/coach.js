@@ -49,9 +49,14 @@ var coachSchema = new mongoose.Schema({
 
 var categorySchema = new mongoose.Schema ({
     category : {type :String, unique: true},
+    // category : [categoryListSchema],
     child : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Coach' }]
 });
 
+// var categoryListSchema = new mongoose.Schema ({
+//     categoryMain : {type: String, unique: true},
+//     categorySub : {trype: String, unique: true}
+// });
 // categorySchema.virtual('members', {
 //     ref: 'Coach',
 //     localField: 'cat',

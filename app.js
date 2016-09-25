@@ -7,6 +7,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var serveStatic = require('serve-static');
 var jwt = require('express-jwt');
+var moment = require('moment');
+moment().format();
 
 
 

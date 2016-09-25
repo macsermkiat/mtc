@@ -43,6 +43,9 @@ function profileController($scope, $state, $http) {
 				return bio;
 			}).then(function(bio) {
 				$scope.result = bio[0];
+				
+				$scope.idcheck = $scope.result.idcard;
+				$scope.criminalcheck = $scope.result.criminal;
 
 			});
 			// .error(function (e) {
@@ -50,6 +53,8 @@ function profileController($scope, $state, $http) {
 			// })
 	};
 	displayData();
+	
+
 
 	}
 

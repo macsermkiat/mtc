@@ -5,19 +5,19 @@
           <ul class="nav nav-tabs">
               <li class="active">
                   <a ui-sref="profile.courses">
-                      <i class="icon icon-home"></i>
+                      <i class="glyphicon glyphicon-book"></i>
                       Courses
                   </a>
               </li>
               <li>
                   <a ui-sref="profile.bio">
-                      <i class="icon-user"></i>
+                      <i class="glyphicon glyphicon-user"></i>
                       Profile
                   </a>
               </li>
               <li class="">
                   <a ui-sref="profile.edit">
-                      <i class="icon-envelope"></i>
+                      <i class="glyphicon glyphicon-lock"></i>
                       Personal Info
                   </a>
               </li>
@@ -38,18 +38,18 @@
                         <li><i class="glyphicon glyphicon-user"></i> <span>{{ coach.name }}</span></li>
                         <li><i class="glyphicon glyphicon-education"></i> <span>{{ coach.subject.join(', ') }}</span></li>
                         <li><i class="icon ion-person-stalker"></i> <span>{{ coach.price }}</span></li>
-                        <li><i class="glyphicon glyphicon-star"></i>
+                        <!-- <li><i class="glyphicon glyphicon-star"></i>
                           <i class="glyphicon glyphicon-star"></i>
                           <i class="glyphicon glyphicon-star"></i>
                           <i class="glyphicon glyphicon-star"></i>
                           <i class="glyphicon glyphicon-star-empty"></i>
-                        </li>
+                        </li> -->
                       </ul>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
                       <h3><a ui-sref="coachDetail({coachid : coach._id})" title="">{{ coach.shortDescription }}</a></h3>
                       <p>{{ coach.courseDescription }}</p>            
-                              <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
+                              <!-- <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span> -->
                     </div>
                     <span class="clearfix borda"></span>
                   </article>

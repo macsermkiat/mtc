@@ -4,7 +4,7 @@ var app = angular.module('mtcApp', 	['ui.router',
 									 'youtube-embed',
 									 'ngFileUpload',
 									 'auth0.lock',
-
+									 'angularSpinners',
 									 // 'auth0',
 									 'angular-jwt',
 									 'ngSanitize', 
@@ -22,7 +22,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
     	auth: {
       		redirect: false
       		// params: {
-      		// 	scope:'openid'
+      		// 	rootScope:'openid'
       		// }
     	}
   	  }
@@ -46,20 +46,26 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
   	  return localStorage.getItem('id_token');
   	}
 
-   
 	$stateProvider
+	.state('mtc', {
+		templateUrl: 'home/mtc.view.html',
+		abstract: true
+	})
+
 	.state('home', {
 		url: '/home',
 		templateUrl: 'home/home.view.html',
 		controller: 'homeCtrl',
-		controllerAs :'vm'
+		controllerAs :'vm',
+		parent: 'mtc'
 	})
 	.state('profile', {
 		// abstract: true,
 		url: '/profile',
 		templateUrl: 'common/profile/profile.template.html',
 		controller: 'profileController',
-		controllerAs: 'user'
+		controllerAs: 'user',
+		parent: 'mtc'
 		// template: '<ui-view>'
 	})
 	.state('profile.courses', {
@@ -96,26 +102,30 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		params: {text:null},
 		templateUrl: 'common/search/search.view.html',
 		controller: 'searchCtrl',
-		controllerAs : 'vm'		
+		controllerAs : 'vm',
+		parent: 'mtc'	
 	})
 	.state('coachDetail', {
 		url: '/coaches/:coachid',
 		templateUrl: 'common/coachDetail/coachDetail.view.html',
 		controller: 'coachDetailCtrl',
-		controllerAs : 'vm'
+		controllerAs : 'vm',
+		parent: 'mtc'
 	})
 	.state('addCoach', {		
 		url: '/addCoach',
 		templateUrl: 'common/addCoach/addCoach.view.html',
 		controller: 'addCoachCtrl',
 		controllerAs: 'vm',
-		redirectTo: 'addPic'
+		redirectTo: 'addPic',
+		parent: 'mtc'
 	})
 	.state('subscription', {		
 		url: '/subscription',
 		templateUrl: 'common/subscription/subscription.template.html',
 		controller: 'subscriptionCtrl',
-		controllerAs: 'vm'
+		controllerAs: 'vm',
+		parent: 'mtc'
 	})
 	
 	

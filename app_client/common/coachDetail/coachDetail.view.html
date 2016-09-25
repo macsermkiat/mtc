@@ -1,4 +1,4 @@
-<navigation></navigation>
+<!-- <navigation></navigation> -->
 	<div class="container clear-fix">
 	
 	    <hgroup class="mb20">
@@ -8,7 +8,7 @@
 		
 	    <section class="col-xs-12 col-sm-12 col-md-12">
 			<article class="search-result row">
-				<div class="col-xs-12 col-sm-12 col-md-3"  ng-model="vdo">
+				<div class="col-xs-12 col-sm-12 col-md-6"  ng-model="vdo">
 					<a href="#" title="youtube" class="thumbnail">
 						<ng-if="!!vdo" youtube-video video-id="videoid" player-vars="playerVars"
 						player-width="'100%'" player-height="'100%'">
@@ -18,11 +18,11 @@
 						</youtube-video>
 					</a>
 				</div>
-				<div class="col-xs-12 col-sm-12 col-md-2">
+				<div class="col-xs-12 col-sm-12 col-md-3">
 					<ul class="meta-search">
-						<li><i class="glyphicon glyphicon-user"></i> <span>{{ coach.name }}</span></li>
-						<li><i class="glyphicon glyphicon-education"></i> <span>{{ coach.subject.join(', ') }}</span></li>
-						<li><i class="icon ion-person-stalker"></i> <span>{{ coach.price }}</span></li>
+						<li><i class="glyphicon glyphicon-user"></i> <span>{{ vm.data.coach.name }}</span></li>
+						<li><i class="glyphicon glyphicon-education"></i> <span>{{ vm.data.coach.category }}</span></li>
+						<li><i class="glyphicon glyphicon-pencil"></i> <span>{{ vm.data.coach.courseLength }} hours</span></li>
 						<li><i class="glyphicon glyphicon-star"></i>
 							<i class="glyphicon glyphicon-star"></i>
 							<i class="glyphicon glyphicon-star"></i>
@@ -31,25 +31,44 @@
 						</li>
 					</ul>
 				</div>
+			</article>
+				
+			<article class="search-result row">
+				<div class="col-xs-12 col-sm-12 col-md-5">
+					<div class="row">
+						<div class="col-xs-12">
+							<img src="{{vm.data.coach.imageUrl}}" class="image-responsive" alt={{coach.name}} /></a>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-xs-12">
+						<button type="button" class="btn btn-primary btn-lg">
+							Request to Match
+						</button>
+						</div>
+					</div>			
+				</div>
+				
 				<div class="col-xs-12 col-sm-12 col-md-7 excerpet">
-					<h4><strong>Course Description</strong></h4>
+					<h4 class="lead">Course Description: </h4>
 					<p>{{ vm.data.coach.courseDescription }}</p>
-					<h4><strong>Preparation</strong></h4>
+					<h4 class="lead">Preparation: </h4>
 					<p>{{ vm.data.coach.preparation }}</p>
-					<h4><strong>Group</strong></h4>				
+					<h4 class="lead">Group: </h4>				
 	                <p>{{ vm.data.coach.group }}</p>
-	                <h4><strong>Time</strong></h4>
+	                <h4 class="lead">Time: </h4>
 	                <p>{{ vm.data.coach.time }}</p>
-	                <h4><strong>Suitable for</strong></h4>
+	                <h4 class="lead">Suitable for: </h4>
 	                <p>{{ vm.data.coach.level }}</p>
-	                <h4><strong>Course Length</strong></h4>
-	                <p>{{ vm.data.coach.courseLength }}</p>
-	                <h4><strong>Price</strong></h4>
-	                <p>{{ vm.data.coach.price }}</p>
+	                <h4 class="lead">Course Length: </h4>
+	                <p>{{ vm.data.coach.courseLength }} hours</p>
+	                <h4 class="lead">Price: </h4>
+	                <p>{{ vm.data.coach.price }} Baht</p>
 				</div>
 				<span class="clearfix borda"></span>
 			</article>
 		</section>
 	</div>
 
-<footer-generic></footer-generic>
+<!-- <footer-generic></footer-generic> -->
