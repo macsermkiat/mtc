@@ -1,5 +1,5 @@
 # Dependency directory
-
+/.aws/credentials
 /resources
 
 /*.env
