@@ -28,6 +28,13 @@ function userService ($http, $log, $window) {
 			return response.data;
 		});
 	};
+
+	function updateCoach(data) {
+		return $http.put('/api/coachEdit/update', data)
+		.then(function(response) {
+			return response.data;
+		});
+	};
 	// function getCourses(data) {
 	// 	return $http.get('/api/users/course', data, {params: {id:id}} )
 	// 	.then(function(response) {
@@ -35,10 +42,12 @@ function userService ($http, $log, $window) {
 	// 	});
 	// };
 
+
 	return {
 		getToken: getToken,
 		registerUser: registerUser,
-		updateUser: updateUser
+		updateUser: updateUser,
+		updateCoach: updateCoach
 	};
 };
 

@@ -24,7 +24,7 @@ var userSchema = new mongoose.Schema({
 			type: String
 		},
 		telephone: {
-			type: Number,
+			type: String,
 			required: true
 		},
 		lineid: {
@@ -46,6 +46,7 @@ var userSchema = new mongoose.Schema({
 		terms: {
 			type: Boolean
 		},
+		requestToMatch: [{type: String}],
 		course: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Coach' }]
 		// reviews: [reviewSchema]
 });

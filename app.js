@@ -7,9 +7,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var serveStatic = require('serve-static');
 var jwt = require('express-jwt');
-var moment = require('moment');
-moment().format();
-
+var AWS = require('aws-sdk');
+// var wellknown = require("nodemailer-wellknown");
 
 
 var authCheck = jwt({
@@ -32,6 +31,13 @@ var routesApi = require('./app_api/routes/index');
 app.set('views', path.join(__dirname, 'app_server', 'views'));
 app.set('view engine', 'ejs');
 
+app.use(function(req, res, next) {
+    if((!req.secure) && (req.get('X-Forwarded-Proto') !== 'https')) {
+        res.redirect('https://' + req.get('Host') + req.url);
+    }
+    else
+        next();
+});
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -40,6 +46,7 @@ app.use(cookieParser());
 app.use(serveStatic(path.join(__dirname, 'public')));
 app.use(serveStatic(path.join(__dirname, 'node_modules')));
 app.use(serveStatic(path.join(__dirname, 'app_client')));
+
 
 // app.use(function(req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "*");
@@ -58,6 +65,7 @@ app.use('/api', routesApi);
 // router.get('/', function(req, res) {
 //     res.sendFile(path.join(__dirname, 'app_client', 'index.html'));
 // });
+
 
 
 

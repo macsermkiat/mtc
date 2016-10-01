@@ -55,7 +55,7 @@
 			<div class="form-group" ng-class="{ 'has-error': vm.addCoach.name.$touched  && vm.addCoach.name.$invalid }">
 				<label for="name" class="col-xs-3 col-sm-2 control-label">Name<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
-					<input id="name" name="name" required ng-model="vm.formData.name" class="form-control" placeholder="Your name or nickname">
+					<input initial-value id="name" name="name" required ng-model="vm.formData.name" class="form-control" placeholder="Your name or nickname">
 					<div class="help-block" ng-messages="vm.addCoach.name.$error" ng-show="vm.addCoach.name.$touched">
 					    <div ng-messages-include="/common/addCoach/messages.html"></div>
 					</div>

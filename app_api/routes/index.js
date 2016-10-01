@@ -21,6 +21,7 @@ var router = express.Router();
 
 var aws = require('../controllers/awsPolicy');
 var ctrlCoaches = require('../controllers/coach');
+var ctrlRequest = require('../controllers/requestCoach');
 
 // var nodeMail = require('../controllers/nodemail');
 
@@ -47,6 +48,9 @@ router.get('/users/course', ctrlCoaches.usersCourse);
 router.get('/users/bio', ctrlCoaches.usersBio);
 router.post('/users/create', ctrlCoaches.usersCreate);
 router.put('/users/update', ctrlCoaches.usersUpdate);
+router.get('/coachEdit/:coachid', ctrlCoaches.coachesUpdateOne);
+router.put('/coachEdit/update', ctrlCoaches.coachesUpdateOne);
+router.delete('/coachEdit/:coachid/delete', ctrlCoaches.coachesDeleteOne);
 // router.get('/coachesParent', ctrlCoaches.coachesParent);
 
 // Category
@@ -59,7 +63,6 @@ router.put('/users/update', ctrlCoaches.usersUpdate);
 // Newsletter
 router.post('/newsletter', ctrlCoaches.eMailNewsLetterCollect);
 
-
-
-
+// Request
+router.post('/request', ctrlRequest.requestCoach);
 module.exports = router;

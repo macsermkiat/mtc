@@ -55,7 +55,7 @@ angular
 			}	
 		};	
 
-		var createdDate = new Date;
+	var createdDate = new Date;
 
 	$scope.doEdit = function (result) {
 

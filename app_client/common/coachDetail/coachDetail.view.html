@@ -23,12 +23,12 @@
 						<li><i class="glyphicon glyphicon-user"></i> <span>{{ vm.data.coach.name }}</span></li>
 						<li><i class="glyphicon glyphicon-education"></i> <span>{{ vm.data.coach.category }}</span></li>
 						<li><i class="glyphicon glyphicon-pencil"></i> <span>{{ vm.data.coach.courseLength }} hours</span></li>
-						<li><i class="glyphicon glyphicon-star"></i>
+						<!-- <li><i class="glyphicon glyphicon-star"></i>
 							<i class="glyphicon glyphicon-star"></i>
 							<i class="glyphicon glyphicon-star"></i>
 							<i class="glyphicon glyphicon-star"></i>
 							<i class="glyphicon glyphicon-star-empty"></i>
-						</li>
+						</li> -->
 					</ul>
 				</div>
 			</article>
@@ -43,8 +43,8 @@
 					<br>
 					<div class="row">
 						<div class="col-xs-12">
-						<button type="button" class="btn btn-primary btn-lg">
-							Request to Match
+						<button type="button" class="btn btn-primary btn-lg"><a ng-click="vm.popupRequestForm()" style="color: white;">
+							Request to Match</a>
 						</button>
 						</div>
 					</div>			

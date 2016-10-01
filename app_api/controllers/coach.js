@@ -501,15 +501,14 @@ module.exports.usersUpdate = function(req, res) {
 
 /* PUT /api/coaches/:coachid */
 module.exports.coachesUpdateOne = function(req, res) {
-  if (!req.params.coachid) {
+  if (!req.body.coachid) {
     sendJSONresponse(res, 404, {
       "message": "Not found, coachid is required"
     });
     return;
   }
   Mtc
-    .findById(req.params.coachid)
-    .select('-reviews -rating')
+    .findOne({ _id : req.body.coachid })
     .exec(
       function(err, coach) {
         if (!coach) {
@@ -521,17 +520,21 @@ module.exports.coachesUpdateOne = function(req, res) {
           sendJSONresponse(res, 400, err);
           return;
         }
-        coach.name = req.body.name;
-        coach.price = req.body.price;
-        coach.subject = req.body.subject;
-        coach.group = req.body.group;
-        coach.time = req.body.time;
-        coach.courseLength = req.body.courseLength;
-        coach.level = req.body.level;
+        coach.name = req.body.name,
+        coach.imageUrl = "https://s3-ap-southeast-1.amazonaws.com/matchthecoach/coaches/" + req.body.createdDate,
+        coach.price = req.body.price,
+        coach.subject = req.body.subject,
+        coach.group = req.body.group,
+        coach.time = req.body.time,
+        coach.courseLength = req.body.courseLength,
+        coach.level = req.body.level,
     // coords: [parseFloat(req.body.lng), parseFloat(req.body.lat)],
-        coach.shortDescription = req.body.shortDescription;
-        coach.courseDescription = req.body.courseDescription;
-        coach.preparation = req.body.preparation;
+        coach.shortDescription = req.body.shortDescription,
+        coach.courseDescription = req.body.courseDescription,
+        coach.preparation = req.body.preparation,
+        coach.location = req.body.location,
+        coach.videoid = req.body.videoid,
+        coach.picture = req.body.pictureUrl;
         coach.save(function(err, coach) {
           if (err) {
             sendJSONresponse(res, 404, err);

@@ -35,7 +35,8 @@ var coachSchema = new mongoose.Schema({
     courseLength: String,
     level: String,
     videoid: String,
-    imageUrl: String
+    imageUrl: String,
+    requested: [{type: String}]
     // category: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Category' }]
 
     // Always store coordinates longitude, latitude order.

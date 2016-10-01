@@ -5,6 +5,7 @@ var app = angular.module('mtcApp', 	['ui.router',
 									 'ngFileUpload',
 									 'auth0.lock',
 									 'angularSpinners',
+									 
 									 // 'auth0',
 									 'angular-jwt',
 									 'ngSanitize', 
@@ -109,6 +110,13 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		url: '/coaches/:coachid',
 		templateUrl: 'common/coachDetail/coachDetail.view.html',
 		controller: 'coachDetailCtrl',
+		controllerAs : 'vm',
+		parent: 'mtc'
+	})
+	.state('coachEdit', {
+		url: '/coachEdit/:coachid',
+		templateUrl: 'common/addCoach/addCoach.view.html',
+		controller: 'coachEditCtrl',
 		controllerAs : 'vm',
 		parent: 'mtc'
 	})

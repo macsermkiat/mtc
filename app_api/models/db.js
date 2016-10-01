@@ -3,7 +3,7 @@ var gracefulShutdown;
 // var dbURI = 'mongodb://mtc:mtc@localhost:27017/mtc';
 var dbURI = 'mongodb://localhost/mtc';
 if (process.env.NODE_ENV === 'production') {
-    dbURI = 'mongodb://mtc:mtc@http://ec2-54-251-155-133.ap-southeast-1.compute.amazonaws.com:27017/mtc';
+    dbURI = 'mongodb://mtc:mtc@localhost:27017/mtc';
 }
 
 mongoose.Promise = global.Promise;

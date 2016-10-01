@@ -7,6 +7,7 @@ angular
 mtcData.$inject = ['$http', '$log'];
 
 function mtcData ($http, $log) {
+
 	
 	var searchCategoryService = function (text) {
 		// var searchCategory;
@@ -30,6 +31,10 @@ function mtcData ($http, $log) {
 
 	var allCats = function() {
 		return $http.get('/api/allcats')
+	};
+
+	var requestCoach = function (data) {
+		return $http.post('/api/request', data)
 	};
 
 	// function coachesParent() {
@@ -65,6 +70,8 @@ function mtcData ($http, $log) {
 
 	};
 
+
+
 	var addNewsLetter = function (news) {
 		return $http.post('/api/newsletter', news)
 		.then(function(response) {
@@ -78,7 +85,8 @@ function mtcData ($http, $log) {
 		coachById: coachById,
 		createCoach: createCoach,
 		addNewsLetter: addNewsLetter,
-		searchCategoryService: searchCategoryService
+		searchCategoryService: searchCategoryService,
+		requestCoach: requestCoach
 		
 	};
 	

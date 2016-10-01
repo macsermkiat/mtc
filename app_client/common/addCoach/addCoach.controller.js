@@ -32,7 +32,7 @@ angular
 				vm.formError = "All fields required, please try again";
 				return false;
 			} else {
-				var data = vm.formData
+				var data = vm.formData;
 				vm.doAddCoach(data);
 					
 				vm.isDisabled = true;

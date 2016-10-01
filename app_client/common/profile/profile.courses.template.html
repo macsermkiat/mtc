@@ -30,7 +30,7 @@
                 <section class="col-xs-12 col-sm-12 col-md-12">
                   <article class="search-result row" ng-repeat="coach in user.data.coach">
                     <div class="col-xs-12 col-sm-12 col-md-3"  >
-                      <a ui-sref="coachDetail({coachid : coach._id})" title={{coach.name}} class="thumbnail">
+                      <a ui-sref="coachEdit({coachid : coach._id})" title={{coach.name}} class="thumbnail">
                       <img src={{coach.imageUrl}} alt={{coach.name}} /></a>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-2">
@@ -47,7 +47,7 @@
                       </ul>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
-                      <h3><a ui-sref="coachDetail({coachid : coach._id})" title="">{{ coach.shortDescription }}</a></h3>
+                      <h3><a ui-sref="coachEdit({coachid : coach._id})" title="">{{ coach.shortDescription }}</a></h3>
                       <p>{{ coach.courseDescription }}</p>            
                               <!-- <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span> -->
                     </div>

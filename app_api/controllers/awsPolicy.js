@@ -49,7 +49,7 @@ exports.getS3Policy = function(req, res) {
         if (!err) {
             return sendJSONresponse(res, 200, creds);
         } else {
-            return sendJSONresponse(res, 200, creds);
+            return sendJSONresponse(res, 404, err);
         }
     });
 };
