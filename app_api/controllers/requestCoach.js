@@ -27,7 +27,7 @@ module.exports.requestCoach = function(req, res) {
 		  Message: 'You got a matching request. Please check Email at ' + req.body.email
 		            + ' or contact MatchTheCoach',
 		  MessageStructure: 'string',
-		  PhoneNumber: req.body.phone
+		  PhoneNumber: '+66' + req.body.phone
 		};
 		var sns = new AWS.SNS();
 	    
@@ -83,15 +83,23 @@ module.exports.requestCoach = function(req, res) {
 		   from: "matchthecoach@royyak.com", // sender address.  Must be the same as authenticated user if using Gmail.
 		   to: userEmail, // receiver
 		   subject: "Request matching from Match The Coach. ID: " + req.body.requestid, // subject
-		   text: "Congratulation! You have a matching request\n\n done" + req.body.time + '\n\nplace :' + req.body.place,
+		   text: "Congratulation! You have a matching request." + req.body.time + '\n\nplace :' + req.body.place,
 		   html: `<h2 style='color: #006600'>Hi ${userName}.</h2>
 		   		  <h3>Congratulations! there's a matching request for you.</h3>
 			       <p>Course: ${req.body.shortDescription}</p>
-			       <p>time: ${req.body.time}</p>
-			       <p>place: ${req.body.place}</p>
-			       <p>requestid: ${req.body.requestid}</p>
-			       <p>processing fee: ` + fee +` baht.</p>
-			       <p>Please reply this Email back as soon as possible of your answer to accept the match or not.</p>`
+			       <p>Time: ${req.body.time}</p>
+			       <p>Place: ${req.body.place}</p>
+			       <p>Requestid: ${req.body.requestid}</p>
+			       <p>Matching fee: ` + fee +` baht.</p>
+			       <p>Please reply this Email back as soon as possible of your answer to accept the match or not.</p>
+			       <p>If you accept to match, we will contact you shortly when the student confirm matching. Please do not transfer matching fee before that<p>
+			       <p>If you have a question, please do not hesitate to contact us<p>
+			       <p>Regards
+			       <hr>
+			       <h2>Match the Coach team</h2>
+			       <h3>Royyak Co.,Ltd.</h3>
+			       <h3>Tel: 095-5073078</h3>`
+			       
 			       
 			       
 		}; 

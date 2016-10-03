@@ -742,5 +742,9 @@ a:after {
     .navbar-nav.navbar-right > li {
         float: left;
     }*/
+
+    #edit-profile label {
+        font-size: 12px;
+    }
 }
 

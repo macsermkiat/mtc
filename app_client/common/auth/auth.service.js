@@ -39,9 +39,9 @@
       authManager.unauthenticate();
       userProfile = {};
       $state.go('home');
-      // $window.location.reload();
-      $rootScope.$broadcast('userProfileSet', null);
-      $rootScope.$broadcast('subscriptionSet', null);
+      $window.location.reload();
+      // $rootScope.$broadcast('userProfileSet', null);
+      // $rootScope.$broadcast('subscriptionSet', null);
     };
 
     function subscriptionYet() {
@@ -59,9 +59,9 @@
               localStorage.setItem('subscription', true);
               $rootScope.isSubscribed = true;
             };
-            var subscriptionData = localStorage.getItem('subscription');
-            setUserSubscription(subscriptionData);
-            return;
+            // var subscriptionData = localStorage.getItem('subscription');
+            // setUserSubscription(subscriptionData);
+            // return;
            });
          };
         };
@@ -81,12 +81,13 @@
             localStorage.setItem('profile', JSON.stringify(profile));
             setUserProfile(profile);
             subscriptionYet();
+            
             // localStorage.setItem('subscription', JSON.stringify(subscription));
             // setUserSubscription(subscription);
             // $timeout(function() {
             //   $window.location.reload();
             // },1000)
-            // $state.go('home');
+            $state.go('home');
 
             $rootScope.$broadcast('userProfileSet', profile);
             $rootScope.$broadcast('subscriptionSet', userSubscription);

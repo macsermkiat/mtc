@@ -15,8 +15,8 @@
                     <img src="{{lgin.profile.picture}}" alt="{{lgin.profile.name}}" height="28" width="28">
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                      <li ng-if="lgin.getSubscription == undefined || false" aria-label="Subscription"><a ui-sref="subscription" >Subscription form</a></li>
-                      <li ng-if="lgin.getSubscription == true" aria-label="Profile"><a ui-sref="profile.courses" >Profile</a></li>
+                      <li ng-if="lgin.getSubscription == false || lgin.serviceSubscription == false " aria-label="Subscription"><a ui-sref="subscription" >Subscription form</a></li>
+                      <li ng-if="lgin.getSubscription == true || lgin.serviceSubscription == true" aria-label="Profile"><a ui-sref="profile.courses" >Profile</a></li>
                       <li aria-label="Log out"><a ng-click="lgin.authService.logout()">Logout</a></li>
                     </ul>
             <span>
@@ -47,8 +47,8 @@
                     <img src="{{lgin.profile.picture}}" alt="{{lgin.profile.name}}" height="32" width="32">
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                      <li ng-if="lgin.getSubscription == undefined || false" aria-label="Subscription"><a ui-sref="subscription" >Subscription form</a></li>
-                      <li ng-if="lgin.getSubscription == true" aria-label="Profile"><a ui-sref="profile.courses" >Profile</a></li>
+                      <li ng-if="lgin.getSubscription == false || lgin.serviceSubscription == false" aria-label="Subscription"><a ui-sref="subscription" >Subscription form</a></li>
+                      <li ng-if="lgin.getSubscription == true || lgin.serviceSubscription == true " aria-label="Profile"><a ui-sref="profile.courses" >Profile</a></li>
                       <li aria-label="Log out"><a ng-click="lgin.authService.logout()">Logout</a></li>
                     </ul>
             <li>

@@ -48,7 +48,7 @@ function requestModalCtrl ($uibModalInstance, mtcData, coachData) {
 			vm.uibModal.close(data);
 		})
 		.error(function (data) {
-			vm.formError = "Your review has not been saved, try again";
+			vm.formError = "Your request has not been sent, try again";
 		});
 		return false;
 	};

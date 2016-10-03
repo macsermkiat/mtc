@@ -36,7 +36,9 @@ function SearchBoxController ($state, mtcData, $timeout, $http) {
 		})
 	};
 
-	function browsingCat() {
+	activate();
+
+	function activate() {
 		return mtcData.allCats()
 			.success(function(data) {
 				vm.data = { cat: data }
@@ -46,7 +48,7 @@ function SearchBoxController ($state, mtcData, $timeout, $http) {
 				vm.message = "Sorry, something's gone wrong";
 			});
 	};
-	browsingCat();
+	
 
 	vm.addModel = function (select) {
 		vm.text = select;

@@ -6,15 +6,19 @@
     .module('mtcApp')
     .controller('loginController', loginController);
 
-    loginController.$inject = ['authService', '$rootScope', '$scope', '$window', '$state', '$timeout'];
+    loginController.$inject = ['authService', '$sce', '$rootScope', '$scope', '$window', '$state', '$timeout'];
 
-    function loginController(authService, $rootScope, $scope, $window, $state, $timeout) {
+    function loginController(authService, $sce, $rootScope, $scope, $window, $state, $timeout) {
 
       var lgin = this;
       lgin.authService = authService;
-      // Set the user profile when the page is refreshed
       
-      // lgin.isAuthenticated = $rootScope.isAuthenticated;
+
+      // Set the user profile when the page is refreshed
+      lgin.getSubscription = $rootScope.isSubscribed;
+      lgin.serviceSubscription = $rootScope.authService.userSubscription;
+      lgin.isAuthenticated = $rootScope.isAuthenticated;
+      
       $timeout(function() {
 
 
@@ -27,6 +31,7 @@
       $rootScope.$on('userProfileSet', function(event, profile) {
         lgin.isAuthenticated = $rootScope.isAuthenticated;
         lgin.profile = profile;
+        // lgin.profile.picture = $sce.trustAsResourceUrl(profile.picture);
       });
 
       $rootScope.$on('subscriptionSet', function(event, subscription) {
@@ -34,11 +39,13 @@
         lgin.getSubscription = $rootScope.isSubscribed;
         // lgin.subscription = subscription;
         console.log("Subscription form fill: " + lgin.getSubscription);
-      },500);
+      },1000);
       });
 
       var accessData = localStorage.getItem('profile');
-      lgin.profile = angular.fromJson(accessData);
+      if(accessData) {
+       lgin.profile = angular.fromJson(accessData);
+      };
       // Put the authService on $scope to access
       // the login method in the view
     //   var vm = this;

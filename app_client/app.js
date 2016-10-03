@@ -20,12 +20,12 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
       domain: 'royyak.auth0.com',
       clientID: '2m8hbwYC8UdyjITdKGDptrRvF6BXweY7',
       options: {
-    	auth: {
-      		redirect: false
-      		// params: {
-      		// 	rootScope:'openid'
-      		// }
-    	}
+    	// auth: {
+     //  		redirect: false
+     //  		// params: {
+     //  		// 	rootScope:'openid'
+     //  		// }
+    	// }
   	  }
   	});
 
@@ -35,7 +35,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
         },
         whiteListedDomains: [
         	'localhost', 
-        	'ec2-54-251-155-133.ap-southeast-1.compute.amazonaws.com'
+        	'www.matchthecoach.com'
         ],
         unauthicatedRedirectPath: '/login'
     });
@@ -186,8 +186,21 @@ app.config(['lockProvider', 'jwtOptionsProvider', 'jwtInterceptorProvider', '$lo
 //     });
 //  });
 
-app.run(function($rootScope, authService, authManager) {
+app.run(function($rootScope, $state, authService, authManager, lock) {
 
+	// var token = $rootScope.isAuthenticated;
+ //    if (token == "true") {
+      
+        	
+ //          authManager.authenticate();
+ //          $window.location.reload();
+
+        
+ //      } else {
+ //        console.log("Unauth!");
+ //      };
+    
+ 	  lock.interceptHash();
       // Put the authService on $rootScope so its methods
       // can be accessed from the nav bar
       $rootScope.authService = authService;
@@ -205,20 +218,30 @@ app.run(function($rootScope, authService, authManager) {
       // the user to the login page
       authManager.redirectWhenUnauthenticated();
 
+      // function checkSubscribedOnRefresh() {
+      	
+      //   $rootScope.$on('$stateChangeStart', function () {
+      //     $rootScope.isSubscribed = null;
+      //     var subs = localStorage.getItem('subscription');
+      //     console.log(subs);
+      //     if (subs === true) {
+      //     	$rootScope.isSubscribed = true;
+      //     	$rootScope.$broadcast('subscriptionSet', userSubscription);
+      //     	return;
+      //     } else {
+      //     	console.log('please log in');
+      //     	return false;
+      //     }
+      //   });
+      // };
+      // checkSubscribedOnRefresh();
+
+      
+
   });
 
 app.run(function($anchorScroll, $window, $rootScope) {
-  // hack to scroll to top when navigating to new URLS but not back/forward
-//   var wrap = function(method) {
-//     var orig = $window.window.history[method];
-//     $window.window.history[method] = function() {
-//       var retval = orig.apply(this, Array.prototype.slice.call(arguments));
-//       $anchorScroll();
-//       return retval;
-//     };
-//   };
-//   wrap('pushState');
-//   wrap('replaceState');
+ 
 	$rootScope.$on('$stateChangeSuccess', function() {
 	   document.body.scrollTop = document.documentElement.scrollTop = 0;
 	});
