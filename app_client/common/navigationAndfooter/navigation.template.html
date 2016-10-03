@@ -12,7 +12,7 @@
             <span ng-if="lgin.isAuthenticated" class="dropdown float-right">
                     <a data-toggle="dropdown" style="color:white !important;">
                     <strong>{{lgin.profile.name}}&nbsp</strong>
-                    <img src="{{lgin.profile.picture}}" alt="{{lgin.profile.name}}" height="28" width="28">
+                    <img ng-src="{{lgin.profile.picture}}" alt="{{lgin.profile.name}}" height="28" width="28">
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                       <li ng-if="lgin.getSubscription == false || lgin.serviceSubscription == false " aria-label="Subscription"><a ui-sref="subscription" >Subscription form</a></li>
@@ -27,7 +27,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#home"><img src="../image/favicon/favicon-32.png"></a>
+          <a class="navbar-brand" href="#home"><img ng-src="../image/favicon/favicon-32.png"></a>
 
         </div>
 
@@ -44,7 +44,7 @@
             <li ng-if="lgin.isAuthenticated" class="dropdown hidden-xs float-right">
                     <a href="" class="dropdown-toggle" data-toggle="dropdown">
                     <strong>{{lgin.profile.name}}&nbsp</strong>
-                    <img src="{{lgin.profile.picture}}" alt="{{lgin.profile.name}}" height="32" width="32">
+                    <img ng-src="{{lgin.profile.picture}}" alt="{{lgin.profile.name}}" height="32" width="32">
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                       <li ng-if="lgin.getSubscription == false || lgin.serviceSubscription == false" aria-label="Subscription"><a ui-sref="subscription" >Subscription form</a></li>

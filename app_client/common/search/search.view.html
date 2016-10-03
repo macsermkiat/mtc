@@ -10,7 +10,7 @@
 			<article class="search-result row" ng-repeat="coach in vm.data.coach">
 				<div class="col-xs-12 col-sm-12 col-md-3"  >
 					<a ui-sref="coachDetail({coachid : coach._id})" title={{coach.name}} class="thumbnail">
-					<img src={{coach.imageUrl}} alt={{coach.name}}></a>
+					<img ng-src={{coach.imageUrl}} alt={{coach.name}}></a>
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-2">
 					<ul class="meta-search">
