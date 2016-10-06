@@ -39,8 +39,9 @@ router.get('/allcats', ctrlCoaches.allCats);
 router.get('/coaches/searchCat', ctrlCoaches.categorySearch);
 router.get('/coaches/search/', ctrlCoaches.keywordSearch);
 router.get('/coaches/:coachid', ctrlCoaches.coachesReadOne);
+router.get('/user/:userid', ctrlCoaches.usersBio);
 // router.put('/coaches/:coachid', ctrlCoaches.coachesUpdateOne);
-// router.delete('/coaches/:coachid', ctrlCoaches.coachesDeleteOne);
+router.delete('/coaches/:coachid', ctrlCoaches.coachesDeleteOne);
 
 
 // User
@@ -50,7 +51,7 @@ router.post('/users/create', ctrlCoaches.usersCreate);
 router.put('/users/update', ctrlCoaches.usersUpdate);
 router.get('/coachEdit/:coachid', ctrlCoaches.coachesUpdateOne);
 router.put('/coachEdit/update', ctrlCoaches.coachesUpdateOne);
-router.delete('/coachEdit/:coachid/delete', ctrlCoaches.coachesDeleteOne);
+
 // router.get('/coachesParent', ctrlCoaches.coachesParent);
 
 // Category

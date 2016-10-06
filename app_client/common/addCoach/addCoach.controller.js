@@ -33,28 +33,8 @@ angular
 				return false;
 			} else {
 				var data = vm.formData;
-				vm.doAddCoach(data);
-					
-				vm.isDisabled = true;
-				vm.message.success = true;
-				$timeout(function () {
-			    	vm.message.success = false;
-						}, 1000)
-				.then(function(err) {
-						if (err) {
-							console.log(error);
-							vm.formError = "Your review has not been saved, try again";
-							
-						} else {
-							console.log("YES!")
-						}
-					
-								
-				})
-				$state.go('home');
-					
+				vm.doAddCoach(data);					
 			}
-				
 		};	
 
 		var now = new Date;
@@ -81,16 +61,23 @@ angular
 			    category: formData.category,
 			    videoid: formData.videoid,
 			    createdBy: identity
-			})
+			}).then(function(success){
+					vm.isDisabled = true;
+					vm.message.success = true;
+					$timeout(function () {
+				    	vm.message.success = false;
+							}, 2000);
+					$timeout (function(){
+						$state.go('/')},2000);
+					
 
-			
-			// .then(function (error, coach) {
-			// 	if (error) {					
-			// 		vm.formError = "Your review has not been saved, try again";			
-			// 	}else {
-			// 		console.log("huh")						
-			// 	};	
-			// });
+				}, function(error) {
+					var vals = Object.keys(error).map(function (key) {
+					return error[key];	
+					});					
+					console.log(vals[0].message);
+					$scope.formError = "Your course has not been added, try again. Possible from duplicate data.";
+				});
 		return false;
 		};
 
@@ -153,25 +140,6 @@ angular
 		};
 		browsingCat();
 
-		
-		// vm.addModel = function (select) {
-		// 	vm.formData.category = select;
-		// };
-
-		
-
-		
-	
-		
-	// vm.uibModal = {
-	// 	close : function (result) {
-	// 		$uibModalInstance.close(result);
-	// 	},
-	// 	cancel : function () {
-	// 		$uibModalInstance.dismiss('cancel');
-	// 	}
-	// };
-	
 	};
 
 })();

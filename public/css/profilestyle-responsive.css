@@ -232,7 +232,7 @@
 
 @media (max-width: 480px) {
 
-    .notification-row,.task_notificatoin_bar, .search-row,.knob-charts, .dont-show , .inbox-head .sr-input, .inbox-head .sr-btn{
+   /* .notification-row,.task_notificatoin_bar, .search-row,.knob-charts, .dont-show , .inbox-head .sr-input, .inbox-head .sr-btn{
         display: none;
     }
 
@@ -271,10 +271,10 @@
     .chart-position {
        margin-top: 0px;
      }
-}
+}*/
 
 @media (max-width:320px) {
-    .login-social-link a {
+   /* .login-social-link a {
         padding: 15px 17px !important;
     }
 
@@ -319,7 +319,7 @@
         margin-top: 0px;
     }
 
-}
+}*/
 
 
 

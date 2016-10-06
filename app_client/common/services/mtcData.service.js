@@ -37,20 +37,13 @@ function mtcData ($http, $log) {
 		return $http.post('/api/request', data)
 	};
 
-	// function coachesParent() {
-	// 	return $http.get('api/coachesParent')
-	// 	.then(coachesParentComplete)
-	// 	.catch(coachesParentFailed);
-
-	// 	function coachesParentComplete(response) {
-	// 		return response.data;
-	// 	}
-	// 	function coachesParentFailed(error) {
-	// 		$log.error('XHR Failed for coachesParent.' + error.data)
-	// 	}
-	// };
+	
 	var coachById = function (coachid) {
 		return $http.get('/api/coaches/' + coachid);
+	};
+
+	var userById = function (userid) {
+		return $http.get('/api/user/' + userid);
 	};
 
 	function createCoach(data) {
@@ -70,6 +63,10 @@ function mtcData ($http, $log) {
 
 	};
 
+	function deleteCoach(coachid){
+		return $http.delete('/api/coaches/' + coachid);
+	};
+
 
 
 	var addNewsLetter = function (news) {
@@ -83,7 +80,9 @@ function mtcData ($http, $log) {
 		allCoaches: allCoaches,
 		allCats: allCats,
 		coachById: coachById,
+		userById: userById,
 		createCoach: createCoach,
+		deleteCoach: deleteCoach,
 		addNewsLetter: addNewsLetter,
 		searchCategoryService: searchCategoryService,
 		requestCoach: requestCoach

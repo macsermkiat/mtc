@@ -46,7 +46,10 @@ app.use(cookieParser());
 app.use(serveStatic(path.join(__dirname, 'public')));
 app.use(serveStatic(path.join(__dirname, 'node_modules')));
 app.use(serveStatic(path.join(__dirname, 'app_client')));
-
+app.all('/#*', function(req, res, next) {
+    // Just send the index.html for other files to support HTML5Mode
+    res.sendFile('index.html', { root: __dirname });
+});
 
 // app.use(function(req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "*");

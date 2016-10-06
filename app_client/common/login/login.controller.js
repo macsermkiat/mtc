@@ -6,9 +6,9 @@
     .module('mtcApp')
     .controller('loginController', loginController);
 
-    loginController.$inject = ['authService', '$sce', '$rootScope', '$scope', '$window', '$state', '$timeout'];
+    loginController.$inject = ['authService', '$sce', '$rootScope', '$scope', '$state', '$timeout'];
 
-    function loginController(authService, $sce, $rootScope, $scope, $window, $state, $timeout) {
+    function loginController(authService, $sce, $rootScope, $scope, $state, $timeout) {
 
       var lgin = this;
       lgin.authService = authService;

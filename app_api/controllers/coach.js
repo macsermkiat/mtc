@@ -252,8 +252,12 @@ module.exports.usersCourse = function(req, res) {
 // GET User Bio
 module.exports.usersBio = function(req, res) {
       console.log('Get User Bio');
-      var id = req.query.id;
+      // if (req.params && req.params.coachid)
+      console.log(req.params);
+      var id = req.params.id || req.params.userid;
+      console.log("My ID " + id);
       User.find({identity: id })
+        .populate('course')
         .exec(function(err, bio) {
          if (!bio) {
                 sendJSONresponse(res, 404, {
@@ -553,7 +557,7 @@ module.exports.coachesDeleteOne = function(req, res) {
     Mtc
       .findByIdAndRemove(coachid)
       .exec(
-        function(err, location) {
+        function(err, coach) {
           if (err) {
             console.log(err);
             sendJSONresponse(res, 404, err);

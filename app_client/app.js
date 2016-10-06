@@ -48,25 +48,25 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
   	}
 
 	$stateProvider
-	.state('mtc', {
-		templateUrl: 'home/mtc.view.html',
-		abstract: true
-	})
+	// .state('mtc', {
+	// 	templateUrl: 'home/mtc.view.html',
+	// 	abstract: true
+	// })
 
-	.state('home', {
-		url: '/home',
+	.state('/', {
+		url: '/',
 		templateUrl: 'home/home.view.html',
 		controller: 'homeCtrl',
-		controllerAs :'vm',
-		parent: 'mtc'
+		controllerAs :'vm'
+		// parent: 'mtc'
 	})
 	.state('profile', {
 		// abstract: true,
 		url: '/profile',
 		templateUrl: 'common/profile/profile.template.html',
 		controller: 'profileController',
-		controllerAs: 'user',
-		parent: 'mtc'
+		controllerAs: 'user'
+		// parent: 'mtc'
 		// template: '<ui-view>'
 	})
 	.state('profile.courses', {
@@ -78,7 +78,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 	.state('profile.bio', {
 		url: '/bio',
 		templateUrl: 'common/profile/profile.bio.template.html',
-		controller: 'profileBioController',
+		controller: 'profileController',
 		controllerAs: 'user'
 	})
 	.state('profile.edit', {
@@ -87,11 +87,11 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		controller: 'profileEditController',
 		controllerAs: 'vm'
 	})
-	// .state('login', {
-	// 	url: '/login',
-	// 	controller: 'loginController',
-	// 	templateUrl: 'common/login/login.html'
-	// })
+	.state('pricing', {
+		url: '/pricing',
+		templateUrl: 'home/pricing.html'
+		// parent: 'mtc'
+	})
 	// .state('newsletter', {
 	// 	url: '/newsletter',
 	// 	params: {name:null, email:null},
@@ -104,41 +104,51 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		templateUrl: 'common/search/search.view.html',
 		controller: 'searchCtrl',
 		controllerAs : 'vm',
-		parent: 'mtc'	
+		// parent: 'mtc'	
 	})
 	.state('coachDetail', {
 		url: '/coaches/:coachid',
 		templateUrl: 'common/coachDetail/coachDetail.view.html',
 		controller: 'coachDetailCtrl',
-		controllerAs : 'vm',
-		parent: 'mtc'
+		controllerAs : 'vm'
+		// parent: 'mtc'
 	})
+	.state('userDetail', {
+		url: '/user/:userid',
+		templateUrl: 'common/coachDetail/userDetail.view.html',
+		controller: 'userDetailController',
+		controllerAs : 'user'
+		// parent: 'mtc'
+	})
+	
 	.state('coachEdit', {
 		url: '/coachEdit/:coachid',
 		templateUrl: 'common/addCoach/addCoach.view.html',
 		controller: 'coachEditCtrl',
-		controllerAs : 'vm',
-		parent: 'mtc'
+		controllerAs : 'vm'
+		// parent: 'mtc'
 	})
 	.state('addCoach', {		
 		url: '/addCoach',
 		templateUrl: 'common/addCoach/addCoach.view.html',
 		controller: 'addCoachCtrl',
 		controllerAs: 'vm',
-		redirectTo: 'addPic',
-		parent: 'mtc'
+		redirectTo: 'addPic'
+		// parent: 'mtc'
 	})
 	.state('subscription', {		
 		url: '/subscription',
 		templateUrl: 'common/subscription/subscription.template.html',
 		controller: 'subscriptionCtrl',
-		controllerAs: 'vm',
-		parent: 'mtc'
+		controllerAs: 'vm'
+		// parent: 'mtc'
 	})
 	
 	
 	
 	$urlRouterProvider.otherwise('home');
+
+	$locationProvider.html5Mode(true);
 
 	// lockProvider.init({
 	//     clientID: 2m8hbwYC8UdyjITdKGDptrRvF6BXweY7,

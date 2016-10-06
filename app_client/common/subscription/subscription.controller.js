@@ -32,30 +32,12 @@ angular
 			} else {
 				var data = vm.formData
 				vm.doSubscription(data);
-				vm.doAddNewsLetter(data);	
-				vm.isDisabled = true;
-				vm.message.success = true;
-				$timeout(function () {
-			    	vm.message.success = false;
-						}, 3000)
-				.then(function(err) {
-						if (err) {
-							console.log(error);
-							vm.formError = "Your subscription has not been saved, try again";
-						} else {
-							console.log("YES!")
-						}
-														
-				})
-				localStorage.setItem('subscription', true);
-				$state.go('home');	
 			}	
 		};	
 
 		var createdDate = new Date;
 
 		vm.doSubscription = function (formData) {
-
 			console.log(formData);
 			userService.registerUser({
 				memberSince : createdDate,
@@ -71,16 +53,23 @@ angular
 				idnumber : formData.idnumber,
 				education: formData.education,
 			    term: formData.term
-			})
-
-			
-			// .then(function (error, coach) {
-			// 	if (error) {					
-			// 		vm.formError = "Your review has not been saved, try again";			
-			// 	}else {
-			// 		console.log("huh")						
-			// 	};	
-			// });
+			}).then(function(success){
+						vm.doAddNewsLetter(formData);	
+						vm.isDisabled = true;
+						vm.message.success = true;
+						$timeout(function () {
+					    	vm.message.success = false;
+								}, 2000);
+						localStorage.setItem('subscription', true);
+						$timeout (function(){
+							$state.go('/');},2000);
+					}, function(error) {
+						var vals = Object.keys(error).map(function (key) {
+    					return error[key];	
+						});					
+						console.log(vals[0].message);
+						$scope.formError = "Your edit has not been saved, try again. Possible from duplicate data.";
+					});
 		return false;
 		};
 

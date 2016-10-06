@@ -36,6 +36,7 @@ var coachSchema = new mongoose.Schema({
     level: String,
     videoid: String,
     imageUrl: String,
+    popular: Number,
     requested: [{type: String}]
     // category: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Category' }]
 

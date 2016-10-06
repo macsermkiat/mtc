@@ -24,7 +24,7 @@
 	            </ul>
         	</header>
 			
-			   	<div id="profile" class="tab-pane" ng-repeat="coach in user.data.coach">
+			   	<div id="profile" class="tab-pane">
 			        <section class="panel">
 			          <div class="bio-graph-heading">
 			            Hi! Thank you for visiting me!
@@ -33,16 +33,16 @@
 			              <h1>Bio Graph</h1>
 			              <div class="row">
 			                  <div class="bio-row">
-			                      <p><span>First Name </span>: {{coach.name}} </p>			                      
+			                      <h4><span>First Name </span>: {{user.result.name}} </h4>			                      
 			                  </div>
 			                  <div class="bio-row">
-			                      <p><span>Last Name </span>: {{coach.surname}}</p>
+			                      <h4><span>Last Name </span>: {{user.result.surname}}</h4>
 			                  </div>                                              
 			                  <div class="bio-row" style="white-space:pre-wrap;">
-			                      <p><span>Education</span>: {{coach.education}}</p>
+			                      <h4><span>Education</span>: {{user.result.education}}</h4>
 			                  </div>
 			                  <div class="bio-row" style="white-space:pre-wrap;">
-			                      <p><span>Experience </span>: {{coach.experience}}</p>
+			                      <h4><span>Experience </span>: {{user.result.experience}}</h4>
 			                  </div>
 			                 <!--  <div class="bio-row">
 			                      <p><span>Occupation </span>: UI Designer</p>

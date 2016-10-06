@@ -463,6 +463,11 @@ a:after {
 	font-size: 25px;
 }
 
+.divider2 p {
+    font-size: 20px;
+    line-height: 150%;
+}
+
 
 /* Section Dividers Backgrounds */
 
@@ -471,7 +476,7 @@ a:after {
 }
 
 .divider2 {
-	background-image: url('../image/friend.jpg')
+	background-image: url('../image/friend.jpg');
 }
 
 .divider3 {
@@ -492,7 +497,7 @@ a:after {
 /* ==========================================================================
    Services Section
    ========================================================================== */
-
+/*
 .service-trigger {
     display: block;
 	position: relative;
@@ -535,14 +540,14 @@ a:after {
 
 .service-content p:last-child {
     margin: 0;
-}
+}*/
 
 
 /* ==========================================================================
    Image Mask
    ========================================================================== */
 
-.grid figure {
+/*.grid figure {
 	margin: 0;
 	position: relative;
 }
@@ -582,10 +587,10 @@ a:after {
 	background: #2f2f2f;
 	color: #fff;
 	font-size: 13px;
-}
+}*/
 
 /* Caption Style */
-.mask figure {
+/*.mask figure {
 	overflow: hidden;
 }
 
@@ -636,12 +641,12 @@ a:after {
 	bottom: 10px;
 	right: 30px;
 }
-
+*/
 
 /* ==========================================================================
    Blog Section
    ========================================================================== */
-
+/*
 .blog-bg {
 	background: #2b2b2b;
 	padding-right: 0px;
@@ -663,19 +668,19 @@ a:after {
 	padding-top: 10px;
 	background: #f2f2f2;
 }
-
+*/
 /* ==========================================================================
    MEDIA QUERIES
    ========================================================================== */
 
 
-@media screen and (max-width:1050px), screen and (max-device-width:1050px){
+@media (max-width:1050px), screen and (max-width:1050px){
 	body .header{background-attachment: scroll;}
 }
 
 
 /*ipad portrait*/
-@media only screen and (min-device-width:768px) and (max-device-width : 1024px) and (orientation : portrait){
+@media (min-width:768px) and (max-width : 1024px) and (orientation : portrait){
 	.header{background-attachment: scroll;}
 }
     #headerwrap h1{
@@ -693,7 +698,7 @@ a:after {
     }
 
 /*@media screen and (max-device-width : 767px) {*/
-@media screen and (max-device-width:480px) {
+@media (max-width:480px) {
 	#headerwrap h1 {
 		font-size: 60px;
         margin-top: 0px;
@@ -702,9 +707,9 @@ a:after {
         /*padding-bottom: 0px;*/
 	}
     
-    /*#headerwrap {
+    #headerwrap {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(../image/hand-small.jpg);
-    }*/
+    }
     
 	#headerwrap p {
 		font-size: 20px;
@@ -722,6 +727,9 @@ a:after {
         line-height: 30px;
     }
     
+    .divider2 p {
+        font-size: 18px;
+    }
 
     .min-width{ 
     overflow-x:auto 

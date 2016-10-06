@@ -8,7 +8,7 @@
 
 /*weather*/
 
-.weather-bg {
+/*.weather-bg {
     background: #34AADC;    
     color: #fff;
     text-align: center;
@@ -28,7 +28,7 @@
     padding-top: 10px;
     font-size: 60px;
 }
-
+*/
 .weather-category {
     padding: 15px 0;
     color: #ffffff;    
@@ -74,7 +74,7 @@
     text-transform: uppercase;
     font-weight: 300;
 }
-
+/*
 .weather-days{    
     color: #ffffff;
     background: #34AADC;
@@ -119,7 +119,7 @@
     text-transform: uppercase;
     font-weight: 300;
 }
-
+*/
 .weather-category ul li a {
 
 }
@@ -128,7 +128,7 @@
     border-right:none ;
 }
 /*weather widget 2*/
-.weather-bg-img {
+/*.weather-bg-img {
     background: url(../img/backgrounds/bg-14-small.jpg) no-repeat center center;    
     color: #fff;
     text-shadow: 0px 1px 5px #fed189;
@@ -190,10 +190,10 @@
     background: transparent !important;
 }
 
-
+*/
 
 /*profile-widget image bg*/
-.profile-widget-img{
+/*.profile-widget-img{
     background: url('../img/backgrounds/bg-11-small.jpg') no-repeat !important;    
 }
 .profile-nav .profile-widget-img .bg-layer {
@@ -204,7 +204,7 @@
 }
 .profile-widget-img .profile-widget-foot{
     background: rgba(0,0,0,0.8);
-}
+}*/
 .profile-widget p{
     font-weight: 300;
     /*margin-bottom: 15px;*/
@@ -212,6 +212,7 @@
 .profile-widget{
     /*padding-left: 20px 15px 30px 15px;*/
 }
+/*
 .profile-widget .twt-category{
     display: inline-block;
     margin-bottom: 0px;
@@ -250,7 +251,7 @@
     background: rgba(0,0,0,0.1);
     color: #757575;    
     font-weight: 300;
-}
+}*/
 .profile-foot {
     padding: 8px 5px 5px 5px;
     background: rgba(0,0,0,0.1);
@@ -400,7 +401,7 @@
 }
 
 /*profile*/
-
+/*
 .profile-nav .user-heading {
     background: #688a7e;
     color: #fff;    
@@ -473,7 +474,7 @@
 .r-activity {
     margin: 6px 0 0;
     font-size: 12px;
-}
+}*/
 /*profile-widget color bg*/
 .profile-widget-info{
     background: #324c57 !important;
@@ -624,7 +625,7 @@
     top: 13px;
     width: 0;
 }
-
+/*
 .messages-wrapper {
   position: relative;
 }
@@ -668,7 +669,7 @@
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
     transform: rotateY(180deg);
-}
+}*/
 
 /*custom select*/
 

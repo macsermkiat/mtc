@@ -4,7 +4,7 @@ angular
 	.module('mtcApp')
 	.controller('profileCoursesController', profileCoursesController);
 
-profileCoursesController.$inject = ['$state', '$http'];
+profileCoursesController.$inject = ['$state', '$http', 'mtcData'];
 
 //For IE 8-9
 if (window.location.pathname !== '/') {
@@ -12,7 +12,7 @@ window.location.href = '/#' + window.location.pathname;
 };
 
 
-function profileCoursesController($state, $http) {
+function profileCoursesController($state, $http, mtcData) {
 	var accessData;
 	var getAccessData = function () {	
 		if (!localStorage.getItem('profile')) {
@@ -33,7 +33,6 @@ function profileCoursesController($state, $http) {
 	function userCourses(id) {
 			return $http.get('/api/users/course', {params: {id: id}} )
 				.then(function(response) {
-					console.log(response.data);
 					return response.data;
 				});
 	};
@@ -47,11 +46,23 @@ function profileCoursesController($state, $http) {
 					user.data = { coach: data };
 					}
 				});
-				// .error(function (e) {
-				// 	user.message = "Sorry, something's gone wrong";
-				// })
 	};
 	displayData();
+
+	user.deleteCourse = function(coachid, course) {
+		if (confirm("Are you sure to delete " + course + "?") == true) {	
+			mtcData.deleteCoach(coachid)
+			.then(function(success) {
+				console.log("Delete");
+				$state.go('profile');
+			}, function(error) {
+				console.log("error: " + error);
+			})
+		} else {
+			return false;
+		};
+	};
+
 
 	};
 

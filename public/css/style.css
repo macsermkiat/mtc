@@ -267,3 +267,11 @@
     font-size: 20px;
     margin-right: 25px;
 }
+
+.pricing h2 {
+  color: Blue;
+}
+
+blockquote p {
+  color: white;
+}

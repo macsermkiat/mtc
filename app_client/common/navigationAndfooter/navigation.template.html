@@ -27,19 +27,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#home"><img ng-src="../image/favicon/favicon-32.png"></a>
+          <a class="navbar-brand" href="#home"><img ng-src="../image/favicon/favicon-32.png" alt="Match The Coach brand"></a>
 
         </div>
 
         <div class="navbar-collapse collapse" id="navbar-collapse-1">
           <ul class="nav navbar-nav client-nav navbar-right">
-            <li aria-label="Home"> <a href="#home" du-smooth-scroll id="navtopspace">Home</a></li>
-      			<li aria-label="Match the coach" class="hidden-xs hidden-sm"> <a href="#match" offset ="30" du-smooth-scroll id="navtopspace"> How to</a></li>
+            <li aria-label="Home"> <a href="/#home" du-smooth-scroll id="navtopspace">Home</a></li>
+      			<li aria-label="Match the coach" class="hidden-xs hidden-sm"> <a href="/#match" offset ="30" du-smooth-scroll id="navtopspace"> How to</a></li>
       			
-      			<li aria-label="Team" class="hidden-xs hidden-sm"> <a href="#team" du-smooth-scroll id="navtopspace"> Team</a></li>
+      			<li aria-label="Team" class="hidden-xs hidden-sm"> <a href="/#team" du-smooth-scroll id="navtopspace"> Team</a></li>
       			
-      			<li aria-label="Contact" class="hidden-xs hidden-sm"> <a href="#contact" du-smooth-scroll id="navtopspace"> Contact</a></li>
-            <li aria-label="Become a coach"><a href="#become" offset="60" du-smooth-scroll id="navtopspace">Become a coach</a></li>
+      			<li aria-label="Contact" class="hidden-xs hidden-sm"> <a href="/#contact" du-smooth-scroll id="navtopspace"> Contact</a></li>
+            <li aria-label="Become a coach"><a href="/#become" offset="85" du-smooth-scroll id="navtopspace">Become a coach</a></li>
+            <li aria-label="Pricing"><a ui-sref="pricing" id="navtopspace">Pricing</a></li>
             <li aria-label="Sign in" class="hidden-xs" ng-if="!lgin.isAuthenticated"><a ng-click="lgin.authService.login()" id="navtopspace">Sign in</a></li>
             <li ng-if="lgin.isAuthenticated" class="dropdown hidden-xs float-right">
                     <a href="" class="dropdown-toggle" data-toggle="dropdown">
@@ -58,30 +59,8 @@
         <div class="navbar-collapse collapse" id="navbar-collapse-2">    
         		  <ul class="nav navbar-nav client-nav navbar-right"  class="hidden-sm hidden-md hidden-lg">
         		  	<li aria-label="Login" ng-if="!lgin.isAuthenticated"><a ng-click="lgin.authService.login()" class="dropdown hidden-sm hidden-md hidden-lg">Sign in</a></li>
-                <!-- <li ng-if="lgin.isAuthenticated" class="dropdown hidden-sm hidden-md hidden-lg">
-                    <a href="" class="dropdown-toggle" data-toggle="dropdown">
-                    <strong>{{lgin.profile.name}}&nbsp</strong>
-                    <img src="{{lgin.profile.picture}}" alt="{{lgin.profile.name}}" height="32" width="32">
-                    <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                      <li ng-if="lgin.getSubscription == 'false'" aria-label="Subscription"><a ui-sref="subscription" >Subscription form</a></li>
-                      <li ng-if="lgin.getSubscription == 'true'" aria-label="Profile"><a ui-sref="profile.courses" >Profile</a></li>
-                      <li aria-label="Log out"><a ng-click="lgin.authService.logout()">Logout</a></li>
-                    </ul>
-                </li> --> 
-            </ul>
-              <!-- <li aria-label="Logout" ng-if="lgin.isAuthenticated"><a ng-click="lgin.authService.logout()">Log Out</a></li> -->
-              
-              
-      		  	
-              <!-- <li ng-show="$ctrl.isLoggedIn" class="dropdown">
-                  <a href="" class="dropdown-toggle" data-toggle="dropdown">{{ $ctrl.nickname }}<span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="" ng-click="$ctrl.logout()">Logout</a></li>
-                  </ul> -->
-              
-          
-          
+                
+            </ul> 
         </div><!--/.nav-collapse-->
       </div>
     </div>

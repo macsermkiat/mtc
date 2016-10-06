@@ -6,9 +6,9 @@
     .module('mtcApp')
     .service('authService', authService);
 
-  authService.$inject = ['$timeout', '$window', '$rootScope', 'lock', 'authManager', '$http', '$location', '$state'];
+  authService.$inject = ['$timeout', '$rootScope', 'lock', 'authManager', '$http', '$location', '$state'];
 
-  function authService($timeout, $window, $rootScope, lock, authManager, $http, $location,  $state) {
+  function authService($timeout, $rootScope, lock, authManager, $http, $location,  $state) {
 
     var userProfile = JSON.parse(localStorage.getItem('profile')) || {};
     var userSubscription = JSON.parse(localStorage.getItem('subscription')) || {};
@@ -38,8 +38,8 @@
       localStorage.removeItem('subscription');
       authManager.unauthenticate();
       userProfile = {};
-      $state.go('home');
-      $window.location.reload();
+      $state.go('/');
+      // $window.location.reload();
       // $rootScope.$broadcast('userProfileSet', null);
       // $rootScope.$broadcast('subscriptionSet', null);
     };
@@ -85,9 +85,11 @@
             // localStorage.setItem('subscription', JSON.stringify(subscription));
             // setUserSubscription(subscription);
             // $timeout(function() {
-            //   $window.location.reload();
-            // },1000)
-            $state.go('home');
+            //   $state.go('/');
+            //   // $window.location.reload();
+            // },100)
+            $state.go('/');
+            // $window.location.reload();
 
             $rootScope.$broadcast('userProfileSet', profile);
             $rootScope.$broadcast('subscriptionSet', userSubscription);
