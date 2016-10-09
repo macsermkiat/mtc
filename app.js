@@ -46,11 +46,9 @@ app.use(cookieParser());
 app.use(serveStatic(path.join(__dirname, 'public')));
 app.use(serveStatic(path.join(__dirname, 'node_modules')));
 app.use(serveStatic(path.join(__dirname, 'app_client')));
-app.all('/#*', function(req, res, next) {
-    // Just send the index.html for other files to support HTML5Mode
-    res.sendFile('index.html', { root: __dirname });
-});
 
+
+app.use(require('prerender-node').set('prerenderToken', 'i5Uhp4xa01We82OcbRPp'));
 // app.use(function(req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "*");
 //   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -114,6 +112,20 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
+
+// app.all('/*', function(req, res, next) {
+//     // Just send the index.html for other files to support HTML5Mode
+//     res.sendFile('/app_client/index.html', { root: __dirname });
+//     res.sendFile('/app.js', { root: __dirname });
+//     res.sendFile('/app_client/app.js', { root: __dirname });
+// });
+// // serve angular front end files from root path
+// router.use('/', express.static('app', { redirect: false }));
+
+// // rewrite virtual urls to angular app to enable refreshing of internal pages
+// router.get('*', function (req, res, next) {
+//     res.sendFile(path.resolve('/app_client/index.html'));
+// });
 
 var server = http.createServer(app);
 server.listen(app.get('port'), function(){

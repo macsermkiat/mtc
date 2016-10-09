@@ -5,11 +5,11 @@
 	
 	<div class ="row white centered">
 
-	<h1 style="margin-bottom: 40px">Application form</h1>
+	<h1 style="margin-bottom: 40px" translate="FORM.HEAD.COURSE"></h1>
 	
 	<form name="PicForm" enctype="multipart/form-data" role="form"  class="container form-horizontal">
 		<div class="form-group" >
-				<label for="picture" class="col-xs-3 col-sm-2 control-label">Image</label>
+				<label for="picture" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.IMAGE" | translate}}</label>
 				<div class="col-xs-9 col-sm-10">
 					<input type ="file" 
 					 ngf-before-model-change="beforeResizingImages($file)"
@@ -39,7 +39,7 @@
 			</div>
 		</form>
 		
-			<h4 class="text-danger col-xs-9-offset-3 col-sm-10-offset-2"> Please wait picture to<strong> Load</strong> and<strong> Submit</strong> the picture before continue fill in the form.<h4><br>
+			<h4 class="text-danger col-xs-9-offset-3 col-sm-10-offset-2" translate="FORM.TEXT.PIC"><h4><br>
 		
 	<form id="addCoach" name="vm.addCoach" role="form" ng-submit="vm.onSubmit()"
 	class="container form-horizontal" novalidate>
@@ -54,7 +54,7 @@
 			
 			
 			<div class="form-group" ng-class="{ 'has-error': vm.addCoach.name.$touched  && vm.addCoach.name.$invalid }">
-				<label for="name" class="col-xs-3 col-sm-2 control-label">Name<span class="required">*</span></label>
+				<label for="name" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.NAME" | translate}}<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
 					<input initial-value id="name" name="name" required ng-model="vm.formData.name" class="form-control" placeholder="Your name or nickname" aria-labelledby="name">
 					<div class="help-block" ng-messages="vm.addCoach.name.$error" ng-show="vm.addCoach.name.$touched">
@@ -63,7 +63,7 @@
 				</div>
 			</div>
 			<div class="form-group" ng-class="{ 'has-error': vm.addCoach.subject.$touched  && vm.addCoach.subject.$invalid }">
-				<label for="subject" class="col-xs-3 col-sm-2 control-label">Subject<span class="required">*</span></label>
+				<label for="subject" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.SUBJECT" | translate}}<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
 					<input id="subject" name="subject" required ng-model="vm.formData.subject" class="form-control" aria-labelledby="subject">
 					<div class="help-block" ng-messages="vm.addCoach.subject.$error" ng-show="vm.addCoach.subject.$touched">
@@ -72,7 +72,7 @@
 				</div>
 			</div>
 			<div class="form-group" ng-class="{ 'has-error': vm.addCoach.shortDescription.$touched  && vm.addCoach.shortDescription.$invalid }">
-				<label for="shortDescription" class="col-xs-3 col-sm-2 control-label">Course name<span class="required">*</span></label>
+				<label for="shortDescription" class="col-xs-3 col-sm-2 control-label" >{{"FORM.LABEL.COURSE-NAME" | translate}}<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
 					<input id="shortDescription" name="shortDescription" required ng-model="vm.formData.shortDescription" class="form-control" placeholder="Course name must be unique in your account" aria-labelledby="Course Description in short">
 					<div class="help-block" ng-messages="vm.addCoach.shortDescription.$error" ng-if="vm.addCoach.shortDescription.$touched">
@@ -81,7 +81,7 @@
 				</div>
 			</div>
 			<div class="form-group" ng-class="{ 'has-error': vm.addCoach.courseDescription.$touched  && vm.addCoach.courseDescription.$invalid}">
-				<label for="courseDescription" class="col-xs-3 col-sm-2 control-label">Course Description<span class="required">*</span></label>
+				<label for="courseDescription" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.DESCRIPTION" | translate}}<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
 					<textarea rows="3" cols="30" id="courseDescription" name="courseDescription" required ng-model="vm.formData.courseDescription" class="form-control" ng-change=""></textarea>
 					<div class="help-block" ng-messages="vm.addCoach.courseDescription.$error" ng-if="vm.addCoach.courseDescription.$touched">
@@ -90,7 +90,7 @@
 				</div>
 			</div>
 			<div class="form-group" ng-class="{ 'has-error': vm.addCoach.location.$touched  && vm.addCoach.location.$invalid }">
-				<label for="location" class="col-xs-3 col-sm-2 control-label">Location<span class="required">*</span></label>
+				<label for="location" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.LOCATION" | translate}}<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
 					<input id="location" name="location" required ng-model="vm.formData.location" class="form-control" placeholder="City or Province" aria-labelledby="City">
 					<div class="help-block" ng-messages="vm.addCoach.location.$error" ng-if="vm.addCoach.location.$touched">
@@ -99,7 +99,7 @@
 				</div>
 			</div>
 			<div class="form-group" ng-class="{ 'has-error': vm.addCoach.courseLength.$touched  && vm.addCoach.courseLength.$invalid }">
-				<label for="courseLength" class="col-xs-3 col-sm-2 control-label">Course Length<span class="required">*</span></label>
+				<label for="courseLength" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.LENGTH" | translate}}<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
 					<input id="courseLength" name="courseLength" required ng-model="vm.formData.courseLength" class="form-control" placeholder="hours per course" aria-labelledby="Length of course">
 					<div class="help-block" ng-messages="vm.addCoach.courseLength.$error" ng-if="vm.addCoach.courseLength.$touched">
@@ -108,7 +108,7 @@
 				</div>
 			</div>
 			<div class="form-group" ng-class="{ 'has-error': vm.addCoach.price.$touched  && vm.addCoach.price.$invalid }">
-				<label for="price" class="col-xs-3 col-sm-2 control-label">Price<span class="required">*</span></label>
+				<label for="price" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.PRICE" | translate}}<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
 					<input id="price" type="number" name="price" required ng-model="vm.formData.price" class="form-control" placeholder="THB  per course" aria-labelledby="price">
 					<div class="help-block" ng-messages="vm.addCoach.price.$error" ng-if="vm.addCoach.price.$touched">
@@ -118,13 +118,13 @@
 			</div>
 			
 			<div class="form-group">
-				<label for="group" class="col-xs-3 col-sm-2 control-label">Group</label>
+				<label for="group" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.GROUP" | translate}}</label>
 				<div class="col-xs-9 col-sm-10">
 					<input id="group" name="group"  ng-model="vm.formData.group" class="form-control" placeholder="Amount of student" aria-labelledby="Class group">
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="time" class="col-xs-3 col-sm-2 control-label">Time<span class="required">*</span></label>
+				<label for="time" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.TIME" | translate}}<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
 					<input id="time" name="time" ng-model="vm.formData.time" class="form-control" placeholder="Weekday, Sunday, or Any" aria-labelledby="Time of class">
 					<div class="help-block" ng-messages="vm.addCoach.time.$error" ng-if="vm.addCoach.time.$touched">
@@ -134,13 +134,13 @@
 			</div>
 			
 			<div class="form-group">
-				<label for="level" class="col-xs-3 col-sm-2 control-label">Level</label>
+				<label for="level" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.LEVEL" | translate}}</label>
 				<div class="col-xs-9 col-sm-10">
 					<input id="level" name="level"  ng-model="vm.formData.level" class="form-control" placeholder="High school, Entrace, Beginner" aria-labelledby="Student level">
 				</div>
 			</div>
 			<div class="form-group" ng-class="{ 'has-error': vm.addCoach.category.$touched  && vm.addCoach.category.$invalid }">
-				<label for="category" class="col-xs-3 col-sm-2 control-label">category<span class="required">*</span></label>
+				<label for="category" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.CATEGORY" | translate}}<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
 					<div class="input-group">
 						<input type="text" id="category" name="category" required ng-model="vm.formData.category" ng-change="vm.xxx =vm.formData.category" class="form-control" placeholder="Browse form a list or add a new one if not available" aria-labelledby="category">
@@ -188,7 +188,7 @@
 								</optgroup>
 								<optgroup label="Research">
 								<option>Statistics</option>
-								<option>Methdology</option>
+								<option>Methodology</option>
 								</optgroup>
 								</select>
 								
@@ -210,7 +210,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="preparation" class="col-xs-3 col-sm-2 control-label">Preparation</label>
+				<label for="preparation" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.PREPARATION" | translate}}</label>
 				<div class="col-xs-9 col-sm-10">
 					<input id="preparation" name="preparation"  ng-model="vm.formData.preparation" class="form-control" placeholder="book, tools, computer etc.." aria-labelledby="Preparation">
 				</div>
@@ -218,7 +218,7 @@
 			
 			
 			<div class="form-group" ng-class="{ 'has-error': vm.addCoach.videoid.$touched  && vm.addCoach.videoid.$invalid }">
-				<label for="videoid" class="col-xs-3 col-sm-2 control-label">Video</label>
+				<label for="videoid" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.VDO" | translate}}</label>
 				<div class="col-xs-9 col-sm-10">
 					<input id="videoid" name="videoid"  ng-model="vm.formData.videoid" class="form-control" placeholder="Youtube video ID eg. CYJEsVFs_cc" ng-minlength="11" ng-maxlength="24"
 					aria-labelledby="Youtube videoid">

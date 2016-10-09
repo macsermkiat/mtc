@@ -698,7 +698,7 @@ a:after {
     }
 
 /*@media screen and (max-device-width : 767px) {*/
-@media (max-width:480px) {
+@media (max-width:767px) {
 	#headerwrap h1 {
 		font-size: 60px;
         margin-top: 0px;
@@ -709,6 +709,20 @@ a:after {
     
     #headerwrap {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(../image/hand-small.jpg);
+                    -webkit-background-size: cover;
+                    -moz-background-size: cover;
+                    -o-background-size: cover;
+                    background-size: cover;
+                    background-size: 100% 100%;
+    }
+
+    .divider2 {
+    background-image: url('../image/friend-small.jpg');
+                    -webkit-background-size: cover;
+                    -moz-background-size: cover;
+                    -o-background-size: cover;
+                    background-size: cover;
+                    background-size: 100% 100%;
     }
     
 	#headerwrap p {

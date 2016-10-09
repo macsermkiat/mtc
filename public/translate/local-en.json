@@ -1,0 +1,134 @@
+{
+  "BRANDING_AND_NAV": {
+    "HOME": "Home",
+    "HOW-TO": "How to",
+    "TEAM": "Team",
+    "CONTACT": "Contact",
+    "BECOME-COACH": "Become a coach",
+    "PRICING": "Pricing",
+    "SIGNIN": "Sign in",
+    "SET-LANG": "Language",
+    "LOGOUT": "Logout",
+    "SUBSCRIPTION": "Subscription form",
+    "PROFILE": "Profile"
+  },
+  "HOME": {
+    "HEADERWRAP": {
+      "SIMPLE": "Simple, Easy way to find a coach or tutor in any field."
+    },
+    "GRAYWRAP": {
+      "EASY": "Easy",
+      "EASY-TEXT": "The better and easier way to choose the right coach or tutor for you.",
+      "CHOICE": "Choice",
+      "CHOICE-TEXT": "We open choices for you to made. Your can search for the coach experience, specialist. ",
+      "LOVE": "Love",
+      "LOVE-TEXT": "All the coaches practice with love. They love teaching, they evaluated, and they are the best! "
+    },
+     "BECOME-COACH": {
+      "HEADING1": "Find a coach",
+      "SUB1": "Simple as a-b-c",
+      "LI-A": "Sign in and fill subscription form",
+      "LI-B": "Search a coach from our list",
+      "LI-C": "Request to Match!",
+      "HEADING2": "Become a coach",
+      "SUB2": "Simple as 1-2-3",
+      "LI-1": "Sing in and fill subscription form",
+      "LI-2": "Create a course",
+      "LI-3": "Prepare yourself for coaching!"
+    },
+    "DIVIDER2": {
+      "HEADING": "COACHING IS AN INTERACTION",
+      "TEXT": "To develop a deeper and more meaningful connection with students, we believe coach and student must discuss what's the goal."
+    },
+    "TEAM": {
+      "HEADING-1": "Hi, I'm Meaniscule!",
+      "PAR-1": "I'm just a simple MEAN stack wireframe for a quick start at making something.",
+      "PAR-2": "I'm great for:",
+      "LI-1": "mini apps/hackathons",
+      "LI-2": "brainstorming/proof-of-concept",
+      "LI-3": "sandboxing early new features"
+    },
+    "DIVIDER6": {
+      "HEADING": "CRAFTED IN BANGKOK, THAILAND.",
+      "TEXT": "Royyak Co.,Ltd."
+    },
+    "CONTACT": {
+      "HEADING": "THANKS FOR VISITING US",
+      "SUB1": "Contact Information",
+      "PAR-1": "126/185 Pracha U-tit 78/1, ",
+      "PAR-2": " Thung Khru, Bangkok 10140",
+      "SUB2": "Newsletter",
+      "TEXT-2": "Register to our newsletter and be updated with the latests information regarding our services, offers and much more.",
+      "EMAIL": "Email",
+      "NAME": "Your name",
+      "BUTTON": "Please send me a newsletter",
+      "SUB3": "Support Us",
+      "TEXT-3": "You can help supporting community and your friends by recommend our website for them applying become a coach. We also would love to hear your recommendation to improve our service. Please do not hesitate to contact us."
+     }
+  },
+  "PRICE": {
+    "PRICING" : "Pricing",
+    "WORK" : "How Pricing work",
+    "HEADER": {
+      "HEAD-1": "Concepts",
+      "HEAD-2": "Matching fee",
+      "HEAD-3": "Why?",
+      "HEAD-4": "How much?",
+      "HEAD-5": "Transfer Channel",
+      "HEAD-6": "When to transfer?",
+      "HEAD-7": "Time limit",
+      "HEAD-8": "Cancellation",
+      "HEAD-9": "What to do if student/coach try to contact personally?"
+    },
+    "PAR": {
+      "PAR-1": "The pricing occur in this service is called 'Matching fee'. Which occur to both coach and students.",
+      "PAR-2": "The matching fee cost is <strong>10%</strong> of the course's price. <strong>Both from a coach and student.</strong>",
+      "PAR-3": "You can think that a matching fee is like a deposit. If a coach or student cancel before a course too sudden<strong>(< 48 hours)</strong>, You will get a matching fee back. *Plus* if the cancellation made on the day of the course, you'll get your fee back, plus half of the other side's fee.",
+      "PAR-4": "The matching fee price will be sent via an Email",
+      "PAR-5-1": "Prompt Pay : 0955073078",
+      "PAR-5-2": "Siam Commercial Bank : 045-2-88214-7",
+      "PAR-5-3": "Kasikorn Thai Bank : xxx-x-xxxxx-x",
+      "PAR-6-1": "For Student: Transfer<mark> when you get an Email confirmation.</mark>",
+      "PAR-6-2": "For Coach: Transfer<mark> after the student already transfer</mark>, we will send you a second Email when the time come.",
+      "PAR-6-3": "After you transfer,<mark> please reply an Email with a transfer document</mark> back to us.",
+      "PAR-7": "Please do a transfer process within 7 days after you got a confirmation Email",
+      "PAR-8": "Cancellation would not cost anything if made it before the course at least 2 days. If you canceled within 48 hours, you will not get the matching fee back.",
+      "PAR-9-1": "We recommend that you shouldn't accept or contact each other personally outside the web. We concerned about your securit and personal informations most. You also loss many benefits that will occuring, and loss the cancellation protection.",
+      "PAR-9-2": "Please report to us if someone try to contact you personally before the matching done"
+    }
+  },
+  "FORM" : {
+    "HEAD" : {
+      "SUBSCRIPTION" : "Subscription form",
+      "PRIVACY" : "We respect your privacy and personal data most. No sensitive data will provide to public without asking for permission.",
+      "COURSE" : "Create a course"
+    },
+    "LABEL" : {
+      "NAME": "Name",
+      "SURNAME": "Surname",
+      "EMAIL": "Email",
+      "MOBILE": "Mobile Number",
+      "LINE": "LINE ID",
+      "ADDRESS": "Address",
+      "ID": "ID card/Passport Number",
+      "EDUCATION": "Education",
+      "IMAGE": "Image",
+      "SUBJECT": "Subject",
+      "COURSE-NAME": "Course name",
+      "DESCRIPTION": "Course Description",
+      "LOCATION": "Location",
+      "LENGTH": "Course length",
+      "PRICE": "Price",
+      "GROUP": "Group",
+      "TIME": "Time",
+      "LEVEL": "Level",
+      "CATEGORY": "Category",
+      "PREPARATION": "Preparation",
+      "VDO": "Video"
+    },
+    "TEXT" : {
+      "PIC" : "Please wait picture to<strong> Load</strong> and<strong> Submit</strong> the picture before continue fill in the form."
+
+    }
+  }
+} 

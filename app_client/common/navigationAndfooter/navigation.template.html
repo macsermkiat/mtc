@@ -15,9 +15,9 @@
                     <img ng-src="{{lgin.profile.picture}}" alt="{{lgin.profile.name}}" height="28" width="28">
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                      <li ng-if="lgin.getSubscription == false || lgin.serviceSubscription == false " aria-label="Subscription"><a ui-sref="subscription" >Subscription form</a></li>
-                      <li ng-if="lgin.getSubscription == true || lgin.serviceSubscription == true" aria-label="Profile"><a ui-sref="profile.courses" >Profile</a></li>
-                      <li aria-label="Log out"><a ng-click="lgin.authService.logout()">Logout</a></li>
+                      <li ng-if="lgin.getSubscription == false || lgin.serviceSubscription == false " aria-label="Subscription"><a ui-sref="subscription" translate="BRANDING_AND_NAV.SUBSCRIPTION"></a></li>
+                      <li ng-if="lgin.getSubscription == true || lgin.serviceSubscription == true" aria-label="Profile"><a ui-sref="profile.courses" translate="BRANDING_AND_NAV.PROFILE"></a></li>
+                      <li aria-label="Log out"><a ng-click="lgin.authService.logout()" translate="BRANDING_AND_NAV.LOGOUT"></a></li>
                     </ul>
             <span>
           </button>
@@ -33,24 +33,35 @@
 
         <div class="navbar-collapse collapse" id="navbar-collapse-1">
           <ul class="nav navbar-nav client-nav navbar-right">
-            <li aria-label="Home"> <a href="/#home" du-smooth-scroll id="navtopspace">Home</a></li>
-      			<li aria-label="Match the coach" class="hidden-xs hidden-sm"> <a href="/#match" offset ="30" du-smooth-scroll id="navtopspace"> How to</a></li>
+            <li aria-label="Home"> <a href="/#home" du-smooth-scroll id="navtopspace" translate="BRANDING_AND_NAV.HOME"></a></li>
+      			<li aria-label="Match the coach" class="hidden-xs hidden-sm"> <a href="/#match" offset ="30" du-smooth-scroll id="navtopspace" translate="BRANDING_AND_NAV.HOW-TO"></a></li>
       			
-      			<li aria-label="Team" class="hidden-xs hidden-sm"> <a href="/#team" du-smooth-scroll id="navtopspace"> Team</a></li>
+      			<li aria-label="Team" class="hidden-xs hidden-sm"> <a href="/#team" du-smooth-scroll id="navtopspace" translate="BRANDING_AND_NAV.TEAM"></a></li>
       			
-      			<li aria-label="Contact" class="hidden-xs hidden-sm"> <a href="/#contact" du-smooth-scroll id="navtopspace"> Contact</a></li>
-            <li aria-label="Become a coach"><a href="/#become" offset="85" du-smooth-scroll id="navtopspace">Become a coach</a></li>
-            <li aria-label="Pricing"><a ui-sref="pricing" id="navtopspace">Pricing</a></li>
-            <li aria-label="Sign in" class="hidden-xs" ng-if="!lgin.isAuthenticated"><a ng-click="lgin.authService.login()" id="navtopspace">Sign in</a></li>
+      			<li aria-label="Contact" class="hidden-xs hidden-sm"> <a href="/#contact" du-smooth-scroll id="navtopspace" translate="BRANDING_AND_NAV.CONTACT"></a></li>
+            <li aria-label="Become a coach"><a href="/#become" offset="85" du-smooth-scroll id="navtopspace" translate="BRANDING_AND_NAV.BECOME-COACH"></a></li>
+            <li aria-label="Pricing"><a ui-sref="pricing" id="navtopspace" translate="BRANDING_AND_NAV.PRICING"></a></li>
+            <li class="dropdown" >
+              <a href="#" class="dropdown-toggle"  id="navtopspace" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span translate="BRANDING_AND_NAV.SET-LANG"></span><span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="#" ng-click="lgin.changeLanguage('en')">English</a>
+                </li> 
+                <li>
+                  <a href="#" ng-click="lgin.changeLanguage('th')">ไทย</a>
+                </li> 
+              </ul>
+            </li>
+            <li aria-label="Sign in" class="hidden-xs" ng-if="!lgin.isAuthenticated"><a ng-click="lgin.authService.login()" id="navtopspace" translate="BRANDING_AND_NAV.SIGNIN"></a></li>
             <li ng-if="lgin.isAuthenticated" class="dropdown hidden-xs float-right">
                     <a href="" class="dropdown-toggle" data-toggle="dropdown">
                     <strong>{{lgin.profile.name}}&nbsp</strong>
                     <img ng-src="{{lgin.profile.picture}}" alt="{{lgin.profile.name}}" height="32" width="32">
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                      <li ng-if="lgin.getSubscription == false || lgin.serviceSubscription == false" aria-label="Subscription"><a ui-sref="subscription" >Subscription form</a></li>
-                      <li ng-if="lgin.getSubscription == true || lgin.serviceSubscription == true " aria-label="Profile"><a ui-sref="profile.courses" >Profile</a></li>
-                      <li aria-label="Log out"><a ng-click="lgin.authService.logout()">Logout</a></li>
+                      <li ng-if="lgin.getSubscription == false || lgin.serviceSubscription == false" aria-label="Subscription"><a ui-sref="subscription" translate="BRANDING_AND_NAV.SUBSCRIPTION"></a></li>
+                      <li ng-if="lgin.getSubscription == true || lgin.serviceSubscription == true " aria-label="Profile"><a ui-sref="profile.courses" translate="BRANDING_AND_NAV.PROFILE"></a></li>
+                      <li aria-label="Log out"><a ng-click="lgin.authService.logout()" translate="BRANDING_AND_NAV.LOGOUT"></a></li>
                     </ul>
             <li>
 

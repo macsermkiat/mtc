@@ -5,7 +5,7 @@ var app = angular.module('mtcApp', 	['ui.router',
 									 'ngFileUpload',
 									 'auth0.lock',
 									 'angularSpinners',
-									 
+									 'pascalprecht.translate',
 									 // 'auth0',
 									 'angular-jwt',
 									 'ngSanitize', 
@@ -14,7 +14,7 @@ var app = angular.module('mtcApp', 	['ui.router',
 									 'duScroll']);
 
 
-function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $locationProvider, $httpProvider, $stateProvider, $urlRouterProvider) {
+function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $locationProvider, $httpProvider, $stateProvider, $urlRouterProvider, $translateProvider) {
 
 	lockProvider.init({
       domain: 'royyak.auth0.com',
@@ -47,6 +47,8 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
   	  return localStorage.getItem('id_token');
   	}
 
+  	
+
 	$stateProvider
 	// .state('mtc', {
 	// 	templateUrl: 'home/mtc.view.html',
@@ -60,6 +62,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		controllerAs :'vm'
 		// parent: 'mtc'
 	})
+	
 	.state('profile', {
 		// abstract: true,
 		url: '/profile',
@@ -90,6 +93,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 	.state('pricing', {
 		url: '/pricing',
 		templateUrl: 'home/pricing.html'
+		// controller: 'priceController'
 		// parent: 'mtc'
 	})
 	// .state('newsletter', {
@@ -149,18 +153,55 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 	$urlRouterProvider.otherwise('home');
 
 	$locationProvider.html5Mode(true);
+	// $locationProvider.hashPrefix('!');
 
 	// lockProvider.init({
 	//     clientID: 2m8hbwYC8UdyjITdKGDptrRvF6BXweY7,
 	//     domain: royyak.auth0.com
  //  	});
+//  	$translateProvider.useLoader('$translatePartialLoader', {
+//       urlTemplate: 'translate/local-{part}.json'
+//     });
+
+//   	$translateProvider.preferredLanguage('th-TH');
  	
-};
+// };
+	// $translateProvider.useStaticFilesLoader({
+	// 	prefix: '/translate/local-',
+	// 	suffix: '.json'
+	// });
+
+
+	// i18n
+	var fileNameConvention = {
+	  prefix: '/translate/local-',
+	  suffix: '.json'
+	};
+	$translateProvider.preferredLanguage('en');
+	 var langMap = {
+      'en_AU': 'en',
+      'en_CA': 'en',
+      'en_NZ': 'en',
+      'en_PH': 'en',
+      'en_UK': 'en',
+      'en_US': 'en',
+      'th_TH': 'th'
+  	};
+
+	  $translateProvider
+	    .useStaticFilesLoader(fileNameConvention)
+	    .registerAvailableLanguageKeys(['en', 'th'], langMap)
+	    .determinePreferredLanguage()
+	    .fallbackLanguage(['en'])
+	    // .useCookieStorage() // Store the user's lang preference
+    	.useSanitizeValueStrategy('sanitizeParameters'); // Prevent hacking of interpoloated strings
+
+	};
 
 
 
 
-app.config(['lockProvider', 'jwtOptionsProvider', 'jwtInterceptorProvider', '$locationProvider', '$httpProvider', '$stateProvider', '$urlRouterProvider', config]);
+app.config(['lockProvider', 'jwtOptionsProvider', 'jwtInterceptorProvider', '$locationProvider', '$httpProvider', '$stateProvider', '$urlRouterProvider', '$translateProvider', config]);
 
 // app.run(function(auth) {
 //     auth.hookEvents();

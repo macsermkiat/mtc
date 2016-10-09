@@ -6,12 +6,18 @@
     .module('mtcApp')
     .controller('loginController', loginController);
 
-    loginController.$inject = ['authService', '$sce', '$rootScope', '$scope', '$state', '$timeout'];
+    loginController.$inject = ['authService', '$translate', '$rootScope', '$scope', '$state', '$timeout'];
 
-    function loginController(authService, $sce, $rootScope, $scope, $state, $timeout) {
+    function loginController(authService, $translate, $rootScope, $scope, $state, $timeout) {
 
       var lgin = this;
       lgin.authService = authService;
+
+      // i18n
+     
+      lgin.changeLanguage = function(langKey) {
+            $translate.use(langKey);
+      };
       
 
       // Set the user profile when the page is refreshed
