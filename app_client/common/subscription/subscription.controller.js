@@ -52,7 +52,7 @@ angular
 				lineid : formData.lineid,
 				idnumber : formData.idnumber,
 				education: formData.education,
-			    term: formData.term
+			    terms: formData.terms
 			}).then(function(success){
 						vm.doAddNewsLetter(formData);	
 						vm.isDisabled = true;
@@ -70,7 +70,7 @@ angular
     					return error[key];	
 						});					
 						console.log(vals[0].message);
-						$scope.formError = "Your edit has not been saved, try again. Possible from duplicate data.";
+						vm.formError = "Your edit has not been saved, try again. Possible from duplicate data.";
 					});
 		return false;
 		};

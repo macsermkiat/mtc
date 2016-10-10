@@ -24,7 +24,7 @@ var userSchema = new mongoose.Schema({
 			type: String
 		},
 		telephone: {
-			type: String,
+			type: Number,
 			required: true
 		},
 		lineid: {

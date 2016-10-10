@@ -27,7 +27,7 @@ module.exports.requestCoach = function(req, res) {
 		  Message: 'You got a matching request. Please check Email at ' + req.body.email
 		            + ' or contact MatchTheCoach',
 		  MessageStructure: 'string',
-		  PhoneNumber: '+66' + req.body.phone
+		  PhoneNumber: '+66' + userTelephone
 		};
 		var sns = new AWS.SNS();
 	    
@@ -45,11 +45,12 @@ module.exports.requestCoach = function(req, res) {
 		sns.publish(params, function(err, data) {
 		  if (err) {
 		  	console.log(err, err.stack);
-		  	// return sendJSONresponse(res, 404, error);
+		  	// return sendJSONresponse(res, 500, err);
+		  	return err;
 		     // an error occurred
 		  } else {
 		  	console.log(data);           // successful response
-		  	// return sendJSONresponse(res, 200, data);
+			// return sendJSONresponse(res, 200, data);
 		  }    
 		});
 	};
@@ -109,7 +110,7 @@ module.exports.requestCoach = function(req, res) {
 		       console.log(error);
 		       return sendJSONresponse(res, 404, error);
 		   }else{
-		       console.log("Message sent: " + info.response);
+		       console.log("Message sent to " + userEmail + " : " + info.response);
 		       return sendJSONresponse(res, 200, info);
 		   };
 
@@ -140,6 +141,7 @@ module.exports.requestCoach = function(req, res) {
                     ,function(err)   {
                       if (err) {
                         console.log(err);
+                        
                       }else{
                         console.log("Success add in UserSchema");
                       }
@@ -154,6 +156,7 @@ module.exports.requestCoach = function(req, res) {
                     ,function(err)   {
                       if (err) {
                         console.log(err);
+                        
                       }else{
                         console.log("Success add request in CoachSchema");
                       }
@@ -173,14 +176,17 @@ module.exports.requestCoach = function(req, res) {
           sendEMail(req, res), function(err)   {
                       if (err) {
                         console.log(err);
+                        
                       }else{
                         console.log("Success send Email");
                       }
           }
         }
       ], function(err, coach) {
+      	console.log("The coach is" + coach);
+      	console.log("The error is" + err)
         if (err) {
-          console.log(err);
+          
           sendJSONresponse(res, 400, err);
         } else {
           console.log(coach + "save done");

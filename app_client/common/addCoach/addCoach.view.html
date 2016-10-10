@@ -126,7 +126,7 @@
 			<div class="form-group">
 				<label for="time" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.TIME" | translate}}<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
-					<input id="time" name="time" ng-model="vm.formData.time" class="form-control" placeholder="Weekday, Sunday, or Any" aria-labelledby="Time of class">
+					<textarea rows="3" cols="30" id="time" name="time" ng-model="vm.formData.time" class="form-control" placeholder="Weekday, Sunday, or Any" aria-labelledby="Time of class">
 					<div class="help-block" ng-messages="vm.addCoach.time.$error" ng-if="vm.addCoach.time.$touched">
 					    <div ng-messages-include="/common/addCoach/messages.html"></div>
 					</div>
@@ -189,6 +189,9 @@
 								<optgroup label="Research">
 								<option>Statistics</option>
 								<option>Methodology</option>
+								</optgroup>
+								<optgroup label="Others (we will add for you)">
+								<option>Others</option>
 								</optgroup>
 								</select>
 								

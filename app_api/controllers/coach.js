@@ -444,7 +444,9 @@ module.exports.usersCreate = function(req, res) {
     lineid : req.body.lineid,
     idnumber : req.body.idnumber,
     education: req.body.education,
-    term: req.body.term
+    criminal : false,
+    idcard: false,
+    terms: req.body.terms
   });
 
   userSave.save(function(err, user) {

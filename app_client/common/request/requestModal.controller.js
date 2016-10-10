@@ -4,9 +4,9 @@ angular
 .module('mtcApp')
 .controller('requestModalCtrl', requestModalCtrl);
 
-requestModalCtrl.$inject = ['$uibModalInstance', 'mtcData', 'coachData'];
+requestModalCtrl.$inject = ['$uibModalInstance', 'mtcData', 'coachData', '$timeout'];
 
-function requestModalCtrl ($uibModalInstance, mtcData, coachData) {
+function requestModalCtrl ($uibModalInstance, mtcData, coachData, $timeout) {
 	
 	var vm = this;
 	vm.coachData = coachData;
@@ -44,13 +44,20 @@ function requestModalCtrl ($uibModalInstance, mtcData, coachData) {
 			phone : formData.phone,
 			email : formData.email
 		})
-		.success(function (data) {
-			vm.uibModal.close(data);
-		})
-		.error(function (data) {
+		.then(function(success) {
+			console.log(success);
+			vm.formError = "Your request has been sent";
+			vm.uibModal.close(success);
+		}, function(error) {
 			vm.formError = "Your request has not been sent, try again";
-		});
-		return false;
+		})
+		// .success(function (data) {
+		// 	vm.uibModal.close(data);
+		// })
+		// .error(function (data) {
+		// 	vm.formError = "Your request has not been sent, try again";
+		// });
+		// return false;
 	};
 
 	vm.uibModal = {
