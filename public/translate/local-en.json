@@ -1,4 +1,7 @@
 {
+  "META": {
+    "TITLE": "Match the Coach: Easiest place to find coach and tutor"
+  },
   "BRANDING_AND_NAV": {
     "HOME": "Home",
     "HOW-TO": "How to",
@@ -128,7 +131,10 @@
     },
     "TEXT" : {
       "PIC" : "Please wait picture to<strong> Load</strong> and<strong> Submit</strong> the picture before continue fill in the form."
-
     }
+  },
+  "PROFILE" :{
+      "TEXT-1" :"Please provide us a photo or copy of your ID card or passport, and criminal record check.",
+      "TEXT-2" :"Benefit to increase your credit and rate of matching."
   }
 } 

@@ -57,6 +57,7 @@
                                           </li>										   
                                       </ul>
                             </div>
+
 						<!-- 	<div class="col-lg-2 col-sm-6 follow-info weather-category" style="font-size: 20px;">
                                       <ul>
                                           <li class="active">      
@@ -64,6 +65,10 @@
                                           </li>										   
                                       </ul>
                             </div> -->
+                          </div>
+                          <div ng-if="user.result.criminal != true || user.result.idcard != true">
+                          <p translate="PROFILE.TEXT-1"></p>
+                          <p translate="PROFILE.TEXT-2"></p>
                           </div>
                     </div>
                 </div>
