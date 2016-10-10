@@ -4,9 +4,10 @@
 	
 	
 	<div class ="row white centered">
-
-	<h1 style="margin-bottom: 40px" translate="FORM.HEAD.SUBSCRIPTION"></h1>
-	<h5 translate="FORM.HEAD.PRIVACY"></h5><br>
+	<div class="col-xs-12">
+		<h1 style="margin-bottom: 40px" translate="FORM.HEAD.SUBSCRIPTION"></h1>
+		<h5 translate="FORM.HEAD.PRIVACY"></h5><br>
+	</div>
 	<form id="subscription" name="vm.subscription" role="form" ng-submit="vm.onSubmit()"
 	class="container form-horizontal" novalidate>
 		<div class="form-group" ng-class="{ 'has-error': vm.subscription.name.$touched  && vm.subscription.name.$invalid }">
@@ -39,7 +40,7 @@
 		<div class="form-group" ng-class="{ 'has-error': vm.subscription.telephone.$touched  && vm.subscription.telephone.$invalid }">
 			<label for="telephone" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.MOBILE" | translate}}<span class="required">*</span></label>
 			<div class="col-xs-9 col-sm-10">
-				<input id="telephone" name="telephone" required ng-model="vm.formData.telephone" class="form-control" value="+66" placeholder="eg. +66xx-xxxxxxx">
+				<input id="telephone" name="telephone" required ng-model="vm.formData.telephone" class="form-control" value="+66" placeholder="eg. 0xx-xxx-xxxx">
 				<div class="help-block" ng-messages="vm.subscription.telephone.$error" ng-if="vm.subscription.telephone.$touched">
 				    <div ng-messages-include="/common/addCoach/messages.html"></div>
 				</div>

@@ -4,9 +4,9 @@ angular
 	.module('mtcApp')
 	.controller('subscriptionCtrl', subscriptionCtrl);
 
-	subscriptionCtrl.$inject = ['userService', '$state', '$timeout','Upload','$scope', 'awsPolicy', 'mtcData'];
+	subscriptionCtrl.$inject = ['userService', '$state', '$timeout','$window', 'Upload','$scope', 'awsPolicy', 'mtcData'];
 
-	function subscriptionCtrl (userService, $state, $timeout, Upload, $scope, awsPolicy, mtcData) {
+	function subscriptionCtrl (userService, $state, $timeout, $window, Upload, $scope, awsPolicy, mtcData) {
 		var vm = this;
 		
 		var sign =awsPolicy.getSign();
@@ -63,6 +63,8 @@ angular
 						localStorage.setItem('subscription', true);
 						$timeout (function(){
 							$state.go('/');},2000);
+						$timeout (function(){
+							$window.location.reload();},2500);
 					}, function(error) {
 						var vals = Object.keys(error).map(function (key) {
     					return error[key];	

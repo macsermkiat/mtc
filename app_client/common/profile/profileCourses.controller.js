@@ -54,7 +54,7 @@ function profileCoursesController($state, $http, mtcData) {
 			mtcData.deleteCoach(coachid)
 			.then(function(success) {
 				console.log("Delete");
-				$state.go('profile');
+				$state.go('profile.bio');
 			}, function(error) {
 				console.log("error: " + error);
 			})

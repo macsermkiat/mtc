@@ -7,7 +7,7 @@
     "BECOME-COACH": "สมัครเป็นโค้ช",
     "PRICING": "ราคา",
     "SIGNIN": "ลงชื่อเข้าใช้งาน",
-    "SET-LANG": "ภาษา",
+    "SET-LANG": "Language",
     "LOGOUT": "ลงชื่ออก",
     "SUBSCRIPTION": "ลงทะเบียนใช้งาน",
     "PROFILE": "โปรไฟล์"
@@ -116,7 +116,7 @@
       "LEVEL": "ระดับของนักเรียน",
       "CATEGORY": "กลุ่มรายวิชา",
       "PREPARATION": "การเตรียมตัวของนักเรียน",
-      "VDO": "Youtube VDOแนะนำตัวหรือการสอน"
+      "VDO": "Youtube VDO แนะนำตัวหรือการสอน"
     },
     "TEXT" : {
       "PIC" : "กรุณารอให้รูปโหลดขึ้นบนจอแล้วกดปุ่ม<strong> Submit </strong>ก่อนจะกรอกแบบฟอร์มต่อ"

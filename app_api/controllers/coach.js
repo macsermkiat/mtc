@@ -253,7 +253,7 @@ module.exports.usersCourse = function(req, res) {
 module.exports.usersBio = function(req, res) {
       console.log('Get User Bio');
       // if (req.params && req.params.coachid)
-      console.log(req.params);
+      console.log("The request params is " + req.params.id);
       var id = req.params.id || req.params.userid;
       console.log("My ID " + id);
       User.find({identity: id })

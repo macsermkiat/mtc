@@ -22,12 +22,12 @@ angular
 
 		$scope.onSubmit = function () {
 			$scope.formError = "";
-				if(!$scope.result.name || !$scope.result.surname || !$scope.result.email ||
-					!$scope.result.idnumber || !$scope.result.telephone) { 
+				if(!$scope.user.result.name || !$scope.user.result.surname || !$scope.user.result.email ||
+					!$scope.user.result.idnumber || !$scope.user.result.telephone) { 
 				$scope.formError = "All fields required, please try again";
 					return false;
 				} else {
-					var data =$scope.result;
+					var data =$scope.user.result;
 					$scope.doEdit(data);			
 				}	
 		};	
@@ -52,7 +52,7 @@ angular
 				}).then(function(success){
 					$scope.message.success = true;
 					$timeout(function () {
-				    	vm.message.success = false;
+				    	$scope.message.success = false;
 							}, 2000);
 					localStorage.setItem('subscription', true);
 					$timeout (function(){

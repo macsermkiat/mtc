@@ -87,8 +87,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 	.state('profile.edit', {
 		url: '/edit',
 		templateUrl: 'common/profile/profile.edit.template.html',
-		controller: 'profileEditController',
-		controllerAs: 'vm'
+		controller: 'profileEditController'
 	})
 	.state('pricing', {
 		url: '/pricing',
@@ -191,7 +190,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 	  $translateProvider
 	    .useStaticFilesLoader(fileNameConvention)
 	    .registerAvailableLanguageKeys(['en', 'th'], langMap)
-	    .determinePreferredLanguage()
+	    .preferredLanguage('th')
 	    .fallbackLanguage(['en'])
 	    // .useCookieStorage() // Store the user's lang preference
     	.useSanitizeValueStrategy('sanitizeParameters'); // Prevent hacking of interpoloated strings

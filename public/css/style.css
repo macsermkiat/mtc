@@ -275,3 +275,8 @@
 blockquote p {
   color: white;
 }
+
+.whitenav {
+  font-size:17px; 
+  color:white !important;
+} 

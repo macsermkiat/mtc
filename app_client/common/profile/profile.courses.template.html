@@ -58,9 +58,13 @@
                         </div>
                           <!-- <button type="button" class="btn btn-warning btn-sm hidden-sm hidden-md hidden-lg">Edit</button>  -->
                         
-                        <div class="edit-delete">      
+                        <div class="edit-delete hidden-xs">      
                           <a type="button" class="btn btn-danger btn-block"
                           ng-click="user.deleteCourse(coach._id, coach.shortDescription)">Delete</a>
+                        </div>
+                        <div class="edit-delete hidden-sm hidden-md hidden-lg">      
+                          <a type="button" class="btn btn-danger btn-block"
+                          ng-click="user.deleteCourse(coach._id, coach.shortDescription)">Del</a>
                         </div>
                       </div>
                     </div>                  

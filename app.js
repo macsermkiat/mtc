@@ -48,7 +48,8 @@ app.use(serveStatic(path.join(__dirname, 'node_modules')));
 app.use(serveStatic(path.join(__dirname, 'app_client')));
 
 
-app.use(require('prerender-node').set('prerenderToken', 'i5Uhp4xa01We82OcbRPp'));
+// app.use(require('prerender-node').set('prerenderToken', 'i5Uhp4xa01We82OcbRPp'));
+
 // app.use(function(req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "*");
 //   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
