@@ -130,6 +130,7 @@
 					<div class="help-block" ng-messages="vm.addCoach.time.$error" ng-if="vm.addCoach.time.$touched">
 					    <div ng-messages-include="/common/addCoach/messages.html"></div>
 					</div>
+					</textarea>
 				</div>
 			</div>
 			
@@ -143,7 +144,7 @@
 				<label for="category" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.CATEGORY" | translate}}<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
 					<div class="input-group">
-						<input type="text" id="category" name="category" required ng-model="vm.formData.category" ng-change="vm.xxx =vm.formData.category" class="form-control" placeholder="Browse form a list or add a new one if not available" aria-labelledby="category">
+						<input type="text" id="category" name="category" required ng-model="vm.formData.category" ng-change="vm.xxx =vm.formData.category" class="form-control" translate-attr="{ placeholder : 'FORM.PLACEHOLD.CAT' }" aria-labelledby="category">
 						<span class="input-group-addon" style="padding:0 5px;border:0;width:25%;">
 								<select class="form-control" ng-model="vm.formData.category"  placeholder="Category" >
 								<option>-- choose category --</option>

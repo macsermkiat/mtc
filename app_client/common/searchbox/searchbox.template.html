@@ -5,7 +5,7 @@
             <div class="input-group stylish-input-group" ng-submit="vm.onSubmit()">
                 <!-- <pre>Model: {{vm.text| json}}</pre> -->
 
-                <input type="text" class="form-control"  placeholder="Search" name="text" 
+                <input type="text" class="form-control"  translate-attr="{ placeholder : 'FORM.PLACEHOLD.SEARCHBOX' }" name="text" 
                 ng-model="vm.text"                 
                 typeahead-loading="loadingSearch"
                 typeahead-no-results="noResults"                

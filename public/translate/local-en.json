@@ -131,6 +131,10 @@
     },
     "TEXT" : {
       "PIC" : "Please wait picture to<strong> Load</strong> and<strong> Submit</strong> the picture before continue fill in the form."
+    },
+    "PLACEHOLD" : {
+      "SEARCHBOX" : "search from subject",
+      "CAT" : "Choose from a menu or create new. If not sure, put in 'others'."
     }
   },
   "PROFILE" :{
