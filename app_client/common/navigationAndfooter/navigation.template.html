@@ -5,8 +5,8 @@
       <div class="container">
         <div class="navbar-header">
            
-           <button class="navbar-toggle" >
-              <a href="#" class="dropdown-toggle whitenav"  id="navtopspace" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span translate="BRANDING_AND_NAV.SET-LANG"></span><span class="caret whitenav"></span></a>
+           <button class="navbar-toggle noborder">
+              <a href="#" class="dropdown-toggle whitenav"  id="navtopspace" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span translate="BRANDING_AND_NAV.SET-LANG" ></span><span class="caret whitenav"></span></a>
               <ul class="dropdown-menu">
                 <li>
                   <a href="#" ng-click="lgin.changeLanguage('en')">English</a>
@@ -16,9 +16,9 @@
                 </li> 
               </ul>
             </button> 
-          <button class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-2">
+          <button class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-2" style="border: none; height:40px">
             
-            <span class="sr-only">Toggle navigation</span>
+            <span class="sr-only" >Toggle navigation</span>
                     
             <span ng-if="!lgin.isAuthenticated" class="glyphicon glyphicon-user whitenav"></span>
             <span ng-if="lgin.isAuthenticated" class="dropdown float-right">
@@ -26,20 +26,21 @@
                     <strong hidden="hidden-xs">{{lgin.profile.name}}&nbsp</strong>
                     <img ng-src="{{lgin.profile.picture}}" alt="{{lgin.profile.name}}" height="28" width="28">
                     <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
+                    <ul class="dropdown-menu" role="menu" >
                       <li ng-if="lgin.getSubscription == false || lgin.serviceSubscription == false " aria-label="Subscription"><a ui-sref="subscription" translate="BRANDING_AND_NAV.SUBSCRIPTION"></a></li>
                       <li ng-if="lgin.getSubscription == true || lgin.serviceSubscription == true" aria-label="Profile"><a ui-sref="profile.courses" translate="BRANDING_AND_NAV.PROFILE"></a></li>
                       <li aria-label="Log out"><a ng-click="lgin.authService.logout()" translate="BRANDING_AND_NAV.LOGOUT"></a></li>
                     </ul>
             <span>
           </button>
-          <button class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1" style="margin-top:12px;">
+          <button class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1" style="margin-top:12px; border: none; height:40px">
              <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+
           </button>
-          <a class="navbar-brand mtcbrand navtopspace" href="/#home" du-smooth-scroll id="navtopspace"><img ng-src="../image/mtc-tp.png" alt="Match The Coach brand"></a>
+          <a class="navbar-brand navtopspace mtcbrand" href="/#home" du-smooth-scroll><img ng-src="../image/mtc-tp.png" alt="Match The Coach brand"></a>
 
         </div>
 

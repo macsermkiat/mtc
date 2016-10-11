@@ -572,6 +572,14 @@ a:after {
     }
 }
 
+.noborder{
+    border: none !important;
+}
+
+.mtcbrand {
+    padding :0;
+}
+
 /*Style*/
 
 .review {padding-bottom: 5px;}
