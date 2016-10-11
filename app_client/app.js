@@ -6,6 +6,7 @@ var app = angular.module('mtcApp', 	['ui.router',
 									 'auth0.lock',
 									 'angularSpinners',
 									 'pascalprecht.translate',
+									 'ngMeta',
 									 // 'auth0',
 									 'angular-jwt',
 									 'ngSanitize', 
@@ -14,12 +15,19 @@ var app = angular.module('mtcApp', 	['ui.router',
 									 'duScroll']);
 
 
-function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $locationProvider, $httpProvider, $stateProvider, $urlRouterProvider, $translateProvider) {
+function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $locationProvider, $httpProvider, $stateProvider, $urlRouterProvider, $translateProvider, ngMetaProvider) {
 
 	lockProvider.init({
       domain: 'royyak.auth0.com',
       clientID: '2m8hbwYC8UdyjITdKGDptrRvF6BXweY7',
       options: {
+      	theme: {
+      		logo: 'image/mtc-tp.png'
+      	},
+      	 languageDictionary: {
+   			 title: "Match The Coach"
+  		}
+
     	// auth: {
      //  		redirect: false
      //  		// params: {
@@ -59,7 +67,11 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		url: '/',
 		templateUrl: 'home/home.view.html',
 		controller: 'homeCtrl',
-		controllerAs :'vm'
+		controllerAs :'vm',
+		meta: {
+	        'title': 'หาติวเตอร์ หรือโค้ชอย่างง่ายดาย: Match The Coach',
+	        'description': 'Find the tutor or coach in various subjects.'
+      	}
 		// parent: 'mtc'
 	})
 	
@@ -68,7 +80,11 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		url: '/profile',
 		templateUrl: 'common/profile/profile.template.html',
 		controller: 'profileController',
-		controllerAs: 'user'
+		controllerAs: 'user',
+		meta: {
+	        'title': 'Match the Coach : User profile',
+	        'description': 'Find the tutor or coach in various subjects.'
+      	}
 		// parent: 'mtc'
 		// template: '<ui-view>'
 	})
@@ -76,22 +92,38 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		url: '/courses',
 		templateUrl: 'common/profile/profile.courses.template.html',
 		controller: 'profileCoursesController',
-		controllerAs: 'user'
+		controllerAs: 'user',
+		meta: {
+	        'title': 'Match the Coach : Courses generate by user',
+	        'description': 'Find the tutor or coach in various subjects.'
+      	}
 	})
 	.state('profile.bio', {
 		url: '/bio',
 		templateUrl: 'common/profile/profile.bio.template.html',
 		controller: 'profileController',
-		controllerAs: 'user'
+		controllerAs: 'user',
+		meta: {
+	        'title': 'Match the Coach : User bio',
+	        'description': 'Find the tutor or coach in various subjects.'
+      	}
 	})
 	.state('profile.edit', {
 		url: '/edit',
 		templateUrl: 'common/profile/profile.edit.template.html',
-		controller: 'profileEditController'
+		controller: 'profileEditController',
+		meta: {
+	        'title': 'Match the Coach : Profile edit',
+	        'description': 'Find the tutor or coach in various subjects.'
+      	}
 	})
 	.state('pricing', {
 		url: '/pricing',
-		templateUrl: 'home/pricing.html'
+		templateUrl: 'home/pricing.html',
+		meta: {
+	        'title': 'Match the Coach : Pricing',
+	        'description': 'Pricing'
+      	}
 		// controller: 'priceController'
 		// parent: 'mtc'
 	})
@@ -107,20 +139,32 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		templateUrl: 'common/search/search.view.html',
 		controller: 'searchCtrl',
 		controllerAs : 'vm',
+		meta: {
+	        'title': 'Match the Coach : Searching for courses',
+	        'description': 'Find the tutor or coach in various subjects.'
+      	}
 		// parent: 'mtc'	
 	})
 	.state('coachDetail', {
 		url: '/coaches/:coachid',
 		templateUrl: 'common/coachDetail/coachDetail.view.html',
 		controller: 'coachDetailCtrl',
-		controllerAs : 'vm'
+		controllerAs : 'vm',
+		meta: {
+	        'title': 'Match the Coach : Course detail',
+	        'description': 'Find the tutor or coach in various subjects.'
+      	}
 		// parent: 'mtc'
 	})
 	.state('userDetail', {
 		url: '/user/:userid',
 		templateUrl: 'common/coachDetail/userDetail.view.html',
 		controller: 'userDetailController',
-		controllerAs : 'user'
+		controllerAs : 'user',
+		meta: {
+	        'title': 'Match the Coach : Coach detail',
+	        'description': 'Find the tutor or coach in various subjects.'
+      	}
 		// parent: 'mtc'
 	})
 	
@@ -128,7 +172,11 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		url: '/coachEdit/:coachid',
 		templateUrl: 'common/addCoach/addCoach.view.html',
 		controller: 'coachEditCtrl',
-		controllerAs : 'vm'
+		controllerAs : 'vm',
+		meta: {
+	        'title': 'Match the Coach : Coach edit',
+	        'description': 'Find the tutor or coach in various subjects.'
+      	}
 		// parent: 'mtc'
 	})
 	.state('addCoach', {		
@@ -136,14 +184,22 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		templateUrl: 'common/addCoach/addCoach.view.html',
 		controller: 'addCoachCtrl',
 		controllerAs: 'vm',
-		redirectTo: 'addPic'
+		redirectTo: 'addPic',
+		meta: {
+	        'title': 'Match the Coach : Add a new course',
+	        'description': 'Find the tutor or coach in various subjects.'
+      	}
 		// parent: 'mtc'
 	})
 	.state('subscription', {		
 		url: '/subscription',
 		templateUrl: 'common/subscription/subscription.template.html',
 		controller: 'subscriptionCtrl',
-		controllerAs: 'vm'
+		controllerAs: 'vm',
+		meta: {
+	        'title': 'Match the Coach : Subscription',
+	        'description': 'Find the tutor or coach in various subjects.'
+      	}
 		// parent: 'mtc'
 	})
 	
@@ -184,7 +240,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 
 
 
-app.config(['lockProvider', 'jwtOptionsProvider', 'jwtInterceptorProvider', '$locationProvider', '$httpProvider', '$stateProvider', '$urlRouterProvider', '$translateProvider', config]);
+app.config(['lockProvider', 'jwtOptionsProvider', 'jwtInterceptorProvider', '$locationProvider', '$httpProvider', '$stateProvider', '$urlRouterProvider', '$translateProvider', 'ngMetaProvider', config]);
 
 
 app.run(function($rootScope, $state, authService, authManager, lock) {
@@ -220,5 +276,8 @@ app.run(function($anchorScroll, $window, $rootScope) {
 	});
 });
 
+app.run(function(ngMeta) {
+	ngMeta.init();
+});
 
 })();
