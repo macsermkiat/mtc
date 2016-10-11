@@ -73,36 +73,13 @@
             localStorage.setItem('profile', JSON.stringify(profile));
           };
           return;
-      
-    //       var id_token = localStorage.getItem('id_token');
-    //       if (id_token) {
-    // // the user is logged in, we show the nickname
-            
-    //         // lgin.profile = JSON.parse(localStorage.getItem('profile'));
-    //         // document.getElementById('profile').textContent = profile.nickname;
-    //       } else {
-    //         // the user is not logged in, we show a button to log in (asumming
-    //         //  it was hidden)
-    //         document.getElementById('loginBtn').style = "visibilty: visible";
-    //       }
+
         });
 
        
        
        
       });
-
-      // document.getElementById('btn-login').addEventListener('click', function() {
-      //   lock.show();
-      // });
-    //   vm.isLoggedIn = function() {
-      //   var token = localStorage.getItem('idToken');
-      //     if (token) {
-      //       showLoggedIn();
-      //     } else {
-      //       return false;
-      //     }
-      // };
 
         // Display the user's profile
       lgin.addCoach = function(val) {
@@ -114,21 +91,6 @@
       };
 
 
-      // function showLoggedIn() {
-      //     var profile = JSON.parse(localStorage.getItem('profile'));
-          
-      //     document.getElementById('nick').textContent = profile.nickname;
-      // };
-        
-    //   vm.onLogin = function() {
-    //     activate();
-    //   };
-
-    //   vm.activate = function() {
-    //       lock.show();
-    //   };
-      
-    // }
   };
 
 

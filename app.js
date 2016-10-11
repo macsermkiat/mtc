@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 var serveStatic = require('serve-static');
 var jwt = require('express-jwt');
 var AWS = require('aws-sdk');
+var uglifyJs = require("uglify-js");
+var fs = require('fs');
 // var wellknown = require("nodemailer-wellknown");
 
 
@@ -47,14 +49,39 @@ app.use(serveStatic(path.join(__dirname, 'public')));
 app.use(serveStatic(path.join(__dirname, 'node_modules')));
 app.use(serveStatic(path.join(__dirname, 'app_client')));
 
+var appClientFiles = [
+        './app_client/common/services/mtcData.service.js',
+        './app_client/common/services/user.service.js',
+        './app_client/common/auth/auth.service.js',
+        './app_client/home/home.controller.js',
+        './app_client/common/request/requestModal.controller.js',
+        './app_client/common/profile/initialValue.directive.js',
+        './app_client/common/profile/profile.controller.js',
+        './app_client/common/profile/profileCourses.controller.js',
+        './app_client/common/profile/profileBio.controller.js',
+        './app_client/common/profile/profileEdit.controller.js',
+        './app_client/common/profile/coachEdit.controller.js',
+        './app_client/common/subscription/subscription.controller.js',
+        './app_client/common/search/search.controller.js',
+        './app_client/common/coachDetail/coachDetail.controller.js',
+        './app_client/common/coachDetail/userDetail.controller.js',
+        './app_client/common/addCoach/addCoach.controller.js',
+        './app_client/common/navigationAndfooter/navigation.directive.js',
+        './app_client/common/navigationAndfooter/footerGeneric.directive.js',
+        './app_client/common/searchbox/searchbox.controller.js',
+        './app_client/common/searchbox/searchbox.directive.js',
+        './app_client/common/services/awsPolicy.service.js',
+        './app_client/common/login/login.controller.js'
+    ];
+var uglified = uglifyJs.minify(appClientFiles, { compress : false });
 
-// app.use(require('prerender-node').set('prerenderToken', 'i5Uhp4xa01We82OcbRPp'));
-
-// app.use(function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//   next();
-// });
+fs.writeFile('public/angular/mtc.min.js', uglified.code, function (err){
+    if(err) {
+    console.log(err);
+    } else {
+    console.log('Script generated and saved: mtc.min.js');
+    }
+});
 
 
 // app.use('/api', authCheck.unless({path:['/api/coaches']}));

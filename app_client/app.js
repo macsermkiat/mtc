@@ -152,23 +152,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 	$urlRouterProvider.otherwise('home');
 
 	$locationProvider.html5Mode(true);
-	// $locationProvider.hashPrefix('!');
-
-	// lockProvider.init({
-	//     clientID: 2m8hbwYC8UdyjITdKGDptrRvF6BXweY7,
-	//     domain: royyak.auth0.com
- //  	});
-//  	$translateProvider.useLoader('$translatePartialLoader', {
-//       urlTemplate: 'translate/local-{part}.json'
-//     });
-
-//   	$translateProvider.preferredLanguage('th-TH');
- 	
-// };
-	// $translateProvider.useStaticFilesLoader({
-	// 	prefix: '/translate/local-',
-	// 	suffix: '.json'
-	// });
+	$locationProvider.hashPrefix('!');
 
 
 	// i18n
@@ -202,54 +186,10 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 
 app.config(['lockProvider', 'jwtOptionsProvider', 'jwtInterceptorProvider', '$locationProvider', '$httpProvider', '$stateProvider', '$urlRouterProvider', '$translateProvider', config]);
 
-// app.run(function(auth) {
-//     auth.hookEvents();
-//     });
-// app.config(function(lockProvider) {
-//   lockProvider.init({
-//     clientID: 2m8hbwYC8UdyjITdKGDptrRvF6BXweY7,
-//     domain: royyak.auth0.com
-//   });
-// });
-// app.config(function($sceDelegateProvider) {
-//   $sceDelegateProvider.resourceUrlWhitelist([
-//     'self',
-//     'https://www.youtube.com/**'
-//   ]);
-// });
-
-
-// app.run(function($rootScope, $location, authService, $state) {
-//     $rootScope.$on( "$stateChangeStart", function(event, next, current) {
-//       if ($rootScope.isAuthenticated == false) {
-//       	console.log('DENY : Redirecting to Login');
-      	
-      	
-//       	authService.login();
-//       	event.preventDefault();
-//         // no logged user, redirect to /login
-//         // if ( next.templateUrl === "partials/login.html") {
-//         } else {
-//           console.log('ALLOW');
-//           return;
-//         }
-//     });
-//  });
 
 app.run(function($rootScope, $state, authService, authManager, lock) {
 
-	// var token = $rootScope.isAuthenticated;
- //    if (token == "true") {
-      
-        	
- //          authManager.authenticate();
- //          $window.location.reload();
 
-        
- //      } else {
- //        console.log("Unauth!");
- //      };
-    
  	  lock.interceptHash();
       // Put the authService on $rootScope so its methods
       // can be accessed from the nav bar
@@ -268,23 +208,6 @@ app.run(function($rootScope, $state, authService, authManager, lock) {
       // the user to the login page
       authManager.redirectWhenUnauthenticated();
 
-      // function checkSubscribedOnRefresh() {
-      	
-      //   $rootScope.$on('$stateChangeStart', function () {
-      //     $rootScope.isSubscribed = null;
-      //     var subs = localStorage.getItem('subscription');
-      //     console.log(subs);
-      //     if (subs === true) {
-      //     	$rootScope.isSubscribed = true;
-      //     	$rootScope.$broadcast('subscriptionSet', userSubscription);
-      //     	return;
-      //     } else {
-      //     	console.log('please log in');
-      //     	return false;
-      //     }
-      //   });
-      // };
-      // checkSubscribedOnRefresh();
 
       
 
@@ -297,10 +220,5 @@ app.run(function($anchorScroll, $window, $rootScope) {
 	});
 });
 
-
-
-// app.run(function($rootscope) {
-// 	$rootScope.$on("$stateChangeError", console.log.bind(console));
-// });
 
 })();

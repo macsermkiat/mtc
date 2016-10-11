@@ -10,9 +10,7 @@ angular
 		controller: 'SearchBoxController',
 		controllerAs: 'vm'
 
-		// binding: {
-		// 	coach: '='
-		// }
+
 	});
 	
 })();

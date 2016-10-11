@@ -35,12 +35,6 @@ function userService ($http, $log, $window) {
 			return response.data;
 		});
 	};
-	// function getCourses(data) {
-	// 	return $http.get('/api/users/course', data, {params: {id:id}} )
-	// 	.then(function(response) {
-	// 		return response.data;
-	// 	});
-	// };
 
 
 	return {

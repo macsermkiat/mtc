@@ -32,23 +32,6 @@ function userDetailController($stateParams, $http, mtcData) {
 			});
 	};
 	userBio();
-
-	// function displayData() { 
-	// 		return userBio(id)
-	// 			.then(function(data, err) {
-	// 				if (err) {
-	// 					console.log (err);
-	// 				} else {
-	// 				user.data = { coach: data };
-	// 				}
-	// 			});
-	// 			// .error(function (e) {
-	// 			// 	user.message = "Sorry, something's gone wrong";
-	// 			// })
-	// };
-	// displayData();
-
-
 };
 
 })();

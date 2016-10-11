@@ -18,15 +18,7 @@ function mtcData ($http, $log) {
 
 	var allCoaches = function() {
 		return $http.get('/api/allcoaches')
-		// .then(allCoachesComplete)
-		// .catch(allCoachesFailed);
 
-		// function allCoachesComplete(response) {
-		// 	return response.data;
-		// }
-		// function allCoachesFailed(error) {
-		// 	$log.error('XHR Failed for allCoaches.' + error.data)
-		// }
 	};
 
 	var allCats = function() {
@@ -51,15 +43,6 @@ function mtcData ($http, $log) {
 		.then(function(response) {
 			return response.data;
 		})
-		// .then(createCoachComplete)
-		// .catch(createCoachFailed);
-
-		// function createCoachComplete(response) {
-		// 	return response.data;
-		// }
-		// function createCoachFailed(error) {
-		// 	$log.error('XHR Failed for allCoaches.' + error.data)
-		// }
 
 	};
 

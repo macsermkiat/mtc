@@ -29,29 +29,6 @@ function profileController($stateParams, $state, $http, userService, mtcData) {
 	var user = this;
 	user.profile = profileData;
 	user.result ="";
-	// 
-	// function userBio(id) {
-	// 		return $http.get('/api/users/bio', {params: {id: id}} )
-	// 			.then(function(response) {
-	// 				console.log("this is" + response.data);
-	// 				return response.data;
-	// 			});
-	// 	};
-		
-	// function displayData() { 
-	// 	Promise.resolve (userBio(id))
-	// 		.then(function(bio) {
-	// 			return bio;
-	// 			console.log(bio);
-	// 		}).then(function(bio) {
-	// 			$scope.result = bio[0];
-	// 			console.log($scope.result);
-	// 		});
-	// 		// .error(function (e) {
-	// 		// 	user.message = "Sorry, something's gone wrong";
-	// 		// })
-	// };
-	// displayData();
 
 	function userBio() {
 		mtcData.userById(id)

@@ -19,23 +19,7 @@ function homeCtrl ($state, mtcData, $timeout) {
 	// vm.text = "";
 	vm.message = {};
 	
-	// vm.onSubmit = function(err) {
-	// 	if (vm.text !== "") {
-	// 		// $http.get('api/coaches/search/?text=' + vm.text)
-	// 		$state.go('search', {text: vm.text})
 
-	// 		// $location.search('textSearch', vm.textSearch);
-	// 		// mtcData.SearchCategoryService(vm.textSearch)
-	// 		// .success(function(data, status, headers, config) {
-	// 		// 		alert("search results found!");
-	// 		// 		// SearchCategoryservice.searchCategory.arrSearchResults = data;
-	// 		// 	})
-	// 		// .error(function(data, status, headers, config) {
-	// 		// 		alert("Something failed!");
-	// 		// 		// SearchCategoryservice.searchCategory.arrSearchResults = [];
-	// 			// });
-	// 	}
-	// };
 
 	vm.onNewsLetter = function() {
 		vm.Error = "";
@@ -50,11 +34,7 @@ function homeCtrl ($state, mtcData, $timeout) {
 			$timeout(function () {
 			    vm.message.success = false;
 			}, 3000);
-			
-			// vm.message.success = true;
-			// $timeout(function () {
-			//     vm.message.success = false;
-			// }, 3000);		
+				
 	};	
 
 	vm.doAddNewsLetter = function (formLetter) {

@@ -54,15 +54,7 @@ function SearchBoxController ($state, mtcData, $timeout, $http) {
 		vm.text = select;
 	}
 
-	
-// Search Coach Schema	
-	// vm.searching = function(val) {
-	// 	return $http.get('/api/coaches/search', {params: {text:val}})
-	// 	.then(function(response) {
-	// 		return response.data;
-		
-	// 	});
-		
+
 
 		
 	};
