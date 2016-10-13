@@ -104,7 +104,8 @@
     "HEAD" : {
       "SUBSCRIPTION" : "Subscription form",
       "PRIVACY" : "We respect your privacy and personal data most. No sensitive data will provide to public without asking for permission.",
-      "COURSE" : "Create a course"
+      "COURSE" : "Create a course",
+      "RECOMMEND" : "You can provide multiple language info if you want to match other language speaking students"
     },
     "LABEL" : {
       "NAME": "Name",
@@ -127,10 +128,11 @@
       "LEVEL": "Level",
       "CATEGORY": "Category",
       "PREPARATION": "Preparation",
-      "VDO": "Video"
+      "VDO": "Youtube video ID <strong>(only ID)</strong>"
     },
     "TEXT" : {
-      "PIC" : "Please wait picture to<strong> Load</strong> and<strong> Submit</strong> the picture before continue fill in the form."
+      "PIC" : "Please wait picture to<strong> Load</strong> and<strong> Submit</strong> the picture before continue fill in the form.",
+      "BAHT" : "Baht"
     },
     "PLACEHOLD" : {
       "SEARCHBOX" : "search from subject",

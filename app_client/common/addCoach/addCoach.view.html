@@ -6,6 +6,7 @@
 	<div class ="row white centered">
 
 	<h1 style="margin-bottom: 40px" translate="FORM.HEAD.COURSE"></h1>
+	<p translate="FORM.HEAD.RECOMMEND"></p>
 	
 	<form name="PicForm" enctype="multipart/form-data" role="form"  class="container form-horizontal">
 		<div class="form-group" >
@@ -108,7 +109,7 @@
 				</div>
 			</div>
 			<div class="form-group" ng-class="{ 'has-error': vm.addCoach.price.$touched  && vm.addCoach.price.$invalid }">
-				<label for="price" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.PRICE" | translate}}<span class="required">*</span></label>
+				<label for="price" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.LEVEL" | translate}}<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
 					<input id="price" type="number" name="price" required ng-model="vm.formData.price" class="form-control" placeholder="THB  per course" aria-labelledby="price">
 					<div class="help-block" ng-messages="vm.addCoach.price.$error" ng-if="vm.addCoach.price.$touched">
