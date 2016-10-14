@@ -128,7 +128,7 @@
       "LEVEL": "Level",
       "CATEGORY": "Category",
       "PREPARATION": "Preparation",
-      "VDO": "Youtube video ID <strong>(only ID)</strong>"
+      "VDO": "Youtube video ID (only ID)"
     },
     "TEXT" : {
       "PIC" : "Please wait picture to<strong> Load</strong> and<strong> Submit</strong> the picture before continue fill in the form.",
