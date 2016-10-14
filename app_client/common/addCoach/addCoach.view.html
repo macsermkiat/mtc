@@ -102,7 +102,10 @@
 			<div class="form-group" ng-class="{ 'has-error': vm.addCoach.courseLength.$touched  && vm.addCoach.courseLength.$invalid }">
 				<label for="courseLength" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.LENGTH" | translate}}<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
-					<input id="courseLength" type="number" min="4" name="courseLength" required ng-model="vm.formData.courseLength" class="form-control" placeholder="hours per course" aria-labelledby="Length of course">
+					<div class="input-group">
+						<input id="courseLength" type="number" min="4" name="courseLength" required ng-model="vm.formData.courseLength" class="form-control" translate-attr="{ placeholder : 'FORM.PLACEHOLD.LENGTH' }" aria-labelledby="Length of course">
+						<span class="input-group-addon">{{"FORM.TEXT.HOURS" | translate}}</span>
+					</div>
 					<div class="help-block" ng-messages="vm.addCoach.courseLength.$error" ng-if="vm.addCoach.courseLength.$touched">
 					    <div ng-messages-include="/common/addCoach/messages.html"></div>
 					</div>
@@ -111,7 +114,10 @@
 			<div class="form-group" ng-class="{ 'has-error': vm.addCoach.price.$touched  && vm.addCoach.price.$invalid }">
 				<label for="price" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.PRICE" | translate}}<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
-					<input id="price" type="number" name="price" required ng-model="vm.formData.price" class="form-control" placeholder="THB  per course" aria-labelledby="price">
+					<div class="input-group">
+						<input id="price" type="number" name="price" required ng-model="vm.formData.price" class="form-control" placeholder="THB  per course" aria-labelledby="price">
+						<span class="input-group-addon">{{"FORM.TEXT.BAHT" | translate}}</span>
+					</div>
 					<div class="help-block" ng-messages="vm.addCoach.price.$error" ng-if="vm.addCoach.price.$touched">
 					    <div ng-messages-include="/common/addCoach/messages.html"></div>
 					</div>

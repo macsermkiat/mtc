@@ -121,7 +121,7 @@
       "COURSE-NAME": "Course name",
       "DESCRIPTION": "Course Description",
       "LOCATION": "Location",
-      "LENGTH": "Course length(Minimum 4 hours)",
+      "LENGTH": "Course length",
       "PRICE": "Price",
       "GROUP": "Group",
       "TIME": "Time",
@@ -132,11 +132,14 @@
     },
     "TEXT" : {
       "PIC" : "Please wait picture to<strong> Load</strong> and<strong> Submit</strong> the picture before continue fill in the form.",
-      "BAHT" : "Baht"
+      "BAHT" : "Baht",
+      "HOURS" : "hours"
     },
     "PLACEHOLD" : {
       "SEARCHBOX" : "search from subject",
-      "CAT" : "Choose from a menu or create new. If not sure, put in 'others'."
+      "CAT" : "Choose from a menu or create new. If not sure, put in 'others'.",
+      "LENGTH" : "Minimum 4 hours"
+
     }
   },
   "PROFILE" :{
