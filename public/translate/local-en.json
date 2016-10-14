@@ -121,7 +121,7 @@
       "COURSE-NAME": "Course name",
       "DESCRIPTION": "Course Description",
       "LOCATION": "Location",
-      "LENGTH": "Course length",
+      "LENGTH": "Course length(Minimum 4 hours)",
       "PRICE": "Price",
       "GROUP": "Group",
       "TIME": "Time",

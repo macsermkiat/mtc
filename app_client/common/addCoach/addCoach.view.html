@@ -93,7 +93,7 @@
 			<div class="form-group" ng-class="{ 'has-error': vm.addCoach.location.$touched  && vm.addCoach.location.$invalid }">
 				<label for="location" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.LOCATION" | translate}}<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
-					<input id="location" name="location" required ng-model="vm.formData.location" class="form-control" placeholder="City or Province" aria-labelledby="City">
+					<input id="location" name="location" required ng-model="vm.formData.location" class="form-control" aria-labelledby="Location">
 					<div class="help-block" ng-messages="vm.addCoach.location.$error" ng-if="vm.addCoach.location.$touched">
 					    <div ng-messages-include="/common/addCoach/messages.html"></div>
 					</div>
@@ -102,7 +102,7 @@
 			<div class="form-group" ng-class="{ 'has-error': vm.addCoach.courseLength.$touched  && vm.addCoach.courseLength.$invalid }">
 				<label for="courseLength" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.LENGTH" | translate}}<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
-					<input id="courseLength" name="courseLength" required ng-model="vm.formData.courseLength" class="form-control" placeholder="hours per course" aria-labelledby="Length of course">
+					<input id="courseLength" type="number" min="4" name="courseLength" required ng-model="vm.formData.courseLength" class="form-control" placeholder="hours per course" aria-labelledby="Length of course">
 					<div class="help-block" ng-messages="vm.addCoach.courseLength.$error" ng-if="vm.addCoach.courseLength.$touched">
 					    <div ng-messages-include="/common/addCoach/messages.html"></div>
 					</div>

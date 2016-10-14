@@ -32,7 +32,10 @@ var coachSchema = new mongoose.Schema({
     group: String,
     time: String,
     location: String,
-    courseLength: String,
+    courseLength: {
+        type: Number,
+        min: 4
+    },
     level: String,
     videoid: String,
     imageUrl: String,
