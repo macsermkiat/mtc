@@ -29,7 +29,7 @@
 
 
         lgin.getSubscription = $rootScope.isSubscribed;
-        console.log("Subscription form fill: " + lgin.getSubscription);
+        // console.log("Subscription form fill: " + lgin.getSubscription);
         // Checking whether user already fill in subscription form or not
         // lgin.getSubscription = localStorage.getItem('subscription');
       },1000);
@@ -44,7 +44,7 @@
         $timeout(function() {
         lgin.getSubscription = $rootScope.isSubscribed;
         // lgin.subscription = subscription;
-        console.log("Subscription form fill: " + lgin.getSubscription);
+        // console.log("Subscription form fill: " + lgin.getSubscription);
       },1000);
       });
 
@@ -74,7 +74,8 @@
           };
           return;
 
-        });
+        })
+       
 
        
        

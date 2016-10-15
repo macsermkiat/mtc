@@ -14,12 +14,14 @@ window.location.href = '/#' + window.location.pathname;
 
 function profileCoursesController($state, $http, mtcData) {
 	var accessData;
+	var subsciption;
 	var getAccessData = function () {	
 		if (!localStorage.getItem('profile')) {
 			alert("Please Log in");
 			$state.go('home')
 		} else {
 			accessData = localStorage.getItem('profile');
+			subscription = localStorage.getItem('subscription');
 			return accessData;
 		}	
 	};
@@ -27,7 +29,9 @@ function profileCoursesController($state, $http, mtcData) {
 	var profileData = angular.fromJson(accessData);
 	var id = profileData.identities[0].user_id;
 	var user = this;
-	
+	user.subscription = subscription;
+	var sub = localStorage.getItem('subscription');
+	user.subscription = (sub === 'true');
 	// 
 
 	function userCourses(id) {
@@ -61,6 +65,16 @@ function profileCoursesController($state, $http, mtcData) {
 		} else {
 			return false;
 		};
+	};
+
+	user.addCoach = function() {
+		var sub =  localStorage.getItem('subscription');
+		if (sub == 'false') {
+			alert("Please fill in Subscription form first");
+			$state.go('subscription');
+		} else if(sub == 'true') {
+			$state.go('addCoach');
+		}
 	};
 
 

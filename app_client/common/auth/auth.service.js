@@ -96,7 +96,8 @@
             // localStorage.setItem('subscription', JSON.stringify(subscription));
             // setUserSubscription(subscription);
             $timeout(function() {
-              $state.go('/');
+
+              $state.go('profile.bio');
               // $window.location.reload();
             },100)
             // $state.go('/');

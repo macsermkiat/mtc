@@ -29,6 +29,9 @@ function profileController($stateParams, $state, $http, userService, mtcData) {
 	var user = this;
 	user.profile = profileData;
 	user.result ="";
+	var sub = localStorage.getItem('subscription');
+	user.subscription = (sub === 'true');
+	
 
 	function userBio() {
 		mtcData.userById(id)

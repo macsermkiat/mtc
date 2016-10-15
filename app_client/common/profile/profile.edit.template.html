@@ -15,7 +15,7 @@
                       Profile
                   </a>
               </li>
-              <li class="active">
+              <li class="active" ng-if="user.subscription === true"">
                   <a ui-sref="profile.edit">
                       <i class="glyphicon glyphicon-lock"></i>
                       Personal info

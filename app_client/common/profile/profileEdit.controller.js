@@ -17,9 +17,8 @@ angular
 		var identity = profile.identities[0].user_id;
 		var id = profile.identities[0].user_id;
 		$scope.message = {};
-		$scope.isDisabled = false;
 
-
+		
 		$scope.onSubmit = function () {
 			$scope.formError = "";
 				if(!$scope.user.result.name || !$scope.user.result.surname || !$scope.user.result.email ||

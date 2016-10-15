@@ -8,7 +8,7 @@
 					<ol class="breadcrumb hidden-xs hidden-sm">
 						<li><i class="glyphicon glyphicon-home"></i><a ui-sref="/"> Home</a></li>
 						<li><i class="glyphicon glyphicon-book"></i><a ui-sref="profile.courses"> My Courses</a></li>
-						<li><i class="glyphicon glyphicon-user"></i><a ui-sref="profile.edit"> Profile</a></li>
+						<li ng-if="user.subscription === true"><i class="glyphicon glyphicon-user"></i><a ui-sref="profile.edit"> Profile</a></li>
 					</ol>
 				</div>
 			</div>

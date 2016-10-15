@@ -15,7 +15,7 @@
                       Profile
                   </a>
               </li>
-              <li class="">
+              <li ng-if="user.subscription === true">
                   <a ui-sref="profile.edit">
                       <i class="glyphicon glyphicon-lock"></i>
                       Personal Info
@@ -71,7 +71,7 @@
                     <span class="clearfix borda"></span>
                   </article>
                 </section>
-                <button><a ui-sref="addCoach">Create a course</a></button>
+                <a type="button" class="btn btn-success" ng-click="user.addCoach()">Create a course</a>
               </div>
             </div>
           </div>
