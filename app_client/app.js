@@ -69,7 +69,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		controller: 'homeCtrl',
 		controllerAs :'vm',
 		meta: {
-	        'title': 'หาติวเตอร์ หรือโค้ชอย่างง่ายดาย: Match The Coach',
+	        'title': 'Best place to find the teacher / tutor / coach in Thailand',
 	        'description': 'Find the tutor or coach in various subjects.'
       	}
 		// parent: 'mtc'
@@ -82,7 +82,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		controller: 'profileController',
 		controllerAs: 'user',
 		meta: {
-	        'title': 'Match the Coach : User profile',
+	        'title': 'User profile',
 	        'description': 'Find the tutor or coach in various subjects.'
       	}
 		// parent: 'mtc'
@@ -94,7 +94,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		controller: 'profileCoursesController',
 		controllerAs: 'user',
 		meta: {
-	        'title': 'Match the Coach : Courses generate by user',
+	        'title': 'Courses generate by user',
 	        'description': 'Find the tutor or coach in various subjects.'
       	}
 	})
@@ -104,7 +104,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		controller: 'profileController',
 		controllerAs: 'user',
 		meta: {
-	        'title': 'Match the Coach : User bio',
+	        'title': 'User bio',
 	        'description': 'Find the tutor or coach in various subjects.'
       	}
 	})
@@ -113,7 +113,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		templateUrl: 'common/profile/profile.edit.template.html',
 		controller: 'profileEditController',
 		meta: {
-	        'title': 'Match the Coach : Profile edit',
+	        'title': 'Profile edit',
 	        'description': 'Find the tutor or coach in various subjects.'
       	}
 	})
@@ -121,7 +121,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		url: '/pricing',
 		templateUrl: 'home/pricing.html',
 		meta: {
-	        'title': 'Match the Coach : Pricing',
+	        'title': 'Pricing',
 	        'description': 'Pricing'
       	}
 		// controller: 'priceController'
@@ -140,7 +140,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		controller: 'searchCtrl',
 		controllerAs : 'vm',
 		meta: {
-	        'title': 'Match the Coach : Searching for courses',
+	        'title': 'Searching for courses',
 	        'description': 'Find the tutor or coach in various subjects.'
       	}
 		// parent: 'mtc'	
@@ -151,7 +151,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		controller: 'coachDetailCtrl',
 		controllerAs : 'vm',
 		meta: {
-	        'title': 'Match the Coach : Course detail',
+	        'title': 'Course detail',
 	        'description': 'Find the tutor or coach in various subjects.'
       	}
 		// parent: 'mtc'
@@ -162,7 +162,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		controller: 'userDetailController',
 		controllerAs : 'user',
 		meta: {
-	        'title': 'Match the Coach : Coach detail',
+	        'title': 'User detail',
 	        'description': 'Find the tutor or coach in various subjects.'
       	}
 		// parent: 'mtc'
@@ -174,7 +174,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		controller: 'coachEditCtrl',
 		controllerAs : 'vm',
 		meta: {
-	        'title': 'Match the Coach : Coach edit',
+	        'title': 'Coach edit',
 	        'description': 'Find the tutor or coach in various subjects.'
       	}
 		// parent: 'mtc'
@@ -186,7 +186,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		controllerAs: 'vm',
 		redirectTo: 'addPic',
 		meta: {
-	        'title': 'Match the Coach : Add a new course',
+	        'title': 'Add a new course',
 	        'description': 'Find the tutor or coach in various subjects.'
       	}
 		// parent: 'mtc'
@@ -197,7 +197,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		controller: 'subscriptionCtrl',
 		controllerAs: 'vm',
 		meta: {
-	        'title': 'Match the Coach : Subscription',
+	        'title': 'Subscription',
 	        'description': 'Find the tutor or coach in various subjects.'
       	}
 		// parent: 'mtc'
