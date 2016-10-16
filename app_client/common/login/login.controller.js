@@ -91,6 +91,14 @@
         }
       };
 
+      lgin.becomeCoach = function() {
+        if ($rootScope.isAuthenticated === false) {
+          authService.login();
+        } else if ( $rootScope.isAuthenticated === true) {
+          $state.go('profile.bio');
+        }
+      };
+
 
   };
 

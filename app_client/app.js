@@ -74,7 +74,17 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
       	}
 		// parent: 'mtc'
 	})
-	
+	.state('become', {
+		url: '/become-a-coach',
+		templateUrl: 'home/become.view.html',
+		controller: 'loginController',
+		controllerAs :'lgin',
+		meta: {
+	        'title': 'Become a coach easily',
+	        'description': 'Steps to become a coach'
+      	}
+		// parent: 'mtc'
+	})
 	.state('profile', {
 		// abstract: true,
 		url: '/profile',

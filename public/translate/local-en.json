@@ -35,9 +35,13 @@
       "LI-C": "Request to Match!",
       "HEADING2": "Become a coach",
       "SUB2": "Simple as 1-2-3",
-      "LI-1": "Sing in and fill subscription form",
+      "LI-1": "Signin in and fill subscription form",
       "LI-2": "Create a course",
-      "LI-3": "Prepare yourself for coaching!"
+      "LI-3": "Prepare yourself for coaching!",
+      "LI-4": "Signin in",
+      "LI-5": "Fill subscription form",
+      "LI-6": "Create acourse",
+      "BUTTON": "Become a Coach now"
     },
     "DIVIDER2": {
       "HEADING": "COACHING IS AN INTERACTION",

@@ -18,6 +18,7 @@ function homeCtrl ($state, mtcData, $timeout) {
 	var vm = this;
 	// vm.text = "";
 	vm.message = {};
+
 	
 
 
