@@ -294,6 +294,7 @@ module.exports.coachesCreate = function(req, res) {
     time: req.body.time,
     courseLength: req.body.courseLength,
     location: req.body.location,
+    province: req.body.province,
     level: req.body.level,
     parent: req.body.parent,
     videoid: req.body.videoid,
@@ -539,6 +540,7 @@ module.exports.coachesUpdateOne = function(req, res) {
         coach.courseDescription = req.body.courseDescription,
         coach.preparation = req.body.preparation,
         coach.location = req.body.location,
+        coach.province = req.body.province,
         coach.videoid = req.body.videoid,
         coach.picture = req.body.pictureUrl;
         coach.save(function(err, coach) {

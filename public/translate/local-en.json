@@ -130,6 +130,7 @@
       "GROUP": "Group",
       "TIME": "Time",
       "LEVEL": "Level",
+      "PROVINCE": "Province",
       "CATEGORY": "Category",
       "PREPARATION": "Preparation",
       "VDO": "Youtube video ID (only ID)"

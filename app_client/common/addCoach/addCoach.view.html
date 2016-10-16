@@ -99,6 +99,82 @@
 					</div>
 				</div>
 			</div>
+			<div class="form-group" ng-class="{ 'has-error': vm.addCoach.province.$touched  && vm.addCoach.province.$invalid }">
+				<label for="province" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.PROVINCE" | translate}}<span class="required">*</span></label>
+				<div class="col-xs-9 col-sm-10">
+					<div class="input-group">
+						<input type="text" id="province" name="province" required ng-model="vm.formData.province" ng-change="vm.yyy =vm.formData.province" class="form-control" translate-attr="{ placeholder : 'FORM.LABEL.PROVINCE' }" aria-labelledby="province">
+						<span class="input-group-addon" style="padding:0 5px;border:0;width:40%;">
+								<select class="form-control" ng-model="vm.formData.province"  placeholder="province" >
+								
+								<optgroup label="province">
+								<option>Bangkok - กรุงเทพ</option>
+								<option>Nonthaburi - นนทบุรี</option>
+								<option>Bangkok - กรุงเทพ</option>
+								<option>Chiang Mai - เชียงใหม่</option>
+								<option>Cholburi - ชลบุรี</option>
+								<option>Phukey - ภูเก็ต</option>
+								<option>Khon Kaen - ขอนแก่น</option>
+								<option>Songkla - สงขลา</option>
+								<option>Nakorn SriThammarat - นครศรีธรรมราช</option>
+								<option>Nakorn Ratchasima - นครราชสีมา</option>
+								<option>Other province - จังหวัดอื่นๆ</option>
+								</optgroup>
+								<!-- <optgroup label="Music">
+								<option>Piano - ดนตรีเปียโน</option>
+								<option>Violin - ดนตรีไวโอลิน</option>
+								<option>Guitar - ดนตรีกีต้าร์</option>
+								<option>Drums - ดนตรีกลอง</option>
+								<option>Bass - ดนตรีเบส</option>
+								<option>Other Music - ดนตรีอื่นๆ</option>
+								</optgroup>
+								<optgroup label="School subject">
+								<option>Homework - ติวการบ้าน</option>
+								<option>Math - ติวเลข</option>
+								<option>Biology - ติวชีวะ</option>
+								<option>Physics - ติวฟิสิกส์</option>
+								<option>Chemistry - ติวเคมี</option>
+								<option>General Science - ติววิทยาศาสตร์</option>
+								<option>Entrance - ติวเตรียมสอบเอนท์</option>
+								<option>Others tutor - ติวอื่นๆ</option>
+								</optgroup>
+								<optgroup label="Sports">
+								<option>Swimming - กีฬาว่ายน้ำ</option>
+								<option>Badminton - กีฬาแบดมินตัน</option>
+								<option>Tennis - กีฬาเทนนิส</option>
+								<option>Golf - กีฬากอล์ฟ</option>
+								<option>Golf - กีฬากอล์ฟอื่นๆ</option>
+								</optgroup>
+								<optgroup label="Programming">
+								<option>C, C##</option>
+								<option>Website development</option>
+								<option>Mobile App development</option>
+								<option>React, Redux</option>
+								<option>NodeJS</option>
+								<option>Python</option>
+								</optgroup>
+								<optgroup label="Stocks market">
+								<option>Techincal</option>
+								<option>VI and Financial Analysis</option>
+								</optgroup>
+								<optgroup label="Research">
+								<option>Statistics</option>
+								<option>Methodology</option>
+								</optgroup>
+								<optgroup label="Others (we will add for you)">
+								<option>Others - อื่นๆ</option>
+								</optgroup> -->
+								</select> 
+
+						</span>	
+					
+					<div class="help-block" ng-messages="vm.addCoach.province.$error" ng-if="vm.addCoach.province.$touched">
+					    <div ng-messages-include="/common/addCoach/messages.html"></div>
+					</div>
+					</div>
+				</div>
+			</div>
+
 			<div class="form-group" ng-class="{ 'has-error': vm.addCoach.courseLength.$touched  && vm.addCoach.courseLength.$invalid }">
 				<label for="courseLength" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.LENGTH" | translate}}<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
@@ -188,6 +264,25 @@
 								<option>Tennis - กีฬาเทนนิส</option>
 								<option>Golf - กีฬากอล์ฟ</option>
 								<option>Golf - กีฬากอล์ฟอื่นๆ</option>
+								</optgroup>
+								<optgroup label="Finance & Accounting">
+								<option>CPA - ผู้สอบบัญชี</option>
+								<option>SL - ผู้แนะนำการลงทุน</option>
+								<option>CFP - นักวางแผนการเงิน</option>
+								<option>CFA - นักวิเคราะห์</option>
+								<option>CISA</option>
+								<option>DL - ผู้แนะนำลงทุนสัญญาณซื้อขายล่วงหน้า</option>
+								<option>Others finance/Accounting</option>
+								</optgroup>
+								<optgroup label="ติวสอบวิชาชีพ">
+								<option>แพทยศาสตร์บัณฑิต</option>
+								<option>ทันตแพทยศาสตร์บัณฑิต</option>
+								<option>เภสัชศาสตร์บัณฑิต</option>
+								<option>เนติศาสตร์บัณฑิต</option>
+								<option>วิศวกรรม</option>
+								<option>สถาปัตยกรรม</option>
+								<option>ครู/ครูผู้ช่วย</option>
+								<option>วิชาชีพอื่นๆ</option>
 								</optgroup>
 								<optgroup label="Programming">
 								<option>C, C##</option>

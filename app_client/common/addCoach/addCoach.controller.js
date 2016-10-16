@@ -28,7 +28,8 @@ angular
 			vm.formError = "";
 			if(!vm.formData.name || !vm.formData.subject || !vm.formData.price ||
 				!vm.formData.shortDescription || !vm.formData.courseDescription ||
-				 !vm.formData.time || !vm.formData.location|| !vm.formData.category) { 
+				 !vm.formData.time || !vm.formData.province || !vm.formData.location|| 
+				 !vm.formData.category) { 
 				vm.formError = "All fields required, please try again";
 				return false;
 			} else {
@@ -58,6 +59,7 @@ angular
 			    courseLength: formData.courseLength,
 			    level: formData.level,
 			    location: formData.location,
+			    province: formData.province,
 			    category: formData.category,
 			    videoid: formData.videoid,
 			    createdBy: identity

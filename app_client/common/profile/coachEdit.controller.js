@@ -102,6 +102,7 @@ function coachEditCtrl($stateParams, $http, mtcData, userService, $log, $scope, 
 			    courseLength: formData.courseLength,
 			    level: formData.level,
 			    location: formData.location,
+			    province: formData.province,
 			    category: formData.category,
 			    videoid: formData.videoid
 			});

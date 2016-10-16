@@ -32,6 +32,7 @@ var coachSchema = new mongoose.Schema({
     group: String,
     time: String,
     location: String,
+    province: String,
     courseLength: {
         type: Number,
         min: 4
