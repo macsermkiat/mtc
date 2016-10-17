@@ -105,20 +105,90 @@
 					<div class="input-group">
 						<input type="text" id="province" name="province" required ng-model="vm.formData.province" ng-change="vm.yyy =vm.formData.province" class="form-control" translate-attr="{ placeholder : 'FORM.LABEL.PROVINCE' }" aria-labelledby="province">
 						<span class="input-group-addon" style="padding:0 5px;border:0;width:40%;">
-								<select class="form-control" ng-model="vm.formData.province"  placeholder="province" >
-								
-								<optgroup label="province">
-								<option>Bangkok - กรุงเทพ</option>
-								<option>Nonthaburi - นนทบุรี</option>
-								<option>Bangkok - กรุงเทพ</option>
-								<option>Chiang Mai - เชียงใหม่</option>
-								<option>Cholburi - ชลบุรี</option>
-								<option>Phukey - ภูเก็ต</option>
-								<option>Khon Kaen - ขอนแก่น</option>
-								<option>Songkla - สงขลา</option>
-								<option>Nakorn SriThammarat - นครศรีธรรมราช</option>
-								<option>Nakorn Ratchasima - นครราชสีมา</option>
-								<option>Other province - จังหวัดอื่นๆ</option>
+								<select class="form-control" ng-model="vm.formData.province"  placeholder="province">
+								<optgroup label="ภาคกลาง">
+									<option>กรุงเทพมหานครฯ - Bangkok</option>
+									<option>กาญจนบุรี - Kanchanaburi</option>
+									<option>จันทบุรี - Chanthaburi</option>
+									<option>ฉะเชิงเทรา - Chachoengsao</option>
+									<option>ชลบุรี - Chon Buri</option>
+									<option>ชัยนาท - Chai Nat</option>
+									<option>ตราด	Trat</option>
+									<option>นครนายก - Nakhon Nayok</option>
+									<option>นครปฐม - Nakhon Pathom</option>
+									<option>นนทบุรี - Nonthaburi</option>
+									<option>ปทุมธานี - Pathum Thani</option>
+									<option>ประจวบคีรีขันธ์ - Prachuap Khiri Khan</option>
+									<option>ปราจีนบุรี - Prachin Buri</option>
+									<option>พระนครศรีอยุธยา - Phra Nakhon Si Ayutthaya</option>
+									<option>เพชรบุรี - Phetchaburi</option>
+									<option>ระยอง - Rayong</option>
+									<option>ราชบุรี - Ratchaburi</option>
+									<option>ลพบุรี	Lop Buri</option>
+									<option>สมุทรปราการ	Samut Prakan</option>
+									<option>สมุทรสงคราม - Samut Songkhram</option>
+									<option>สมุทรสาคร - Samut Sakhon</option>
+									<option>สระบุรี - Saraburi</option>
+									<option>สิงห์บุรี - Sing Buri</option>
+									<option>สุพรรณบุรี - Suphan Buri</option>
+									<option>อ่างทอง - Ang Thong</option>
+									<option>สระแก้ว - Sa Kaeo</option>
+								<optgroup label="ภาคเหนือ">
+									<option>กำแพงเพชร - Kamphaeng Phet</option>
+									<option>เชียงราย -	Chiang Rai</option>
+									<option>เชียงใหม่ - Chiang Mai</option>
+									<option>ตาก - Tak</option>
+									<option>นครสวรรค์ - Nakhon Sawan</option>
+									<option>น่าน - Nan</option>
+									<option>พิจิตร - Phichit</option>
+									<option>พิษณุโลก - Phitsanulok</option>
+									<option>เพชรบูรณ์ - Phetchabun</option>
+									<option>แพร่ - Phrae</option>
+									<option>แม่ฮ่องสอน - Mae Hong Son</option>
+									<option>ลำปาง - Lampang</option>
+									<option>ลำพูน - Lamphun</option>
+									<option>สุโขทัย - Sukhothai</option>
+									<option>อุตรดิตถ์ - Uttaradit</option>
+									<option>อุทัยธานี	Uthai Thani</option>
+									<option>พะเยา - Phayao</option>
+								</optgroup>
+								<optgroup label="ภาคตะวันออกเฉียงเหนือ">
+									<option>จังหวัด	ชื่อภาษาอังกฤษ
+									<option>กาฬสินธุ์ - Kalasin</option>
+									<option>ขอนแก่น - Khon Kaen</option>
+									<option>ชัยภูมิ - Chaiyaphum</option>
+									<option>ยโสธร - Yasothon</option>
+									<option>นครพนม - Nakhon Phanom</option>
+									<option>นครราชสีมา - Nakhon Ratchasima</option>
+									<option>บุรีรัมย์ - Buri Ram</option>
+									<option>มหาสารคาม - Maha Sarakham</option>
+									<option>ร้อยเอ็ด - Roi Et</option>
+									<option>เลย - Loei</option>
+									<option>ศรีสะเกษ	Si Sa Ket</option>
+									<option>สกลนคร - Sakon Nakhon</option>
+									<option>สุรินทร์ - Surin</option>
+									<option>หนองคาย - Nong Khai</option>
+									<option>อุดรธานี - Udon Thani</option>
+									<option>อุบลราชธานี - Ubon Ratchathani</option>
+									<option>มุกดาหาร - Mukdahan</option>
+									<option>อำนาจเจริญ - Amnat Charoen</option>
+									<option>หนองบัวลำภู - Nong Bua Lam Phu</option>
+								</optgroup>
+								<optgroup label="ภาคใต้">
+									<option>กระบี่ - Krabi</option>
+									<option>ชุมพร	Chumphon</option>
+									<option>ตรัง - Trang</option>
+									<option>นครศรีธรรมราช - Nakhon Si Thammarat</option>
+									<option>นราธิวาส - Narathiwat</option>
+									<option>ปัตตานี - Pattani</option>
+									<option>พังงา - Phangnga</option>
+									<option>พัทลุง - Phatthalung</option>
+									<option>ภูเก็ต - Phuket</option>
+									<option>ยะลา - Yala</option>
+									<option>ระนอง - Ranong</option>
+									<option>สงขลา - Songkhla</option>
+									<option>สตูล - Satun</option>
+									<option>สุราษฎร์ธานี - Surat Thani</option>
 								</optgroup>
 								<!-- <optgroup label="Music">
 								<option>Piano - ดนตรีเปียโน</option>
