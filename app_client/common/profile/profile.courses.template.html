@@ -6,19 +6,19 @@
               <li class="active">
                   <a ui-sref="profile.courses">
                       <i class="glyphicon glyphicon-book"></i>
-                      Courses
+                      {{'PROFILE.COURSE' | translate}}
                   </a>
               </li>
               <li>
                   <a ui-sref="profile.bio">
                       <i class="glyphicon glyphicon-user"></i>
-                      Profile
+                      {{'PROFILE.PROFILE' | translate}}
                   </a>
               </li>
               <li ng-if="user.subscription === true">
                   <a ui-sref="profile.edit">
                       <i class="glyphicon glyphicon-lock"></i>
-                      Personal Info
+                      {{'PROFILE.INFO' | translate}}
                   </a>
               </li>
           </ul>
@@ -71,7 +71,7 @@
                     <span class="clearfix borda"></span>
                   </article>
                 </section>
-                <a type="button" class="btn btn-success" ng-click="user.addCoach()">Create a course</a>
+                <a type="button" class="btn btn-success" ng-click="user.addCoach()">{{'FORM.HEAD.COURSE' | translate}}</a>
               </div>
             </div>
           </div>

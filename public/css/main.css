@@ -379,10 +379,13 @@ a:after {
 	text-align: center;
 }
 
-#footerwrap h4 {
+#footerwrap h4{
 	color: white;
 }
 
+#footerwrap h5{
+    color: white;
+}
 
 /* ==========================================================================
    Box Sections

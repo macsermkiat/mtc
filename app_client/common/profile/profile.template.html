@@ -6,9 +6,9 @@
 				<div class="col-lg-12">
 					<h3 class="page-header"><i class="glyphicon glyphicon-leaf"></i> Profile</h3>
 					<ol class="breadcrumb hidden-xs hidden-sm">
-						<li><i class="glyphicon glyphicon-home"></i><a ui-sref="/"> Home</a></li>
-						<li><i class="glyphicon glyphicon-book"></i><a ui-sref="profile.courses"> My Courses</a></li>
-						<li ng-if="user.subscription === true"><i class="glyphicon glyphicon-user"></i><a ui-sref="profile.edit"> Profile</a></li>
+						<li><i class="glyphicon glyphicon-home"></i><a ui-sref="/">{{'PROFILE.HOME' | translate}}</a></li>
+						<li><i class="glyphicon glyphicon-book"></i><a ui-sref="profile.courses"> {{'PROFILE.COURSE' | translate}}</a></li>
+						<li ng-if="user.subscription === true"><i class="glyphicon glyphicon-lock"></i><a ui-sref="profile.edit"> {{'PROFILE.INFO' | translate}}</a></li>
 					</ol>
 				</div>
 			</div>
@@ -36,7 +36,7 @@
                                 <h6>
                                     <span>Since</span>
                                     <span><i class="icon ion-calendar"></i>{{user.result.memberSince | date:'mediumDate'}}</span>
-                                    <span><i class="icon icon_pin_alt"></i>BKK</span>
+                                    <!-- <span><i class="icon icon_pin_alt"></i>BKK</span> -->
                                 </h6>
                             </div>
                             <div class="col-lg-2 col-sm-6 follow-info weather-category" style="font-size: 20px;">
@@ -44,7 +44,7 @@
                                         <li class="active"> 
                                           <i class="icon ion-android-person"> </i><br>
                                            <i class="glyphicon glyphicon-ok" ng-if="user.result.idcard == true"></i>
-										  											     ID card / Passport
+										  											     {{'PROFILE.IDCARD' | translate}}
                                         </li>										   
                                       </ul>
                             </div>
@@ -53,7 +53,7 @@
                                           <li class="active">
                                             <i class="icon ion-ios-paper-outline"> </i>
                                             <i class="glyphicon glyphicon-ok" ng-if="user.result.criminal == true"></i>
-                                            <br>	Criminal recorded 
+                                            <br>	{{'PROFILE.CRIMINAL' | translate}} 
                                           </li>										   
                                       </ul>
                             </div>

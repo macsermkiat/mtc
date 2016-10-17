@@ -6,7 +6,7 @@
 			<h2 class="lead"><strong class="text-danger">{{vm.count}}</strong> Results found for the search for <strong class="text-danger">{{vm.text}}</strong></h2>								
 		</hgroup>
 	    <section class="col-sm-6 col-md-4">
-	    	<label for="province">Province</label>
+	    	<label for="province">{{'FORM.LABEL.PROVINCE' | translate}}</label>
 	    	<select class="form-control" ng-model="search.province" placeholder="provice">
     			<optgroup label="ภาคกลาง">
 					<option>กรุงเทพมหานครฯ - Bangkok</option>
@@ -35,6 +35,7 @@
 					<option>สุพรรณบุรี - Suphan Buri</option>
 					<option>อ่างทอง - Ang Thong</option>
 					<option>สระแก้ว - Sa Kaeo</option>
+				</optgroup>
 				<optgroup label="ภาคเหนือ">
 					<option>กำแพงเพชร - Kamphaeng Phet</option>
 					<option>เชียงราย -	Chiang Rai</option>

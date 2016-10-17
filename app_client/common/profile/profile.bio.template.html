@@ -6,19 +6,19 @@
 	                <li>
 	                    <a ui-sref="profile.courses">
 	                        <i class="glyphicon glyphicon-book"></i>
-	                        Courses
+	                        {{'PROFILE.COURSE' | translate}}
 	                    </a>
 	                </li>
 	                <li  class="active">
 	                    <a ui-sref="profile.bio">
 	                        <i class="glyphicon glyphicon-user"></i>
-	                        Profile
+	                        {{'PROFILE.PROFILE' | translate}}
 	                    </a>
 	                </li>
 	                <li ng-if="user.subscription === true">
 	                    <a ui-sref="profile.edit">
 	                        <i class="glyphicon glyphicon-lock"></i>
-	                        Personal Info
+	                        {{'PROFILE.INFO' | translate}}
 	                    </a>
 	                </li>
 	            </ul>
@@ -30,19 +30,19 @@
 			            Hi! Thank you for visiting me!
 			          </div>
 			          <div class="panel-body bio-graph-info">
-			              <h1>Bio Graph</h1>
+			              <h1 translate="PROFILE.PROFILE"></h1>
 			              <div class="row">
 			                  <div class="bio-row">
-			                      <h4><span>First Name </span>: {{user.result.name}} </h4>			                      
+			                      <h4><span>{{'FORM.LABEL.NAME' | translate}} </span>: {{user.result.name}} </h4>			                      
 			                  </div>
 			                  <div class="bio-row">
-			                      <h4><span>Last Name </span>: {{user.result.surname}}</h4>
+			                      <h4><span>{{'FORM.LABEL.SURNAME' | translate}} </span>: {{user.result.surname}}</h4>
 			                  </div>                                              
 			                  <div class="bio-row" style="white-space:pre-wrap;">
-			                      <h4><span>Education</span>: {{user.result.education}}</h4>
+			                      <h4><span>{{'FORM.LABEL.EDUCATION' | translate}}</span>: {{user.result.education}}</h4>
 			                  </div>
 			                  <div class="bio-row" style="white-space:pre-wrap;">
-			                      <h4><span>Experience </span>: {{user.result.experience}}</h4>
+			                      <h4><span>{{'FORM.LABEL.EXPERIENCE' | translate}}</span>: {{user.result.experience}}</h4>
 			                  </div>
 			                 <!--  <div class="bio-row">
 			                      <p><span>Occupation </span>: UI Designer</p>

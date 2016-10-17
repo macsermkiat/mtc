@@ -10,7 +10,7 @@
     "BECOME-COACH": "Become a coach",
     "PRICING": "Pricing",
     "SIGNIN": "Sign in",
-    "SET-LANG": "Language",
+    "SET-LANG": "Eng",
     "LOGOUT": "Logout",
     "SUBSCRIPTION": "Subscription form",
     "PROFILE": "Profile"
@@ -85,18 +85,19 @@
       "HEAD-6": "When to transfer?",
       "HEAD-7": "Time limit",
       "HEAD-8": "Cancellation",
-      "HEAD-9": "What to do if student/coach try to contact personally?"
+      "HEAD-9": "What to do if student/coach try to contact personally?",
+      "FREE":"PROMOTION! Free matching fee for coach during our opening period until end of November"
     },
     "PAR": {
       "PAR-1": "The pricing occur in this service is called 'Matching fee'. Which occur to both coach and students.",
-      "PAR-2": "The matching fee cost is <strong>10%</strong> of the course's price. <strong>Both from a coach and student.</strong>",
-      "PAR-3": "You can think that a matching fee is like a deposit. If a coach or student cancel before a course too sudden<strong>(< 48 hours)</strong>, You will get a matching fee back. *Plus* if the cancellation made on the day of the course, you'll get your fee back, plus half of the other side's fee.",
+      "PAR-2": "The matching fee cost is <strong>10%</strong> of the course's price. <strong>Both from a coach and student.</strong><br><br>Example : If total course price = 5,000 Baht, Th matching fee will be <strong> 500 Baht </strong>for both coach and student.<br><br>The matching fee will be calculated and send to you via Email when there's a matching request.", 
+      "PAR-3": "You can think that a matching fee is like a deposit. If a coach or student cancel before a course too sudden<strong>(< 48 hours)</strong>,<br> You will get a matching fee back. <br><br><strong>*Plus* if the cancellation made on the day of the course, you'll get your fee back, plus half of the other side's fee.</strong><br><br>Example: You already paid matching fee 500 Baht, but you get a cancellation phone call in the morning day of starting course.<br>You will get 500 Baht back + 250 Baht. So <strong>totally you will get 750 Baht.</strong>",
       "PAR-4": "The matching fee price will be sent via an Email",
-      "PAR-5-1": "Prompt Pay : 0955073078",
-      "PAR-5-2": "Siam Commercial Bank : 045-2-88214-7",
-      "PAR-5-3": "Kasikorn Thai Bank : xxx-x-xxxxx-x",
+      "PAR-5-1": "Prompt Pay : 0955073078 (not available now)",
+      "PAR-5-2": "Siam Commercial Bank : 045-2-88214-7 Mr.Sermkiat Lolak",
+      "PAR-5-3": "Kasikorn Thai Bank : 032-2-25750-5 Mr.Sermkiat Lolak",
       "PAR-6-1": "For Student: Transfer<mark> when you get an Email confirmation.</mark>",
-      "PAR-6-2": "For Coach: Transfer<mark> after the student already transfer</mark>, we will send you a second Email when the time come.",
+      "PAR-6-2": "For Coach/ Teacher : Transfer<mark> after the student already transfer</mark>, we will send you a second Email when the time come.",
       "PAR-6-3": "After you transfer,<mark> please reply an Email with a transfer document</mark> back to us.",
       "PAR-7": "Please do a transfer process within 7 days after you got a confirmation Email",
       "PAR-8": "Cancellation would not cost anything if made it before the course at least 2 days. If you canceled within 48 hours, you will not get the matching fee back.",
@@ -118,6 +119,7 @@
       "MOBILE": "Mobile Number",
       "LINE": "LINE ID",
       "ADDRESS": "Address",
+      "EXPERIENCE" : "Experience",
       "ID": "ID card/Passport Number",
       "EDUCATION": "Education",
       "IMAGE": "Image",
@@ -133,7 +135,9 @@
       "PROVINCE": "Province",
       "CATEGORY": "Category",
       "PREPARATION": "Preparation",
-      "VDO": "Youtube video ID (only ID)"
+      "VDO": "Youtube video ID (only ID)",
+      "SUBMIT": "Submit",
+      "CANCEL": "Cancel"
     },
     "TEXT" : {
       "PIC" : "Please wait picture to<strong> Load</strong> and<strong> Submit</strong> the picture before continue fill in the form.",
@@ -149,6 +153,15 @@
   },
   "PROFILE" :{
       "TEXT-1" :"Please provide us a photo or copy of your ID card or passport, and criminal record check.",
-      "TEXT-2" :"Benefit to increase your credit and rate of matching."
+      "TEXT-2" :"Benefit to increase your credit and rate of matching.",
+      "IDCARD" :"ID card/ Passport",
+      "CRIMINAL" : "Criminal record",
+      "COURSE" : "Course",
+      "PROFILE" : "Profile",
+      "INFO" : "Personal Info",
+      "HOME" : "Home"
+  },
+  "FOOTER" : {
+    "ASK" : "Telephone"
   }
 } 
