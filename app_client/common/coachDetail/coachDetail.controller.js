@@ -42,7 +42,7 @@ function coachDetailCtrl($stateParams, $http, mtcData, $log, $scope, $uibModal, 
 				}
 
 				
-				console.log(vm.data);
+				
 			})
 			.error(function (e) {
 				console.log(e);

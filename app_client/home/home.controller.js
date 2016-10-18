@@ -39,7 +39,6 @@ function homeCtrl ($state, mtcData, $timeout) {
 	};	
 
 	vm.doAddNewsLetter = function (formLetter) {
-		console.log(formLetter);
 		mtcData.addNewsLetter({
 			name : formLetter.name,
 			email : formLetter.email

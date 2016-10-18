@@ -31,7 +31,6 @@ function SearchBoxController ($state, mtcData, $timeout, $http) {
 	vm.searching = function(val) {
 		return $http.get('api/coaches/searchCat', {params: {text:val}})
 		.then(function(response) {
-			console.log(response.data);
 			return response.data;
 		})
 	};

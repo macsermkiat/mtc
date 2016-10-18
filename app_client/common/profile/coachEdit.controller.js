@@ -17,7 +17,7 @@ function coachEditCtrl($stateParams, $http, mtcData, userService, $log, $scope, 
 	// vm.allCoaches = allCoaches;
 	vm.coachid = $stateParams.coachid;
 	var sign =awsPolicy.getSign();
-	console.log(sign);
+	
 
 	// Get profile from localStorage
 	var accessData = localStorage.getItem('profile');
@@ -79,7 +79,7 @@ function coachEditCtrl($stateParams, $http, mtcData, userService, $log, $scope, 
 				}
 
 				
-				console.log(vm.data);
+				console.log('Success');
 			})
 			.error(function (e) {
 				console.log(e);
@@ -108,13 +108,7 @@ function coachEditCtrl($stateParams, $http, mtcData, userService, $log, $scope, 
 			});
 
 			
-			// .then(function (error, coach) {
-			// 	if (error) {					
-			// 	$scope.formError = "Your review has not been saved, try again";			
-			// 	}else {
-			// 		console.log("huh")						
-			// 	};	
-			// });
+			
 		return false;
 		};
 
@@ -124,7 +118,7 @@ function coachEditCtrl($stateParams, $http, mtcData, userService, $log, $scope, 
 
 	var now = new Date;
 	var createdDate = now.toISOString();
-	console.log(createdDate);
+	
 
 	$scope.beforeResizingImages = function(images) {
 			spinnerService.show('picturespinner')

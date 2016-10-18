@@ -30,7 +30,6 @@ function requestModalCtrl ($uibModalInstance, mtcData, coachData, $timeout) {
 	};
 
 	vm.doRequest = function (formData) {
-		console.log(coachData.coachid);
 		mtcData.requestCoach({
 			// author : formData.name,
 			requestid: requestid,
@@ -45,7 +44,6 @@ function requestModalCtrl ($uibModalInstance, mtcData, coachData, $timeout) {
 			email : formData.email
 		})
 		.then(function(success) {
-			console.log(success);
 			vm.formError = "Your request has been sent";
 			vm.uibModal.close(success);
 		}, function(error) {

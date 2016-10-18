@@ -49,7 +49,7 @@
         var accessData = localStorage.getItem('profile');
         var profileData = angular.fromJson(accessData);
         var id = profileData.identities[0].user_id;
-        console.log(id);
+        
         
         userBio(id);
         
@@ -57,7 +57,7 @@
           return $http.get('/api/user/' + id)
             .then(function(response) {
               var val = response.data[0];
-              console.log(val);
+              
               if(val == undefined){            
               localStorage.setItem('subscription', false);
               $rootScope.isSubscribed = false;

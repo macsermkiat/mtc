@@ -10,7 +10,6 @@ angular
 		// var$scope = this;
 		
 		var sign =awsPolicy.getSign();
-		console.log(sign);
 
 		var accessData = localStorage.getItem('profile');
 		var profile = angular.fromJson(accessData);
@@ -61,7 +60,6 @@ angular
 					var vals = Object.keys(error).map(function (key) {
     					return error[key];	
 					});					
-					console.log(vals[0].message);
 					$scope.formError = "Your edit has not been saved, try again. Possible from duplicate data.";
 				});
 			return false;

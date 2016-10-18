@@ -10,7 +10,6 @@ angular
 		var vm = this;
 		
 		var sign =awsPolicy.getSign();
-		console.log(sign);
 
 		// Get profile from localStorage
 		var accessData = localStorage.getItem('profile');
@@ -40,12 +39,11 @@ angular
 
 		var now = new Date;
 		var createdDate = now.toISOString();
-		console.log(createdDate);
 		
 
 		vm.doAddCoach = function (formData) {
 
-			console.log(formData);
+			
 			mtcData.createCoach({
 				createdDate : createdDate,
 				name : formData.name,
@@ -77,7 +75,6 @@ angular
 					var vals = Object.keys(error).map(function (key) {
 					return error[key];	
 					});					
-					console.log(vals[0].message);
 					$scope.formError = "Your course has not been added, try again. Possible from duplicate data.";
 				});
 		return false;

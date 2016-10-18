@@ -29,9 +29,6 @@
 
 
         lgin.getSubscription = $rootScope.isSubscribed;
-        // console.log("Subscription form fill: " + lgin.getSubscription);
-        // Checking whether user already fill in subscription form or not
-        // lgin.getSubscription = localStorage.getItem('subscription');
       },1000);
 
       $rootScope.$on('userProfileSet', function(event, profile) {
@@ -43,8 +40,6 @@
       $rootScope.$on('subscriptionSet', function(event, subscription) {
         $timeout(function() {
         lgin.getSubscription = $rootScope.isSubscribed;
-        // lgin.subscription = subscription;
-        // console.log("Subscription form fill: " + lgin.getSubscription);
       },1000);
       });
 
@@ -63,7 +58,7 @@
         // Use the token in authResult to getProfile() and save it to localStorage
        
        lock.getProfile(authResult.idToken, function(error, result) {
-          console.log(authResult.idToken);
+          
           if (error) {
             console.log(error);
             return;

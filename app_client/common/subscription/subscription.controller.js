@@ -10,7 +10,6 @@ angular
 		var vm = this;
 		
 		var sign =awsPolicy.getSign();
-		console.log(sign);
 
 		// Get profile from localStorage
 		var accessData = localStorage.getItem('profile');
@@ -38,7 +37,6 @@ angular
 		var createdDate = new Date;
 
 		vm.doSubscription = function (formData) {
-			console.log(formData);
 			userService.registerUser({
 				memberSince : createdDate,
 				identity: identity,
@@ -69,7 +67,6 @@ angular
 						var vals = Object.keys(error).map(function (key) {
     					return error[key];	
 						});					
-						console.log(vals[0].message);
 						vm.formError = "Your edit has not been saved, try again. Possible from duplicate data.";
 					});
 		return false;
@@ -80,7 +77,6 @@ angular
 		};
 
 		vm.doAddNewsLetter = function (formData) {
-			console.log(formData);
 			mtcData.addNewsLetter({
 				name : formData.name,
 				email : formData.email
