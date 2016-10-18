@@ -4,7 +4,7 @@ angular
 	.module('mtcApp')
 	.controller('profileCoursesController', profileCoursesController);
 
-profileCoursesController.$inject = ['$state', '$http', 'mtcData'];
+profileCoursesController.$inject = ['$state', '$http', 'mtcData', '$filter'];
 
 //For IE 8-9
 if (window.location.pathname !== '/') {
@@ -12,7 +12,7 @@ window.location.href = '/#' + window.location.pathname;
 };
 
 
-function profileCoursesController($state, $http, mtcData) {
+function profileCoursesController($state, $http, mtcData, $filter) {
 	var accessData;
 	var subsciption;
 	var getAccessData = function () {	
@@ -70,7 +70,7 @@ function profileCoursesController($state, $http, mtcData) {
 	user.addCoach = function() {
 		var sub =  localStorage.getItem('subscription');
 		if (sub == 'false') {
-			alert("Please fill in Subscription form first");
+			alert($filter('translate')('PROFILE.ALERT'));
 			$state.go('subscription');
 		} else if(sub == 'true') {
 			$state.go('addCoach');

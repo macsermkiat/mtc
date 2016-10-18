@@ -96,6 +96,7 @@
       "PAR-5-1": "Prompt Pay : 0955073078 (not available now)",
       "PAR-5-2": "Siam Commercial Bank : 045-2-88214-7 Mr.Sermkiat Lolak",
       "PAR-5-3": "Kasikorn Thai Bank : 032-2-25750-5 Mr.Sermkiat Lolak",
+      "PAR-5-4": "Bangkok Bank : 151-4-28523-6 Royyak Co.,Ltd.",
       "PAR-6-1": "For Student: Transfer<mark> when you get an Email confirmation.</mark>",
       "PAR-6-2": "For Coach/ Teacher : Transfer<mark> after the student already transfer</mark>, we will send you a second Email when the time come.",
       "PAR-6-3": "After you transfer,<mark> please reply an Email with a transfer document</mark> back to us.",
@@ -142,7 +143,10 @@
     "TEXT" : {
       "PIC" : "Please wait picture to<strong> Load</strong> and<strong> Submit</strong> the picture before continue fill in the form.",
       "BAHT" : "Baht",
-      "HOURS" : "hours"
+      "HOURS" : "hours",
+      "EDIT" : "Edit",
+      "DELETE" : "Delete",
+      "DEL" : "Del"
     },
     "PLACEHOLD" : {
       "SEARCHBOX" : "search from subject",
@@ -159,7 +163,9 @@
       "COURSE" : "Course",
       "PROFILE" : "Profile",
       "INFO" : "Personal Info",
-      "HOME" : "Home"
+      "HOME" : "Home",
+      "CHECK": "You didn't create any course yet. You can create a new course from a 'Course' menu in the bottom.",
+      "ALERT" : "Please fill in contact detail and subscription form first before create a course"
   },
   "FOOTER" : {
     "ASK" : "Telephone"

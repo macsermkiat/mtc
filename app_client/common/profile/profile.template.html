@@ -38,6 +38,9 @@
                                     <span><i class="icon ion-calendar"></i>{{user.result.memberSince | date:'mediumDate'}}</span>
                                     <!-- <span><i class="icon icon_pin_alt"></i>BKK</span> -->
                                 </h6>
+                                <div ng-if="user.check == false">
+                                  <h5>{{'PROFILE.CHECK' | translate}} <a ng-href="/#addCourse" du-smooth-scroll><kbd><span class="caret"></span></kbd></a></h5>
+                                </div>
                             </div>
                             <div class="col-lg-2 col-sm-6 follow-info weather-category" style="font-size: 20px;">
                                       <ul ng-model="idcheck" ng-class="{'checked': user.result.idcard == true}">

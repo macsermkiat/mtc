@@ -3,7 +3,7 @@
     <section class="panel">
       <header class="panel-heading tab-bg-info">
           <ul class="nav nav-tabs">
-              <li class="active">
+              <li class="active" id="addCourse" name="addCourse" offset="-40">
                   <a ui-sref="profile.courses">
                       <i class="glyphicon glyphicon-book"></i>
                       {{'PROFILE.COURSE' | translate}}
@@ -54,17 +54,17 @@
                       <div class="col-xs-4">
                         <div class="edit-delete">
 
-                          <button type="button" ui-sref="coachEdit({coachid : coach._id})" class="btn btn-warning btn-block"> Edit </button>
+                          <button type="button" ui-sref="coachEdit({coachid : coach._id})" class="btn btn-warning btn-block">{{'FORM.TEXT.EDIT' | translate}}</button>
                         </div>
                           <!-- <button type="button" class="btn btn-warning btn-sm hidden-sm hidden-md hidden-lg">Edit</button>  -->
                         
                         <div class="edit-delete hidden-xs">      
                           <a type="button" class="btn btn-danger btn-block"
-                          ng-click="user.deleteCourse(coach._id, coach.shortDescription)">Delete</a>
+                          ng-click="user.deleteCourse(coach._id, coach.shortDescription)">{{'FORM.TEXT.DELETE' | translate}}</a>
                         </div>
                         <div class="edit-delete hidden-sm hidden-md hidden-lg">      
                           <a type="button" class="btn btn-danger btn-block"
-                          ng-click="user.deleteCourse(coach._id, coach.shortDescription)">Del</a>
+                          ng-click="user.deleteCourse(coach._id, coach.shortDescription)">{{'FORM.TEXT.DEL' | translate}}</a>
                         </div>
                       </div>
                     </div>                  
