@@ -44,7 +44,7 @@
 					<div class="row">
 						<div class="col-xs-12">
 						<button type="button" class="btn btn-primary btn-lg"><a ng-click="vm.popupRequestForm()" style="color: white;">
-							Request to Match</a>
+							{{'FORM.LABEL.REQUEST' | translate}}</a>
 						</button>
 						</div>
 					</div>			
@@ -53,7 +53,7 @@
 				<div class="col-xs-12 col-sm-12 col-md-7 excerpet">
 					<h4 class="lead">{{"FORM.LABEL.DESCRIPTION" | translate}}: </h4>
 					<p>{{ vm.data.coach.courseDescription }}</p>
-					<h4 class="lead">Preparation: </h4>
+					<h4 class="lead">{{"FORM.LABEL.PREPARATION" | translate}}: </h4>
 					<p>{{ vm.data.coach.preparation }}</p>
 					<h4 class="lead">{{"FORM.LABEL.GROUP" | translate}}: </h4>				
 	                <p>{{ vm.data.coach.group }}</p>

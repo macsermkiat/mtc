@@ -27,6 +27,17 @@
       "LOVE": "Love",
       "LOVE-TEXT": "All the coaches practice with love. They love teaching, they evaluated, and they are the best! "
     },
+    "FREE" : {
+      "LINE1" : "Want to use FREE!?",
+      "LINE2" : "just answer 1 Question",
+      "BUTTON" : "Enroll FREE Program",
+      "ROLE" : "Please tell us your role",
+      "HEAD" : "FREE PROGRAM!",
+      "COACH" : " Teacher/ Tutor/ Coach ",
+      "STUDENT" : " Student ",
+      "YES" : "Yes, I would like to recieve a free coupon",
+      "EMAIL" : "Please provide an E-mail address"
+    },
      "BECOME-COACH": {
       "HEADING1": "Find a coach",
       "SUB1": "Simple as a-b-c",
@@ -138,7 +149,9 @@
       "PREPARATION": "Preparation",
       "VDO": "Youtube video ID (only ID)",
       "SUBMIT": "Submit",
-      "CANCEL": "Cancel"
+      "CANCEL": "Cancel",
+      "REQUEST" : "Request to Match",
+      "GOODTIME" : "Date/Time prefer (Give a range)"
     },
     "TEXT" : {
       "PIC" : "Please wait picture to<strong> Load</strong> and<strong> Submit</strong> the picture before continue fill in the form.",

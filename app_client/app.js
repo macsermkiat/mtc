@@ -253,6 +253,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 app.config(['lockProvider', 'jwtOptionsProvider', 'jwtInterceptorProvider', '$locationProvider', '$httpProvider', '$stateProvider', '$urlRouterProvider', '$translateProvider', 'ngMetaProvider', config]);
 
 
+
 app.run(function($rootScope, $state, authService, authManager, lock) {
 
 

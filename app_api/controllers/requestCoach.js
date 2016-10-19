@@ -83,6 +83,7 @@ module.exports.requestCoach = function(req, res) {
 		var mailOptions = {
 		   from: "matchthecoach@royyak.com", // sender address.  Must be the same as authenticated user if using Gmail.
 		   to: userEmail, // receiver
+		   cc: "matchthecoach@royyak.com",
 		   subject: "Request matching from Match The Coach. ID: " + req.body.requestid, // subject
 		   text: "Congratulation! You have a matching request." + req.body.time + '\n\nplace :' + req.body.place,
 		   html: `<h2 style='color: #006600'>Hi ${userName}.</h2>
@@ -92,6 +93,9 @@ module.exports.requestCoach = function(req, res) {
 			       <p>Place: ${req.body.place}</p>
 			       <p>Requestid: ${req.body.requestid}</p>
 			       <p>Matching fee: ` + fee +` baht.</p>
+			       <p>กรุณาตอบกลับ Email ฉบับนี้ว่าท่านสะดวกสอนในวันเวลาดังกล่าวหรือไม่</p>
+			       <p>ถ้าท่านตอบตกลง เราจะติดต่อท่านอีกครั้งเมื่อนักเรียนได้ชำระค่าธรรมเนียม ท่านจึงชำระค่าธรรมเนียมการแมทช์หลังจากนั้น</p>
+			       <p>ถ้าท่านมีปัญหาการใช้งาน หรือมีคำถาม สามารถติดต่อเราได้ทุกช่องทาง<p>
 			       <p>Please reply this Email back as soon as possible of your answer to accept the match or not.</p>
 			       <p>If you accept to match, we will contact you shortly when the student confirm matching. Please do not transfer matching fee before that<p>
 			       <p>If you have a question, please do not hesitate to contact us<p>
@@ -99,10 +103,8 @@ module.exports.requestCoach = function(req, res) {
 			       <hr>
 			       <h2>Match the Coach team</h2>
 			       <h3>Royyak Co.,Ltd.</h3>
-			       <h3>Tel: 095-5073078</h3>`
-			       
-			       
-			       
+			       <p>facebook</p><span><a href="http://www.facebook.com/matchTcoach">MatchTheCoach</a></span>
+			       <h3>Tel: 095-5073078</h3>`		       
 		}; 
 
 		transporter.sendMail(mailOptions, function(error, info){  //callback

@@ -66,6 +66,7 @@ function requestModalCtrl ($uibModalInstance, mtcData, coachData, $timeout) {
 			$uibModalInstance.dismiss('cancel');
 		}
 	};
+
 }
 
 })();

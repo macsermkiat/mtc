@@ -22,6 +22,7 @@ var router = express.Router();
 var aws = require('../controllers/awsPolicy');
 var ctrlCoaches = require('../controllers/coach');
 var ctrlRequest = require('../controllers/requestCoach');
+var ctrlNews = require('../controllers/sendNewsLetter')
 
 // var nodeMail = require('../controllers/nodemail');
 
@@ -63,6 +64,7 @@ router.put('/coachEdit/update', ctrlCoaches.coachesUpdateOne);
 
 // Newsletter
 router.post('/newsletter', ctrlCoaches.eMailNewsLetterCollect);
+router.post('/sendNews', ctrlNews.sendFirstEmail);
 
 // Request
 router.post('/request', ctrlRequest.requestCoach);

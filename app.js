@@ -60,6 +60,7 @@ var appClientFiles = [
         './app_client/common/services/user.service.js',
         './app_client/common/auth/auth.service.js',
         './app_client/home/home.controller.js',
+        './app_client/home/email/emailModal.controller.js',
         './app_client/common/request/requestModal.controller.js',
         './app_client/common/profile/initialValue.directive.js',
         './app_client/common/profile/profile.controller.js',

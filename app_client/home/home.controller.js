@@ -4,7 +4,7 @@ angular
 	.module('mtcApp')
 	.controller('homeCtrl', homeCtrl);
 
-homeCtrl.$inject = ['$state', 'mtcData','$timeout'];
+homeCtrl.$inject = ['$state', 'mtcData','$timeout', '$uibModal'];
 
 
 //For IE 8-9
@@ -12,7 +12,7 @@ if (window.location.pathname !== '/') {
 window.location.href = '/#' + window.location.pathname;
 }
 
-function homeCtrl ($state, mtcData, $timeout) {
+function homeCtrl ($state, mtcData, $timeout, $uibModal) {
 	
 	
 	var vm = this;
@@ -43,6 +43,28 @@ function homeCtrl ($state, mtcData, $timeout) {
 			name : formLetter.name,
 			email : formLetter.email
 		})
+	};
+
+	vm.popupEmailForm = function () {
+		var uibModalInstance = $uibModal.open({
+			templateUrl: '/home/email/emailModal.view.html',
+			controller: 'emailModalController',
+			controllerAs: 'vm'
+			// resolve: {
+			// 	coachData: function() {
+			// 		return { 
+			// 		   coachid: vm.coachid,
+			// 		   shortDescription: vm.data.coach.shortDescription,
+			// 		   createdBy: vm.data.coach.createdBy,
+			// 		   price: vm.data.coach.price
+			// 		};
+			// 	}
+			// }
+		});
+		uibModalInstance.result.then(function (data) {
+			// vm.data.location.reviews.push(data);
+			console.log(data);
+		})	
 	};
 
 		

@@ -59,6 +59,13 @@ function mtcData ($http, $log) {
 		})
 	};
 
+	var sendFirstLetter = function(mail) {
+		return $http.post('/api/sendNews', mail)
+		.then(function(response) {
+			return response.mail;
+		})
+	};
+
 	return {
 		allCoaches: allCoaches,
 		allCats: allCats,
@@ -67,9 +74,9 @@ function mtcData ($http, $log) {
 		createCoach: createCoach,
 		deleteCoach: deleteCoach,
 		addNewsLetter: addNewsLetter,
+		sendFirstLetter: sendFirstLetter,
 		searchCategoryService: searchCategoryService,
-		requestCoach: requestCoach
-		
+		requestCoach: requestCoach	
 	};
 	
 

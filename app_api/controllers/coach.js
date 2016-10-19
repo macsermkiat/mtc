@@ -586,7 +586,8 @@ module.exports.eMailNewsLetterCollect = function(req, res) {
   console.log(checkExistingMail);
   var mailSave = new Mail({
         name: req.body.name,
-        email: req.body.email
+        email: req.body.email,
+        role: req.body.role
       });
   mailSave.save(function (err, mail){
    if (err) {
