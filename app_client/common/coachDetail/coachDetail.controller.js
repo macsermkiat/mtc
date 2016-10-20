@@ -4,7 +4,7 @@ angular
 	.module('mtcApp')
 	.controller('coachDetailCtrl', coachDetailCtrl);
 
-coachDetailCtrl.$inject = ['$stateParams', '$http', 'mtcData', '$log', '$scope', '$uibModal', '$rootScope'];
+coachDetailCtrl.$inject = ['$stateParams', '$http', 'mtcData', '$log', '$scope', '$uibModal', '$rootScope', '$state'];
 
 
 //For IE 8-9
@@ -12,8 +12,9 @@ if (window.location.pathname !== '/') {
 window.location.href = '/#' + window.location.pathname;
 }
 
-function coachDetailCtrl($stateParams, $http, mtcData, $log, $scope, $uibModal, $rootScope) {
+function coachDetailCtrl($stateParams, $http, mtcData, $log, $scope, $uibModal, $rootScope, $state) {
 	var vm = this;
+
 	// vm.allCoaches = allCoaches;
 	vm.coachid = $stateParams.coachid;
 	$scope.playerVars = { autoplay: 0};
