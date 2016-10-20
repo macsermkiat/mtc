@@ -38,7 +38,7 @@ module.exports.sendFirstEmail = function(req, res) {
 			        <p>Thank you for interest in our service. 
 			        If you want to find a coach or tutor, please use a searchbox in main page.</p>
 					<p>If you want to register as a teacher or a coach, please fill in subscription
-					form. After that, you have to create a course, or else other wouldn't see you.</p><br>
+					form. After that, you have to create a course, or else the students wouldn't see you.</p><br>
 					<p>Free coupon code is <strong>matchfree</strong> for your first matching.</p>
 					<p>Please provide code when you send or recieve a match.</p><br>
 					<a href="https://www.matchthecoach.com">MatchTheCoach</a><br>
