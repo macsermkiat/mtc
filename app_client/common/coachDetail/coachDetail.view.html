@@ -67,7 +67,12 @@
 	                <h4 class="lead">{{"FORM.LABEL.PRICE" | translate}}: </h4>
 	                <p>{{ vm.data.coach.price }} {{"FORM.TEXT.BAHT" | translate}}</p>
 	                <h4 class="lead">{{"FORM.LABEL.SHARE" | translate}}:</h4>
-	                <p class="bg-primary">https://www.matchthecoach.com/#!/coaches/{{vm.coachid}}</p>
+	                <div>
+		                <button class="btn btn-default btn-xs js-textareacopybtn"  
+		                style="margin-bottom: 30px;">Copy</button>
+		                <textarea rows="2" cols="40" readonly class="bg-primary js-copytextarea">https://www.matchthecoach.com/#!/coaches/{{vm.coachid}}</textarea>
+	                </div>
+	                
 				</div>
 				<span class="clearfix borda"></span>
 			</article>
