@@ -50,7 +50,8 @@ angular
 				lineid : formData.lineid,
 				idnumber : formData.idnumber,
 				education: formData.education,
-			    terms: formData.terms
+			    terms: formData.terms,
+			    role: formData.role
 			}).then(function(success){
 						vm.doAddNewsLetter(formData);	
 						vm.isDisabled = true;
@@ -79,7 +80,8 @@ angular
 		vm.doAddNewsLetter = function (formData) {
 			mtcData.addNewsLetter({
 				name : formData.name,
-				email : formData.email
+				email : formData.email,
+				role : formData.role
 			})
 		};
 		

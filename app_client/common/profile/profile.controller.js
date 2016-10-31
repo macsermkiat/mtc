@@ -29,7 +29,7 @@ function profileController($stateParams, $state, $http, userService, mtcData) {
 	var user = this;
 	user.profile = profileData;
 	user.result ="";
-	user.check = undefined;
+	// user.check = undefined;
 	var sub = localStorage.getItem('subscription');
 	user.subscription = (sub === 'true');
 	
@@ -50,15 +50,15 @@ function profileController($stateParams, $state, $http, userService, mtcData) {
 			});
 	};
 	userBio();
-	function notCreateCourse() {
-		if (user.result.course === undefined) {
-			user.check = false;
-			return
-		} else {
-			user.check = true;
-		}
-	};
-	notCreateCourse();
+	// function notCreateCourse() {
+	// 	if (user.result.course === undefined) {
+	// 		user.check = false;
+	// 		return
+	// 	} else {
+	// 		user.check = true;
+	// 	}
+	// };
+	// notCreateCourse();
 
 
 

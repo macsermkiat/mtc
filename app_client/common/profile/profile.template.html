@@ -5,11 +5,11 @@
 		  <div class="row">
 				<div class="col-lg-12">
 					<h3 class="page-header"><i class="glyphicon glyphicon-leaf"></i> Profile</h3>
-					<ol class="breadcrumb hidden-xs hidden-sm">
+					<!-- <ol class="breadcrumb hidden-xs hidden-sm">
 						<li><i class="glyphicon glyphicon-home"></i><a ui-sref="/">{{'PROFILE.HOME' | translate}}</a></li>
 						<li><i class="glyphicon glyphicon-book"></i><a ui-sref="profile.courses"> {{'PROFILE.COURSE' | translate}}</a></li>
 						<li ng-if="user.subscription === true"><i class="glyphicon glyphicon-lock"></i><a ui-sref="profile.edit"> {{'PROFILE.INFO' | translate}}</a></li>
-					</ol>
+					</ol> -->
 				</div>
 			</div>
               <div class="row">
@@ -38,7 +38,7 @@
                                     <span><i class="icon ion-calendar"></i>{{user.result.memberSince | date:'mediumDate'}}</span>
                                     <!-- <span><i class="icon icon_pin_alt"></i>BKK</span> -->
                                 </h6>
-                                <div ng-if="user.check == false">
+                                <div ng-if="user.result.course == false">
                                   <h5>{{'PROFILE.CHECK' | translate}} <a ng-href="/#addCourse" du-smooth-scroll><kbd><span class="caret"></span></kbd></a></h5>
                                 </div>
                             </div>
