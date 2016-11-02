@@ -37,6 +37,7 @@ var userSchema = new mongoose.Schema({
 		idnumber: {
 			type: Number
 		},
+		role: String,
 		idcard: {
 			type: Boolean
 		},

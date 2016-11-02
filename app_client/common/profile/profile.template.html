@@ -21,6 +21,7 @@
                               <h4 style="color: white"><h4>               
                               <div class="follow-ava">
                                   <img ng-src="{{user.profile.picture}}" alt="{{user.profile.name}}">
+                                  <p ng-if="user.result.role === 'teacher'">Coach</p>
                               </div>
                               
                             </div>
@@ -38,7 +39,7 @@
                                     <span><i class="icon ion-calendar"></i>{{user.result.memberSince | date:'mediumDate'}}</span>
                                     <!-- <span><i class="icon icon_pin_alt"></i>BKK</span> -->
                                 </h6>
-                                <div ng-if="user.result.course == false">
+                                <div ng-if="user.result.role === 'teacher' && user.result.course == false">
                                   <h5>{{'PROFILE.CHECK' | translate}} <a ng-href="/#addCourse" du-smooth-scroll><kbd><span class="caret"></span></kbd></a></h5>
                                 </div>
                             </div>
