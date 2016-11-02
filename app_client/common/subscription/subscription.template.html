@@ -96,9 +96,9 @@
 						<input type="radio" class="form-check-input" name="role" id="student" value="student" ng-model="vm.formData.role">
 						{{'HOME.FREE.STUDENT' | translate}}
 					</label>
-					<div class="help-block" ng-messages="vm.subscription.role.$error" ng-if="vm.subscription.role.$touched">
-					    <div ng-messages-include="/common/addCoach/messages.html"></div>
-					</div>	
+					<div class="help-block" ng-messages="vm.subscription.role.$error" ng-if="vm.formData.role == 'teacher'">
+					    <p class="text-danger">{{'FORM.LABEL.CREATE-COURSE' | translate}}</p>
+					</div>
 				</div>
 			</div>
 		<div class="modal-footer" style="background-color: white">

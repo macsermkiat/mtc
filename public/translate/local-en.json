@@ -152,7 +152,8 @@
       "SUBMIT": "Submit",
       "CANCEL": "Cancel",
       "REQUEST" : "Request to Match",
-      "GOODTIME" : "Date/Time prefer (Give a range)"
+      "GOODTIME" : "Date/Time prefer (Give a range)",
+      "CREATE-COURSE" : "You MUST fill in 'create course' form after complete this subscription. The link can be found in menu bar or profile page."
     },
     "TEXT" : {
       "PIC" : "Please wait picture to<strong> Load</strong> and<strong> Submit</strong> the picture before continue fill in the form.",
