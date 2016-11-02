@@ -4,7 +4,7 @@ angular
 	.module('mtcApp')
 	.controller('homeCtrl', homeCtrl);
 
-homeCtrl.$inject = ['$state', 'mtcData','$timeout', '$uibModal'];
+homeCtrl.$inject = ['$state', 'mtcData','$timeout', '$uibModal', '$rootScope'];
 
 
 //For IE 8-9
@@ -12,7 +12,7 @@ if (window.location.pathname !== '/') {
 window.location.href = '/#' + window.location.pathname;
 }
 
-function homeCtrl ($state, mtcData, $timeout, $uibModal) {
+function homeCtrl ($state, mtcData, $timeout, $uibModal, $rootScope) {
 	
 	
 	var vm = this;
@@ -20,7 +20,7 @@ function homeCtrl ($state, mtcData, $timeout, $uibModal) {
 	vm.message = {};
 
 	
-
+	vm.isAuthenticated = $rootScope.isAuthenticated;
 
 	vm.onNewsLetter = function() {
 		vm.Error = "";

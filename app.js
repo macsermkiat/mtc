@@ -75,6 +75,7 @@ var appClientFiles = [
         './app_client/common/addCoach/addCoach.controller.js',
         './app_client/common/navigationAndfooter/navigation.directive.js',
         './app_client/common/navigationAndfooter/footerGeneric.directive.js',
+        './app_client/home/landing.directive.js',
         './app_client/common/searchbox/searchbox.controller.js',
         './app_client/common/searchbox/searchbox.directive.js',
         './app_client/common/services/awsPolicy.service.js',

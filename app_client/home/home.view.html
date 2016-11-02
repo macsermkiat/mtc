@@ -1,5 +1,6 @@
 <!-- <script type="text/ng-template" id="home/home.view.html"> -->
  <navigation></navigation>
+ <ng-if="vm.isAuthenticated" navigation></navigation>
 
 		<!-- ==== HEADERWRAP ==== -->
 		<div id="scroll-container">
@@ -10,8 +11,13 @@
 	  		 		<h1>Match the Coach</h1>
 	  		 		<p  class="hidden-xs">Tell me and I forget.<br>
                 	   Teach me and I remember.<br>
-                	   Involve me and I learn</p>	
-				  	<searchbox></searchbox>
+                	   Involve me and I learn.</p>
+                	<div ng-if="!vm.isAuthenticated">
+	                	<landing></landing>
+					</div>
+					<div ng-if="vm.isAuthenticated" >	
+				  		<searchbox></searchbox>
+				  	</div>
 			  		<h3 translate="HOME.HEADERWRAP.SIMPLE"></h3>
 	    	</header>
 	    </div>
@@ -65,7 +71,7 @@
 		                        <h4 translate="HOME.BECOME-COACH.LI-C"></h4>
 		                    </div>
 		                    <div>
-			                    <a type="button" class="btn btn-success btn-large free-button" href="/#home" du-smooth-scroll offset="-90">{{'BRANDING_AND_NAV.HOME' | translate}}</a>
+			                    <a type="button" class="btn btn-danger btn-lg apply-button" href="/#home" du-smooth-scroll offset="-90">{{'BRANDING_AND_NAV.HOME' | translate}}</a>
 			                </div>
 						</div>
 					</div>
@@ -75,7 +81,7 @@
 						<h3 translate="HOME.FREE.LINE2"> </h3>
 						</div>
 						<!-- <img ng-src="../image/nb.jpg" alt="Become coach"><br> -->
-						<button class="btn btn-warning btn-large free-button" ng-click="vm.popupEmailForm()">{{'HOME.FREE.BUTTON' | translate}}</button>
+						<button class="glyphicon glyphicon-certificate btn btn-danger btn-lg free-button" ng-click="vm.popupEmailForm()"> {{'HOME.FREE.BUTTON' | translate}}</button>
 					</div>
 					<div class="col-lg-4 col-sm-6 callout" id="become" name="become">
 						<br>
@@ -95,7 +101,7 @@
 		                        <h4 translate="HOME.BECOME-COACH.LI-3"></h4>
 		                    </div>
 		                    <div>
-		                    	<a type="button" class="btn btn-success btn-large free-button" ui-sref="become">{{'BRANDING_AND_NAV.BECOME-COACH' | translate}}</a>
+		                    	<a type="button" class="btn btn-danger btn-lg apply-button" ui-sref="become">{{'BRANDING_AND_NAV.BECOME-COACH' | translate}}</a>
 		                	</div>
 	                    </div>   
 					</div>					

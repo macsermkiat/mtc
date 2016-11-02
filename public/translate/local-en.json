@@ -183,5 +183,9 @@
   },
   "FOOTER" : {
     "ASK" : "Telephone"
+  },
+  "LANDING" : {
+    "COACH" : "Become a coach",
+    "STUDENT" : "Find a coach"
   }
 } 

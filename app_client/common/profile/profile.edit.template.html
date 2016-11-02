@@ -58,7 +58,7 @@
                 <div class="form-group" ng-class="{ 'has-error': subscription.telephone.$touched  && subscription.telephone.$invalid }">
                   <label for="telephone" class="col-xs-3 col-sm-2 control-label">{{'FORM.LABEL.MOBILE' | translate}}<span class="required">*</span></label>
                   <div class="col-xs-8 col-sm-8">
-                    <input id="telephone" name="telephone" required ng-model="user.result.telephone" class="form-control" placeholder="eg. 09x-xxxxxxx">
+                    <input id="telephone" name="telephone" required ng-model="user.result.telephone" class="form-control" placeholder="0xx-xxxxxxx">
                     <div class="help-block" ng-messages="subscription.telephone.$error" ng-if="subscription.telephone.$touched">
                         <div ng-messages-include="/common/addCoach/messages.html"></div>
                     </div>

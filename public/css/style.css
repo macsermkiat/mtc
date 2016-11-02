@@ -137,3 +137,11 @@ blockquote p {
 .free-button {
   margin: 30px auto;
 }
+
+.apply-button {
+  margin-bottom: 40px;
+}
+
+.landing-button {
+  width: 168px !important;
+}

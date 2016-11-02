@@ -764,6 +764,17 @@ blockquote p {
   color:white !important;
 } 
 
+.free-button {
+  margin: 30px auto;
+}
+
+.apply-button {
+  margin-bottom: 40px;
+}
+
+.landing-button {
+  width: 168px;
+}
 /*Search*/
 
 /*@import "http://fonts.googleapis.com/css?family=Roboto:300,400,500,700";*/
