@@ -55,6 +55,7 @@ app.use(serveStatic(path.join(__dirname, 'app_client')));
 
 // });
 
+
 var appClientFiles = [
         './app_client/common/services/mtcData.service.js',
         './app_client/common/services/user.service.js',
@@ -147,6 +148,7 @@ app.use(function(err, req, res, next) {
         message: err.message,
         error: {}
     });
+    res.render('error.ejs');
 });
 
 
@@ -163,6 +165,7 @@ app.use(function(err, req, res, next) {
 // router.get('*', function (req, res, next) {
 //     res.sendFile(path.resolve('/app_client/index.html'));
 // });
+
 
 var server = http.createServer(app);
 server.listen(app.get('port'), function(){

@@ -28,7 +28,7 @@ angular
 			if(!vm.formData.name || !vm.formData.subject || !vm.formData.price ||
 				!vm.formData.shortDescription || !vm.formData.courseDescription ||
 				 !vm.formData.time || !vm.formData.province || !vm.formData.location|| 
-				 !vm.formData.category) { 
+				 !vm.formData.category || !vm.formData.courseLength) { 
 				vm.formError = "All fields required, please try again";
 				return false;
 			} else {
