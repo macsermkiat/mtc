@@ -117,7 +117,7 @@
       userSubscription: userSubscription,
       login: login,
       logout: logout,
-      registerAuthenticationListener: registerAuthenticationListener,
+      registerAuthenticationListener: registerAuthenticationListener
     }
   }
 

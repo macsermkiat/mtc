@@ -206,7 +206,7 @@
 				<label for="courseLength" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.LENGTH" | translate}}<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
 					<div class="input-group">
-						<input id="courseLength" type="number" min="4" name="courseLength" required ng-model="vm.formData.courseLength" class="form-control" translate-attr="{ placeholder : 'FORM.PLACEHOLD.LENGTH' }" aria-labelledby="Length of course">
+						<input id="courseLength" type="number" min="4" name="courseLength" uib-popover="{{'FORM.TEXT.POPOVER' | translate }}" popover-placement="top" popover-trigger="'focus'" required ng-model="vm.formData.courseLength" class="form-control" translate-attr="{ placeholder : 'FORM.PLACEHOLD.LENGTH' }" aria-labelledby="Length of course">
 						<span class="input-group-addon">{{"FORM.TEXT.HOURS" | translate}}</span>
 					</div>
 					<div class="help-block" ng-messages="vm.addCoach.courseLength.$error" ng-if="vm.addCoach.courseLength.$touched">
@@ -264,7 +264,7 @@
 								<option>Chinese - ภาษาจีน</option>
 								<option>Deutsch - ภาษาเยอรมัน</option>
 								<option>Japanese - ภาษาญี่ปุ่น</option>
-								<option>français - ภาษาฝรั่งเศษ</option>
+								<option>français - ภาษาฝรั่งเศส</option>
 								<option>Other Language - ภาษาอื่นๆ</option>
 								</optgroup>
 								<optgroup label="Music">

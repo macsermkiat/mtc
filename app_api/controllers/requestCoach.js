@@ -93,8 +93,8 @@ module.exports.requestCoach = function(req, res) {
 			       <p>Place: ${req.body.place}</p>
 			       <p>Requestid: ${req.body.requestid}</p>
 			       <p>Matching fee: ` + fee +` baht.</p>
-			       <p>กรุณาตอบกลับ Email ฉบับนี้ว่าท่านสะดวกสอนในวันเวลาดังกล่าวหรือไม่</p>
-			       <p>ถ้าท่านตอบตกลง เราจะติดต่อท่านอีกครั้งเมื่อนักเรียนได้ชำระค่าธรรมเนียม ท่านจึงชำระค่าธรรมเนียมการแมทช์หลังจากนั้น</p>
+			       <p>กรุณาตอบกลับ Email ฉบับนี้ว่าท่านสะดวกสอนในวันเวลา\nดังกล่าวหรือไม่</p>
+			       <p>ถ้าท่านตอบตกลง\nเราจะติดต่อท่านอีกครั้ง\nเมื่อนักเรียนได้ชำระค่าธรรมเนียม\nท่านจึงชำระค่าธรรมเนียมการแมทช์\nหลังจากนั้น</p>
 			       <p>ถ้าท่านมีปัญหาการใช้งาน หรือมีคำถาม สามารถติดต่อเราได้ทุกช่องทาง<p>
 			       <p>Please reply this Email back as soon as possible of your answer to accept the match or not.</p>
 			       <p>If you accept to match, we will contact you shortly when the student confirm matching. Please do not transfer matching fee before that<p>

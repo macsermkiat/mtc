@@ -161,7 +161,8 @@
       "HOURS" : "hours",
       "EDIT" : "Edit",
       "DELETE" : "Delete",
-      "DEL" : "Del"
+      "DEL" : "Del",
+      "POPOVER" : "You should create the actual course length, not too few. It may effect coach's trustability. Also student may stop learning early than your plan, because there was no commitment how long the course should take."
     },
     "PLACEHOLD" : {
       "SEARCHBOX" : "search from subject",
