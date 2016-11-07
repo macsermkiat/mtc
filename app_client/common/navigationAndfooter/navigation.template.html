@@ -78,7 +78,7 @@
                       <li ng-if="lgin.getSubscription == false || lgin.serviceSubscription == false ||
                       lgin.localStorageSubscription == false" aria-label="Subscription"><a ui-sref="subscription" translate="BRANDING_AND_NAV.SUBSCRIPTION"></a></li>
                       <li ng-if="lgin.getSubscription == true || lgin.serviceSubscription == true ||
-                      lgin.localStorageSubscription || true" aria-label="Create Course"><a ui-sref="addCoach" translate="FORM.HEAD.COURSE"></a></li>
+                      lgin.localStorageSubscription == true" aria-label="Create Course"><a ui-sref="addCoach" translate="FORM.HEAD.COURSE"></a></li>
                       <li aria-label="Profile"><a ui-sref="profile.courses" translate="BRANDING_AND_NAV.PROFILE"></a></li>
                       <li aria-label="Log out"><a ng-click="lgin.authService.logout()" translate="BRANDING_AND_NAV.LOGOUT"></a></li>
                     </ul>
