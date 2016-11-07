@@ -27,8 +27,9 @@
                     <img ng-src="{{lgin.profile.picture}}" alt="{{lgin.profile.name}}" height="28" width="28">
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu" >
-                      <li ng-if="lgin.getSubscription == false || lgin.serviceSubscription == false " aria-label="Subscription"><a ui-sref="subscription" translate="BRANDING_AND_NAV.SUBSCRIPTION"></a></li>
-                      <li ng-if="lgin.getSubscription == true || lgin.serviceSubscription == true " aria-label="Create Course"><a ui-sref="addCoach" translate="FORM.HEAD.COURSE"></a></li>
+                      <li ng-if="lgin.getSubscription == false || lgin.serviceSubscription == false || lgin.localStorageSubscription == false " aria-label="Subscription"><a ui-sref="subscription" translate="BRANDING_AND_NAV.SUBSCRIPTION"></a></li>
+                      <li ng-if="lgin.getSubscription == true || lgin.serviceSubscription == true || 
+                      lgin.localStorageSubscription == true" aria-label="Create Course"><a ui-sref="addCoach" translate="FORM.HEAD.COURSE"></a></li>
                       <li aria-label="Profile"><a ui-sref="profile.courses" translate="BRANDING_AND_NAV.PROFILE"></a></li>
                       <li aria-label="Log out"><a ng-click="lgin.authService.logout()" translate="BRANDING_AND_NAV.LOGOUT"></a></li>
                     </ul>
@@ -74,8 +75,10 @@
                     <img ng-src="{{lgin.profile.picture}}" alt="{{lgin.profile.name}}" height="32" width="32">
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                      <li ng-if="lgin.getSubscription == false || lgin.serviceSubscription == false" aria-label="Subscription"><a ui-sref="subscription" translate="BRANDING_AND_NAV.SUBSCRIPTION"></a></li>
-                      <li ng-if="lgin.getSubscription == true || lgin.serviceSubscription == true " aria-label="Create Course"><a ui-sref="addCoach" translate="FORM.HEAD.COURSE"></a></li>
+                      <li ng-if="lgin.getSubscription == false || lgin.serviceSubscription == false ||
+                      lgin.localStorageSubscription == false" aria-label="Subscription"><a ui-sref="subscription" translate="BRANDING_AND_NAV.SUBSCRIPTION"></a></li>
+                      <li ng-if="lgin.getSubscription == true || lgin.serviceSubscription == true ||
+                      lgin.localStorageSubscription || true" aria-label="Create Course"><a ui-sref="addCoach" translate="FORM.HEAD.COURSE"></a></li>
                       <li aria-label="Profile"><a ui-sref="profile.courses" translate="BRANDING_AND_NAV.PROFILE"></a></li>
                       <li aria-label="Log out"><a ng-click="lgin.authService.logout()" translate="BRANDING_AND_NAV.LOGOUT"></a></li>
                     </ul>

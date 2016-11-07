@@ -24,6 +24,7 @@
       lgin.getSubscription = $rootScope.isSubscribed;
       lgin.serviceSubscription = $rootScope.authService.userSubscription;
       lgin.isAuthenticated = $rootScope.isAuthenticated;
+      lgin.localStorageSubscription = localStorage.getItem('subscription');
       
       $timeout(function() {
 
