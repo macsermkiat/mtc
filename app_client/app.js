@@ -21,12 +21,12 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
       domain: 'royyak.auth0.com',
       clientID: '2m8hbwYC8UdyjITdKGDptrRvF6BXweY7',
       options: {
-      	auth: {
-      		params: {
-      			callbackURL: 'http://localhost:8080',
-      			response: 'token'
-      		}
-      	},
+      	// auth: {
+      	// 	params: {
+      	// 		callbackURL: 'http://localhost:8080',
+      	// 		response: 'token'
+      	// 	}
+      	// },
       	theme: {
       		logo: 'image/mtc-tp.png'
       	},

@@ -40,7 +40,7 @@
 		<div class="form-group" ng-class="{ 'has-error': vm.subscription.telephone.$touched  && vm.subscription.telephone.$invalid }">
 			<label for="telephone" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.MOBILE" | translate}}<span class="required">*</span></label>
 			<div class="col-xs-9 col-sm-10">
-				<input id="telephone" name="telephone" required ng-model="vm.formData.telephone" class="form-control" value="+66" placeholder="0xx-xxx-xxxx">
+				<input type ="number" popover="Number only"  popover-placement="top" popover-trigger="'focus'" id="telephone" name="telephone" required ng-model="vm.formData.telephone" class="form-control" placeholder="0xxxxxxxx">
 				<div class="help-block" ng-messages="vm.subscription.telephone.$error" ng-if="vm.subscription.telephone.$touched">
 				    <div ng-messages-include="/common/addCoach/messages.html"></div>
 				</div>
