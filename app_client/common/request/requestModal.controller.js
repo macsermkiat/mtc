@@ -14,13 +14,15 @@ function requestModalCtrl ($uibModalInstance, mtcData, coachData, $timeout) {
 	var accessData = localStorage.getItem('profile');
 	var profile = angular.fromJson(accessData);
 	var identity = profile.identities[0].user_id;
+	var nameOfStudent = profile.name;
 	var requestid = identity + ':' + now.toISOString();
-
+	vm.success = false;
+	vm.isDisabled = false;
 
 	vm.onSubmit = function () {
 		vm.formError = "";
 		if(!vm.formData.time || !vm.formData.place || 
-			!vm.formData.phone || !vm.formData.email) { 
+			!vm.formData.phone || !vm.formData.email || !vm.formData.sex) { 
 			vm.formError = "All fields required, please try again";
 			return false;
 		} else {
@@ -30,6 +32,8 @@ function requestModalCtrl ($uibModalInstance, mtcData, coachData, $timeout) {
 	};
 
 	vm.doRequest = function (formData) {
+		vm.success = true;
+		vm.isDisabled = true;
 		mtcData.requestCoach({
 			// author : formData.name,
 			requestid: requestid,
@@ -38,13 +42,14 @@ function requestModalCtrl ($uibModalInstance, mtcData, coachData, $timeout) {
 			createdBy: coachData.createdBy,
 			price: coachData.price,
 			identity: identity,
+			nameOfStudent: nameOfStudent,
 			time : formData.time,
 			place : formData.place,
 			phone : formData.phone,
-			email : formData.email
+			email : formData.email,
+			sex : formData.sex
 		})
 		.then(function(success) {
-			vm.formError = "Your request has been sent";
 			vm.uibModal.close(success);
 		}, function(error) {
 			vm.formError = "Your request has not been sent, try again";

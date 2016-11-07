@@ -9,9 +9,6 @@
 			<h4 id="myModalLabel" class="modal-title">{{'FORM.LABEL.REQUEST' | translate}} {{ vm.coachData.shortDescription }}</h4>
 		</div>
 		<div class="modal-body">
-			<div class="modal-body">
-				<div role="alert" ng-show="vm.formError" class="alert alert-danger">{{ vm.formError }}
-				</div>
 
 			<div class="form-group">
 				<label for="time" class="col-sm-2 control-label">{{'FORM.LABEL.GOODTIME' | translate}}</label>
@@ -37,10 +34,28 @@
 					<input type="email" id="email" name="email" required="required" ng-model="vm.formData.email" class="form-control"></textarea>
 				</div>
 			</div>
+			<div class="form-group">
+				<label for="sex" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.SEX" | translate}}</label>
+				
+					<label class="form-check-inline">
+						<input type="radio" class="form-check-input" name="sex" id="female" value="female" ng-model="vm.formData.sex" checked>
+						{{'FORM.LABEL.FEMALE' | translate}}
+					</label>
+					<label class="form-check-inline">
+						<input type="radio" class="form-check-input" name="sex" id="male" value="male" ng-model="vm.formData.sex">
+						{{'FORM.LABEL.MALE' | translate}}
+					</label>	
+			</div>
+			
+				<div ng-show="vm.formError" class="alert alert-danger">{{ vm.formError }}
+				</div>
+				<div ng-show="vm.success == true" class="alert alert-success">Request Sent!
+				</div>
+			
 		</div>
 		<div class="modal-footer">
 			<button  type="button" ng-click="vm.uibModal.cancel()" class="btn btn-default">{{'FORM.LABEL.CANCEL' | translate}}</button>
-			<button type="submit" class="btn btn-primary">{{'FORM.LABEL.SUBMIT' | translate}}</button>
+			<button type="submit" class="btn btn-primary" ng-disabled="vm.isDisabled">{{'FORM.LABEL.SUBMIT' | translate}}</button>
 		</div>
 	</form>
 </div>

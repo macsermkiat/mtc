@@ -122,6 +122,7 @@
       "SUBSCRIPTION" : "Subscription form",
       "PRIVACY" : "We respect your privacy and personal data most. No sensitive data will provide to public without asking for permission.",
       "COURSE" : "Create a course",
+      "COURSE-HEAD" : "Create a course/ Edit a course",
       "RECOMMEND" : "You can provide multiple language info if you want to match other language speaking students"
     },
     "LABEL" : {
@@ -134,7 +135,7 @@
       "EXPERIENCE" : "Experience",
       "ID": "ID card/Passport Number",
       "EDUCATION": "Education",
-      "IMAGE": "Image",
+      "IMAGE": "Image (You need to upload everytime create or edit course)",
       "SUBJECT": "Subject",
       "COURSE-NAME": "Course name",
       "DESCRIPTION": "Course Description",
@@ -152,6 +153,9 @@
       "SUBMIT": "Submit",
       "CANCEL": "Cancel",
       "REQUEST" : "Request to Match",
+      "SEX" : "Gender",
+      "FEMALE" : "Female",
+      "MALE" : "Male",
       "GOODTIME" : "Date/Time prefer (Give a range)",
       "CREATE-COURSE" : "You MUST fill in 'create course' form after complete this subscription. The link can be found in menu bar or profile page."
     },

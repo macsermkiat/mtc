@@ -85,7 +85,6 @@ module.exports.coachesBrowse = function(req, res) {
   console.log('Browsing coaches');
     console.log('Finding coach by keyword', req.query);
       var typeaheadSearchBody = req.query.text;
-      console.log(typeaheadSearchBody);
   
     // .find({})
        
@@ -106,7 +105,6 @@ module.exports.coachesBrowse = function(req, res) {
           sendJSONresponse(res, 404, err);
           return;
         }
-        console.log(coach);
         sendJSONresponse(res, 200, coach);
       });   
   
@@ -114,7 +112,7 @@ module.exports.coachesBrowse = function(req, res) {
 
 // GET category
 module.exports.categorySearch = function(req, res) {
-      console.log('Browsinging category');
+      console.log('Browsing category');
       var catSearchBody = req.query.text;
       Cat.find({ $or:[{category: new RegExp (catSearchBody, "i")}]}
         ).exec(function(err, catmember) {
@@ -128,13 +126,12 @@ module.exports.categorySearch = function(req, res) {
               sendJSONresponse(res, 404, err);
               return;
             }
-            console.log(catmember);
             sendJSONresponse(res, 200, catmember);
       });       
 };
 
 module.exports.allCats = function(req, res) {
-      console.log('Browsinging category');
+      console.log('Browsing category');
       Cat.find({})
       .exec(function(err, catmember) {
          if (!catmember) {
@@ -147,7 +144,6 @@ module.exports.allCats = function(req, res) {
               sendJSONresponse(res, 404, err);
               return;
             }
-            console.log(catmember);
             sendJSONresponse(res, 200, catmember);
       });       
 };
@@ -157,7 +153,6 @@ module.exports.allCats = function(req, res) {
 module.exports.keywordSearch = function(req, res, next) {
       console.log('Finding coach by keyword', req.query);
       var textSearchBody = req.query.text;
-      console.log(textSearchBody);
 
       if (req.query && req.query.text) {   
         
@@ -187,7 +182,6 @@ module.exports.keywordSearch = function(req, res, next) {
               sendJSONresponse(res, 404, err);
               return;
             }
-        console.log(coach+"coach");
         sendJSONresponse(res, 200, coach);
         }); 
       } else {
@@ -217,7 +211,7 @@ module.exports.coachesReadOne = function(req, res) {
           sendJSONresponse(res, 404, err);
           return;
         }
-        console.log(coach);
+        
         sendJSONresponse(res, 200, coach);
       });
   } else {
@@ -253,7 +247,6 @@ module.exports.usersCourse = function(req, res) {
 module.exports.usersBio = function(req, res) {
       console.log('Get User Bio');
       // if (req.params && req.params.coachid)
-      console.log("The request params is " + req.params.id);
       var id = req.params.id || req.params.userid;
       console.log("My ID " + id);
       User.find({identity: id })

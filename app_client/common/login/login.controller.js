@@ -79,11 +79,14 @@
       });
 
         // Display the user's profile
-      lgin.addCoach = function(val) {
-        if (val = true) {
-          $state.go ('addCoach');
-        } else {
-          return false;
+
+      lgin.addCoach = function() {
+        var sub =  localStorage.getItem('subscription');
+        if (sub == 'false') {
+          alert($filter('translate')('PROFILE.ALERT'));
+          $state.go('subscription');
+        } else if(sub == 'true') {
+          $state.go('addCoach');
         }
       };
 
