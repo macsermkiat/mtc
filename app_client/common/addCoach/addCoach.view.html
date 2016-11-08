@@ -10,35 +10,53 @@
 	
 	<form name="PicForm" enctype="multipart/form-data" role="form"  class="container form-horizontal">
 		<div class="form-group" >
+				<div class="row">
 				<label for="picture" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.IMAGE" | translate}}</label>
-				<div class="col-xs-9 col-sm-10">
-					<input type ="file" 
-					 ngf-before-model-change="beforeResizingImages($file)"
-					 ngf-select="afterResizingImages($file)"
-					 ngf-select accept="image/*"
-					 ngf-max-size="5MB"
-					 ngf-fix-orientation="true" 
-					 ngf-model-invalid="errorFile"
-					 ngf-resize="{width: 320, height: 240, quality: .8, type: 'image/jpeg', centerCrop: true}" 
-					 id="picfile" name="picfile"  ng-model="picfile" class="form-control" 
-					 aria-labelledby="picture file" >
-					 <br>
-					 <spinner name="picturespinner" img-src="image/balls.gif"></spinner alt="spinner">
-					 <i ng-show="PicForm.picfile.$error.maxSize">File too large 
-          			{{errorFile.size / 5000000|number:5}}MB: max 5M</i>
-          			<img ng-show="PicForm.picfile.$valid" ngf-thumbnail="picfile" class="thumb" alt="File to upload">
-          			<br> 
-          			<button class="btn btn-primary" ng-show="picfile" ng-click="uploadPic(picfile)">Submit</button>
-          			<button class="btn btn-default" ng-click="picfile = null" ng-show="picfile">Remove</button>
-          			<span class="progress" ng-show="picfile.progress >= 0">
-			        <div class="progress-bar" role="progressbar" style="width:{{picfile.progress}}%" 
-			            ng-bind="picfile.progress + '%'"></div>
+				
+					<div class="col-xs-9 col-sm-10">
+						<input type ="file" 
+						 ngf-before-model-change="beforeResizingImages($file)"
+						 ngf-select="afterResizingImages($file)"
+						 ngf-select accept="image/*"
+						 ngf-max-size="10MB"
+						 ngf-fix-orientation="true" 
+						 ngf-model-invalid="errorFile"
+						 ngf-resize="{width: 600, height: 450, quality: .8, type: 'image/jpeg'}" 
+						 id="picfile" name="picfile"  ng-model="picfile" class="form-control" 
+						 aria-labelledby="picture file" >
+						 <br>
+						 <spinner name="picturespinner" img-src="image/balls.gif"></spinner alt="spinner">
+						 <i ng-show="PicForm.picfile.$error.maxSize">File too large 
+	          			{{errorFile.size / 10000000|number:10}}MB: max 10M</i>
+	          		</div>
+	          	</div>
+          		<div class="row">
+          		<div class="col-xs-9-offset-3 col-sm-10-offset-2">
+          			<div class="col-sm-8-offset-2"  ngf-pattern="image/*" ng-model="picfile">
+	          			<img-crop image="picfile | ngfDataUrl" result-image="croppedImg"
+	          			ng-init="croppedImg=''" ng-show="PicForm.picfile.$valid"  class="cropArea centered img-select" area-type="rectangle" area-min-size="{w:360,h:270}" result-image-size="{w:360,h:270}"></img-crop>
+          			</div>
+          			
+          			<div>
+          				<img class="result-image" ng-src="{{croppedImg}}">
+	          		</div>
+	          	</div>	
+		         </div>
+		         <div class="row">
+			       <div class="col-xs-9-offset-3 col-sm-10-offset-2">
+			       <span class="progress" ng-show="vm.progress >= 0">
+			        <div class="progress-bar" role="progressbar" style="width:{{vm.progress}}%" 
+			            ng-bind="vm.progress + '%'"></div>
 				    </span>
-				    <span ng-show="picfile.result">Upload Successful</span>
-				    <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+				    <span ng-show="vm.result">Upload Successful</span>
+				    <span class="err" ng-show="errorMsg">{{vm.errorMsg}}</span>
+	      			<button class="btn btn-primary" ng-show="picfile" ng-click="uploadPic(croppedImg)">Submit</button>
+	      			<button class="btn btn-default" ng-click="picfile = null" ng-show="picfile">Remove</button>
+	      			
+					</div>
 				</div>
-			</div>
-		</form>
+		</div>
+	</form>
 		
 			<h4 class="text-danger col-xs-9-offset-3 col-sm-10-offset-2" translate="FORM.TEXT.PIC"><h4><br>
 		

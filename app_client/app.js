@@ -3,6 +3,8 @@
 var app = angular.module('mtcApp', 	['ui.router',
 									 'youtube-embed',
 									 'ngFileUpload',
+									 'ngImgCrop',
+									 // 'uiCropper',
 									 'auth0.lock',
 									 'angularSpinners',
 									 'pascalprecht.translate',

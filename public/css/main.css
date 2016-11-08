@@ -627,7 +627,20 @@ a:after {
 }
 
 /*Style*/
+.cropArea {
+      background: #E4E4E4;
+      overflow: hidden;
+      width:600px;
+      height:450px;
+}
 
+.img-select {
+  margin: auto;
+}
+
+.result-image{
+  padding-top: 20px;
+}
 .review {padding-bottom: 5px;}
 .panel-body.review-container {padding-top: 0;}
 .review-header {margin-bottom: 10px;}
