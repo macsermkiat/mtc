@@ -6,18 +6,21 @@
     .module('mtcApp')
     .controller('loginController', loginController);
 
-    loginController.$inject = ['authService', '$translate', '$rootScope', '$scope', '$state', '$timeout'];
+    loginController.$inject = ['authService', '$translate', '$rootScope', '$scope', '$state', '$timeout', '$window'];
 
-    function loginController(authService, $translate, $rootScope, $scope, $state, $timeout) {
+    function loginController(authService, $translate, $rootScope, $scope, $state, $timeout, $window) {
 
       var lgin = this;
       lgin.authService = authService;
       lgin.goLogin = function() {
-        $state.go('/');
-        $timeout(function() {
-          authService.login()
-        },100);
         
+        if ($state.current.name === '/') {
+          authService.login();
+        } else {
+          alert("Please sign in from main page");
+          $state.go('/');
+          $window.location.reload();
+        } 
       };
 
       // i18n
