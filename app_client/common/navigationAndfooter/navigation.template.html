@@ -69,7 +69,7 @@
             </ul>
           </li> 
             
-            <li aria-label="Sign in" class="hidden-xs" ng-if="!lgin.isAuthenticated"><a ng-click="lgin.goLogin()" id="navtopspace" translate="BRANDING_AND_NAV.SIGNIN"></a></li>
+            <li aria-label="Sign in" class="hidden-xs" ng-if="!lgin.isAuthenticated"><a ng-click="lgin.authService.login()" id="navtopspace" translate="BRANDING_AND_NAV.SIGNIN"></a></li>
             <li ng-if="lgin.isAuthenticated" class="dropdown hidden-xs float-right">
                     <a href="" class="dropdown-toggle" data-toggle="dropdown">
                     <strong>{{lgin.profile.name}}&nbsp</strong>
@@ -89,7 +89,7 @@
         </div> 
         <div class="navbar-collapse collapse" id="navbar-collapse-2">    
         		  <ul class="nav navbar-nav client-nav navbar-right"  class="hidden-sm hidden-md hidden-lg">
-        		  	<li aria-label="Login" ng-if="!lgin.isAuthenticated"><a ng-click="lgin.goLogin()" class="dropdown hidden-sm hidden-md hidden-lg">Sign in</a></li>
+        		  	<li aria-label="Login" ng-if="!lgin.isAuthenticated"><a ng-click="lgin.authService.login()" class="dropdown hidden-sm hidden-md hidden-lg">Sign in</a></li>
                 
             </ul> 
         </div><!--/.nav-collapse-->

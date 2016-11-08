@@ -12,13 +12,6 @@
 
       var lgin = this;
       lgin.authService = authService;
-      lgin.goLogin = function() {
-        $state.go('/');
-        $timeout(function() {
-          authService.login()
-        },100);
-        
-      };
 
       // i18n
      
