@@ -15,7 +15,7 @@ angular
 		var accessData = localStorage.getItem('profile');
 		var profile = angular.fromJson(accessData);
 		var identity = profile.identities[0].user_id;
-		
+		var role = localStorage.getItem('role');
 		// vm.coachData = coachData;
 		
 		vm.message = {};
@@ -60,15 +60,20 @@ angular
 					    	vm.message.success = false;
 								}, 2000);
 						localStorage.setItem('subscription', true);
-						$timeout (function(){
-							$state.go('/');},2000);
-						$timeout (function(){
-							$window.location.reload();},2500);
+						if (role === 'teacher') {
+							$timeout (function(){
+								$state.go('addCoach');},2000);
+						} else {
+							$timeout (function(){
+								$state.go('/');},2000);
+							$timeout (function(){
+								$window.location.reload();},2500);
+						}
 					}, function(error) {
 						var vals = Object.keys(error).map(function (key) {
     					return error[key];	
 						});					
-						vm.formError = "Your edit has not been saved, try again. Possible from duplicate data.";
+						vm.formError = "Your edit has not been saved, try again. Check your mobile and Email field. Mobile number should contain ONLY number, without -";
 					});
 		return false;
 		};

@@ -36,6 +36,7 @@
       localStorage.removeItem('id_token');
       localStorage.removeItem('profile');
       localStorage.removeItem('subscription');
+      localStorage.removeItem('role');
       authManager.unauthenticate();
       userProfile = {};
       $state.go('/');
@@ -96,10 +97,18 @@
             // localStorage.setItem('subscription', JSON.stringify(subscription));
             // setUserSubscription(subscription);
             $timeout(function() {
-
-              $state.go('profile.bio');
+              var role = localStorage.getItem('role');
+              if(role === 'student') {
+                $state.go('/');
+              } else if( role === 'teacher') {
+                  if ($rootScope.isSubscribed == false) {
+                    $state.go('subscription');
+                  } else if ($rootScope.isSubscribed == true) {
+                    $state.go('profile.bio')
+                  }
               // $window.location.reload();
-            },100)
+              }
+            },1000)
             // $state.go('/');
             // $window.location.reload();
 

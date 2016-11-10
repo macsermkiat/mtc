@@ -90,6 +90,16 @@
         }
       };
 
+      lgin.student = function() {
+        localStorage.setItem('role', 'student');
+        authService.login();
+      }
+
+      lgin.teacher = function() {
+        localStorage.setItem('role', 'teacher');
+        $state.go('become');
+      }
+
       lgin.becomeCoach = function() {
         if ($rootScope.isAuthenticated === false) {
           authService.login();

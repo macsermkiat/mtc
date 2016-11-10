@@ -4,9 +4,9 @@ angular
 	.module('mtcApp')
 	.controller('addCoachCtrl', addCoachCtrl);
 
-	addCoachCtrl.$inject = ['mtcData', '$state', '$timeout','Upload','$scope', 'awsPolicy', 'spinnerService'];
+	addCoachCtrl.$inject = ['mtcData', '$state', '$timeout', '$window', 'Upload','$scope', 'awsPolicy', 'spinnerService'];
 
-	function addCoachCtrl (mtcData, $state, $timeout, Upload, $scope, awsPolicy, spinnerService) {
+	function addCoachCtrl (mtcData, $state, $timeout, $window, Upload, $scope, awsPolicy, spinnerService) {
 		var vm = this;
 		
 		var sign =awsPolicy.getSign();
@@ -33,7 +33,7 @@ angular
 				return false;
 			} else {
 				var data = vm.formData;
-				vm.doAddCoach(data);					
+				vm.doAddCoach(data);
 			}
 		};	
 
@@ -69,7 +69,8 @@ angular
 							}, 2000);
 					$timeout (function(){
 						$state.go('/')},2000);
-					
+					$timeout (function(){
+						$window.location.reload()},2500);
 
 				}, function(error) {
 					var vals = Object.keys(error).map(function (key) {
