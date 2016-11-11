@@ -95,11 +95,11 @@ angular
 		};
 
 		
-		$scope.uploadPic = function(dataUrl) {
+		$scope.uploadPic = function(file) {
 			
-			var blob = Upload.dataUrltoBlob(dataUrl, name);
-			var png = new File([blob], createdDate);
-			file = png;
+			// var blob = Upload.dataUrltoBlob(dataUrl, name);
+			// var png = new File([blob], createdDate);
+			// file = png;
 			alert("เมื่อ upload หรือเปลี่ยนรูปใหม่เสร็จ ต้องทำการ submit แบบฟอร์มทั้งหมดที่ปุ่ม Submit ด้านล่างสุดบรรทัดสุดท้ายด้วยทุกครั้ง\nEverytime you finish upload or change the new picture. Please submit the whole form via the button beneath last line");
 			Promise.resolve(sign).then(function(s3) {	
 				return s3;
@@ -113,8 +113,8 @@ angular
 				        acl: 'public-read', // sets the access to the uploaded file in the bucket: private, public-read, ...
 				        policy: s3.s3Policy, // base64-encoded json policy (see article below)
 				        signature: s3.s3Signature, // base64-encoded signature based on policy string (see article below)
-				        "Content-Type": file.type != '' ? file.type : 'image/png', // content type of the file (NotEmpty)
-				        filename: createdDate, // this is needed for Flash polyfill IE8-9
+				        "Content-Type": file.type != '' ? file.type : 'application/octet-stream', // content type of the file (NotEmpty)
+				        filename: file.name, // this is needed for Flash polyfill IE8-9
 				        file: file
 	    			}
 				

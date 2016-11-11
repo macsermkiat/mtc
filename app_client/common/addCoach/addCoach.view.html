@@ -21,7 +21,7 @@
 						 ngf-max-size="10MB"
 						 ngf-fix-orientation="true" 
 						 ngf-model-invalid="errorFile"
-						 ngf-resize="{width: 520, height: 390, quality: .7, type: 'image/jpeg'}" 
+						 ngf-resize="{width: 320, height: 240, quality: .7, type: 'image/jpeg'}" 
 						 id="picfile" name="picfile"  ng-model="picfile" class="form-control" 
 						 aria-labelledby="picture file" >
 						 <br>
@@ -29,9 +29,10 @@
 						 <spinner name="picturespinner" img-src="image/balls.gif"></spinner alt="spinner">
 						 <i ng-show="PicForm.picfile.$error.maxSize">File too large 
 	          			{{errorFile.size / 10000000|number:10}}MB: max 10M</i>
+	          			<img ng-show="PicForm.picfile.$valid" ngf-thumbnail="picfile" class="thumb" alt="File to upload">
 	          		</div>
 	          	</div>
-          		<div class="row">
+          		<!-- <div class="row">
           		<div class="col-xs-9-offset-3 col-sm-10-offset-2">
           			<div class="col-sm-8-offset-2"  ngf-pattern="image/*" ng-model="picfile">
 	          			<img-crop image="picfile | ngfDataUrl" result-image="croppedDataUrl"
@@ -43,16 +44,19 @@
 	          		</div>
 	          	</div>	
 		         </div>
-		         <hr>
+		         <hr> -->
 		         <div class="row">
 			       <div class="col-xs-9-offset-3 col-sm-10-offset-2">
 			       <span class="progress" ng-show="progress >= 0">
 			        <div class="progress-bar" role="progressbar" style="width:{{progress}}%" 
 			            ng-bind="progress + '%'"></div>
 				    </span>
+				    <!-- <p>please use desktop to upload picture for now. We're fixing problem that mobile and tablet pictures still wouldn't show up.</p>
+				    <p>ขณะนี้ให้อัพโหลดรูปด้วยคอมพิวเตอร์ตั้งโต๊ะหรือโน้ตบุ๊คไปก่อน
+				    เรากำลังแก้ไขปัญหารูปที่อัพโหลดจากมือถือแล้วไม่ขึ้นโดยเร็ว</p> --> 
 				    <span ng-show="result">Upload Successful</span>
 				    <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
-	      			<button class="btn btn-primary" ng-show="picfile" ng-click="uploadPic(croppedDataUrl)">Upload</button>
+	      			<button class="btn btn-primary" ng-show="picfile" ng-click="uploadPic(picfile)">Upload</button>
 	      			<button class="btn btn-default" ng-click="picfile = null" ng-show="picfile">Remove</button>
 	      			
 					</div>
