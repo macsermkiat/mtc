@@ -35,7 +35,7 @@ var userSchema = new mongoose.Schema({
 		},
 		experience: String,
 		idnumber: {
-			type: Number
+			type: String
 		},
 		role: String,
 		idcard: {

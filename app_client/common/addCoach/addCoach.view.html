@@ -25,6 +25,7 @@
 						 id="picfile" name="picfile"  ng-model="picfile" class="form-control" 
 						 aria-labelledby="picture file" >
 						 <br>
+						 <h4 class="pull-left">{{'FORM.TEXT.PICTURE' | translate}}</h4>
 						 <spinner name="picturespinner" img-src="image/balls.gif"></spinner alt="spinner">
 						 <i ng-show="PicForm.picfile.$error.maxSize">File too large 
 	          			{{errorFile.size / 10000000|number:10}}MB: max 10M</i>
@@ -293,6 +294,7 @@
 								<option>Violin - ดนตรีไวโอลิน</option>
 								<option>Singing/Voicing - ดนตรีร้องเพลง</option>
 								<option>Guitar - ดนตรีกีต้าร์</option>
+								<option>EDM - Electronic Dance Music</option>
 								<option>Drums - ดนตรีกลอง</option>
 								<option>Bass - ดนตรีเบส</option>
 								<option>Wind Instrument - ดนตรีเครื่องเป่า</option>

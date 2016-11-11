@@ -89,13 +89,11 @@
 				<label for="role" class="col-xs-3 col-sm-2 control-label">{{"HOME.FREE.ROLE" | translate}}<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
 					<label class="form-check-inline">
-						<input type="radio" class="form-check-input" name="role" id="teacher" value="teacher" ng-model="vm.formData.role" checked
-						style="font-size: 16px;">
+						<input type="radio" class="form-check-input" name="role" id="teacher" value="teacher" ng-model="vm.formData.role" checked>
 						{{'HOME.FREE.COACH' | translate}}
 					</label>
 					<label class="form-check-inline">
-						<input type="radio" class="form-check-input" name="role" id="student" value="student" ng-model="vm.formData.role"
-						style="font-size: 16px;">
+						<input type="radio" class="form-check-input" name="role" id="student" value="student" ng-model="vm.formData.role">
 						{{'HOME.FREE.STUDENT' | translate}}
 					</label>
 					<div class="help-block" ng-messages="vm.subscription.role.$error" ng-if="vm.formData.role == 'teacher'">
