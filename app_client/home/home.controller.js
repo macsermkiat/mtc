@@ -4,7 +4,7 @@ angular
 	.module('mtcApp')
 	.controller('homeCtrl', homeCtrl);
 
-homeCtrl.$inject = ['$state', 'mtcData','$timeout', '$uibModal', '$rootScope'];
+homeCtrl.$inject = ['$state', '$translate', 'mtcData','$timeout', '$uibModal', '$rootScope'];
 
 
 //For IE 8-9
@@ -12,7 +12,7 @@ if (window.location.pathname !== '/') {
 window.location.href = '/#' + window.location.pathname;
 }
 
-function homeCtrl ($state, mtcData, $timeout, $uibModal, $rootScope) {
+function homeCtrl ($state, $translate, mtcData, $timeout, $uibModal, $rootScope) {
 	
 	
 	var vm = this;
@@ -37,6 +37,10 @@ function homeCtrl ($state, mtcData, $timeout, $uibModal, $rootScope) {
 			}, 3000);
 				
 	};	
+
+	vm.changeLanguage = function(langKey) {
+            $translate.use(langKey);
+      };
 
 	vm.doAddNewsLetter = function (formLetter) {
 		mtcData.addNewsLetter({
