@@ -76,7 +76,7 @@ angular
 					var vals = Object.keys(error).map(function (key) {
 					return error[key];	
 					});					
-					$scope.formError = "Your course has not been added, try again. Possible from duplicate data.";
+					vm.formError = "Your course has not been added, try again. Possible from duplicate data.";
 				});
 		return false;
 		};
@@ -98,9 +98,9 @@ angular
 		$scope.uploadPic = function(file) {
 
 			var blob = Upload.dataUrltoBlob(file, name);
-			var png = new File([blob], '1.jpg');
+			var png = new File([blob], createdDate);
 			file = png;
-			//alert("เมื่อ upload หรือเปลี่ยนรูปใหม่เสร็จ ต้องทำการ submit แบบฟอร์มทั้งหมดที่ปุ่ม Submit ด้านล่างสุดบรรทัดสุดท้ายด้วยทุกครั้ง\nEverytime you finish upload or change the new picture. Please submit the whole form via the button beneath last line");
+			alert("เมื่อ upload หรือเปลี่ยนรูปใหม่เสร็จ ต้องทำการ submit แบบฟอร์มทั้งหมดที่ปุ่ม Submit ด้านล่างสุดบรรทัดสุดท้ายด้วยทุกครั้ง\nEverytime you finish upload or change the new picture. Please submit the whole form via the button beneath last line");
 			Promise.resolve(sign).then(function(s3) {	
 				return s3;
 			}).then(function(s3) {
@@ -121,14 +121,14 @@ angular
 			}).then(function() {
 				file.upload.then(function(response) {
 					$timeout(function() {
-						vm.result = response.data;
+						$scope.result = response.data;
 					});
 				}, function(response) {
 					if (response.status > 0)
-						vm.errorMsg = response.status + ':' + response.data;
+						$scope.errorMsg = response.status + ':' + response.data;
 					
 				}, function (evt) {
-					vm.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+					$scope.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
 				});
 			});
 			
