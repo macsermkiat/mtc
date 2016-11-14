@@ -4,11 +4,12 @@ var app = angular.module('mtcApp', 	['ui.router',
 									 'youtube-embed',
 									 'ngFileUpload',
 									 'ngImgCrop',
+									 'w11k.angular-seo-header',
 									 // 'uiCropper',
 									 'auth0.lock',
 									 'angularSpinners',
 									 'pascalprecht.translate',
-									 'ngMeta',
+									 // 'ngMeta',
 									 // 'auth0',
 									 'angular-jwt',
 									 'ngSanitize', 
@@ -17,18 +18,19 @@ var app = angular.module('mtcApp', 	['ui.router',
 									 'duScroll']);
 
 
-function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $locationProvider, $httpProvider, $stateProvider, $urlRouterProvider, $translateProvider, ngMetaProvider) {
+function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $locationProvider, $httpProvider, $stateProvider, $urlRouterProvider, $translateProvider) {
 
 	lockProvider.init({
       domain: 'royyak.auth0.com',
       clientID: '2m8hbwYC8UdyjITdKGDptrRvF6BXweY7',
       options: {
-      	// auth: {
-      	// 	params: {
-      	// 		callbackURL: 'http://localhost:8080',
-      	// 		response: 'token'
-      	// 	}
-      	// },
+      	auth: {
+      		params: {
+      			callbackURL: 'http://www.matchthecoach.com',
+      			response: 'token',
+      			state: location.href
+      		}
+      	},
       	theme: {
       		logo: 'image/mtc-tp.png'
       	},
@@ -76,21 +78,21 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		templateUrl: 'home/home.view.html',
 		controller: 'homeCtrl',
 		controllerAs :'vm',
-		meta: {
-	        'title': 'Best place to find the teacher / tutor / coach in Thailand',
-	        'description': 'Find the tutor or coach in various subjects.'
-      	}
+		data: {
+                head: {
+                    title: 'สถานที่รวมครูและโค้ชทุกสาขาให้คุณเลือกเอง: Match The Coach',
+                    keywords: ["ติวเตอร์", "ครูสอนพิเศษ", 'Private tutor', 'Teacher'],
+                    description: "หาเจอง่ายครูสอนพิเศษ ติวสอบ ครูดนตรี กีฬา ภาษาอังกฤษ หรือสำหรับโพสงานฟรี : Matching tutor, teacher or post a teaching job for free",
+                    canonical: 'https://www.matchthecoach.com',
+                }
+            }
 		// parent: 'mtc'
 	})
 	.state('become', {
 		url: '/become-a-coach',
 		templateUrl: 'home/become.view.html',
 		controller: 'loginController',
-		controllerAs :'lgin',
-		meta: {
-	        'title': 'Become a coach easily',
-	        'description': 'Steps to become a coach'
-      	}
+		controllerAs :'lgin'
 		// parent: 'mtc'
 	})
 	.state('profile', {
@@ -98,11 +100,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		url: '/profile',
 		templateUrl: 'common/profile/profile.template.html',
 		controller: 'profileController',
-		controllerAs: 'user',
-		meta: {
-	        'title': 'User profile',
-	        'description': 'Find the tutor or coach in various subjects.'
-      	}
+		controllerAs: 'user'
 		// parent: 'mtc'
 		// template: '<ui-view>'
 	})
@@ -110,38 +108,29 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		url: '/courses',
 		templateUrl: 'common/profile/profile.courses.template.html',
 		controller: 'profileCoursesController',
-		controllerAs: 'user',
-		meta: {
-	        'title': 'Courses generate by user',
-	        'description': 'Find the tutor or coach in various subjects.'
-      	}
+		controllerAs: 'user'
 	})
 	.state('profile.bio', {
 		url: '/bio',
 		templateUrl: 'common/profile/profile.bio.template.html',
 		controller: 'profileController',
-		controllerAs: 'user',
-		meta: {
-	        'title': 'User bio',
-	        'description': 'Find the tutor or coach in various subjects.'
-      	}
+		controllerAs: 'user'
 	})
 	.state('profile.edit', {
 		url: '/edit',
 		templateUrl: 'common/profile/profile.edit.template.html',
-		controller: 'profileEditController',
-		meta: {
-	        'title': 'Profile edit',
-	        'description': 'Find the tutor or coach in various subjects.'
-      	}
+		controller: 'profileEditController'
 	})
 	.state('pricing', {
 		url: '/pricing',
 		templateUrl: 'home/pricing.html',
-		meta: {
-	        'title': 'Pricing',
-	        'description': 'Pricing'
-      	}
+		data: {
+                head: {
+                    title: 'ราคาการแมทช์ : Pricing',
+                    description: "คำถามที่พบบ่อยในเรื่องราคาการแมทช์ FAQ of Pricing",
+                    canonical: 'https://www.matchthecoach.com/#!/pricing',
+                }
+            }
 		// controller: 'priceController'
 		// parent: 'mtc'
 	})
@@ -157,32 +146,32 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		templateUrl: 'common/search/search.view.html',
 		controller: 'searchCtrl',
 		controllerAs : 'vm',
-		meta: {
-	        'title': 'Searching for courses',
-	        'description': 'Find the tutor or coach in various subjects.'
-      	}
+		data: {
+                head: {
+                    title: 'Finding teacher / ค้นหาครู',
+                    titleExtend: function (titleStr, toParams) {
+		                  return titleStr+toParams.text;
+		              },
+                    canonical: 'https://www.matchthecoach.com/#!/coaches/search/?text=',
+                    canonicalExtend: function (canonicalStr, toParams) {
+		                  return canonicalStr+toParams.text;
+		              }
+                }
+            }
 		// parent: 'mtc'	
 	})
 	.state('coachDetail', {
 		url: '/coaches/:coachid',
 		templateUrl: 'common/coachDetail/coachDetail.view.html',
 		controller: 'coachDetailCtrl',
-		controllerAs : 'vm',
-		meta: {
-	        'title': 'Course detail',
-	        'description': 'Find the tutor or coach in various subjects.'
-      	}
+		controllerAs : 'vm'
 		// parent: 'mtc'
 	})
 	.state('userDetail', {
 		url: '/user/:userid',
 		templateUrl: 'common/coachDetail/userDetail.view.html',
 		controller: 'userDetailController',
-		controllerAs : 'user',
-		meta: {
-	        'title': 'User detail',
-	        'description': 'Find the tutor or coach in various subjects.'
-      	}
+		controllerAs : 'user'
 		// parent: 'mtc'
 	})
 	
@@ -190,11 +179,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		url: '/coachEdit/:coachid',
 		templateUrl: 'common/addCoach/addCoach.view.html',
 		controller: 'coachEditCtrl',
-		controllerAs : 'vm',
-		meta: {
-	        'title': 'Coach edit',
-	        'description': 'Find the tutor or coach in various subjects.'
-      	}
+		controllerAs : 'vm'
 		// parent: 'mtc'
 	})
 	.state('addCoach', {		
@@ -202,22 +187,14 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		templateUrl: 'common/addCoach/addCoach.view.html',
 		controller: 'addCoachCtrl',
 		controllerAs: 'vm',
-		redirectTo: 'addPic',
-		meta: {
-	        'title': 'Add a new course',
-	        'description': 'Find the tutor or coach in various subjects.'
-      	}
+		redirectTo: 'addPic'
 		// parent: 'mtc'
 	})
 	.state('subscription', {		
 		url: '/subscription',
 		templateUrl: 'common/subscription/subscription.template.html',
 		controller: 'subscriptionCtrl',
-		controllerAs: 'vm',
-		meta: {
-	        'title': 'Subscription',
-	        'description': 'Find the tutor or coach in various subjects.'
-      	}
+		controllerAs: 'vm'
 		// parent: 'mtc'
 	})
 	
@@ -258,7 +235,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 
 
 
-app.config(['lockProvider', 'jwtOptionsProvider', 'jwtInterceptorProvider', '$locationProvider', '$httpProvider', '$stateProvider', '$urlRouterProvider', '$translateProvider', 'ngMetaProvider', config]);
+app.config(['lockProvider', 'jwtOptionsProvider', 'jwtInterceptorProvider', '$locationProvider', '$httpProvider', '$stateProvider', '$urlRouterProvider', '$translateProvider', config]);
 
 
 
@@ -295,8 +272,5 @@ app.run(function($anchorScroll, $window, $rootScope) {
 	});
 });
 
-app.run(function(ngMeta) {
-	ngMeta.init();
-});
 
 })();

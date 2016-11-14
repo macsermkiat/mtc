@@ -33,13 +33,13 @@
     // Logging out just requires removing the user's
     // id_token and profile
     function logout() {
+      $state.go('/');
       localStorage.removeItem('id_token');
       localStorage.removeItem('profile');
       localStorage.removeItem('subscription');
       localStorage.removeItem('role');
       authManager.unauthenticate();
       userProfile = {};
-      $state.go('/');
       $window.location.reload();
       // $rootScope.$broadcast('userProfileSet', null);
       // $rootScope.$broadcast('subscriptionSet', null);

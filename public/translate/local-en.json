@@ -123,7 +123,8 @@
       "PRIVACY" : "We respect your privacy and personal data most. No sensitive data will provide to public without asking for permission.",
       "COURSE" : "Create a course",
       "COURSE-HEAD" : "Create a course/ Edit a course",
-      "RECOMMEND" : "You can provide multiple language info if you want to match other language speaking students"
+      "RECOMMEND" : "You can provide multiple language info if you want to match other language speaking students",
+      "SEARCH" : "Teacher / Tutor/ Coach"
     },
     "LABEL" : {
       "NAME": "Name",

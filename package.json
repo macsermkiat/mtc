@@ -35,7 +35,7 @@
     "express-jwt": "^5.0.0",
     "moment": "^2.15.1",
     "mongoose": "^4.6.0",
-    "ng-file-upload": "^12.2.5",
+    "ng-file-upload": "^12.2.13",
     "nodemailer": "^2.6.4",
     "nodemon": "^1.9.2",
     "readline": "^1.3.0",

@@ -45,15 +45,12 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+// app.use("/public", express.static(__dirname + "/../mtc/public"));
+// app.use("/node_modules", express.static(__dirname + "/../mtc/node_modules"));
+// app.use("/app_client", express.static(__dirname + "./../mtc/app_client"));
 app.use(serveStatic(path.join(__dirname, 'public')));
 app.use(serveStatic(path.join(__dirname, 'node_modules')));
 app.use(serveStatic(path.join(__dirname, 'app_client')));
-// app.all('/*', function(req, res, next) {
-//     // Just send the index.html for other files to support HTML5Mode
-//     res.sendFile('./app_client/index.html', { root: __dirname });
-//     console.log("send index");
-
-// });
 
 
 var appClientFiles = [
@@ -93,6 +90,7 @@ fs.writeFile('public/angular/mtc.min.js', uglified.code, function (err){
 });
 
 
+
 // app.use('/api', authCheck.unless({path:['/api/coaches']}));
 app.use('/api', routesApi);
 // app.use('/', router);
@@ -103,9 +101,13 @@ app.use('/api', routesApi);
 // router.get('/', function(req, res) {
 //     res.sendFile(path.join(__dirname, 'app_client', 'index.html'));
 // });
+app.get('/*', function(req, res, next) {
+    // Just send the index.html for other files to support HTML5Mode
+    // res.sendFile('./app_client/index.html', { root: __dirname });
+    res.sendFile(__dirname + '/app_client/index.html');
+    console.log("send index");
 
-
-
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -150,15 +152,20 @@ app.use(function(err, req, res, next) {
     });
     res.render('error.ejs');
 });
+// app.get('/pricing', function(req, res) { 
+//   res.sendFile(__dirname, './app_client', 'index.html')
+// });
 
+// app.get('/#!/pricing', function(req, res) { 
+// res.sendFile(__dirname + "/public/" + "index1.html");
+// });
+// app.get('/*', function(req, res) {
+//     // Just send the index.html for other files to support HTML5Mode
+//     // res.sendFile('index.html', { root: __dirname });
+//     res.sendFile(path.join(__dirname + 'index.html'));
+//     console.log("send index");
 
-app.get('/*', function(req, res) {
-    // Just send the index.html for other files to support HTML5Mode
-    // res.sendFile('index.html', { root: __dirname });
-    res.sendFile(path.join(__dirname + 'index.html'));
-    console.log("send index");
-
-});
+// });
 // // serve angular front end files from root path
 // router.use('/', express.static('app', { redirect: false }));
 
