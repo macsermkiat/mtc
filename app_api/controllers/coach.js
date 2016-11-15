@@ -466,38 +466,27 @@ module.exports.usersUpdate = function(req, res) {
     return;
   }
   User
-    .findOne({identity: req.body.identity})
-    .exec(
-      function(err, user) {
-        if (!user) {
-          sendJSONresponse(res, 404, {
-            "message": "User id not found"
-          });
-          return;
-        } else if (err) {
-          sendJSONresponse(res, 400, err);
-          return;
-        }
-        user.name = req.body.name,
-        user.surname = req.body.surname,
-        user.email = req.body.email,
-        user.address = req.body.address,
-        user.experience = req.body.experience,
-        user.telephone = req.body.telephone,
-        user.lineid = req.body.lineid,
-        user.idnumber = req.body.idnumber,
-        user.education = req.body.education,
-        user.term = req.body.term;
-        user.save(function(err, user) {
+    .findOneAndUpdate({identity: req.body.identity},{$set:{
+        "name" : req.body.name,
+        "surname" : req.body.surname,
+        "email" : req.body.email,
+        "address" : req.body.address,
+        "experience" : req.body.experience,
+        "telephone" : req.body.telephone,
+        "lineid" : req.body.lineid,
+        "idnumber" : req.body.idnumber,
+        "education" : req.body.education,
+        "term" : req.body.term
+    }
+    }, {new: true}, function(err, user) {
           if (err) {
             sendJSONresponse(res, 404, err);
           } else {
             sendJSONresponse(res, 200, user);
           }
-        });
-      }
-  );
-};
+        }
+    );
+  };
 
 
 /* PUT /api/coaches/:coachid */

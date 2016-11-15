@@ -26,10 +26,14 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
       options: {
       	auth: {
       		params: {
-      			callbackURL: 'http://www.matchthecoach.com',
-      			response: 'token',
-      			state: location.href
-      		}
+      			// callbackURL: 'http://localhost:8080',
+      			callbackURL: 'https://www.matchthecoach.com',
+      			scope: 'openid email'
+      			// state: location.href
+      		},
+      	redirect: true,
+      	redirectUrl: window.location.href,
+      	responseType: 'token',
       	},
       	theme: {
       		logo: 'image/mtc-tp.png'
