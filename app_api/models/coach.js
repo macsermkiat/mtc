@@ -55,6 +55,7 @@ var coachSchema = new mongoose.Schema({
 
 var categorySchema = new mongoose.Schema ({
     category : {type :String, unique: true},
+    group: String,
     // category : [categoryListSchema],
     child : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Coach' }]
 });

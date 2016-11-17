@@ -1,6 +1,7 @@
 (function() {
 
 var app = angular.module('mtcApp', 	['ui.router',
+									 'angular.filter',
 									 'youtube-embed',
 									 'ngFileUpload',
 									 'ngImgCrop',
