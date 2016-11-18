@@ -27,6 +27,10 @@ function requestModalCtrl ($uibModalInstance, mtcData, coachData, $timeout) {
 			return false;
 		} else {
 			var data = vm.formData;
+			alert("คุณได้ทำการขอแมทช์โค้ช " + coachData.name +'\nค่าธรรมเนียมการแมทช์ ' 
+				+ coachData.price*10/100 + ' บาท\n\n'+
+				"You choosing to match Coach " + coachData.name +'\nThe matching fee is ' 
+				+ coachData.price*10/100 + ' Baht.')
 			vm.doRequest(data);
 		}
 	};
@@ -50,6 +54,7 @@ function requestModalCtrl ($uibModalInstance, mtcData, coachData, $timeout) {
 			sex : formData.sex
 		})
 		.then(function(success) {
+			vm.success = true;
 			vm.uibModal.close(success);
 		}, function(error) {
 			vm.formError = "Your request has not been sent, try again";

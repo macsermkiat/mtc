@@ -44,7 +44,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-2 col-sm-6 follow-info weather-category" style="font-size: 20px;">
-                                      <ul ng-model="idcheck" ng-class="{checked: 'user.result.idcard === true'}">
+                                      <ul ng-model="idcheck" ng-class="{'checked': user.result.idcard == true}">
                                         <li class="active"> 
                                           <i class="icon ion-android-person"> </i><br>
                                            <i class="glyphicon glyphicon-ok" ng-if="user.result.idcard == true"></i>
@@ -53,7 +53,7 @@
                                       </ul>
                             </div>
 							              <div class="col-lg-2 col-sm-6 follow-info weather-category" style="font-size: 20px;">
-                                      <ul ng-model="criminalcheck" ng-class="{'checked': 'user.result.criminal === true'}">
+                                      <ul ng-model="criminalcheck" ng-class="{'checked': user.result.criminal == true}">
                                           <li class="active">
                                             <i class="icon ion-ios-paper-outline"> </i>
                                             <i class="glyphicon glyphicon-ok" ng-if="user.result.criminal == true"></i>

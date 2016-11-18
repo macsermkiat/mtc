@@ -48,7 +48,6 @@ function searchCtrl($stateParams, $http, mtcData, $log) {
 			.success(function(data) {
 				vm.data = { coach: data }
 				shuffleArray(vm.data.coach);
-				console.log(vm.data);
 
 			})
 			.error(function (e) {

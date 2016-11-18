@@ -22,9 +22,32 @@ var transporter = nodemailer.createTransport({
 });
 module.exports.requestCoach = function(req, res) {
 
+	function retrieveUser(identity, callback) {
+	  User.find({identity: identity}, function(err, users) {
+	    if (err) {
+	      callback(err, null);
+	    } else {
+	      callback(null, users[0]);
+	    }
+	  });
+	};
+	var userEmail;
+	var userName;
+	var userTelephone;
+	var fee = req.body.price*10/100;
+	retrieveUser(req.body.createdBy, function(err,user) {
+		if (err) {
+			console.log(err);
+		}
+		console.log('The user created this subject is' + user);
+		userEmail = user.email;
+		userName = user.name;
+		userTelephone = user.telephone;
+	})
+
 	var sendAwsSns = function(req, res) {
 		var params = {
-		  Message: 'You got a matching request. Please check Email at ' + req.body.email
+		  Message: 'You got a matching request. Please check Email at ' + userEmail
 		            + ' or contact MatchTheCoach',
 		  MessageStructure: 'string',
 		  PhoneNumber: '+66' + userTelephone
@@ -56,28 +79,7 @@ module.exports.requestCoach = function(req, res) {
 	};
 
 
-	function retrieveUser(identity, callback) {
-	  User.find({identity: identity}, function(err, users) {
-	    if (err) {
-	      callback(err, null);
-	    } else {
-	      callback(null, users[0]);
-	    }
-	  });
-	};
-	var userEmail;
-	var userName;
-	var userTelephone;
-	var fee = req.body.price*10/100;
-	retrieveUser(req.body.createdBy, function(err,user) {
-		if (err) {
-			console.log(err);
-		}
-		console.log('The user created this subject is' + user);
-		userEmail = user.email;
-		userName = user.name;
-		userTelephone = user.telephone;
-	})
+	
 
 	var sendEMail = function(req, res) {
 		var mailOptions = {
@@ -123,7 +125,7 @@ module.exports.requestCoach = function(req, res) {
 			       <h4>**Student detail**</h4>
 			       <p>Name: ${req.body.nameOfStudent}</p>
 			       <p>Telephone: ${req.body.phone}</p>
-			       <p>Eail: ${req.body.email}</p>
+			       <p>Email: ${req.body.email}</p>
 			       <p>กรุณาตอบกลับ Email ฉบับนี้ว่าท่านสะดวกสอนในวันเวลา\nดังกล่าวหรือไม่</p>
 			       <p>ถ้าท่านตอบตกลง\nเราจะติดต่อท่านอีกครั้ง\nเมื่อนักเรียนได้ชำระค่าธรรมเนียม\nท่านจึงชำระค่าธรรมเนียมการแมทช์\nหลังจากนั้น</p>
 			       <p>ถ้าท่านมีปัญหาการใช้งาน หรือมีคำถาม สามารถติดต่อเราได้ทุกช่องทาง<p>
