@@ -511,7 +511,7 @@ module.exports.coachesUpdateOne = function(req, res) {
           return;
         }
         coach.name = req.body.name,
-        coach.imageUrl = "https://s3-ap-southeast-1.amazonaws.com/matchthecoach/coaches/" + req.body.createdDate,
+        coach.imageUrl = req.body.imageUrl,
         coach.price = req.body.price,
         coach.subject = req.body.subject,
         coach.group = req.body.group,

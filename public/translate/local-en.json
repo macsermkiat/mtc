@@ -136,7 +136,7 @@
       "EXPERIENCE" : "Experience",
       "ID": "ID card/Passport Number",
       "EDUCATION": "Education",
-      "IMAGE": "Image (You need to upload everytime create or edit course)",
+      "IMAGE": "Image",
       "SUBJECT": "Subject",
       "COURSE-NAME": "Course name",
       "DESCRIPTION": "Course Description",
@@ -168,6 +168,7 @@
       "DELETE" : "Delete",
       "DEL" : "Del",
       "POPOVER" : "You should create the actual course length, not too few. It may effect coach's trustability. Also student may stop learning early than your plan, because there was no commitment how long the course should take.",
+      "MINIMUM" : "Minimum 1000 Baht", 
       "PICTURE" : "Picture is very important to impress the students You can upload or change it later in Profile > Edit course."
     },
     "PLACEHOLD" : {

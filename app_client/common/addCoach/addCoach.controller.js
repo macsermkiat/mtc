@@ -21,8 +21,9 @@ angular
 
 		vm.message = {};
 		vm.isDisabled = false;
-
-
+		$timeout(function() {
+			alert("Please noted that it is prohibited to give out your contact (Telephone number ,LINE ID, email, or facebook contact, etc.) Your account will be banned if you break the rules.\n\nทางเราไม่อนุญาตให้ครูทุกท่านโพสเบอร์ติดต่อ LINE ID, facebook, Email หรือการติดต่อทุกชนิดในช่องที่ไม่ได้สำหรับให้กรอกสิ่งเหล่านี้ ถ้าฝ่าฝืนจะถูกแบนแอคเคานท์ทันที ขออภัยในความไม่สะดวก")
+		},2000);
 		vm.onSubmit = function () {
 			vm.formError = "";
 			if(!vm.formData.name || !vm.formData.subject || !vm.formData.price ||

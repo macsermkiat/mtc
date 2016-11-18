@@ -27,9 +27,34 @@
 						 <br>
 						 <h4 class="pull-left">{{'FORM.TEXT.PICTURE' | translate}}</h4>
 						 <spinner name="picturespinner" img-src="image/balls.gif"></spinner alt="spinner">
+						 <img src="{{vm.imageUrl}}" ng-show="!picfile">
 						 <i ng-show="PicForm.picfile.$error.maxSize">File too large 
 	          			{{errorFile.size / 10000000|number:10}}MB: max 10M</i>
 	          			<img ng-show="PicForm.picfile.$valid" ngf-thumbnail="picfile" class="thumb" alt="File to upload">
+
+	          			<hr> 
+				         <div class="row">
+
+					       <div class="col-xs-9-offset-3 col-sm-10-offset-2">
+					       <span class="progress" ng-show="progress >= 0">
+					        <div class="progress-bar" role="progressbar" style="width:{{progress}}%" 
+					            ng-bind="progress + '%'"></div>
+						    </span>
+						    <!-- <p>please use desktop to upload picture for now. We're fixing problem that mobile and tablet pictures still wouldn't show up.</p>
+						    <p>ขณะนี้ให้อัพโหลดรูปด้วยคอมพิวเตอร์ตั้งโต๊ะหรือโน้ตบุ๊คไปก่อน
+						    เรากำลังแก้ไขปัญหารูปที่อัพโหลดจากมือถือแล้วไม่ขึ้นโดยเร็ว</p> --> 
+						    <span ng-show="result">Upload Successful</span>
+						    <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+			      			<button class="btn btn-primary" ng-show="picfile" ng-click="uploadPic(picfile)">Upload</button>
+			      			<button class="btn btn-default" ng-click="picfile = null" ng-show="picfile">Remove</button>
+			      			
+							</div>
+						</div>
+				
+				
+					<h4 class="text-danger col-xs-9-offset-3 col-sm-10-offset-2" translate="FORM.TEXT.PIC"><h4><br>
+					<hr>
+
 	          		</div>
 	          	</div>
           		<!-- <div class="row">
@@ -44,28 +69,9 @@
 	          		</div>
 	          	</div>	
 		         </div> -->
-		         <hr> 
-		         <div class="row">
-			       <div class="col-xs-9-offset-3 col-sm-10-offset-2">
-			       <span class="progress" ng-show="progress >= 0">
-			        <div class="progress-bar" role="progressbar" style="width:{{progress}}%" 
-			            ng-bind="progress + '%'"></div>
-				    </span>
-				    <!-- <p>please use desktop to upload picture for now. We're fixing problem that mobile and tablet pictures still wouldn't show up.</p>
-				    <p>ขณะนี้ให้อัพโหลดรูปด้วยคอมพิวเตอร์ตั้งโต๊ะหรือโน้ตบุ๊คไปก่อน
-				    เรากำลังแก้ไขปัญหารูปที่อัพโหลดจากมือถือแล้วไม่ขึ้นโดยเร็ว</p> --> 
-				    <span ng-show="result">Upload Successful</span>
-				    <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
-	      			<button class="btn btn-primary" ng-show="picfile" ng-click="uploadPic(picfile)">Upload</button>
-	      			<button class="btn btn-default" ng-click="picfile = null" ng-show="picfile">Remove</button>
-	      			
-					</div>
-				</div>
+		         
 		</div>
 	</form>
-		
-			<h4 class="text-danger col-xs-9-offset-3 col-sm-10-offset-2" translate="FORM.TEXT.PIC"><h4><br>
-			<hr>
 	<form id="addCoach" name="vm.addCoach" role="form" ng-submit="vm.onSubmit()"
 	class="container form-horizontal" novalidate>
 		
@@ -243,7 +249,7 @@
 				<label for="price" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.PRICE" | translate}}<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
 					<div class="input-group">
-						<input id="price" type="number" name="price" required ng-model="vm.formData.price" class="form-control" placeholder="THB  per course" aria-labelledby="price">
+						<input id="price" type="number" name="price" required ng-model="vm.formData.price" class="form-control" placeholder="THB  per course" aria-labelledby="price" min="1000" uib-popover="{{'FORM.TEXT.MINIMUM' | translate }}" popover-placement="top" popover-trigger="'focus'">
 						<span class="input-group-addon">{{"FORM.TEXT.BAHT" | translate}}</span>
 					</div>
 					<div class="help-block" ng-messages="vm.addCoach.price.$error" ng-if="vm.addCoach.price.$touched">

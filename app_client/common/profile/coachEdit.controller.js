@@ -17,12 +17,12 @@ function coachEditCtrl($stateParams, $http, mtcData, userService, $log, $scope, 
 	// vm.allCoaches = allCoaches;
 	vm.coachid = $stateParams.coachid;
 	var sign =awsPolicy.getSign();
-	
 
 	// Get profile from localStorage
 	var accessData = localStorage.getItem('profile');
 	var profile = angular.fromJson(accessData);
 	var identity = profile.identities[0].user_id;
+	var imageUrl;
 
 	vm.message = {};
 	vm.isDisabled = false;
@@ -74,18 +74,20 @@ function coachEditCtrl($stateParams, $http, mtcData, userService, $log, $scope, 
 			.success(function(data) {
 				if (data) {
 					vm.formData = data;
-					
+					vm.imageUrl = data.imageUrl;
+					imageUrl = data.imageUrl;
 				} else {
 					console.log("Error: no coachid found")
 				}
 
 				
-				console.log('Success');
+				console.log('coachid found');
 			})
 			.error(function (e) {
 				console.log(e);
 			});
 	};
+
 
 	vm.doEdit = function (formData) {
 
@@ -105,6 +107,7 @@ function coachEditCtrl($stateParams, $http, mtcData, userService, $log, $scope, 
 			    location: formData.location,
 			    province: formData.province,
 			    category: formData.category,
+			    imageUrl: imageUrl,
 			    videoid: formData.videoid
 			});
 
@@ -119,7 +122,8 @@ function coachEditCtrl($stateParams, $http, mtcData, userService, $log, $scope, 
 
 	var now = new Date;
 	var createdDate = now.toISOString();
-	
+	// var initialimage = vm.formData;
+	// console.log(initialimage);
 
 	$scope.beforeResizingImages = function(images) {
 			spinnerService.show('picturespinner')
@@ -161,6 +165,7 @@ function coachEditCtrl($stateParams, $http, mtcData, userService, $log, $scope, 
 					
 				}, function (evt) {
 					$scope.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+					imageUrl = "https://s3-ap-southeast-1.amazonaws.com/matchthecoach/coaches/" + createdDate;
 				});
 			});
 		};
