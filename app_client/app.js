@@ -153,7 +153,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		controllerAs : 'vm',
 		data: {
                 head: {
-                    title: 'Finding teacher / ค้นหาครู',
+                    title: 'Finding teacher / ค้นหาครูสอนพิเศษ ',
                     titleExtend: function (titleStr, toParams) {
 		                  return titleStr+toParams.text;
 		              },

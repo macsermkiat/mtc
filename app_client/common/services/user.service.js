@@ -21,7 +21,6 @@ function userService ($http, $log, $window) {
 		});
 	};
 
-
 	function updateUser(data) {
 		return $http.put('/api/users/update', data)
 		.then(function(response) {

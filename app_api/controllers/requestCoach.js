@@ -103,10 +103,9 @@ module.exports.requestCoach = function(req, res) {
 			       <p>If you have a question, please do not hesitate to contact us<p>
 			       <p>Regards
 			       <hr>
-			       <h2>Match the Coach team</h2>
-			       <h3>Royyak Co.,Ltd.</h3>
-			       <p>facebook</p><span><a href="http://www.facebook.com/matchTcoach">MatchTheCoach</a></span>
-			       <h3>Tel: 095-5073078</h3>`		       
+				   <div id="WISESTAMP_SIG_22e21843e5bf46e433fdcc778ada4935" href="http://WISESTAMP_SIG_22e21843e5bf46e433fdcc778ada4935"><div><div style="max-width:600px;  direction: ltr; " class="main_html date__2016_11_21___15_30"><div class="html wisestamp_app main_sig" id="tp1s" style="max-width: 485px;"> <table border="0" cellspacing="0" cellpadding="0" width="485" style="width: 485px;"> <tbody><tr valign="top"> <td style="width: 10px; padding-right:10px;"> <img src="https://s3.amazonaws.com/ucwebapp.wisestamp.com/94a44911-1bc0-468c-86ba-40fc7dedbeba/14690951_1667850066877578_4424.format_png.resize_200x.png#logo" width="65" height="65" alt="photo" style="border-radius:4px;moz-border-radius:4px;khtml-border-radius:4px;o-border-radius:4px;webkit-border-radius:4px;ms-border-radius: 4px;width:65px;height:65px;max-width: 120px;"> </td> <td style="border-right: 1px solid #C01A5C;"></td> <td style="display: inline-block; text-align:initial; font:12px Arial;color:#646464;padding:0 10px"> <table border="0" cellspacing="0" cellpadding="0"> <tbody><tr> <td> <b class="text-color theme-font">MatchTheCoach</b><br>  <span style="display: inline-block;">Royyak Co.,Ltd</span> </td> </tr> <tr> <td style="color:#8d8d8d;font-size:12px;padding:5px 0"> <span style="display:inline-block;"><a href="mailto:matchthecoach@royyak.com" style="display: inline-block; color:#8d8d8d;text-decoration: none;">matchthecoach@royyak.com</a></span>  <span style="color: #C01A5C;display:inline-block;">|</span> <span style="white-space: nowrap;display:inline-block;"><a href="https://line.me/R/ti/p/%40gpp9462v" rel="nofollow" target="_blank" style="display: inline-block; color:#8d8d8d;text-decoration: none;">LINE ID : @gpp9462v</a></span> </td> </tr> <tr> <td style="margin-top: 5px"><a href="http://facebook.com/matchTcoach" target="_blank"><img style="border-radius:0;moz-border-radius:0;khtml-border-radius:0;o-border-radius:0;webkit-border-radius:0;ms-border-radius:0;border: 0;width:16px; height:16px;" width="16" height="16" src="https://s3.amazonaws.com/images.wisestamp.com/icons_32/facebook.png"></a>&nbsp;<a href="http://instagram.com/matchthecoach" target="_blank"><img style="border-radius:0;moz-border-radius:0;khtml-border-radius:0;o-border-radius:0;webkit-border-radius:0;ms-border-radius:0;border: 0;width:16px; height:16px;" width="16" height="16" src="https://s3.amazonaws.com/images.wisestamp.com/icons_32/instagram.png"></a></td> </tr> </tbody></table> </td> </tr> </tbody></table> </div><div style="clear:both;height:0!important"></div><a class="wisestamp_app facebook_button" style="margin:8px 8px 0 0;display: inline-block;vertical-align: bottom;" href="https://www.facebook.com/matchTcoach" target="_blank"><img src="https://s3.amazonaws.com/images.wisestamp.com/apps/facebook_like.png"></a><div href="http://WS_promo" id="WS_promo" style="width: auto; padding-top: 2px; font-size: 10px; border-top-width: 1px; border-top-style: solid; border-top-color: rgb(238, 238, 238); margin-top: 10px;display:table; direction: ltr; line-height: normal; border-spacing: initial;"> <img src="http://ws-promos.appspot.com/ga/pixel.png?dont_count=1&amp;e=5732568548769792" style="display:block"> <div class="promo-placeholder" style="padding-top:2px;"> 
+				   </div> </div></div></div></div>
+			       `		       
 		};
 		
 		var mailToAdmin = {
@@ -230,8 +229,6 @@ module.exports.requestCoach = function(req, res) {
           }
         }
       ], function(err, coach) {
-      	console.log("The coach is" + coach);
-      	console.log("The error is" + err)
         if (err) {
           
           sendJSONresponse(res, 400, err);

@@ -15,7 +15,7 @@
     <image:image>
       <image:loc>https://www.matchthecoach.com/image/match.jpg</image:loc>
     </image:image>
-  <lastmod>2016-11-14T11:01:59+00:00</lastmod>
+  <lastmod>2016-11-21T05:01:59+00:00</lastmod>
  </url>
  <url>
   <loc>https://www.matchthecoach.com/#!/pricing</loc>
@@ -29,12 +29,12 @@
  </url>
  <url>
   <loc>https://www.matchthecoach.com/#!/coaches/search/?text=Guitar%20-%20ดนตรีกีต้าร์</loc>
-  <lastmod>2016-11-14T11:01:59+00:00</lastmod>
+  <lastmod>2016-11-20T11:01:59+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://www.matchthecoach.com/#!/coaches/search/?text=English%20-%20ภาษาอังกฤษ</loc>
-  <lastmod>2016-11-14T11:01:59+00:00</lastmod>
+  <lastmod>2016-11-20T11:01:59+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
@@ -115,21 +115,21 @@
  <url>
   <loc>https://www.matchthecoach.com/#!/coaches/search/?text=Chinese%20-%20ภาษาจีน</loc>
   <lastmod>2016-11-14T11:01:59+00:00</lastmod>
-  <changefreq>weeky</changefreq>
+  <changefreq>weekly</changefreq>
  </url>
  <url>
   <loc>https://www.matchthecoach.com/#!/coaches/search/?text=General%20Science%20-%20ติววิทยาศาสตร์</loc>
   <lastmod>2016-11-14T11:01:59+00:00</lastmod>
-  <changefreq>weeky</changefreq>
+  <changefreq>weekly</changefreq>
  </url>
  <url>
   <loc>https://www.matchthecoach.com/#!/coaches/search/?text=Chemistry%20-%20ติวเคมี</loc>
   <lastmod>2016-11-14T11:01:59+00:00</lastmod>
-  <changefreq>weeky</changefreq>
+  <changefreq>weekly</changefreq>
  </url>
   <url>
   <loc>https://www.matchthecoach.com/#!/coaches/search/?text=Biology%20-%20ติวชีวะ</loc>
   <lastmod>2016-11-14T11:01:59+00:00</lastmod>
-  <changefreq>weeky</changefreq>
+  <changefreq>weekly</changefreq>
  </url>
 </urlset>
