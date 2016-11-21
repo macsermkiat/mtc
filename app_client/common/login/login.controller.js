@@ -6,9 +6,9 @@
     .module('mtcApp')
     .controller('loginController', loginController);
 
-    loginController.$inject = ['authService', '$translate', '$rootScope', '$scope', '$state', '$timeout'];
+    loginController.$inject = ['authService', '$translate', '$rootScope', '$scope', '$state', '$timeout', '$uibModal'];
 
-    function loginController(authService, $translate, $rootScope, $scope, $state, $timeout) {
+    function loginController(authService, $translate, $rootScope, $scope, $state, $timeout, $uibModal) {
 
       var lgin = this;
       lgin.authService = authService;
@@ -19,7 +19,6 @@
             $translate.use(langKey);
       };
       
-
       // Set the user profile when the page is refreshed
       lgin.getSubscription = $rootScope.isSubscribed;
       lgin.serviceSubscription = $rootScope.authService.userSubscription;
@@ -106,6 +105,16 @@
         } else if ( $rootScope.isAuthenticated === true) {
           $state.go('profile.bio');
         }
+      };
+
+      lgin.popupHelp = function () {
+          var uibModalInstance = $uibModal.open({
+            templateUrl: '/home/helpModal.view.html'
+          });
+          uibModalInstance.result.then(function (data) {
+            // vm.data.location.reviews.push(data);
+            console.log("Help");
+          })
       };
 
 

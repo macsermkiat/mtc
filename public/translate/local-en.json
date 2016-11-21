@@ -195,6 +195,7 @@
   },
   "LANDING" : {
     "COACH" : "Become a coach",
-    "STUDENT" : "Find a coach"
+    "STUDENT" : "Find a coach",
+    "HELP" : "Let us help find a coach"
   }
 } 

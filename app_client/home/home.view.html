@@ -20,13 +20,11 @@
 	  		 		<p  class="hidden-xs">Tell me and I forget.<br>
                 	   Teach me and I remember.<br>
                 	   Involve me and I learn.</p>
-                	<div ng-if="!vm.isAuthenticated">
-	                	<landing></landing>
-					</div>
-					<div ng-if="vm.isAuthenticated" >	
-				  		<searchbox></searchbox>
-				  	</div>
+                	
+				  	<searchbox></searchbox>
 			  		<h3 translate="HOME.HEADERWRAP.SIMPLE"></h3>
+			  		<landing></landing>
+
 	    	</header>
 	    </div>
 	    </div> <!-- Scroll container -->

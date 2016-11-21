@@ -81,7 +81,6 @@
     // This method is called from app.run.js
     function registerAuthenticationListener() {
       lock.on('authenticated', function(authResult) {
-        
         localStorage.setItem('id_token', authResult.idToken);
         authManager.authenticate();
         lock.getProfile(authResult.idToken, function(error, profile) {
@@ -107,7 +106,7 @@
                     $state.go('profile.bio')
                   }
               // $window.location.reload();
-              }
+              } 
             },1000)
             // $state.go('/');
             // $window.location.reload();

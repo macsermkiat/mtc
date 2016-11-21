@@ -815,7 +815,8 @@ blockquote p {
 }
 
 .landing-button {
-  width: 168px;
+  width: 188px;
+  margin-bottom: 20px !important;
 }
 /*Search*/
 

@@ -268,10 +268,11 @@
 				<label for="time" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.TIME" | translate}}<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
 					<textarea rows="3" cols="30" id="time" name="time" ng-model="vm.formData.time" class="form-control" placeholder="Weekday, Sunday, or Any" aria-labelledby="Time of class">
+					</textarea>
 					<div class="help-block" ng-messages="vm.addCoach.time.$error" ng-if="vm.addCoach.time.$touched">
 					    <div ng-messages-include="/common/addCoach/messages.html"></div>
 					</div>
-					</textarea>
+					
 				</div>
 			</div>
 			
