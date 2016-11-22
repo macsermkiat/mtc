@@ -573,45 +573,69 @@ module.exports.coachesUpdateOne = function(req, res) {
     });
     return;
   }
-  Mtc
-    .findOne({ _id : req.body.coachid })
-    .exec(
-      function(err, coach) {
-        if (!coach) {
-          sendJSONresponse(res, 404, {
-            "message": "coachid not found"
+  
+  async.parallel ([
+        function(cb) {
+          Mtc
+            .findOneAndUpdate({ _id : req.body.coachid },{$set:{
+                "name" : req.body.name,
+                "imageUrl" : req.body.imageUrl,
+                "price" : req.body.price,
+                "subject" : req.body.subject,
+                "group" : req.body.group,
+                "time" : req.body.time,
+                "courseLength" : req.body.courseLength,
+                "level" : req.body.level,
+                "category" : req.body.category,
+            // coords: [parseFloat(req.body.lng), parseFloat(req.body.lat)],
+                "shortDescription" : req.body.shortDescription,
+                "courseDescription" : req.body.courseDescription,
+                "preparation" : req.body.preparation,
+                "location" : req.body.location,
+                "province" : req.body.province,
+                "videoid" : req.body.videoid
+                }
+            }, {new: true}, function(err, user) {
+                  if (err) {
+                    sendJSONresponse(res, 404, err);
+                  } else {
+                    sendJSONresponse(res, 200, user);
+                  }
+                }
+            );
+  }, function(cb) {
+        Cat.findOneAndUpdate({ category: req.body.category },{$push:{
+                child: req.body.coachid}},{upsert:true}
+                ,function(err)   {
+                  if (err) {
+                    console.log(err);
+                  }else{
+                    console.log("Success add in CategorySchema");
+                  }
           });
-          return;
-        } else if (err) {
+
+  }, function(cb) {
+        Cat.findOneAndUpdate({ category: req.body.oldCategory },{$pull:{
+                child: req.body.coachid}}
+                ,function(err)   {
+                  if (err) {
+                    console.log(err);
+                  }else{
+                    console.log("Success Remove id from oldCategory");
+                  }
+                });
+  }
+  ], function(err, coach) {
+        if (err) {
+          console.log(err);
           sendJSONresponse(res, 400, err);
-          return;
+        } else {
+          console.log(coach + "save done");
+          sendJSONresponse(res, 201, coach);
         }
-        coach.name = req.body.name,
-        coach.imageUrl = req.body.imageUrl,
-        coach.price = req.body.price,
-        coach.subject = req.body.subject,
-        coach.group = req.body.group,
-        coach.time = req.body.time,
-        coach.courseLength = req.body.courseLength,
-        coach.level = req.body.level,
-    // coords: [parseFloat(req.body.lng), parseFloat(req.body.lat)],
-        coach.shortDescription = req.body.shortDescription,
-        coach.courseDescription = req.body.courseDescription,
-        coach.preparation = req.body.preparation,
-        coach.location = req.body.location,
-        coach.province = req.body.province,
-        coach.videoid = req.body.videoid,
-        coach.picture = req.body.pictureUrl;
-        coach.save(function(err, coach) {
-          if (err) {
-            sendJSONresponse(res, 404, err);
-          } else {
-            sendJSONresponse(res, 200, coach);
-          }
-        });
       }
-  );
-};
+      )
+  };
 
 /* DELETE /api/coaches/:coachid */
 module.exports.coachesDeleteOne = function(req, res) {

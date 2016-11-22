@@ -76,6 +76,7 @@ function coachEditCtrl($stateParams, $http, mtcData, userService, $log, $scope, 
 					vm.formData = data;
 					vm.imageUrl = data.imageUrl;
 					imageUrl = data.imageUrl;
+					oldCategory = data.category;
 				} else {
 					console.log("Error: no coachid found")
 				}
@@ -108,7 +109,8 @@ function coachEditCtrl($stateParams, $http, mtcData, userService, $log, $scope, 
 			    province: formData.province,
 			    category: formData.category,
 			    imageUrl: imageUrl,
-			    videoid: formData.videoid
+			    videoid: formData.videoid,
+			    oldCategory: oldCategory
 			});
 
 			
