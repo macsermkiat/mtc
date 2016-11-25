@@ -17,6 +17,7 @@ var coachSchema = new mongoose.Schema({
         required: true
     },
     price: Number,
+    sale: Number,
     rating: {
         type: Number,
         "default": 0,

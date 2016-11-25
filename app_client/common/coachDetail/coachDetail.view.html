@@ -68,13 +68,14 @@
 	                <p>{{ vm.data.coach.level }}</p>
 	                <h4 class="lead">{{"FORM.LABEL.LENGTH" | translate}}: </h4>
 	                <p>{{ vm.data.coach.courseLength }} {{"FORM.TEXT.HOURS" | translate}}</p>
-	                <h4 class="lead">{{"FORM.LABEL.PRICE" | translate}}: </h4>
-	                <p>{{ vm.data.coach.price }} {{"FORM.TEXT.BAHT" | translate}}</p>
+	                <h4 class="lead">{{"FORM.LABEL.PRICE_PER_HOUR" | translate}}: </h4>
+	                <h3 class="text-info"> <a ng-click="vm.popupRequestForm()">{{ vm.data.coach.price / vm.data.coach.courseLength }} {{"FORM.TEXT.BAHT" | translate}} / {{"FORM.TEXT.HOURS" | translate}}</a></h3>
+	                <h6 class="text-muted">{{"FORM.LABEL.PRICE" | translate }}: {{ vm.data.coach.price }} {{"FORM.TEXT.BAHT" | translate}} </h6>
 	                <h4 class="lead">{{"FORM.LABEL.SHARE" | translate}}:</h4>
 	                <div>
-		                <button class="btn btn-default btn-xs js-textareacopybtn"  
+		                <button class="btn btn-primary btn-sm js-textareacopybtn"  
 		                style="margin-bottom: 30px;">Copy</button>
-		                <textarea rows="2" cols="40" readonly class="bg-primary js-copytextarea">https://www.matchthecoach.com/#!/coaches/{{vm.coachid}}</textarea>
+		                <textarea rows="2" cols="40" readonly class="js-copytextarea">https://www.matchthecoach.com/#!/coaches/{{vm.coachid}}</textarea>
 	                </div>
 	                
 				</div>

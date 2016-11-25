@@ -17,7 +17,7 @@
   },
   "HOME": {
     "HEADERWRAP": {
-      "SIMPLE": "Simple, Easy way to find a coach or tutor in any field."
+      "SIMPLE": "Simple, Easy way to find private teacher / tutor in any field."
     },
     "GRAYWRAP": {
       "EASY": "Easy",
@@ -142,7 +142,9 @@
       "DESCRIPTION": "Course Description",
       "LOCATION": "Location",
       "LENGTH": "Course length",
-      "PRICE": "Price",
+      "PRICE": "Course Price",
+      "PRICE_PER_HOUR": "Price per Hour",
+      "WANTPRICE" : "Desired price",
       "SHARE": "You can copy this Url to post on FB to share for your friends!",
       "GROUP": "Group",
       "TIME": "Time",
@@ -167,6 +169,7 @@
       "EDIT" : "Edit",
       "DELETE" : "Delete",
       "DEL" : "Del",
+      "PRESALE" : "Pre-SALE price",
       "POPOVER" : "You should create the actual course length, not too few. It may effect coach's trustability. Also student may stop learning early than your plan, because there was no commitment how long the course should take.",
       "MINIMUM" : "Minimum 1000 Baht", 
       "PICTURE" : "Picture is very important to impress the students You can upload or change it later in Profile > Edit course."
