@@ -13,6 +13,7 @@
                 typeahead-min-length="2"
                 ng-model-options="{getterSetter: true}"
                 typeahead-select-on-blur="true"
+                typeahead-on-select="vm.onSubmit()"
                 
                 typeahead-wait-ms="300"                
                 ng-keyup="$event.keyCode == 13 && vm.onSubmit()"
@@ -42,8 +43,7 @@
                     <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="browseCat" >
-                    <li><a ng-repeat="cat in vm.data.cat | orderBy: 'category'" ng-click="vm.addModel(cat.category)">{{cat.category}}</li>
-                   
+                    <li><a ng-repeat="cat in vm.data.cat | orderBy: 'category' |limitTo:vm.limit track by $index " ng-click="vm.addModel(cat.category)">{{cat.category}}</a></li>                
                   </ul>
                 </div>
             </div>

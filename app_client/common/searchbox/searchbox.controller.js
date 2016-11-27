@@ -18,6 +18,11 @@ function SearchBoxController ($state, mtcData, $timeout, $http) {
 	var vm = this;
 	vm.text = "";
 	// vm.message = {};
+	 vm.onSelect = function ($item, $model, $label) {
+    	vm.$item = $item;
+   	    vm.$model = $model;
+        vm.$label = $label;
+    };
 
 	vm.onSubmit = function(err) {
 		
@@ -26,6 +31,13 @@ function SearchBoxController ($state, mtcData, $timeout, $http) {
 			$state.go('search', {text: vm.text})
 		}
 	};
+
+	// vm.limit= 10;
+
+	// // loadMore function
+	// vm.loadMore = function() {
+	//   vm.limit +=10;
+	// }
 
 // Search Category Schema
 	vm.searching = function(val) {
@@ -51,6 +63,7 @@ function SearchBoxController ($state, mtcData, $timeout, $http) {
 
 	vm.addModel = function (select) {
 		vm.text = select;
+		$state.go('search', {text: vm.text});
 	}
 
 
