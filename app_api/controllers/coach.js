@@ -554,7 +554,7 @@ module.exports.usersUpdate = function(req, res) {
         "education" : req.body.education,
         "term" : req.body.term
     }
-    }, {new: true}, function(err, user) {
+    }, function(err, user) {
           if (err) {
             sendJSONresponse(res, 404, err);
           } else {
