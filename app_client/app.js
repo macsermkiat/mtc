@@ -85,9 +85,9 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		controllerAs :'vm',
 		data: {
                 head: {
-                    title: 'สถานที่รวมครูและโค้ชทุกสาขาให้คุณเลือกเอง: Match The Coach',
-                    keywords: ["ติวเตอร์", "ครูสอนพิเศษ", 'Private tutor', 'Teacher'],
-                    description: "หาเจอง่ายครูสอนพิเศษ ติวสอบ ครูดนตรี กีฬา ภาษาอังกฤษ หรือสำหรับโพสงานฟรี : Matching tutor, teacher or post a teaching job for free",
+                    title: 'หาครู สอนพิเศษ เรียนภาษาอังกฤษภาษาจีน เรียนเปียโน ติวสอบมีทุกวิชา: MatchTheCoach',
+                    keywords: ["หาครู", "สอนพิเศษ", 'เรียนภาษาอังกฤษ', 'Private tutor', 'Teacher'],
+                    description: "หาครู สอนพิเศษ ติวสอบ ครูดนตรี กีฬา เรียนภาษาอังกฤษ เรียนภาษาจีน หรือสำหรับโพสงานฟรี : English course, or find teacher in any subjects. Post a teaching job for free",
                     canonical: 'https://www.matchthecoach.com',
                 }
             }
@@ -153,7 +153,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		controllerAs : 'vm',
 		data: {
                 head: {
-                    title: 'Finding teacher / ค้นหาครูสอนพิเศษ ',
+                    title: 'หาครู ',
                     titleExtend: function (titleStr, toParams) {
 		                  return titleStr+toParams.text;
 		              },
@@ -169,7 +169,19 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		url: '/coaches/:coachid',
 		templateUrl: 'common/coachDetail/coachDetail.view.html',
 		controller: 'coachDetailCtrl',
-		controllerAs : 'vm'
+		controllerAs : 'vm',
+		data: {
+                head: {
+                    title: 'หาครูพบสำหรับคอร์สหมายเลข ',
+                    titleExtend: function (titleStr, toParams) {
+		                  return titleStr+toParams.coachid;
+		              },
+                    canonical: 'https://www.matchthecoach.com/#!/coaches/',
+                    canonicalExtend: function (canonicalStr, toParams) {
+		                  return canonicalStr+toParams.coachid;
+		              }
+                }
+            }
 		// parent: 'mtc'
 	})
 	.state('userDetail', {
