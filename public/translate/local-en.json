@@ -155,7 +155,8 @@
       "VDO": "Youtube video ID (only ID)",
       "SUBMIT": "Submit",
       "CANCEL": "Cancel",
-      "REQUEST" : "Request to Match",
+      "KEYWORD" : "Search by Keyword",
+      "REQUEST" : "Request to learn with ",
       "SEX" : "Gender",
       "FEMALE" : "Female",
       "MALE" : "Male",
@@ -177,7 +178,8 @@
     "PLACEHOLD" : {
       "SEARCHBOX" : "search from subject",
       "CAT" : "Choose from a menu or create new. If not sure, put in 'others'.",
-      "LENGTH" : "Minimum 4 hours"
+      "LENGTH" : "Minimum 4 hours",
+      "KEYWORD" : "ex. TOEFL Jazz primary fun etc."
 
     }
   },

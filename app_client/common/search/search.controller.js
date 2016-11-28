@@ -17,8 +17,9 @@ function searchCtrl($stateParams, $http, mtcData, $log) {
 	// vm.allCoaches = allCoaches;
 	// vm.coaches = [];
 	vm.text = $stateParams.text;
-
+	// vm.key = ;
 	activate();
+
 
 	function activate() {
 		return searchingCoaches().then(function() {
@@ -48,12 +49,13 @@ function searchCtrl($stateParams, $http, mtcData, $log) {
 			.success(function(data) {
 				vm.data = { coach: data }
 				shuffleArray(vm.data.coach);
-
 			})
 			.error(function (e) {
 				vm.message = "Sorry, something's gone wrong";
 			});
 	};
+
+	
 
 		// -> Fisher–Yates shuffle algorithm
 	

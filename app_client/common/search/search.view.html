@@ -5,7 +5,9 @@
 			<h1>{{'FORM.HEAD.SEARCH' | translate}}</h1>
 			<h2 class="lead"><strong class="text-danger">{{vm.count}}</strong><strong class="text-danger">{{vm.text}}</strong></h2>								
 		</hgroup>
+		<div class="row">
 	    <section class="col-sm-6 col-md-4">
+	    	
 	    	<label for="province">{{'FORM.LABEL.PROVINCE' | translate}}</label>
 	    	<select class="form-control" ng-model="search.province" placeholder="province">
     			<optgroup label="ภาคกลาง">
@@ -56,7 +58,7 @@
 					<option>พะเยา - Phayao</option>
 				</optgroup>
 				<optgroup label="ภาคตะวันออกเฉียงเหนือ">
-					<option>จังหวัด	ชื่อภาษาอังกฤษ
+					<option>จังหวัด	ชื่อภาษาอังกฤษ</option>
 					<option>กาฬสินธุ์ - Kalasin</option>
 					<option>ขอนแก่น - Khon Kaen</option>
 					<option>ชัยภูมิ - Chaiyaphum</option>
@@ -94,9 +96,73 @@
 					<option>สุราษฎร์ธานี - Surat Thani</option>
 				</optgroup>
 			</select>
+			
 		</section>
+		</div>
+		<!-- <div class="row">
+		<section class="col-sm-6 col-md-4">
+		 	<div id="imaginary-container typeahead-demo">	
+					<div class="input-group stylish-input-group">
+
+		                <input type="text" class="form-control"  translate-attr="{ placeholder : 'FORM.PLACEHOLD.SEARCHBOX' }" name="text" 
+		                ng-model="vm.key"                 
+		                typeahead-loading="loadingSearch"
+		                typeahead-no-results="noResults"                
+		                typeahead-editable="false"
+		                typeahead-min-length="2"
+		                ng-model-options="{getterSetter: true}"
+		                typeahead-select-on-blur="true"                
+		                typeahead-wait-ms="300"                
+		                ng-keyup="$event.keyCode == 13 && vm.onSubmit()"
+		                uib-typeahead="key as key.shortDescription for key in vm.data.coach | filter:$viewValue">
+		                <span class="input-group-addon">
+		                    <a class="button" type="button" ui-sref="coachDetail({coachid : vm.key._id})">
+		                        <span class="icon ion-ios-search"></span>
+		                    </a>  
+		                </span>
+             		</div>
+            		<i ng-show="loadingSearch" class="glyphicon glyphicon-refresh"></i>
+            		<div ng-show="noResults">
+                		<i class="glyphicon glyphicon-remove"></i> No Results Found
+           		    </div>     
+     		</div>  
+		</div>
+		<div class="row">
+	        <div class="col-sm-6 col-sm-offset-3">            
+	            <div class="imaginary-container">
+	                <div class="dropdown dropdown-menu-left">
+	                  <button class="btn btn-default dropdown-toggle" type="button" id="browseCat" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="display: block">
+	                    Browse by Category
+	                    <span class="caret"></span>
+	                  </button>
+	                  <ul class="dropdown-menu" aria-labelledby="browseCat" >
+	                    <li><a ng-repeat="cat in vm.data.cat | orderBy: 'category' |limitTo:vm.limit track by $index " ng-click="vm.addModel(cat.category)">{{cat.category}}</a></li> 
+	                  </ul>
+	                </div>
+	            </div>
+	        </div>
+   	    
+		</section>
+		</div> -->
+		
+		<div class="row">
+			<section class="col-sm-6 col-md-4">
+		 		<div id="imaginary-container typeahead-demo">
+		 			<label for="keyword">{{'FORM.LABEL.KEYWORD' | translate}}</label>
+					<div class="input-group stylish-input-group">
+						<input type="text" ng-model="keyword" class="form-control" translate-attr="{ placeholder : 'FORM.PLACEHOLD.KEYWORD' }"
+						aria-label="filter coaches">
+						<span class="input-group-addon">
+						<a class="clear" ng-click="keyword = null">
+							<span class="glyphicon glyphicon-remove"></span>
+						</a></span>
+		            </div>
+		        </div>
+		    </section>
+		</div>
+
 		<section class="col-xs-12 col-sm-12 col-md-12">
-			<article class="search-result row" ng-repeat="coach in vm.data.coach | filter:search">
+			<article class="search-result row" ng-repeat="coach in vm.data.coach | filter:keyword track by $index">
 				<div class="col-xs-12 col-sm-12 col-md-3"  >
 					<a ui-sref="coachDetail({coachid : coach._id})" title={{coach.name}} class="thumbnail">
 					<img ng-src={{coach.imageUrl}} alt={{coach.name}}></a>
