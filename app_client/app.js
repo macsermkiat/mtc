@@ -6,6 +6,7 @@ var app = angular.module('mtcApp', 	['ui.router',
 									 'ngFileUpload',
 									 'ngImgCrop',
 									 'w11k.angular-seo-header',
+									 'angularUtils.directives.dirPagination',
 									 // 'uiCropper',
 									 'auth0.lock',
 									 'angularSpinners',
@@ -214,6 +215,13 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		controllerAs: 'vm'
 		// parent: 'mtc'
 	})
+	// .state('twit', {		
+	// 	url: '/twit',
+	// 	templateUrl: 'common/twit/twit.template.html',
+	// 	controller: 'twitCtrl',
+	// 	controllerAs: 'vm'
+	// 	// parent: 'mtc'
+	// })
 	
 	
 	

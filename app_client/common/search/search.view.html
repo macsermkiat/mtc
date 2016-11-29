@@ -162,7 +162,7 @@
 		</div>
 
 		<section class="col-xs-12 col-sm-12 col-md-12">
-			<article class="search-result row" ng-repeat="coach in vm.data.coach | filter:keyword track by $index">
+			<article class="search-result row" dir-paginate="coach in vm.data.coach | filter:keyword | itemsPerPage: 8 track by $index">
 				<div class="col-xs-12 col-sm-12 col-md-3"  >
 					<a ui-sref="coachDetail({coachid : coach._id})" title={{coach.name}} class="thumbnail">
 					<img ng-src={{coach.imageUrl}} alt={{coach.name}}></a>
@@ -189,6 +189,7 @@
 				<span class="clearfix borda"></span>
 				<hr>
 			</article>
+			<dir-pagination-controls></dir-pagination-controls>
 
 	        			
 
