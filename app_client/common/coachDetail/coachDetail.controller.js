@@ -67,7 +67,7 @@ function coachDetailCtrl($stateParams, $http, mtcData, $log, $scope, $uibModal, 
 	};
 
 	vm.popupRequestForm = function () {
-		if ($rootScope.isAuthenticated === true) {
+		// if ($rootScope.isAuthenticated === true) {
 			var uibModalInstance = $uibModal.open({
 				templateUrl: '/common/request/requestModal.view.html',
 				controller: 'requestModalCtrl',
@@ -89,10 +89,10 @@ function coachDetailCtrl($stateParams, $http, mtcData, $log, $scope, $uibModal, 
 				// vm.data.location.reviews.push(data);
 				console.log(data);
 			})
-		} else {
-			alert('Please log in to continue');
-			return false;
-		}
+		// } else {
+		// 	alert('Please log in to continue');
+		// 	return false;
+		// }
 			
 			
 	};

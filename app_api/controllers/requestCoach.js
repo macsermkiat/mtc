@@ -43,6 +43,7 @@ module.exports.requestCoach = function(req, res) {
 		userEmail = user.email;
 		userName = user.name;
 		userTelephone = user.telephone;
+		userLine = user.lineid;
 	})
 
 	var sendAwsSns = function(req, res) {
@@ -91,6 +92,8 @@ module.exports.requestCoach = function(req, res) {
 		   		  <h3>Congratulations! there's a matching request for you.</h3>
 			       <p>Course: ${req.body.shortDescription}</p>
 			       <p>Student's gender: ${req.body.sex}</p>
+			       <p>Student's level: ${req.body.level}</p>
+			       <p>Student's goal: ${req.body.goal}</p>
 			       <p>Time: ${req.body.time}</p>
 			       <p>Place: ${req.body.place}</p>
 			       <p>Requestid: ${req.body.requestid}</p>
@@ -112,26 +115,25 @@ module.exports.requestCoach = function(req, res) {
 		   from: "matchthecoach@royyak.com", // sender address.  Must be the same as authenticated user if using Gmail.
 		   to: "matchthecoach@royyak.com",
 		   subject: "Request matching from Match The Coach. ID: " + req.body.requestid, // subject
-		   text: "Congratulation! You have a matching request." + req.body.time + '\n\nplace :' + req.body.place,
-		   html: `<h2 style='color: #006600'>Hi ${userName}.</h2>
-		   		  <h3>Congratulations! there's a matching request for you.</h3>
+		   text: "Alert! There's a matching request." + req.body.time + '\n\nplace :' + req.body.place,
+		   html: `<h2 style='color: #006600'>Coach name: ${userName}.</h2>
+		   		  <h3>Coach telephone: ${userTelephone}</h3>
+		   		  <h3>Coach LINE : ${userLine}</h3>
+		   		  <h3>Alert! there's a matching request.</h3>
 			       <p>Course: ${req.body.shortDescription}</p>
+			       <p>Student's name: ${req.body.name}</p>
+			       <p>Student's id: ${req.body.identity}</p>
+			       <p>Student's level: ${req.body.level}</p>
+			       <p>Student's goal: ${req.body.goal}</p>
+			       <p>Student's email: ${req.body.email}</p>
+			       <p>Student's telephone: ${req.body.phone}</p>
 			       <p>Student's gender: ${req.body.sex}</p>
 			       <p>Time: ${req.body.time}</p>
 			       <p>Place: ${req.body.place}</p>
 			       <p>Requestid: ${req.body.requestid}</p>
 			       <p>Matching fee: ` + fee +` baht.</p>
 			       <h4>**Student detail**</h4>
-			       <p>Name: ${req.body.nameOfStudent}</p>
-			       <p>Telephone: ${req.body.phone}</p>
-			       <p>Email: ${req.body.email}</p>
-			       <p>กรุณาตอบกลับ Email ฉบับนี้ว่าท่านสะดวกสอนในวันเวลา\nดังกล่าวหรือไม่</p>
-			       <p>ถ้าท่านตอบตกลง\nเราจะติดต่อท่านอีกครั้ง\nเมื่อนักเรียนได้ชำระค่าธรรมเนียม\nท่านจึงชำระค่าธรรมเนียมการแมทช์\nหลังจากนั้น</p>
-			       <p>ถ้าท่านมีปัญหาการใช้งาน หรือมีคำถาม สามารถติดต่อเราได้ทุกช่องทาง<p>
-			       <p>Please reply this Email back as soon as possible of your answer to accept the match or not.</p>
-			       <p>If you accept to match, we will contact you shortly when the student confirm matching. Please do not transfer matching fee before that<p>
-			       <p>If you have a question, please do not hesitate to contact us<p>
-			       <p>Regards
+			      
 			       <hr>
 			       <h2>Match the Coach team</h2>
 			       <h3>Royyak Co.,Ltd.</h3>

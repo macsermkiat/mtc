@@ -10,27 +10,45 @@
 		</div>
 		<div class="modal-body">
 			<div class="form-group">
+				<label for="name" class="col-sm-2 control-label">{{'FORM.LABEL.NAME' | translate}}</label>
+				<div class="col-sm-10">
+					<input type="text" id="name" name="name" required="required" ng-model="vm.formData.name" class="form-control">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="level" class="col-sm-2 control-label">{{'FORM.LABEL.LEVEL' | translate}}</label>
+				<div class="col-sm-10">
+					<input type="text" id="level" name="level" required="required" ng-model="vm.formData.level" class="form-control">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="goal" class="col-sm-2 control-label">{{'FORM.LABEL.GOAL' | translate}}</label>
+				<div class="col-sm-10">
+					<input type="text" id="goal" name="goal" ng-model="vm.formData.goal" class="form-control">
+				</div>
+			</div>
+			<div class="form-group">
 				<label for="time" class="col-sm-2 control-label">{{'FORM.LABEL.GOODTIME' | translate}}</label>
 				<div class="col-sm-10">
-					<textarea id="time" name="time" rows="3" required="required" ng-model="vm.formData.time" class="form-control"></textarea>
+					<textarea id="time" name="time" rows="2" required="required" ng-model="vm.formData.time" class="form-control"></textarea>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="place" class="col-sm-2 control-label">{{'FORM.LABEL.LOCATION' | translate}}</label>
 				<div class="col-sm-10">
-					<textarea id="place" name="place" rows="5" required="required" ng-model="vm.formData.place" class="form-control"></textarea>
+					<textarea id="place" name="place" rows="2" required="required" ng-model="vm.formData.place" class="form-control"></textarea>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="phone" class="col-sm-2 control-label">{{'FORM.LABEL.MOBILE' | translate}}</label>
 				<div class="col-sm-10">
-					<input type="text" id="phone" name="phone" rows="5" required="required" ng-model="vm.formData.phone" class="form-control"></textarea>
+					<input type="text" id="phone" name="phone" rows="5" required="required" ng-model="vm.formData.phone" class="form-control">
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="email" class="col-sm-2 control-label">{{'FORM.LABEL.EMAIL' | translate}}</label>
+				<label for="email" class="col-sm-2 control-label">{{'FORM.LABEL.EMAIL' | translate}} / LINE ID</label>
 				<div class="col-sm-10">
-					<input type="email" id="email" name="email" required="required" ng-model="vm.formData.email" class="form-control"></textarea>
+					<input type="text" id="email" name="email" required="required" ng-model="vm.formData.email" class="form-control">
 				</div>
 			</div>
 			<div class="form-group">

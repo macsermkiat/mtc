@@ -14,8 +14,8 @@ function requestModalCtrl ($uibModalInstance, mtcData, coachData, $timeout) {
 	var accessData = localStorage.getItem('profile');
 	var profile = angular.fromJson(accessData);
 	var identity = profile.identities[0].user_id;
-	var nameOfStudent = profile.name;
-	var requestid = identity + ':' + now.toISOString();
+	// var nameOfStudent = profile.name;
+	// var requestid = identity + ':' + now.toISOString();
 	vm.success = false;
 	vm.isDisabled = false;
 
@@ -40,13 +40,16 @@ function requestModalCtrl ($uibModalInstance, mtcData, coachData, $timeout) {
 		vm.isDisabled = true;
 		mtcData.requestCoach({
 			// author : formData.name,
-			requestid: requestid,
+			requestid: now.toISOString(),
 			shortDescription: coachData.shortDescription,
 			coachid: coachData.coachid,
 			createdBy: coachData.createdBy,
 			price: coachData.price,
 			identity: identity,
-			nameOfStudent: nameOfStudent,
+			// 
+			name : formData.name,
+			level : formData.level,
+			goal : formData.goal,
 			time : formData.time,
 			place : formData.place,
 			phone : formData.phone,

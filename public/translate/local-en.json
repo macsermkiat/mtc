@@ -5,7 +5,7 @@
   "BRANDING_AND_NAV": {
     "HOME": "Find coach",
     "HOW-TO": "How to",
-    "TEAM": "Team",
+    "TEAM": "Opinion",
     "CONTACT": "Contact",
     "BECOME-COACH": "Become a coach",
     "PRICING": "Pricing",
@@ -96,7 +96,8 @@
       "HEAD-6": "When to transfer?",
       "HEAD-7": "Time limit",
       "HEAD-8": "Cancellation",
-      "HEAD-9": "What to do if student/coach try to contact personally?",
+      "HEAD-9": "What if I don't like coach's teaching?",
+      "HEAD-10": "What to do if student/coach try to contact personally?",
       "FREE":"PROMOTION! Free matching fee for coach during our opening period until end of November"
     },
     "PAR": {
@@ -113,8 +114,9 @@
       "PAR-6-3": "After you transfer,<mark> please reply an Email with a transfer document</mark> back to us.",
       "PAR-7": "Please do a transfer process within 7 days after you got a confirmation Email",
       "PAR-8": "Cancellation would not cost anything if made it before the course at least 2 days. If you canceled within 48 hours, you will not get the matching fee back.",
-      "PAR-9-1": "We recommend that you shouldn't accept or contact each other personally outside the web. We concerned about your securit and personal informations most. You also loss many benefits that will occuring, and loss the cancellation protection.",
-      "PAR-9-2": "Please report to us if someone try to contact you personally before the matching done"
+      "PAR-9": "If you think the coach's teaching is not your style, or you feel not right. You can ask us to change the coach. If you would like to cancel the course, please inform us after finish the class as soon as possible. We will refund your matching fee back right away.",
+      "PAR-10-1": "We recommend that you shouldn't accept or contact each other personally outside the web. We concerned about your securit and personal informations most. You also loss many benefits that will occuring, and loss the cancellation protection.",
+      "PAR-10-2": "Please report to us if someone try to contact you personally before the matching done"
     }
   },
   "FORM" : {
@@ -149,6 +151,7 @@
       "GROUP": "Group",
       "TIME": "Time",
       "LEVEL": "Level",
+      "GOAL" : "What you wantto gainfrom this course?",
       "PROVINCE": "Province",
       "CATEGORY": "Category",
       "PREPARATION": "Preparation",
