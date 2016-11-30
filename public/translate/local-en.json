@@ -170,13 +170,15 @@
       "PIC" : "Please wait picture to<strong> Load</strong> and<strong> Submit</strong> the picture before continue fill in the form.",
       "BAHT" : "Baht",
       "HOURS" : "hours",
+      "HOUR" : "hour",
       "EDIT" : "Edit",
       "DELETE" : "Delete",
       "DEL" : "Del",
       "PRESALE" : "Pre-SALE price",
       "POPOVER" : "You should create the actual course length, not too few. It may effect coach's trustability. Also student may stop learning early than your plan, because there was no commitment how long the course should take.",
       "MINIMUM" : "Minimum 1000 Baht", 
-      "PICTURE" : "Picture is very important to impress the students You can upload or change it later in Profile > Edit course."
+      "PICTURE" : "Picture is very important to impress the students You can upload or change it later in Profile > Edit course.",
+      "HURRY" : "Book now, before others!"
     },
     "PLACEHOLD" : {
       "SEARCHBOX" : "search from subject",
@@ -204,6 +206,6 @@
   "LANDING" : {
     "COACH" : "Become a coach",
     "STUDENT" : "Find a coach",
-    "HELP" : "Let us help find a coach"
+    "HELP" : "Let us help"
   }
 } 

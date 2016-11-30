@@ -50,7 +50,15 @@
 						</button>
 						</div>
 
-					</div>			
+					</div>
+					<div class="row">
+					    <br>
+						<div class="col-xs-12">
+						<h3 class="text-danger">{{'FORM.TEXT.HURRY' | translate}}</h3>
+						<hr>
+						</div>
+
+					</div>				
 				</div>
 				
 				<div class="col-xs-12 col-sm-12 col-md-7 excerpet">
@@ -67,10 +75,10 @@
 	                <h4 class="lead">{{"FORM.LABEL.LEVEL" | translate}}: </h4>
 	                <p>{{ vm.data.coach.level }}</p>
 	                <h4 class="lead">{{"FORM.LABEL.LENGTH" | translate}}: </h4>
-	                <p>{{ vm.data.coach.courseLength }} {{"FORM.TEXT.HOURS" | translate}}</p>
+	                <h2 class="text-success"><strong>{{ vm.data.coach.courseLength }} {{"FORM.TEXT.HOURS" | translate}}</strong></h2>
 	                <h4 class="lead">{{"FORM.LABEL.PRICE_PER_HOUR" | translate}}: </h4>
-	                <h3 class="text-info"> <a ng-click="vm.popupRequestForm()">{{ vm.data.coach.price / vm.data.coach.courseLength | number : 0 }} {{"FORM.TEXT.BAHT" | translate}} / {{"FORM.TEXT.HOURS" | translate}}</a></h3>
-	                <h6 class="text-muted">{{"FORM.LABEL.PRICE" | translate }}: {{ vm.data.coach.price }} {{"FORM.TEXT.BAHT" | translate}} </h6>
+	                <h4 class="text-info"> <a ng-click="vm.popupRequestForm()">{{ vm.data.coach.price / vm.data.coach.courseLength | number : 0 }} {{"FORM.TEXT.BAHT" | translate}} / {{"FORM.TEXT.HOUR" | translate}}</a></h4>
+	                <h6 class="text-muted">{{"FORM.LABEL.PRICE" | translate }}: {{ vm.data.coach.price - 10}} {{"FORM.TEXT.BAHT" | translate}} </h6>
 	                <h4 class="lead">{{"FORM.LABEL.SHARE" | translate}}:</h4>
 	                <div>
 		                <button class="btn btn-primary btn-sm js-textareacopybtn"  
