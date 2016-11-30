@@ -17,13 +17,13 @@
   },
   "HOME": {
     "HEADERWRAP": {
-      "SIMPLE": "Simple, Easy way to find private teacher / tutor in any field."
+      "SIMPLE": "Simple, Choosable way to find private teacher / tutor in any field."
     },
     "GRAYWRAP": {
       "EASY": "Easy",
       "EASY-TEXT": "The better and easier way to choose the right coach or tutor for you.",
       "CHOICE": "Choice",
-      "CHOICE-TEXT": "We open choices for you to made. Your can search for the coach experience, specialist. ",
+      "CHOICE-TEXT": "We open choices for you to made. Your can search the teacher or coach from their experience or specialist. ",
       "LOVE": "Love",
       "LOVE-TEXT": "All the coaches practice with love. They love teaching, they evaluated, and they are the best! "
     },
@@ -73,6 +73,7 @@
     "CONTACT": {
       "HEADING": "THANKS FOR VISITING US",
       "SUB1": "Contact Information",
+      "PAR-0": "Royyak Co., Ltd.",
       "PAR-1": "126/185 Pracha U-tit 78/1, ",
       "PAR-2": " Thung Khru, Bangkok 10140",
       "SUB2": "Newsletter",
@@ -85,10 +86,12 @@
      }
   },
   "PRICE": {
-    "PRICING" : "Pricing",
-    "WORK" : "How Pricing work",
+    "PRICING" : "Concept and Pricing",
+    "WORK" : "FAQ",
     "HEADER": {
-      "HEAD-1": "Concepts",
+      "HEAD-WHY" : "Why MatchTheCoach?",
+      "HEAD-BETTER" : "Why we are better?",
+      "HEAD-1": "Pricing",
       "HEAD-2": "Matching fee",
       "HEAD-3": "Why?",
       "HEAD-4": "How much?",
@@ -101,8 +104,10 @@
       "FREE":"PROMOTION! Free matching fee for coach during our opening period until end of November"
     },
     "PAR": {
+      "PAR-WHY" : "MatchTheCoach is a platform for you to find teacher or tutor in any field. We provide variety of teachers in many subjects, included their profiles. You can choose the most suitable one for you or your kids judging from the specialist and experience of the teacher.",
+      "PAR-BETTER" : "Many of education agency wouldn't provide you a choice, you get what they choose. Also sometimes you have to pay for the course to the agency, which they would deduct 50% from teacher. MatchTheCoach let you choose teacher by your self. we can give an advice, but you are the one who choose. You also pay the course fee to the teacher directly, so they will get what they should get.",
       "PAR-1": "The pricing occur in this service is called 'Matching fee'. Which occur to both coach and students.",
-      "PAR-2": "The matching fee cost is <strong>10%</strong> of the course's price. <strong>Both from a coach and student.</strong><br><br>Example : If total course price = 5,000 Baht, Th matching fee will be <strong> 500 Baht </strong>for both coach and student.<br><br>The matching fee will be calculated and send to you via Email when there's a matching request.", 
+      "PAR-2": "The matching fee cost is <span class='lead'><strong><del>20%</del> (Reduce price!) to</strong> </span><span class='text-danger'> 10%</span> of the course's price, both from a coach and student.<br><br>Example : If the course is 10 hours, with a price 480 Baht/hour. The matching fee will be 480 Baht<br><br>The matching fee will be calculated and send to you via Email when there's a matching request.", 
       "PAR-3": "You can think that a matching fee is like a deposit. If a coach or student cancel before a course too sudden<strong>(< 48 hours)</strong>,<br> You will get a matching fee back. <br><br><strong>*Plus* if the cancellation made on the day of the course, you'll get your fee back, plus half of the other side's fee.</strong><br><br>Example: You already paid matching fee 500 Baht, but you get a cancellation phone call in the morning day of starting course.<br>You will get 500 Baht back + 250 Baht. So <strong>totally you will get 750 Baht.</strong>",
       "PAR-4": "The matching fee price will be sent via an Email",
       "PAR-5-1": "Prompt Pay : 0955073078 (not available now)",
@@ -178,7 +183,8 @@
       "POPOVER" : "You should create the actual course length, not too few. It may effect coach's trustability. Also student may stop learning early than your plan, because there was no commitment how long the course should take.",
       "MINIMUM" : "Minimum 1000 Baht", 
       "PICTURE" : "Picture is very important to impress the students You can upload or change it later in Profile > Edit course.",
-      "HURRY" : "Book now, before others!"
+      "HURRY" : "Book now, before others!",
+      "ONLY" : "only"
     },
     "PLACEHOLD" : {
       "SEARCHBOX" : "search from subject",

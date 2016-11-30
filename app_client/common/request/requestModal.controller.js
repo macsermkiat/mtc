@@ -28,9 +28,9 @@ function requestModalCtrl ($uibModalInstance, mtcData, coachData, $timeout) {
 		} else {
 			var data = vm.formData;
 			alert("คุณได้ทำการขอแมทช์โค้ช " + coachData.name +'\nค่าธรรมเนียมการแมทช์ ' 
-				+ coachData.price*10/100 + ' บาท\n\n'+
+				+ (coachData.price-10)*10/100  + ' บาท\n\n'+
 				"You choosing to match Coach " + coachData.name +'\nThe matching fee is ' 
-				+ coachData.price*10/100 + ' Baht.')
+				+ (coachData.price-10)*10/100 + ' Baht.')
 			vm.doRequest(data);
 		}
 	};

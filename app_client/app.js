@@ -215,6 +215,16 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		controllerAs: 'vm'
 		// parent: 'mtc'
 	})
+	.state('team', {		
+		url: '/team',
+		templateUrl: 'home/team.view.html',
+		data: {
+                head: {
+                    title: 'บริษัท รอยหยัก จำกัด',                   
+                    canonical: 'https://www.matchthecoach.com/#!/team',
+                }
+            }
+	})
 	// .state('twit', {		
 	// 	url: '/twit',
 	// 	templateUrl: 'common/twit/twit.template.html',

@@ -34,7 +34,7 @@ module.exports.requestCoach = function(req, res) {
 	var userEmail;
 	var userName;
 	var userTelephone;
-	var fee = req.body.price*10/100;
+	var fee = (req.body.price-10)*10/100;
 	retrieveUser(req.body.createdBy, function(err,user) {
 		if (err) {
 			console.log(err);
