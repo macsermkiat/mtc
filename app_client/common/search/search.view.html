@@ -173,6 +173,7 @@
 						<li><i class="glyphicon glyphicon-education"></i> <span>{{ coach.subject }}</span></li>
 						<li><i class="glyphicon glyphicon-pencil"></i> <span>{{ coach.courseLength }} {{"FORM.TEXT.HOURS" | translate}}</span></li>
 						<li><i class="glyphicon glyphicon-home"></i> <span>{{ coach.province }}</span></li>
+						<li><span uib-rating ng-model="coach.rating" max="5" read-only=true aria-labelledby="rating" id="rating"></span></li>
 						<!-- <li><i class="glyphicon glyphicon-star"></i>
 							<i class="glyphicon glyphicon-star"></i>
 							<i class="glyphicon glyphicon-star"></i>

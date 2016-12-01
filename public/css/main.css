@@ -863,6 +863,7 @@ hgroup h2.lead { font: normal normal "Lato",Arial,Verdana,sans-serif; color: #2a
 .search-result ul li { font: 400 normal  "Lato",Arial,Verdana,sans-serif;  line-height: 30px; }
 .search-result ul li i { padding-right: 5px; }
 .search-result .col-md-7 { position: relative; }
+.search-result #rating .glyphicon-star {color: orange !important;}
 .search-result h3  { font: 500 normal "Lato",Arial,Verdana,sans-serif; margin-top: 0 !important; margin-bottom: 10px !important;}
 .search-result h3 > a, .search-result i { color: #248dc1 !important; }
 .search-result p { font: normal normal 1.3em "Lato",Arial,Verdana,sans-serif;} 
@@ -872,6 +873,7 @@ hgroup h2.lead { font: normal normal "Lato",Arial,Verdana,sans-serif; color: #2a
 .search-result span.plus a i { color: #fff !important; }
 .search-result span.border { display: block; width: 97%; margin: 0 15px; border-bottom: 1px dotted #ccc; }
 .search-result .edit-delete {margin-bottom: 8px;}
+
 
 /*Profile Style*/
 

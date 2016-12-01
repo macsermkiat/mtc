@@ -24,6 +24,7 @@
 						<a ui-sref="userDetail({userid: vm.data.coach.createdBy })">{{ vm.data.coach.name }}</a></span></li>
 						<li><i class="glyphicon glyphicon-education"></i> <span>{{ vm.data.coach.category }}</span></li>
 						<li><i class="glyphicon glyphicon-pencil"></i> <span>{{ vm.data.coach.courseLength }} {{"FORM.TEXT.HOURS" | translate}}</span></li>
+						<li><span uib-rating ng-model="vm.data.coach.rating" max="5" read-only=true aria-labelledby="rating" id="rating"></span></li>
 						<!-- <li><i class="glyphicon glyphicon-star"></i>
 							<i class="glyphicon glyphicon-star"></i>
 							<i class="glyphicon glyphicon-star"></i>
