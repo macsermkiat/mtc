@@ -187,7 +187,7 @@
       "ONLY" : "only"
     },
     "PLACEHOLD" : {
-      "SEARCHBOX" : "search from subject",
+      "SEARCHBOX" : "ex. Math Physics Music ",
       "CAT" : "Choose from a menu or create new. If not sure, put in 'others'.",
       "LENGTH" : "Minimum 4 hours",
       "KEYWORD" : "ex. TOEFL Jazz primary fun etc."
@@ -212,6 +212,7 @@
   "LANDING" : {
     "COACH" : "Become a coach",
     "STUDENT" : "Find a coach",
-    "HELP" : "Let us help"
+    "HELP" : "Let us help",
+    "BROWSE": "Search by subject"
   }
 } 
