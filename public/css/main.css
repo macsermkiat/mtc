@@ -813,6 +813,16 @@ a:after {
     padding-bottom: 15px;
 }
 
+.image-bank{
+    width: 60px;
+    height: 60px;
+}
+
+.image-bualuang{
+    width: 150px;
+    height: 60px;
+}
+
 blockquote p {
   color: white;
 }
