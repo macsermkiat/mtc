@@ -4,7 +4,7 @@ angular
 	.module('mtcApp')
 	.controller('searchCtrl', searchCtrl);
 
-searchCtrl.$inject = ['$stateParams', '$http', 'mtcData', '$log'];
+searchCtrl.$inject = ['$stateParams', '$http', 'mtcData', '$log', '$uibModal'];
 
 
 //For IE 8-9
@@ -12,7 +12,7 @@ if (window.location.pathname !== '/') {
 window.location.href = '/#' + window.location.pathname;
 };
 
-function searchCtrl($stateParams, $http, mtcData, $log) {
+function searchCtrl($stateParams, $http, mtcData, $log, $uibModal) {
 	var vm = this;
 	// vm.allCoaches = allCoaches;
 	// vm.coaches = [];
@@ -54,6 +54,16 @@ function searchCtrl($stateParams, $http, mtcData, $log) {
 				vm.message = "Sorry, something's gone wrong";
 			});
 	};
+
+	vm.popupHelp = function () {
+          var uibModalInstance = $uibModal.open({
+            templateUrl: '/home/helpModal.view.html'
+          });
+          uibModalInstance.result.then(function (data) {
+            // vm.data.location.reviews.push(data);
+            console.log("Help");
+          })
+      };
 
 	
 

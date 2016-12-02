@@ -300,8 +300,8 @@ app.run(function($rootScope, $state, authService, authManager, lock) {
 
   });
 
-app.run(function($anchorScroll, $window, $rootScope, $state) {
-	$window.ga('create', 'UA-XXXXXXXX-X', 'auto');
+app.run(function($window, $rootScope, $location, $anchorScroll) {
+	$window.ga('create', 'UA-85637595-1', 'auto');
 	$rootScope.$on('$locationChangeStart', function (event) {
 	    $window.ga('send', 'pageview', $location.path());
 	});

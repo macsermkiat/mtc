@@ -121,7 +121,6 @@ module.exports.coachesBrowse = function(req, res) {
 
 // GET category
 module.exports.categorySearch = function(req, res) {
-      console.log('Browsing category');
       var catSearchBody = req.query.text;
       Cat.find({ $or:[{category: new RegExp (catSearchBody, "i")}]}
         ).exec(function(err, catmember) {
@@ -140,7 +139,6 @@ module.exports.categorySearch = function(req, res) {
 };
 
 module.exports.allCats = function(req, res) {
-      console.log('Browsing category');
       Cat.find({})
       .exec(function(err, catmember) {
          if (!catmember) {
@@ -205,7 +203,6 @@ module.exports.keywordSearch = function(req, res, next) {
 
 /* GET a coach by the id */
 module.exports.coachesReadOne = function(req, res) {
-  console.log('Finding coach details', req.params);
   if (req.params && req.params.coachid) {
     Mtc
       .findById(req.params.coachid)
@@ -220,7 +217,7 @@ module.exports.coachesReadOne = function(req, res) {
           sendJSONresponse(res, 404, err);
           return;
         }
-        
+        console.log('Looking at coach: ' +coach.name + ', subject: ' + coach.shortDescription);
         sendJSONresponse(res, 200, coach);
       });
   } else {
@@ -254,10 +251,8 @@ module.exports.usersCourse = function(req, res) {
 
 // GET User Bio
 module.exports.usersBio = function(req, res) {
-      console.log('Get User Bio');
       // if (req.params && req.params.coachid)
       var id = req.params.id || req.params.userid;
-      console.log("My ID " + id);
       User.find({identity: id })
         .populate('course')
         .exec(function(err, bio) {
@@ -271,7 +266,7 @@ module.exports.usersBio = function(req, res) {
               sendJSONresponse(res, 404, err);
               return;
             }
-            console.log(bio);
+            console.log('See User Bio: ' + bio[0].name);
             sendJSONresponse(res, 200, bio);
       });       
 };
