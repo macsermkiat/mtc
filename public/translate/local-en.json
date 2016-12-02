@@ -136,6 +136,7 @@
     "LABEL" : {
       "NAME": "Name",
       "SURNAME": "Surname",
+      "NICKNAME" : "Nickname",
       "EMAIL": "Email",
       "MOBILE": "Mobile Number",
       "LINE": "LINE ID",
