@@ -70,7 +70,7 @@
             // setUserSubscription(subscriptionData);
             // return;
            }, function(error) {
-            if (err) {
+            if (error) {
               console.log(error);
             }
            });
