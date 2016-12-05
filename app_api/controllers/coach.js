@@ -255,18 +255,18 @@ module.exports.usersBio = function(req, res) {
       var id = req.params.id || req.params.userid;
       User.find({identity: id })
         .populate('course')
-        .exec(function(err, bio) {
+        .exec(function(error, bio) {
          if (!bio) {
                 sendJSONresponse(res, 404, {
                 "message": "Search not found"
                 });
                 return;
-            } else if (err) {
-              console.log(err);
-              sendJSONresponse(res, 404, err);
+            } else if (error) {
+              console.log(error);
+              sendJSONresponse(res, 404, error);
               return;
             }
-            console.log('See User Bio: ' + bio[0].name);
+            // console.log('See User Bio: ' + bio[0].name);
             sendJSONresponse(res, 200, bio);
       });       
 };
