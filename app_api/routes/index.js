@@ -22,7 +22,8 @@ var router = express.Router();
 var aws = require('../controllers/awsPolicy');
 var ctrlCoaches = require('../controllers/coach');
 var ctrlRequest = require('../controllers/requestCoach');
-var ctrlNews = require('../controllers/sendNewsLetter')
+var ctrlNews = require('../controllers/sendNewsLetter');
+var ctrlTwit = require('../controllers/twit');
 
 // var nodeMail = require('../controllers/nodemail');
 
@@ -66,6 +67,9 @@ router.put('/coachEdit/update', ctrlCoaches.coachesUpdateOne);
 router.post('/newsletter', ctrlCoaches.eMailNewsLetterCollect);
 router.post('/sendNews', ctrlNews.sendFirstEmail);
 
+// Twitter bot
+router.get('/twit', ctrlTwit.twitGet);
+router.post('/tweet', ctrlTwit.twitPost);
 // Request
 router.post('/request', ctrlRequest.requestCoach);
 module.exports = router;

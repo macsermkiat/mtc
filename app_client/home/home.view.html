@@ -1,6 +1,5 @@
 <!-- <script type="text/ng-template" id="home/home.view.html"> -->
  <navigation></navigation>
- <ng-if="vm.isAuthenticated" navigation></navigation>
 
 		<!-- ==== HEADERWRAP ==== -->
 		<div id="scroll-container">
@@ -226,7 +225,7 @@
 					
 				
 
-						<form id="addEmail" name="addEmail" class="form-horizontal" role="form" ng-submit="vm.onNewsLetter()" novalidate>
+						<form id="addEmail" name="addEmail" class="form-horizontal" ng-submit="vm.onNewsLetter()" novalidate>
 						  <div class="form-group" >
 						    <!-- <label for="email" class="col-lg-2 control-label"></label> -->
 						    <div class="col-lg-12">

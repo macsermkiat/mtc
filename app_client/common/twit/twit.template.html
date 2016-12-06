@@ -1,0 +1,109 @@
+
+<H1>Get Twitter</H1>
+
+
+<div class="container clear-fix" >
+<div class="row">
+	<div class="col-xs-12 col-md-3">
+
+		<form id="tweet" name="vm.tweet" role="form" ng-submit="vm.onSubmit()"
+			class="container form-horizontal" novalidate>
+			<div class="row">
+				<div class="col-xs-3">
+					<label for="tweet">Tweet text</label>
+					<input type="text" name="tweet" ng-model="vm.formData.tweet" rows="10" ng-change="vm.yyy =vm.formData.tweet">
+					<span class="input-group-addon" style="padding:0 5px;border:0;width:2%;">
+								<select class="form-control" ng-model="vm.formData.tweet" >
+								<option>-- choose text --</option>
+								<optgroup label="Language">
+								<option>เรามีครูภาษาอังกฤษให้เลือกมากมาย ทั้งอ.คนไทยและต่างชาติ matchthecoach.com</option>
+								<option>เรามีครูภาษาญี่ปุ่นเก่งๆให้เลือกมากมาย matchthecoach.com</option>
+								<option>เรามีครูภาษาจีนให้เลือกมากมาย ทั้งอ.คนไทยและคนจีนต้ตตำรับ matchthecoach.com</option>
+								<option>เรามีครูภาษาเกาหลีให้เรียนได้ matchthecoach.com</option>
+								<option>เรามีครูเปียโนให้เลือกมากมาย สอนทั้งเด็กและผู้ใหญ่ matchthecoach.com</</option>
+								<option>เรามีครูกีตาร์มืออาชีพให้เลือกมากมาย matchthecoach.com</option>
+								<option>เรามีติวเตอร์ให้เลือกมากมาย matchthecoach.com</</option>
+								</optgroup>
+								</select>
+						</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<label for="name">name</label>
+					<input type="text" ng-model="vm.name" >
+				</div>
+			</div>
+		</form>
+		<div>
+			<button class="btn btn-danger btn-lg" ng-click="vm.onSubmit()">TWEET</button>
+		</div>
+		<div ng-if="vm.message.success === true">
+			<button class="btn btn-success btn-block">Tweet sent!
+		</div>
+		<div  ng-if="vm.formError">
+			<button class="btn btn-danger btn-block">{{ vm.formError }}
+			</button>
+		</div>
+	</div>
+	<div class="col-xs-12 col-md-6">
+		<div>
+			<button class="btn btn-success" ng-click="vm.getTwitter(vm.text, vm.date)">GET TWITTER</button>
+			<img ng-if="vm.isLoading === true" name="twitspinner" ng-src="image/balls.gif">
+
+				<div class="form-group">
+					<label for="text">Search tweet</label>
+					<input type="text" id="text" name="text" required ng-model="vm.text" ng-change="vm.xxx =vm.text" class="form-control" placeholder="search tweet" aria-labelledby="searh tweet">
+						<span class="input-group-addon" style="padding:0 5px;border:0;width:25%;">
+								<select class="form-control" ng-model="vm.text" >
+								<option>-- choose text --</option>
+								<optgroup label="Language">
+								<option>อยากเรียนภาษาอังกฤษ</option>
+								<option>อยากเรียนภาษาญี่ปุ่น</option>
+								<option>อยากเรียนภาษาจีน</option>
+								<option>อยากเรียนภาษาเกาหลี</option>
+								<option>อยากเรียนเปียโน</option>
+								<option>อยากเรียนกีตาร์</option>
+								<option>อยากหาติวเตอร์</option>
+								</optgroup>
+								</select>
+						</span>
+				</div>
+				<div>
+				<div class="form-group">
+					<label for="date">Date</label>			
+					<input type="text" ng-model="vm.date" placeholder="20xx-mm-dd" uib-datepicker-popup="{{vm.format}}">
+					<pre>Selected date is: <em>{{vm.date | date:vm.format }}</em></pre>
+
+				    <h4>Inline</h4>
+				    <div style="display:inline-block; min-height:290px;">
+				      <div uib-datepicker ng-model="vm.date" class="well well-sm" datepicker-options="options"></div>
+    				</div>
+				</div>
+		</div>
+		<article class="search-result row" ng-repeat="twit in vm.data.twit.data.statuses track by $index">
+			<p>Create at: {{twit.created_at}}</p>
+			<p>Text: {{twit.text}}</p>
+			<p>Name:{{twit.user.name}}</p>
+			<img ng-src={{twit.user.profile_image_url_https}}>
+			<button ng-click="vm.addGroupReply(twit.user.screen_name, twit.id_str)">reply</button>
+			<span class="text-danger" ng-if="vm.nameAdded.indexOf(twit.user.screen_name) !== -1">ADDED!</span>
+			<hr>
+		</article>
+	</div>
+</div>
+</div>
+</div>
+
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.11/angular-filter.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.8/angular-sanitize.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.1.4/ui-bootstrap.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.1.4/ui-bootstrap-tpls.min.js"></script>
+		<script type="common/twit/twit.controller.js"></script>
+<!-- 		<script type="text/javascript" src="app.js"></script>
+		<script type="text/javascript" src="/angular/mtc.min.js"></script> -->
+</BODY>

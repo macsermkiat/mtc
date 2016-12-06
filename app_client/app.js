@@ -225,13 +225,13 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
                 }
             }
 	})
-	// .state('twit', {		
-	// 	url: '/twit',
-	// 	templateUrl: 'common/twit/twit.template.html',
-	// 	controller: 'twitCtrl',
-	// 	controllerAs: 'vm'
-	// 	// parent: 'mtc'
-	// })
+	.state('twit', {		
+		url: '/twit',
+		templateUrl: 'common/twit/twit.template.html',
+		controller: 'twitCtrl',
+		controllerAs: 'vm'
+		// parent: 'mtc'
+	})
 	
 	
 	
