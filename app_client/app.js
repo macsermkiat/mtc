@@ -83,15 +83,15 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		url: '/',
 		templateUrl: 'home/home.view.html',
 		controller: 'homeCtrl',
-		controllerAs :'vm',
-		data: {
-                head: {
-                    title: 'หาครู สอนพิเศษ เรียนภาษาอังกฤษภาษาจีน เรียนเปียโน ติวสอบมีทุกวิชา: MatchTheCoach',
-                    keywords: ["หาครู", "สอนพิเศษ", 'เรียนภาษาอังกฤษ', 'Private tutor', 'Teacher'],
-                    description: "หาครู สอนพิเศษ ติวสอบ ครูดนตรี กีฬา เรียนภาษาอังกฤษ เรียนภาษาจีน หรือสำหรับโพสงานฟรี : English course, or find teacher in any subjects. Post a teaching job for free",
-                    canonical: 'https://www.matchthecoach.com',
-                }
-            }
+		controllerAs :'vm'
+		// data: {
+  //               head: {
+  //                   title: 'หาครูสอนพิเศษ เรียนภาษาอังกฤษภาษาจีน เรียนเปียโนเรียนดนตรี ติวสอบมีทุกวิชา: MatchTheCoach',
+  //                   keywords: ["หาครู", "สอนพิเศษ", 'เรียนภาษาอังกฤษ', 'Private tutor', 'Teacher'],
+  //                   description: "หาครูสอนพิเศษ ติวสอบ เรียนเปียโนดนตรี กีฬา เรียนภาษาอังกฤษ เรียนภาษาจีน หรือสำหรับโพสงานฟรี : English course, or find teacher in any subjects. Post a teaching job for free",
+  //                   canonical: 'https://www.matchthecoach.com',
+  //               }
+  //           }
 		// parent: 'mtc'
 	})
 	.state('become', {

@@ -13,7 +13,15 @@ function requestModalCtrl ($uibModalInstance, mtcData, coachData, $timeout) {
 	var now = new Date;
 	var accessData = localStorage.getItem('profile');
 	var profile = angular.fromJson(accessData);
-	var identity = profile.identities[0].user_id;
+	var identity;
+	var checkIdentity = function() {
+		if (profile) {
+			identity = profile.identities[0].user_id;
+		} else {
+			identity = null;
+		}
+	};
+	checkIdentity();
 	// var nameOfStudent = profile.name;
 	// var requestid = identity + ':' + now.toISOString();
 	vm.success = false;
