@@ -493,14 +493,6 @@ module.exports.usersCreate = function(req, res) {
    setTimeout(function() {
      async.parallel ([       
       function(cb) {
-         sendEMail(req, res), function(err)   {
-                            if (err) {
-                              console.log(err);  
-                            }else{
-                              console.log("Success send Email");
-                            }
-        }; 
-      }, function(cb) {
         userSave.save(function(err, user) {
           if (err) {
             console.log(err);
@@ -511,6 +503,14 @@ module.exports.usersCreate = function(req, res) {
           }
 
           });
+      }, function(cb) {
+         sendEMail(req, res), function(err)   {
+                            if (err) {
+                              console.log(err);  
+                            }else{
+                              console.log("Success send Email");
+                            }
+        }; 
       }
     ], function(err, coach) {
         console.log("The coach is" + coach);

@@ -80,7 +80,8 @@ function coachDetailCtrl($stateParams, $http, mtcData, $log, $scope, $uibModal, 
 						   createdBy: vm.data.coach.createdBy,
 						   price: vm.data.coach.price,
 						   length: vm.data.coach.length,
-						   name: vm.data.coach.name
+						   name: vm.data.coach.name,
+						   rating: vm.data.coach.rating
 						};
 					}
 				}

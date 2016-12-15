@@ -27,6 +27,26 @@ function requestModalCtrl ($uibModalInstance, mtcData, coachData, $timeout) {
 	vm.success = false;
 	vm.isDisabled = false;
 
+	var studentMatchingFee;
+	var matchingCalc = function () {
+		if (coachData.rating === 5) {
+				studentMatchingFee = 490
+		} else {
+				studentMatchingFee = 290
+		}
+	};
+	matchingCalc();
+
+	var coachMatchingFee;
+	var matchingCoachCalc = function () {
+		if (coachData.price <= 5000) {
+				coachMatchingFee = 490
+		} else {
+				coachMatchingFee = coachData.price / 10
+		}
+	};	
+	matchingCoachCalc();
+
 	vm.onSubmit = function () {
 		vm.formError = "";
 		if(!vm.formData.time || !vm.formData.place || 
@@ -36,9 +56,9 @@ function requestModalCtrl ($uibModalInstance, mtcData, coachData, $timeout) {
 		} else {
 			var data = vm.formData;
 			alert("คุณได้ทำการขอแมทช์โค้ช " + coachData.name +'\nค่าธรรมเนียมการแมทช์ ' 
-				+ (coachData.price-10)*10/100  + ' บาท\n\n'+
+				+ studentMatchingFee + ' บาท\n\n'+
 				"You choosing to match Coach " + coachData.name +'\nThe matching fee is ' 
-				+ (coachData.price-10)*10/100 + ' Baht.')
+				+ studentMatchingFee + ' Baht.')
 			vm.doRequest(data);
 		}
 	};
@@ -53,6 +73,8 @@ function requestModalCtrl ($uibModalInstance, mtcData, coachData, $timeout) {
 			coachid: coachData.coachid,
 			createdBy: coachData.createdBy,
 			price: coachData.price,
+			coachMatchingFee : coachMatchingFee,
+			studentMatchingFee : studentMatchingFee,
 			identity: identity,
 			// 
 			name : formData.name,
