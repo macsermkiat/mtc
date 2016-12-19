@@ -132,9 +132,19 @@
   <lastmod>2016-11-14T11:01:59+00:00</lastmod>
   <changefreq>weekly</changefreq>
  </url>
-  <url>
+<url>
   <loc>https://www.matchthecoach.com/#!/coaches/search/?text=Biology%20-%20ติวชีวะ</loc>
   <lastmod>2016-11-14T11:01:59+00:00</lastmod>
   <changefreq>weekly</changefreq>
+ </url>
+ <url>
+  <loc>https://www.matchthecoach.com/blog.html</loc>
+  <lastmod>2016-12-19T12:01:59+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+ </url>
+ <url>
+  <loc>https://www.matchthecoach.com/blog/10 สิ่ง.html</loc>
+  <lastmod>2016-19-12T12:01:59+00:00</lastmod>
+  <changefreq>none</changefreq>
  </url>
 </urlset>
