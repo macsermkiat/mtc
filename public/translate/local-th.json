@@ -13,7 +13,8 @@
     "SET-LANG": "EN",
     "LOGOUT": "ออกจากระบบ",
     "SUBSCRIPTION": "ลงทะเบียนใช้งาน",
-    "PROFILE": "โปรไฟล์"
+    "PROFILE": "โปรไฟล์",
+    "COMPANY": "ลูกค้าองค์กร/ธุรกิจ"
   },
   "HOME": {
     "HEADERWRAP": {

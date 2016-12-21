@@ -65,7 +65,6 @@ function searchCtrl($stateParams, $http, mtcData, $log, $uibModal) {
           })
       };
 
-	
 
 		// -> Fisher–Yates shuffle algorithm
 	

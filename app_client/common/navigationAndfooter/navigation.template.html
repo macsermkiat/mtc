@@ -53,9 +53,10 @@
       			<li aria-label="Match the coach" class="hidden-xs hidden-sm"> <a href="/#match" offset ="30" du-smooth-scroll id="navtopspace" translate="BRANDING_AND_NAV.HOW-TO"></a></li>
       			
       			<li aria-label="Team" class="hidden-xs hidden-sm"> <a href="/#team" du-smooth-scroll id="navtopspace" translate="BRANDING_AND_NAV.TEAM"></a></li>
+            <li aria-label="Pricing"><a ui-sref="pricing" id="navtopspace" translate="BRANDING_AND_NAV.PRICING"></a></li>
       			<li aria-label="Contact" class="hidden-xs hidden-sm"> <a href="/#contact" du-smooth-scroll id="navtopspace" translate="BRANDING_AND_NAV.CONTACT"></a></li>
             <li aria-label="Become a coach"><a ui-sref="become" id="navtopspace" translate="BRANDING_AND_NAV.BECOME-COACH"></a></li>
-            <li aria-label="Pricing"><a ui-sref="pricing" id="navtopspace" translate="BRANDING_AND_NAV.PRICING"></a></li>
+            <li aria-label="Business"><a ng-href="company.html" id="navtopspace" ng-click="$event.stopPropagation()" translate="BRANDING_AND_NAV.COMPANY"></a></li>
            <li class="dropdown hidden-xs">
             <a href="#" class="dropdown-toggle"  id="navtopspace" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span translate="BRANDING_AND_NAV.SET-LANG"></span><span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -71,8 +72,9 @@
             <li aria-label="Sign in" class="hidden-xs" ng-if="!lgin.isAuthenticated"><a ng-click="lgin.authService.login()" id="navtopspace" translate="BRANDING_AND_NAV.SIGNIN"></a></li>
             <li ng-if="lgin.isAuthenticated" class="dropdown hidden-xs float-right">
                     <a href="" class="dropdown-toggle" data-toggle="dropdown">
-                    <strong>{{lgin.profile.name}}&nbsp</strong>
                     <img ng-src="{{lgin.profile.picture}}" alt="{{lgin.profile.name}}" height="32" width="32">
+                    <span>
+                    </span>
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                       <li ng-if="lgin.getSubscription == false || lgin.serviceSubscription == false || lgin.localStorageSubscription == 'false' " aria-label="Subscription"><a ui-sref="subscription">

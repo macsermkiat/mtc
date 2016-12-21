@@ -22,6 +22,7 @@ var app = angular.module('mtcApp', 	['ui.router',
 
 function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $locationProvider, $httpProvider, $stateProvider, $urlRouterProvider, $translateProvider) {
 
+
 	lockProvider.init({
       domain: 'royyak.auth0.com',
       clientID: '2m8hbwYC8UdyjITdKGDptrRvF6BXweY7',
@@ -294,6 +295,16 @@ app.run(function($rootScope, $state, authService, authManager, lock) {
       // Listen for 401 unauthorized requests and redirect
       // the user to the login page
       authManager.redirectWhenUnauthenticated();
+
+      $state.originalHrefFunction = $state.href;
+	    $state.href = function href(stateOrName, params, options) {
+	        var result = $state.originalHrefFunction(stateOrName, params, options);
+	        if (result && result.slice(0, 1) === '/') {
+	            return '#!' + result;
+	        } else {
+	            return result;
+	        }
+	    }
 
 
       
