@@ -24,7 +24,7 @@
             <span ng-if="lgin.isAuthenticated" class="dropdown float-right">
                     <a data-toggle="dropdown" style="color:white !important;">
                     <strong hidden="hidden-xs">{{lgin.profile.name}}&nbsp</strong>
-                    <img ng-src="{{lgin.profile.picture}}" alt="{{lgin.profile.name}}" height="28" width="28">
+                    <img ng-src="{{lgin.profile.picture}}" aria-labelledby="{{lgin.profile.name}}" height="28" width="28">
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu" >
                       <li ng-if="lgin.getSubscription == false || lgin.serviceSubscription == false || lgin.localStorageSubscription == 'false' " aria-label="Subscription"><a ui-sref="subscription">
@@ -43,7 +43,7 @@
                     <span class="icon-bar"></span>
 
           </button>
-          <a class="navbar-brand navtopspace mtcbrand" href="/#home" du-smooth-scroll><img ng-src="../image/mtc-tp.png" alt="Match The Coach brand"></a>
+          <a class="navbar-brand navtopspace mtcbrand" ng-href="/#home" du-smooth-scroll><img ng-src="../image/mtc-tp.png" aria-labelledby="Match The Coach brand"></a>
 
         </div>
 
@@ -72,7 +72,7 @@
             <li aria-label="Sign in" class="hidden-xs" ng-if="!lgin.isAuthenticated"><a ng-click="lgin.authService.login()" id="navtopspace" translate="BRANDING_AND_NAV.SIGNIN"></a></li>
             <li ng-if="lgin.isAuthenticated" class="dropdown hidden-xs float-right">
                     <a href="" class="dropdown-toggle" data-toggle="dropdown">
-                    <img ng-src="{{lgin.profile.picture}}" alt="{{lgin.profile.name}}" height="32" width="32">
+                    <img ng-src="{{lgin.profile.picture}}" aria-labelledby="{{lgin.profile.name}}" height="32" width="32">
                     <span>
                     </span>
                     <span class="caret"></span></a>
