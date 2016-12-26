@@ -167,7 +167,7 @@
 			<article class="search-result row" dir-paginate="coach in vm.data.coach | filter:keyword | itemsPerPage: 8 track by $index">
 				<div class="col-xs-12 col-sm-12 col-md-3"  >
 					<a ui-sref="coachDetail({coachid : coach._id})" title={{coach.name}} class="thumbnail" target="_blank">
-					<img ng-src={{coach.imageUrl}} alt={{coach.name}}></a>
+					<img ng-src={{coach.imageUrl}} aria-labelledby={{coach.name}}></a>
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-2">
 					<ul class="meta-search">
