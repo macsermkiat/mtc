@@ -15,11 +15,11 @@
     <image:image>
       <image:loc>https://www.matchthecoach.com/image/match.jpg</image:loc>
     </image:image>
-  <lastmod>2016-12-11T05:01:59+00:00</lastmod>
+  <lastmod>2016-12-25T05:01:59+00:00</lastmod>
  </url>
  <url>
   <loc>https://www.matchthecoach.com/#!/pricing</loc>
-  <lastmod>2016-11-29T11:01:59+00:00</lastmod>
+  <lastmod>2016-12-25T11:01:59+00:00</lastmod>
   <changefreq>never</changefreq>
  </url>
  <url>
@@ -139,12 +139,16 @@
  </url>
  <url>
   <loc>https://www.matchthecoach.com/blog.html</loc>
-  <lastmod>2016-12-19T13:01:59+00:00</lastmod>
+  <lastmod>2016-12-25T13:01:59+00:00</lastmod>
   <changefreq>weekly</changefreq>
  </url>
  <url>
   <loc>https://www.matchthecoach.com/blog/10 สิ่ง.html</loc>
   <lastmod>2016-12-19T13:01:59+00:00</lastmod>
+ </url>
+ <url>
+  <loc>https://www.matchthecoach.com/blog/ted.html</loc>
+  <lastmod>2016-12-26T01:01:59+00:00</lastmod>
  </url>
  <url>
   <loc>https://www.matchthecoach.com/company.html</loc>
