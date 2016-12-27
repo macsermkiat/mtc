@@ -51,11 +51,10 @@ function SearchBoxController ($state, mtcData, $timeout, $http) {
 
 	function activate() {
 		return mtcData.allCats()
-			.success(function(data) {
-				vm.data = { cat: data }
-
+			.then(function(data) {			
+				vm.data = { cat: data.data }
 			})
-			.error(function (e) {
+			.catch(function (e) {
 				vm.message = "Sorry, something's gone wrong";
 			});
 	};

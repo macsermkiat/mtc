@@ -5,6 +5,7 @@ var app = angular.module('mtcApp', 	['ui.router',
 									 'youtube-embed',
 									 'ngFileUpload',
 									 'ngImgCrop',
+									 // 'updateMeta',
 									 'w11k.angular-seo-header',
 									 'angularUtils.directives.dirPagination',
 									 // 'uiCropper',
@@ -85,15 +86,18 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		templateUrl: 'home/home.view.html',
 		controller: 'homeCtrl',
 		controllerAs :'vm',
+		metadata : {
+			 title: 'หาครูสอนพิเศษ เรียนภาษาอังกฤษภาษาจีน เรียนเปียโนเรียนดนตรี ติวสอบมีทุกวิชา: MatchTheCoach'
+		},
 		data: {
                 head: {
-                    title: 'หาครูสอนพิเศษ เรียนภาษาอังกฤษภาษาจีน เรียนเปียโนเรียนดนตรี ติวสอบมีทุกวิชา: MatchTheCoach',
+                	canonical: "https://www.matchthecoach.com",
                     keywords: ["หาครู", "สอนพิเศษ", 'เรียนภาษาอังกฤษ', 'Private tutor', 'Teacher'],
-                    description: "หาครูสอนพิเศษ ติวสอบ เรียนเปียโนดนตรี กีฬา เรียนภาษาอังกฤษ เรียนภาษาจีน หรือสำหรับโพสงานฟรี : English course, or find teacher in any subjects. Post a teaching job for free",
-                    canonical: 'https://www.matchthecoach.com',
+                    description: "หาครูสอนพิเศษ ติวสอบ เรียนเปียโนดนตรี กีฬา เรียนภาษาอังกฤษ เรียนภาษาจีน หรือสำหรับโพสงานฟรี : English course, or find teacher in any subjects. Post a teaching job for free"
+                    // canonical: 'https://www.matchthecoach.com',
                 }
             }
-		// parent: 'mtc'
+		// // parent: 'mtc'
 	})
 	.state('become', {
 		url: '/become-a-coach',
@@ -131,11 +135,13 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 	.state('pricing', {
 		url: '/pricing',
 		templateUrl: 'home/pricing.html',
+		metadata: {
+			title: 'ราคาการแมทช์ : Pricing'
+		},
 		data: {
-                head: {
-                    title: 'ราคาการแมทช์ : Pricing',
-                    description: "คำถามที่พบบ่อยในเรื่องราคาการแมทช์ FAQ of Pricing",
-                    canonical: 'https://www.matchthecoach.com/#!/pricing',
+                head: {          
+                	description: "คำถามที่พบบ่อยในเรื่องราคาการแมทช์ FAQ of Pricing",
+                    canonical: 'https://www.matchthecoach.com/#!/pricing'
                 }
             }
 		// controller: 'priceController'
@@ -153,12 +159,12 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		templateUrl: 'common/search/search.view.html',
 		controller: 'searchCtrl',
 		controllerAs : 'vm',
+		metadata : {
+			title: 'หาครูพบ'
+		},
 		data: {
                 head: {
-                    title: 'หาครู ',
-                    titleExtend: function (titleStr, toParams) {
-		                  return titleStr+toParams.text;
-		              },
+                	description: 'หาครูตามรายวิชา',
                     canonical: 'https://www.matchthecoach.com/#!/coaches/search/?text=',
                     canonicalExtend: function (canonicalStr, toParams) {
 		                  return canonicalStr+toParams.text;
@@ -172,12 +178,12 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		templateUrl: 'common/coachDetail/coachDetail.view.html',
 		controller: 'coachDetailCtrl',
 		controllerAs : 'vm',
+		metadata : {
+			title: 'รายละเอียดของวิชา'
+		},
 		data: {
                 head: {
-                    title: 'หาครูพบสำหรับคอร์สหมายเลข ',
-                    titleExtend: function (titleStr, toParams) {
-		                  return titleStr+toParams.coachid;
-		              },
+                	description: 'รายละเอียดของวิชา',
                     canonical: 'https://www.matchthecoach.com/#!/coaches/',
                     canonicalExtend: function (canonicalStr, toParams) {
 		                  return canonicalStr+toParams.coachid;
@@ -219,10 +225,12 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 	.state('team', {		
 		url: '/team',
 		templateUrl: 'home/team.view.html',
+		metadata : {
+			title: 'บริษัท รอยหยัก จำกัด'
+		},
 		data: {
-                head: {
-                    title: 'บริษัท รอยหยัก จำกัด',                   
-                    canonical: 'https://www.matchthecoach.com/#!/team',
+                head: {                     
+                    canonical: 'https://www.matchthecoach.com/#!/team'
                 }
             }
 	})
@@ -275,7 +283,11 @@ app.config(['lockProvider', 'jwtOptionsProvider', 'jwtInterceptorProvider', '$lo
 
 
 
-app.run(function($rootScope, $state, authService, authManager, lock) {
+app.run(function($rootScope, metadataService, $state, authService, authManager, lock) {
+		// Route change handler, sets the route's defined metadata
+	$rootScope.$on('$stateChangeSuccess', function (event, newRoute) {
+	   metadataService.loadMetadata(newRoute.metadata);
+    });
 
 
  	  lock.interceptHash();
@@ -322,7 +334,6 @@ app.run(function($window, $rootScope, $location, $anchorScroll) {
 	   // $rootScope.$state = $state;
 	});
 });
-
 
 
 

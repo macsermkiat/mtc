@@ -4,7 +4,7 @@ angular
 	.module('mtcApp')
 	.controller('searchCtrl', searchCtrl);
 
-searchCtrl.$inject = ['$stateParams', '$http', 'mtcData', '$log', '$uibModal'];
+searchCtrl.$inject = ['metadataService', '$stateParams', '$http', 'mtcData', '$log', '$uibModal'];
 
 
 //For IE 8-9
@@ -12,14 +12,19 @@ if (window.location.pathname !== '/') {
 window.location.href = '/#' + window.location.pathname;
 };
 
-function searchCtrl($stateParams, $http, mtcData, $log, $uibModal) {
+function searchCtrl(metadataService, $stateParams, $http, mtcData, $log, $uibModal) {
+	
 	var vm = this;
 	// vm.allCoaches = allCoaches;
 	// vm.coaches = [];
 	vm.text = $stateParams.text;
+	
 	// vm.key = ;
 	activate();
 
+	metadataService.loadMetadata({
+	  title: 'รายชื่อครูผู้เชี่ยวชาญ ' + vm.text
+	});
 
 	function activate() {
 		return searchingCoaches().then(function() {
@@ -46,11 +51,11 @@ function searchCtrl($stateParams, $http, mtcData, $log, $uibModal) {
 
 	function searchingCoaches() {
 		return mtcData.searchCategoryService(vm.text)
-			.success(function(data) {
-				vm.data = { coach: data }
+			.then(function(data) {
+				vm.data = { coach: data.data }
 				shuffleArray(vm.data.coach);
 			})
-			.error(function (e) {
+			.catch(function (e) {
 				vm.message = "Sorry, something's gone wrong";
 			});
 	};

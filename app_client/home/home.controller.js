@@ -4,7 +4,7 @@ angular
 	.module('mtcApp')
 	.controller('homeCtrl', homeCtrl);
 
-homeCtrl.$inject = ['$state', '$translate', 'mtcData','$timeout', '$uibModal', '$rootScope'];
+homeCtrl.$inject = ['metadataService', '$state', '$translate', 'mtcData','$timeout', '$uibModal', '$rootScope'];
 
 
 //For IE 8-9
@@ -12,8 +12,7 @@ if (window.location.pathname !== '/') {
 window.location.href = '/#' + window.location.pathname;
 }
 
-function homeCtrl ($state, $translate, mtcData, $timeout, $uibModal, $rootScope) {
-	
+function homeCtrl (metadataService, $state, $translate, mtcData, $timeout, $uibModal, $rootScope) {
 	
 	var vm = this;
 	// vm.text = "";

@@ -4,7 +4,7 @@ angular
 	.module('mtcApp')
 	.controller('coachDetailCtrl', coachDetailCtrl);
 
-coachDetailCtrl.$inject = ['$stateParams', '$http', 'mtcData', '$log', '$scope', '$uibModal', '$rootScope', '$state'];
+coachDetailCtrl.$inject = ['$stateParams', 'metadataService', '$http', 'mtcData', '$log', '$scope', '$uibModal', '$rootScope', '$state'];
 
 
 //For IE 8-9
@@ -12,11 +12,16 @@ if (window.location.pathname !== '/') {
 window.location.href = '/#' + window.location.pathname;
 }
 
-function coachDetailCtrl($stateParams, $http, mtcData, $log, $scope, $uibModal, $rootScope, $state) {
+function coachDetailCtrl($stateParams, metadataService, $http, mtcData, $log, $scope, $uibModal, $rootScope, $state) {
 	var vm = this;
 
 	// vm.allCoaches = allCoaches;
 	vm.coachid = $stateParams.coachid;
+
+	metadataService.loadMetadata({
+	  title: 'รายละเอียดวิชา ' + vm.coachid
+	});
+
 	$scope.playerVars = { autoplay: 0};
 	$scope.vdo=null;
 	// function getCoachId () {
@@ -49,9 +54,9 @@ function coachDetailCtrl($stateParams, $http, mtcData, $log, $scope, $uibModal, 
 
 	function idCoaches() {
 		return mtcData.coachById(vm.coachid)
-			.success(function(data) {
+			.then(function(data) {
 				if (data) {
-					vm.data = { coach: data};
+					vm.data = { coach: data.data};
 					$scope.videoid = data.videoid;
 					$scope.vdo = true;
 				} else {
@@ -61,7 +66,7 @@ function coachDetailCtrl($stateParams, $http, mtcData, $log, $scope, $uibModal, 
 				
 				
 			})
-			.error(function (e) {
+			.catch(function (e) {
 				console.log(e);
 			});
 	};
