@@ -103,7 +103,17 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		url: '/become-a-coach',
 		templateUrl: 'home/become.view.html',
 		controller: 'loginController',
-		controllerAs :'lgin'
+		controllerAs :'lgin',
+		metadata : {
+			 title: 'สมัครเป็นครู เป็นติวเตอร์ เป็นโค้ช: MatchTheCoach'
+		},
+		data: {
+                head: {
+                	canonical: "https://www.matchthecoach.com/#!/become.view.html",    
+                    description: "สมัครเป็นครูหรือติวเตอร์ ลงประกาศได้ฟรี"
+                    // canonical: 'https://www.matchthecoach.com',
+                }
+            }
 		// parent: 'mtc'
 	})
 	.state('profile', {
@@ -196,10 +206,12 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		url: '/user/:userid',
 		templateUrl: 'common/coachDetail/userDetail.view.html',
 		controller: 'userDetailController',
-		controllerAs : 'user'
+		controllerAs : 'user',
+		metadata : {
+			title: 'รายละเอียดโค้ช'
+		}
 		// parent: 'mtc'
 	})
-	
 	.state('coachEdit', {
 		url: '/coachEdit/:coachid',
 		templateUrl: 'common/addCoach/addCoach.view.html',
@@ -229,7 +241,8 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 			title: 'บริษัท รอยหยัก จำกัด'
 		},
 		data: {
-                head: {                     
+                head: {      
+                    description: 'Our Team',               
                     canonical: 'https://www.matchthecoach.com/#!/team'
                 }
             }
@@ -241,9 +254,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		controllerAs: 'vm'
 		// parent: 'mtc'
 	})
-	
-	
-	
+
 	$urlRouterProvider.otherwise('/');
 
 	$locationProvider.html5Mode(true);

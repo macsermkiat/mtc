@@ -76,10 +76,10 @@
                              </ul>
                         </div>                                              
                         <div class="bio-row" style="white-space:pre-wrap;">
-                            <h4><span>Education</span>: {{user.teacher.education}}</h4>
+                            <h4><span>Education</span>: <span ng-bind-html="user.teacher.education | addHtmlLineBreaks"></span></h4>
                         </div>
                         <div class="bio-row" style="white-space:pre-wrap;">
-                            <h4><span>Experience </span>: {{user.teacher.experience}}</h4>
+                            <h4><span>Experience </span>: <span ng-bind-html="user.teacher.experience | addHtmlLineBreaks"></span></h4>
                         </div>
 			              </div>
 			          </div>
