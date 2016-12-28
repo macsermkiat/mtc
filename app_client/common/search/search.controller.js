@@ -23,7 +23,8 @@ function searchCtrl(metadataService, $stateParams, $http, mtcData, $log, $uibMod
 	activate();
 
 	metadataService.loadMetadata({
-	  title: 'รายชื่อครูผู้เชี่ยวชาญ ' + vm.text
+	  title: 'รายชื่อครูผู้เชี่ยวชาญ ' + vm.text,
+	  description: 'หาครูผู้เชี่ยวชาญในวิชา ' + vm.text + ' ที่มีประสบการณ์มากมาย'
 	});
 
 	function activate() {

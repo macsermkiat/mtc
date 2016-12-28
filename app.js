@@ -78,7 +78,7 @@ var appClientFiles = [
         './app_client/common/searchbox/searchbox.directive.js',
         './app_client/common/services/awsPolicy.service.js',
         './app_client/common/login/login.controller.js',
-        './app_client/common/twit/twit.controller.js',
+        // './app_client/common/twit/twit.controller.js',
         './app_client/common/services/metadata.service.js',
         './app_client/common/services/addHtmlLineBreak.filter.js'
     ];

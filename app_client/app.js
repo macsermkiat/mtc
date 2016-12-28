@@ -4,7 +4,7 @@ var app = angular.module('mtcApp', 	['ui.router',
 									 'angular.filter',
 									 'youtube-embed',
 									 'ngFileUpload',
-									 'ngImgCrop',
+									 // 'ngImgCrop',
 									 // 'updateMeta',
 									 'w11k.angular-seo-header',
 									 'angularUtils.directives.dirPagination',
@@ -87,14 +87,12 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		controller: 'homeCtrl',
 		controllerAs :'vm',
 		metadata : {
-			 title: 'หาครูสอนพิเศษ เรียนภาษาอังกฤษภาษาจีน เรียนเปียโนเรียนดนตรี ติวสอบมีทุกวิชา: MatchTheCoach'
+			 title: 'หาครูสอนพิเศษ เรียนภาษา เรียนดนตรี: MatchTheCoach',
+			 description: 'หาครูสอนพิเศษ เรียนภาษาอังกฤษ เรียนภาษาจีน ติวสอบ เรียนเปียโนดนตรี กีฬา  หรือหา trainer สอนภาษาสำหรับพนักงาน ธุรกิจ โรงงานหรือหน่วยงานต่างๆ: English course, or find teacher in any subjects. Post a teaching job for free'
 		},
 		data: {
                 head: {
-                	canonical: "https://www.matchthecoach.com",
-                    keywords: ["หาครู", "สอนพิเศษ", 'เรียนภาษาอังกฤษ', 'Private tutor', 'Teacher'],
-                    description: "หาครูสอนพิเศษ ติวสอบ เรียนเปียโนดนตรี กีฬา เรียนภาษาอังกฤษ เรียนภาษาจีน หรือสำหรับโพสงานฟรี : English course, or find teacher in any subjects. Post a teaching job for free"
-                    // canonical: 'https://www.matchthecoach.com',
+                	canonical: "https://www.matchthecoach.com"
                 }
             }
 		// // parent: 'mtc'
@@ -105,13 +103,12 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		controller: 'loginController',
 		controllerAs :'lgin',
 		metadata : {
-			 title: 'สมัครเป็นครู เป็นติวเตอร์ เป็นโค้ช: MatchTheCoach'
+			 title: 'สมัครเป็นครู เป็นติวเตอร์ เป็นโค้ช: MatchTheCoach',
+			 description: "สมัครเป็นครูหรือติวเตอร์ ลงประกาศได้ฟรี"
 		},
 		data: {
                 head: {
-                	canonical: "https://www.matchthecoach.com/#!/become.view.html",    
-                    description: "สมัครเป็นครูหรือติวเตอร์ ลงประกาศได้ฟรี"
-                    // canonical: 'https://www.matchthecoach.com',
+                	canonical: "https://www.matchthecoach.com/#!/become.view.html"
                 }
             }
 		// parent: 'mtc'
@@ -146,11 +143,11 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		url: '/pricing',
 		templateUrl: 'home/pricing.html',
 		metadata: {
-			title: 'ราคาการแมทช์ : Pricing'
+			title: 'ราคาการแมทช์ : Pricing',
+			description: "คำถามที่พบบ่อยในเรื่องราคาการแมทช์ FAQ of Pricing",
 		},
 		data: {
-                head: {          
-                	description: "คำถามที่พบบ่อยในเรื่องราคาการแมทช์ FAQ of Pricing",
+                head: {                     	
                     canonical: 'https://www.matchthecoach.com/#!/pricing'
                 }
             }
@@ -170,11 +167,11 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		controller: 'searchCtrl',
 		controllerAs : 'vm',
 		metadata : {
-			title: 'หาครูพบ'
+			title: 'หาครูพบ',
+			description: 'หาครูตามรายวิชา'
 		},
 		data: {
                 head: {
-                	description: 'หาครูตามรายวิชา',
                     canonical: 'https://www.matchthecoach.com/#!/coaches/search/?text=',
                     canonicalExtend: function (canonicalStr, toParams) {
 		                  return canonicalStr+toParams.text;
@@ -189,11 +186,11 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		controller: 'coachDetailCtrl',
 		controllerAs : 'vm',
 		metadata : {
-			title: 'รายละเอียดของวิชา'
+			title: 'รายละเอียดของวิชา',
+			description: 'รายละเอียดของวิชา'
 		},
 		data: {
                 head: {
-                	description: 'รายละเอียดของวิชา',
                     canonical: 'https://www.matchthecoach.com/#!/coaches/',
                     canonicalExtend: function (canonicalStr, toParams) {
 		                  return canonicalStr+toParams.coachid;
@@ -238,22 +235,22 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		url: '/team',
 		templateUrl: 'home/team.view.html',
 		metadata : {
-			title: 'บริษัท รอยหยัก จำกัด'
+			title: 'บริษัท รอยหยัก จำกัด',
+			description: 'Our Team'
 		},
 		data: {
-                head: {      
-                    description: 'Our Team',               
+                head: {                                        
                     canonical: 'https://www.matchthecoach.com/#!/team'
                 }
             }
 	})
-	.state('twit', {		
-		url: '/twit',
-		templateUrl: 'common/twit/twit.template.html',
-		controller: 'twitCtrl',
-		controllerAs: 'vm'
-		// parent: 'mtc'
-	})
+	// .state('twit', {		
+	// 	url: '/twit',
+	// 	templateUrl: 'common/twit/twit.template.html',
+	// 	controller: 'twitCtrl',
+	// 	controllerAs: 'vm'
+	// 	// parent: 'mtc'
+	// })
 
 	$urlRouterProvider.otherwise('/');
 

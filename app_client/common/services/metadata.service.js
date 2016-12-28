@@ -8,11 +8,12 @@ metadataService.$inject = ['$http', '$rootScope', '$window'];
 
 function metadataService ($http, $rootScope, $window) {
     var self = this;
- 
+
+    var meta = document.getElementsByTagName("meta"); 
 	// Set custom options or use provided fallback (default) options
 	var loadMetadata = function(metadata) {
-	   self.title = document.title = metadata.title || 'Match The Coach';
-	   self.description = document.description =  metadata.description || 'Match The Coach';
+	   self.title = document.title = angular.isDefined(metadata.title) ? metadata.title || 'Match The Coach' : '' ;
+	   self.description = meta.description.content =  angular.isDefined(metadata.description) ? metadata.description || 'Match The Coach' : '' ;
 	};
 	 
 	

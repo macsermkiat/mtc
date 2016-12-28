@@ -19,7 +19,8 @@ function coachDetailCtrl($stateParams, metadataService, $http, mtcData, $log, $s
 	vm.coachid = $stateParams.coachid;
 
 	metadataService.loadMetadata({
-	  title: 'รายละเอียดโค้ช ' + vm.coachid
+	  title: 'รายละเอียดโค้ช ' + vm.coachid,
+	  description: 'ดูรายละเอียดตามรายวิชา'
 	});
 
 	$scope.playerVars = { autoplay: 0};
