@@ -139,7 +139,7 @@
  </url>
  <url>
   <loc>https://www.matchthecoach.com/blog.html</loc>
-  <lastmod>2016-12-25T13:01:59+00:00</lastmod>
+  <lastmod>2016-01-11T01:01:59+00:00</lastmod>
   <changefreq>weekly</changefreq>
  </url>
  <url>
@@ -161,5 +161,9 @@
  <url>
   <loc>https://www.matchthecoach.com/company.html</loc>
   <lastmod>2016-12-21T01:01:59+00:00</lastmod>
+ </url>
+  <url>
+  <loc>https://www.matchthecoach.com/company.html</loc>
+  <lastmod>2016-01-11T01:01:59+00:00</lastmod>
  </url>
 </urlset>
