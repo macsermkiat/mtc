@@ -1,0 +1,188 @@
+.cropArea {
+    background: #E4E4E4;
+    overflow: hidden;
+    width: 320px;
+    height: 240px;
+}
+
+.img-select {
+    margin: auto;
+}
+
+.result-image {
+    padding-top: 20px;
+}
+
+.review {
+    padding-bottom: 5px;
+}
+
+.panel-body.review-container {
+    padding-top: 0;
+}
+
+.review-header {
+    margin-bottom: 10px;
+}
+
+.reviewAuthor {
+    margin: 0 5px;
+}
+
+.reviewTimestamp {
+    color: #ccc;
+}
+
+#filter {
+    margin-left: 4px;
+}
+
+#facility {
+    margin-right: 4px;
+}
+
+
+/*Image Cover*/
+
+
+/*Search box*/
+
+#imaginary-container {
+    margin-bottom: 30px;
+}
+
+.stylish-input-group .input-group-addon {
+    background: white !important;
+}
+
+.stylish-input-group .form-control {
+    border-right: 0;
+    box-shadow: 0 0 0;
+    border-color: #ccc;
+}
+
+.stylish-input-group button {
+    border: 0;
+    background: transparent;
+}
+
+.typeahead-demo .custom-popup-wrapper {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    background-color: #f9f9f9;
+}
+
+.typeahead-demo .custom-popup-wrapper>.message {
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    color: #868686;
+}
+
+.typeahead-demo .custom-popup-wrapper>.dropdown-menu {
+    position: static;
+    float: none;
+    display: block;
+    min-width: 160px;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+
+/*NAVBAR*/
+
+#navbar-main {
+    margin-bottom: 50px;
+}
+
+
+/*ngMessages*/
+
+.help-block {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+
+
+/*ID card-Criminal check\*/
+
+.checked {
+    color: #79FE2C;
+}
+
+.work-step {
+    font-size: 60px;
+}
+
+.steps-box:first-child {
+    text-align: right;
+    padding-right: 3%;
+    margin-top: 10px;
+}
+
+.steps-box:last-child {
+    padding-left: 3%;
+    /*margin-top: 70px;*/
+    font-size: 130%;
+}
+
+.app-screen {
+    width: 90%;
+}
+
+.work-step h4 {
+    padding-top: 10px;
+    font-size: 22px;
+}
+
+.work-step {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.work-step:last-of-type {
+    margin-bottom: 80px;
+}
+
+.work-step div {
+    color: #e67e22;
+    border: 2px solid #e67e22;
+    display: inline-block;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    padding: 5px;
+    float: left;
+    font-size: 20px;
+    margin-right: 25px;
+}
+
+.pricing h2 {
+    color: Blue;
+}
+
+blockquote p {
+    color: white;
+}
+
+.whitenav {
+    font-size: 17px;
+    color: white !important;
+}
+
+.free-button {
+    margin: 30px auto;
+}
+
+.apply-button {
+    margin-bottom: 40px;
+}
+
+.landing-button {
+    width: 168px !important;
+}
