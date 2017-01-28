@@ -36,7 +36,7 @@ var coachSchema = new mongoose.Schema({
     province: String,
     courseLength: {
         type: Number,
-        min: 4
+        min: 10
     },
     level: String,
     videoid: String,
