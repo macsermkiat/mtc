@@ -54,6 +54,14 @@ app.use(cookieParser());
 app.get('*.com.js', function (req, res, next) {
   req.url = req.url + '.gz';
   res.set('Content-Encoding', 'gzip');
+  res.set('Content-Type', 'application/javascript');
+  next();
+});
+
+app.get('*.com.css', function (req, res, next) {
+  req.url = req.url + '.gz';
+  res.set('Content-Encoding', 'gzip');
+  res.set('Content-Type', 'text/CSS');
   next();
 });
 
