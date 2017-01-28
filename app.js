@@ -10,6 +10,8 @@ var jwt = require('express-jwt');
 var AWS = require('aws-sdk');
 var uglifyJs = require("uglify-js");
 var fs = require('fs');
+var _ = require('lodash');
+var compression = require('compression');
 // var wellknown = require("nodemailer-wellknown");
 
 
@@ -48,9 +50,19 @@ app.use(cookieParser());
 // app.use("/public", express.static(__dirname + "/../mtc/public"));
 // app.use("/node_modules", express.static(__dirname + "/../mtc/node_modules"));
 // app.use("/app_client", express.static(__dirname + "./../mtc/app_client"));
+
+app.get('*.com.js', function (req, res, next) {
+  req.url = req.url + '.gz';
+  res.set('Content-Encoding', 'gzip');
+  next();
+});
+
 app.use(serveStatic(path.join(__dirname, 'public')));
 app.use(serveStatic(path.join(__dirname, 'node_modules')));
 app.use(serveStatic(path.join(__dirname, 'app_client')));
+app.use(compression());
+
+
 
 
 var appClientFiles = [
@@ -104,6 +116,9 @@ app.use('/api', routesApi);
 // router.get('/', function(req, res) {
 //     res.sendFile(path.join(__dirname, 'app_client', 'index.html'));
 // });
+
+
+
 app.get('/*', function(req, res, next) {
     // Just send the index.html for other files to support HTML5Mode
     // res.sendFile('./app_client/index.html', { root: __dirname });
@@ -111,6 +126,11 @@ app.get('/*', function(req, res, next) {
     console.log("send index");
 
 });
+
+
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -178,12 +198,12 @@ app.use(function(err, req, res, next) {
 // });
 
 
-var server = http.createServer(app);
-server.listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
-});
+// var server = http.createServer(app);
+// server.listen(app.get('port'), function(){
+//   console.log('Express server listening on port ' + app.get('port'));
+// });
 
-// app.listen(8080);
-// console.log("Express listen on port 8080");
+app.listen(3000);
+console.log("Express listen on port 8080");
 
 module.exports = app;
