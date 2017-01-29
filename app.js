@@ -51,23 +51,23 @@ app.use(cookieParser());
 // app.use("/node_modules", express.static(__dirname + "/../mtc/node_modules"));
 // app.use("/app_client", express.static(__dirname + "./../mtc/app_client"));
 
-app.get('*.com.js', function (req, res, next) {
-  req.url = req.url + '.gz';
-  res.set('Content-Encoding', 'gzip');
-  res.set('Content-Type', 'application/javascript');
-  next();
-});
+// app.get('*.com.js', function (req, res, next) {
+//   req.url = req.url + '.gz';
+//   res.set('Content-Encoding', 'gzip');
+//   res.set('Content-Type', 'application/javascript');
+//   next();
+// });
 
-app.get('*.com.css', function (req, res, next) {
-  req.url = req.url + '.gz';
-  res.set('Content-Encoding', 'gzip');
-  res.set('Content-Type', 'text/CSS');
-  next();
-});
+// app.get('*.com.css', function (req, res, next) {
+//   req.url = req.url + '.gz';
+//   res.set('Content-Encoding', 'gzip');
+//   res.set('Content-Type', 'text/CSS');
+//   next();
+// });
 
-app.use(serveStatic(path.join(__dirname, 'public')));
-app.use(serveStatic(path.join(__dirname, 'node_modules')));
-app.use(serveStatic(path.join(__dirname, 'app_client')));
+app.use(serveStatic(path.join(__dirname, 'public'),{maxAge:'1d'}));
+app.use(serveStatic(path.join(__dirname, 'node_modules'),{maxAge:'1d'}));
+app.use(serveStatic(path.join(__dirname, 'app_client'),{maxAge:'1d'}));
 app.use(compression());
 
 
@@ -212,6 +212,6 @@ app.use(function(err, req, res, next) {
 // });
 
 app.listen(3000);
-console.log("Express listen on port 8080");
+console.log("Express listen on port 3000");
 
 module.exports = app;
