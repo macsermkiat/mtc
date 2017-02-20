@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
-	<html lang="th-th" ng-app="mtcApp">
-	<!-- <html lang="en-th" ng-app="mtcApp"> -->
+	<html lang="th-th">
+
 	<HEAD>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">		
@@ -114,7 +114,7 @@
 						</div>
 					</div>
 					<div class="col-lg-4 col-sm-6 callout centered">
-						<img ng-src="../image/nb.jpg" alt="Become coach">
+						<img src="../image/nb.jpg" alt="Become coach">
 					</div>
 					<div class="col-lg-4 col-sm-6 callout" id="become" name="become">
 						<br>
@@ -243,39 +243,7 @@
 					</p>
 				</div><!-- col -->
 				
-				<div class="col-lg-4">
 				
-					<h3>จดหมายข่าว</h3>
-					<p>ลงทะเบียนรับจหมายข่าวจากเรา เพื่อจะได้รับข้อมูลล่าสุดเกี่ยวกับการบริการ และโปรโมชั่นต่างๆ</p>
-					
-				
-
-						<form id="addEmail" name="addEmail" class="form-horizontal" role="form" ng-submit="vm.onNewsLetter()" novalidate>
-						  <div class="form-group" >
-						    <!-- <label for="email" class="col-lg-2 control-label"></label> -->
-						    <div class="col-lg-12">
-						      <input name ="email" class="form-control" id="email" placeholder="อีเมล์" ng-model="vm.formLetter.email">
-						    </div>
-						  </div>
-						  <div class="form-group">
-						    <!-- <label for="name" class="col-lg-2 control-label"></label> -->
-						    <div class="col-lg-12">
-						      <input class="form-control" name="name" id="name" placeholder="ชื่อ" ng-model="vm.formLetter.name">
-						    </div>
-						  </div>
-						  <div class="form-group">
-						    <div class="col-lg-12">
-						      <button type="submit" class="btn btn-success" >ฉันต้องการได้รับจดหมายข่าว</button>
-						    </div>
-						  </div>
-					    </form><!-- form -->
-
-					   <div ng-show="vm.message.success">
-							<button class="btn btn-success btn-block">Thank you!
-							</button>
-						</div>
-					
-				</div><!-- col -->
 				
 				<div class="col-lg-4 hidden-xs hidden-sm" >
 					<h3>ถ้าคุณสนใจเรา</h3>
@@ -292,7 +260,12 @@
 <div id="footerwrap">
 			<div class="container">
 				<h4>Created by <a href="https://www.matchthecoach.com/#!/team">Royyak</a> - Copyright 2016</h4>
-				<h4><a class="icon ion-social-facebook" href="https://www.facebook.com/matchTcoach">: MatchTheCoach</a></h4>
+				<div style="font-size: 30px;">
+					<span><a class="icon ion-social-facebook" href="https://www.facebook.com/Matchthecoach-1667805550215363/"></a></span>
+					<span><a class="icon ion-social-instagram-outline" href="https://www.instagram.com/matchthecoach/"></a></span>
+					<span><a class="icon ion-social-twitter" href="https://twitter.com/mtc_royyak"></a></span>
+					<span><a class="icon ion-social-pinterest" href="https://www.pinterest.com/matchthecoach/"></a></span>
+				</div>
 				<h4><a href="https://line.me/R/ti/p/%40gpp9462v"><img height="36" border="0" alt="เพิ่มเพื่อน" src="https://scdn.line-apps.com/n/line_add_friends/btn/en.png"></a></h4>
 				<h4>LINE ID : @gpp9462v</h4>
 				<h5>E-mail: <a href="mailto:matchthecoach@royyak.com"> matchthecoach@royyak.com</a></h5>
@@ -306,30 +279,11 @@
 	
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
 		<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/ng-meta/0.3.9/ngMeta.min.js"></script>
+
 
 		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-animate.js"></script> -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
-		<!-- <script type="text/javascript" src="/lib/angular-route.min.js"></script> -->
-		<!-- <script src="https://cdn.auth0.com/js/lock/10.4.0/lock.min.js"></script>
-		<script src="angular-lock/dist/angular-lock.min.js"></script>
 		
-		<script src="https://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-aria.min.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.8/angular-sanitize.min.js"></script>
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-messages.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-scroll/1.0.0/angular-scroll.min.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.1.4/ui-bootstrap.min.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.1.4/ui-bootstrap-tpls.min.js"></script>
-		<script type="text/javascript" src="angular-spinners/dist/angular-spinners.min.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.2.12/ng-file-upload-shim.min.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.2.12/ng-file-upload.min.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.12.1/angular-translate.min.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.12.1/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
-		<script src="https://www.youtube.com/iframe_api"></script>
-		<script type="text/javascript" src="js/youtube.min.js"></script>
-		<script type="text/javascript" src="app.js"></script>
-		<script type="text/javascript" src="/angular/mtc.min.js"></script> -->
 		
 </BODY>
