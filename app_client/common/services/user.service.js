@@ -18,21 +18,30 @@ function userService ($http, $log, $window) {
 		return $http.post('/api/users/create', data)
 		.then(function(response) {
 			return response.data;
-		});
+		})
+		.catch(function(e) {
+			console.log(e);
+		})
 	};
 
 	function updateUser(data) {
 		return $http.put('/api/users/update', data)
 		.then(function(response) {
 			return response.data;
-		});
+		})
+		.catch(function(e) {
+			console.log(e);
+		})
 	};
 
 	function updateCoach(data) {
 		return $http.put('/api/coachEdit/update', data)
 		.then(function(response) {
 			return response.data;
-		});
+		})
+		.catch(function(e) {
+			console.log(e);
+		})
 	};
 
 

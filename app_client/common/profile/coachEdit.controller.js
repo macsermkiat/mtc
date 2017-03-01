@@ -13,6 +13,7 @@ window.location.href = '/#' + window.location.pathname;
 }
 
 function coachEditCtrl($stateParams, $http, mtcData, userService, $log, $scope, $state, $timeout, Upload, awsPolicy, spinnerService) {
+	this.$onInit = function() {
 	var vm = this;
 	// vm.allCoaches = allCoaches;
 	vm.coachid = $stateParams.coachid;
@@ -44,47 +45,40 @@ function coachEditCtrl($stateParams, $http, mtcData, userService, $log, $scope, 
 				$timeout(function () {
 			    	vm.message.success = false;
 						}, 1000)
-				.then(function(err) {
-						if (err) {
-							console.log(error);
-							vm.formError = "Your edit has not been saved, try again";
-							
-						} else {
-							console.log("YES!")
-						}
-					
-								
+				.then(function() {
+					console.log("Data edited");
 				})
-				$state.go('profile.courses');
-					
+				.catch(function(e){
+					console.log(e);
+							vm.formError = "Your edit has not been saved, try again";
+				});
+				$state.go('profile.courses');					
 			}
 				
-		};	
+	};	
 	
 	activate();
 
 	function activate() {
-		return idCoaches().then(function() {
-			$log.info('View coach by ID');
-		});
-	}
+		idCoaches();
+	    $log.info('View coach by ID');
+	};
 
 	function idCoaches() {
 		return mtcData.coachById(vm.coachid)
-			.success(function(data) {
+			.then(function(data) {
 				if (data) {
-					vm.formData = data;
-					vm.imageUrl = data.imageUrl;
-					imageUrl = data.imageUrl;
-					oldCategory = data.category;
+					var dataObj = data;
+					vm.formData = dataObj;
+					vm.imageUrl = dataObj.imageUrl;
+					imageUrl = dataObj.imageUrl;
+					oldCategory = dataObj.category;
 				} else {
 					console.log("Error: no coachid found")
-				}
-
-				
+				}			
 				console.log('coachid found');
 			})
-			.error(function (e) {
+			.catch(function (e) {
 				console.log(e);
 			});
 	};
@@ -119,7 +113,7 @@ function coachEditCtrl($stateParams, $http, mtcData, userService, $log, $scope, 
 		};
 
 	vm.resetForm = function() {
-		$scope.subscription.$setPristine();
+		$state.go('profile.courses')
 		};
 
 	var now = new Date;
@@ -168,25 +162,27 @@ function coachEditCtrl($stateParams, $http, mtcData, userService, $log, $scope, 
 				}, function (evt) {
 					$scope.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
 					imageUrl = "https://s3-ap-southeast-1.amazonaws.com/matchthecoach/coaches/" + createdDate;
-				});
+				})
+				.catch(function(e) {
+					console.log(e);
+				})
 			});
 		};
 	
 
-	function browsingCat() {
-	return mtcData.allCats()
-		.success(function(data) {
-			vm.data = { cat: data }
-
-		})
-		.error(function (e) {
-			vm.message = "Sorry, something's gone wrong";
-		});
-	};
-	browsingCat();
-
+	// function browsingCat() {
+	// return mtcData.allCats()
+	// 	.then(function(data) {
+	// 		vm.data = { cat: data[0] }
+	// 	})
+	// 	.catch(function (e) {
+	// 		vm.message = "Sorry, something's gone wrong";
+	// 	});
+	// };
+	// browsingCat();
 
 
 
+	}
 };
 })();

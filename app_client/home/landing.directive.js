@@ -5,8 +5,7 @@ angular
 			restrict: 'EA',
 			templateUrl: '/home/landing.template.html',
 			controller: 'loginController',
-			controllerAs: 'lgin'
-			
+			controllerAs: 'lgin'		
 		});
 
 })();

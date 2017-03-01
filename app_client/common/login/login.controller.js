@@ -9,7 +9,7 @@
     loginController.$inject = ['authService', '$translate', '$rootScope', '$scope', '$state', '$timeout', '$uibModal'];
 
     function loginController(authService, $translate, $rootScope, $scope, $state, $timeout, $uibModal) {
-
+      this.$onInit = function() {
       var lgin = this;
       lgin.authService = authService;
 
@@ -118,7 +118,7 @@
       };
 
 
-  };
-
+  }
+};
 
 })();

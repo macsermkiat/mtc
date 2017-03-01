@@ -216,8 +216,38 @@ module.exports.coachesReadOne = function(req, res) {
           console.log(err);
           sendJSONresponse(res, 404, err);
           return;
-        }
-        console.log('Looking at coach: ' +coach.name + ', subject: ' + coach.shortDescription);
+        }    
+        console.log('Looking at coach: ' + coach.name + ', subject: ' + coach.shortDescription);
+        sendJSONresponse(res, 200, coach);
+      });
+  } else {
+    console.log('No coachid specified');
+    sendJSONresponse(res, 404, {
+      "message": "No coachid in request"
+    });
+  }
+};
+
+// GET Coach Bio
+module.exports.coachBio = function(req, res) {
+  if (req.params && req.params.userid) {
+    console.log("Find user: " + req.params.userid);
+    var id = req.params.userid;
+    User
+      .find({identity: id }).limit(1)
+      .populate('course')
+      .exec(function(err, coach) {
+        if (!coach) {
+          sendJSONresponse(res, 404, {
+            "message": "userid not found"
+          });
+          return;
+        } else if (err) {
+          console.log(err);
+          sendJSONresponse(res, 404, err);
+          return;
+        }      
+        // console.log('See Coach Bio: ' + coach[0].name);
         sendJSONresponse(res, 200, coach);
       });
   } else {
@@ -252,7 +282,7 @@ module.exports.usersCourse = function(req, res) {
 // GET User Bio
 module.exports.usersBio = function(req, res) {
       // if (req.params && req.params.coachid)
-      var id = req.params.id || req.params.userid;
+      var id = req.params.id && req.params.userid;
       User.find({identity: id })
         .populate('course')
         .exec(function(error, bio) {
@@ -458,7 +488,7 @@ module.exports.usersCreate = function(req, res) {
               <p>If you are having any issues with your account, please don't hesitate to contact us by replying to this mail.</p>
               <p>Apart from E-mail, you can reach me easily in one of these channels.</p>
               <p>- facebook : <a href="https://www.facebook.com/matchTcoach">matchTcoach</a></p>
-              <p>- <a href="https://line.me/R/ti/p/%40gpp9462v">LINE</a> : @gpp9462v (need '@')</p>
+              <p>- <a href="https://line.me/R/ti/p/%40matchthecoach">LINE</a> : @matchthecoach (need '@')</p>
               <p>Please feel free to ask anything or any advice, whether you're a coach, or student, or parents.</p>
               <p>I'm here to help.</p>
               <br>
@@ -466,7 +496,7 @@ module.exports.usersCreate = function(req, res) {
               <p>ถ้ามีปัญหาการใช้งานหรือคำถามอะไร หรือต้องการคำแนะนำ คุณสามารถตอบกลับ Email ฉบับนี้ได้เลย</p>
               <p>หรือจะใช้ช่องทางการสื่อสารอื่นๆก็ได้</p>
               <p>- facebook : <a href="https://www.facebook.com/matchTcoach">matchTcoach</a></p>
-              <p>- <a href="https://line.me/R/ti/p/%40gpp9462v">LINE</a> : @gpp9462v (ต้องมี '@')</p>
+              <p>- <a href="https://line.me/R/ti/p/%40matchthecoach">LINE</a> : @matchthecoach (ต้องมี '@')</p>
               <p>ไม่ว่าคุณจะเป็นติวเตอร์ หรือครู หรือจะเป็นนักเรียนหรือผู้ปกครองที่อยากจะหาครูให้บุตรหลาน</p>
               <p>สามารถติดต่อสอบถามได้ตลอดครับ </p>
               <br>

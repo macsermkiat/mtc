@@ -1,5 +1,7 @@
 <navigation></navigation>
 
+<!-- test?\ -->
+
 	<div class="container clear-fix">
 	
 	
@@ -86,7 +88,7 @@
 			
 			
 			<div class="form-group" ng-class="{ 'has-error': vm.addCoach.name.$touched  && vm.addCoach.name.$invalid }">
-				<label for="name" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.NAME" | translate}}<span class="required">*</span></label>
+				<label for="name" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.NICKNAME" | translate}}<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
 					<input initial-value id="name" name="name" required ng-model="vm.formData.name" class="form-control" placeholder="Your name or nickname" aria-labelledby="name">
 					<div class="help-block" ng-messages="vm.addCoach.name.$error" ng-show="vm.addCoach.name.$touched">
@@ -237,7 +239,7 @@
 				<label for="courseLength" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.LENGTH" | translate}}<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
 					<div class="input-group">
-						<input id="courseLength" type="number" min="4" name="courseLength" uib-popover="{{'FORM.TEXT.POPOVER' | translate }}" popover-placement="top" popover-trigger="'focus'" required ng-model="vm.formData.courseLength" class="form-control" translate-attr="{ placeholder : 'FORM.PLACEHOLD.LENGTH' }" aria-labelledby="Length of course">
+						<input id="courseLength" type="number" min="10" name="courseLength" uib-popover="{{'FORM.TEXT.POPOVER' | translate }}" popover-placement="top" popover-trigger="'focus'" required ng-model="vm.formData.courseLength" class="form-control" translate-attr="{ placeholder : 'FORM.PLACEHOLD.LENGTH' }" aria-labelledby="Length of course">
 						<span class="input-group-addon">{{"FORM.TEXT.HOURS" | translate}}</span>
 					</div>
 					<div class="help-block" ng-messages="vm.addCoach.courseLength.$error" ng-if="vm.addCoach.courseLength.$touched">
@@ -246,7 +248,7 @@
 				</div>
 			</div>
 			<div class="form-group" ng-class="{ 'has-error': vm.addCoach.price.$touched  && vm.addCoach.price.$invalid }">
-				<label for="price" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.PRICE" | translate}}<span class="required">*</span></label>
+				<label for="price" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.WANTPRICE" | translate}}<span class="required">*</span></label>
 				<div class="col-xs-9 col-sm-10">
 					<div class="input-group">
 						<input id="price" type="number" name="price" required ng-model="vm.formData.price" class="form-control" placeholder="THB  per course" aria-labelledby="price" min="1000" uib-popover="{{'FORM.TEXT.MINIMUM' | translate }}" popover-placement="top" popover-trigger="'focus'">
@@ -257,6 +259,36 @@
 					</div>
 				</div>
 			</div>
+
+			<!-- <div class="form-group">
+				<label for="sale" class="col-xs-3 col-sm-2 control-label">Sale</label>
+				<div class="col-xs-9 col-sm-10">
+					<label class="form-check-inline">
+						<input type="radio" class="form-check-input" name="sale" id="0" value="0" ng-model="vm.formData.sale" checked>
+						-
+					</label>
+					<label class="form-check-inline">
+						<input type="radio" class="form-check-input" name="sale" id="10" value="10" ng-model="vm.formData.sale">
+						10%
+					</label>
+					<label class="form-check-inline">
+						<input type="radio" class="form-check-input" name="sale" id="20" value="20" ng-model="vm.formData.sale">
+						20%
+					</label>
+					<label class="form-check-inline">
+						<input type="radio" class="form-check-input" name="sale" id="30" value="30" ng-model="vm.formData.sale">
+						30%
+					</label>
+					<label class="form-check-inline">
+						<input type="radio" class="form-check-input" name="sale" id="50" value="50" ng-model="vm.formData.sale">
+						50%
+					</label>
+					<div class="help-block"  ng-if="vm.presale && vm.presale !== vm.formData.price" uib-popover="This will appear as {{vm.formData.price}} " popover-placement="top" popover-trigger="'mouseenter'"><h4>
+						{{"FORM.TEXT.PRESALE" | translate}}
+					    <span>{{vm.presale | number : 0}} {{"FORM.TEXT.BAHT" | translate}}</span></h4>
+					</div>
+				</div>
+			</div> -->
 			
 			<div class="form-group">
 				<label for="group" class="col-xs-3 col-sm-2 control-label">{{"FORM.LABEL.GROUP" | translate}}</label>
@@ -311,6 +343,7 @@
 								<option>Bass - ดนตรีเบส</option>
 								<option>Saxophone - แซกโซโฟน</option>
 								<option>Wind Instrument - ดนตรีเครื่องเป่า</option>
+								<option>Thai Classical Music - ดนตรีไทย</option>
 								<option>Other Music - ดนตรีอื่นๆ</option>
 								</optgroup>
 								<optgroup label="School subject">

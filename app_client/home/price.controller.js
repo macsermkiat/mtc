@@ -13,11 +13,11 @@ window.location.href = '/#' + window.location.pathname;
 }
 
 	function priceController ($scope, $translate) {
+		this.$onInit = function() {
 		$scope.changeLanguage = function(langKey) {
 			$translate.use(langKey);
 		}
 
+	}
 	};
-	
-
 })();

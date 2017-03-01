@@ -13,7 +13,7 @@ window.location.href = '/#' + window.location.pathname;
 }
 
 function homeCtrl (metadataService, $state, $translate, mtcData, $timeout, $uibModal, $rootScope) {
-	
+	this.$onInit = function() {
 	var vm = this;
 	// vm.text = "";
 	vm.message = {};
@@ -67,10 +67,13 @@ function homeCtrl (metadataService, $state, $translate, mtcData, $timeout, $uibM
 		uibModalInstance.result.then(function (data) {
 			// vm.data.location.reviews.push(data);
 			console.log(data);
-		})	
+		})
+		.catch(function(e) {
+			console.log(e);
+		})
 	};
 
-		
+	}	
 };
 
 	

@@ -1,8 +1,7 @@
 (function () {
 angular
 	.module('mtcApp')
-	.component('ngInitial', function(){
-		return {
+	.component('ngInitial',{
 			restrict: 'A',
 			controller: ['$scope', '$element', '$attr', '$parse', function($scope, $element, $attr, $parse) {
 				var getter, setter, val;
@@ -13,6 +12,6 @@ angular
 				}
 			]
 		}	
-	});
+	);
 
 })();

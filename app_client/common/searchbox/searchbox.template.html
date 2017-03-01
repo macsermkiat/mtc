@@ -43,7 +43,7 @@
                     <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="browseCat" >
-                    <li><a ng-repeat="cat in vm.data.cat | orderBy: 'category' |limitTo:vm.limit track by $index " href="javascript:void(0)" ng-click="vm.addModel(cat.category)">{{cat.category}}</a></li>
+                    <li><a ng-repeat="cat in vm.data.cat | orderBy: 'category' | limitTo:vm.limit track by $index " href="javascript:void(0)" ng-click="vm.addModel(cat.category)">{{cat.category}}</a></li>
                    
                   </ul>
                 </div>

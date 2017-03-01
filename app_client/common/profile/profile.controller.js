@@ -13,6 +13,7 @@ window.location.href = '/#' + window.location.pathname;
 };
 
 function profileController($stateParams, $state, $http, userService, mtcData) {
+	this.$onInit = function() {
 	var accessData;
 	var getAccessData = function () {	
 		if (!localStorage.getItem('profile')) {
@@ -38,15 +39,16 @@ function profileController($stateParams, $state, $http, userService, mtcData) {
 	function userBio() {
 		mtcData.userById(id)
 			.then(function(data) {
-				if (data) {
-					user.data = { coach: data};
-					user.result = user.data.coach.data[0];
+				if (!data) {
+					console.log("no userID found");
+					$state.go('subscription');
+					return;
 				} else {
-					console.log("Something wrong")
+					user.data = { coach: data};
+					user.result = user.data.coach[0];
 				}
-
-			}
-			, function (e) {
+			})
+			.catch(function (e) {
 				console.log(e);
 			});
 	};
@@ -64,5 +66,5 @@ function profileController($stateParams, $state, $http, userService, mtcData) {
 
 
 	}
-
+};
 })();

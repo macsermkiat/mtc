@@ -13,6 +13,7 @@ window.location.href = '/#' + window.location.pathname;
 
 
 function profileCoursesController($state, $http, mtcData, $filter) {
+	this.$onInit = function() {
 	var accessData;
 	var subsciption;
 	var getAccessData = function () {	
@@ -32,24 +33,25 @@ function profileCoursesController($state, $http, mtcData, $filter) {
 	user.subscription = subscription;
 	var sub = localStorage.getItem('subscription');
 	user.subscription = (sub === 'true');
-	// 
 
 	function userCourses(id) {
 			return $http.get('/api/users/course', {params: {id: id}} )
 				.then(function(response) {
 					return response.data;
-				});
+				})
+				.catch(function(e) {
+					console.log(e)
+				})
 	};
 
 	function displayData() { 
 			return userCourses(id)
-				.then(function(data, err) {
-					if (err) {
-						console.log (err);
-					} else {
+				.then(function(data) {
 					user.data = { coach: data };
-					}
-				});
+				})
+				.catch(function(e) {
+					console.log(e);
+				})
 	};
 	displayData();
 
@@ -59,7 +61,8 @@ function profileCoursesController($state, $http, mtcData, $filter) {
 			.then(function(success) {
 				console.log("Delete");
 				$state.go('profile.bio');
-			}, function(error) {
+			}) 
+			.catch(function(error) {
 				console.log("error: " + error);
 			})
 		} else {
@@ -78,7 +81,7 @@ function profileCoursesController($state, $http, mtcData, $filter) {
 	};
 
 
-	};
-
+	}
+};
 })();
 

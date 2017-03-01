@@ -11,12 +11,13 @@ function awsPolicy ($http, $log) {
 	var getSign = function() {
  		return $http.get('/api/awsPolicy')
  		 .then(function(response) {
-               return response.data;
-                
-			})
-			
-	
+               return response.data;  
+		})
+		.catch(function(e) {
+			console.log(e);
+		})	
 };
+
 return {getSign: getSign}
 }
 

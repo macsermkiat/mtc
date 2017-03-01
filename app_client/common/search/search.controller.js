@@ -4,7 +4,7 @@ angular
 	.module('mtcApp')
 	.controller('searchCtrl', searchCtrl);
 
-searchCtrl.$inject = ['metadataService', '$stateParams', '$http', 'mtcData', '$log', '$uibModal'];
+searchCtrl.$inject = ['metadataService', '$stateParams', 'mtcData', '$log', '$uibModal'];
 
 
 //For IE 8-9
@@ -12,8 +12,8 @@ if (window.location.pathname !== '/') {
 window.location.href = '/#' + window.location.pathname;
 };
 
-function searchCtrl(metadataService, $stateParams, $http, mtcData, $log, $uibModal) {
-	
+function searchCtrl(metadataService, $stateParams, mtcData, $log, $uibModal) {
+	this.$onInit = function() {
 	var vm = this;
 	// vm.allCoaches = allCoaches;
 	// vm.coaches = [];
@@ -30,7 +30,10 @@ function searchCtrl(metadataService, $stateParams, $http, mtcData, $log, $uibMod
 	function activate() {
 		return searchingCoaches().then(function() {
 			$log.info('Search coaches by keyword.');
-		});
+		})
+		.catch(function(e) {
+			console.log(e);
+		})
 	};
 
 	var shuffleArray = function(array) {
@@ -53,7 +56,7 @@ function searchCtrl(metadataService, $stateParams, $http, mtcData, $log, $uibMod
 	function searchingCoaches() {
 		return mtcData.searchCategoryService(vm.text)
 			.then(function(data) {
-				vm.data = { coach: data.data }
+				vm.data = { coach: data }
 				shuffleArray(vm.data.coach);
 			})
 			.catch(function (e) {
@@ -69,6 +72,9 @@ function searchCtrl(metadataService, $stateParams, $http, mtcData, $log, $uibMod
             // vm.data.location.reviews.push(data);
             console.log("Help");
           })
+          .catch(function(e) {
+          	console.log(e);
+          })
       };
 
 
@@ -77,7 +83,8 @@ function searchCtrl(metadataService, $stateParams, $http, mtcData, $log, $uibMod
 
 	
 			
-}
+	}
+};
 
 
 })();

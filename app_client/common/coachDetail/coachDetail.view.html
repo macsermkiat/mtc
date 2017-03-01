@@ -8,12 +8,12 @@
 		
 	    <section class="col-xs-12 col-sm-12 col-md-12">
 			<article class="search-result row">
-				<div class="col-xs-12 col-sm-12 col-md-6"  ng-model="vdo">
+				<div class="col-xs-12 col-sm-12 col-md-6"  ng-model="vm.vdo">
 					<a href="#" title="youtube" class="thumbnail">
-						<ng-if="!!vdo" youtube-video video-id="videoid" player-vars="playerVars"
+						<ng-if="!!vm.vdo" youtube-video video-id="vm.videoid" player-vars="vm.playerVars"
 						player-width="'100%'" player-height="'100%'">
 						</youtube-video>
-						<ng-if="!vdo" youtube-video video-id="io7ZXGdXieI" player-vars="playerVars"
+						<ng-if="!vm.vdo" youtube-video video-id="io7ZXGdXieI" player-vars="vm.playerVars"
 						player-width="'100%'" player-height="'100%'">
 						</youtube-video>
 					</a>
@@ -94,3 +94,17 @@
 	</div>
 
 <footer-generic></footer-generic>
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Course",
+  "name": {{ vm.data.coach.subject }},
+  "description": {{vm.data.coach.courseDescription}},
+  "provider": {
+    "@type": "Organization",
+    "name": "Match The Coach",
+    "sameAs": "http://www.matchthecoach.com"
+  }
+}
+</script>

@@ -4,7 +4,7 @@ angular
 	.module('mtcApp')
 	.controller('coachDetailCtrl', coachDetailCtrl);
 
-coachDetailCtrl.$inject = ['$stateParams', 'metadataService', '$http', 'mtcData', '$log', '$scope', '$uibModal', '$rootScope', '$state'];
+coachDetailCtrl.$inject = ['$stateParams', 'metadataService', 'mtcData', '$log', '$scope', '$uibModal', '$rootScope', '$state'];
 
 
 //For IE 8-9
@@ -12,23 +12,17 @@ if (window.location.pathname !== '/') {
 window.location.href = '/#' + window.location.pathname;
 }
 
-function coachDetailCtrl($stateParams, metadataService, $http, mtcData, $log, $scope, $uibModal, $rootScope, $state) {
+function coachDetailCtrl($stateParams, metadataService, mtcData, $log, $scope, $uibModal, $rootScope, $state) {
+	this.$onInit = function() {
 	var vm = this;
-
-	// vm.allCoaches = allCoaches;
 	vm.coachid = $stateParams.coachid;
-
 	metadataService.loadMetadata({
 	  title: 'รายละเอียดโค้ช ' + vm.coachid,
 	  description: 'ดูรายละเอียดตามรายวิชา'
 	});
 
-	$scope.playerVars = { autoplay: 0};
-	$scope.vdo=null;
-	// function getCoachId () {
-	// 	vm.coachid = $stateParams.coachid;
-	// }
-	// vm.coaches = {};
+	vm.playerVars = { autoplay: 0};
+	vm.vdo=null;
 	activate();
 
 	function copy() {
@@ -48,24 +42,20 @@ function coachDetailCtrl($stateParams, metadataService, $http, mtcData, $log, $s
 	copy();
 
 	function activate() {
-		return idCoaches().then(function() {
-			$log.info('View coach by ID');
-		});
-	}
+		idCoaches();
+		$log.info('View coach by ID');
+	};
 
 	function idCoaches() {
-		return mtcData.coachById(vm.coachid)
+		mtcData.coachById(vm.coachid)
 			.then(function(data) {
 				if (data) {
-					vm.data = { coach: data.data};
-					$scope.videoid = data.videoid;
-					$scope.vdo = true;
+					vm.data = { coach: data };
+					vm.videoid = data.videoid;
+					vm.vdo = true;
 				} else {
-					$scope.vdo = false;
-				}
-
-				
-				
+					vm.vdo = false;
+				}			
 			})
 			.catch(function (e) {
 				console.log(e);
@@ -85,7 +75,7 @@ function coachDetailCtrl($stateParams, metadataService, $http, mtcData, $log, $s
 						   shortDescription: vm.data.coach.shortDescription,
 						   createdBy: vm.data.coach.createdBy,
 						   price: vm.data.coach.price,
-						   length: vm.data.coach.length,
+						   length: vm.data.coach.courseLength,
 						   name: vm.data.coach.name,
 						   rating: vm.data.coach.rating
 						};
@@ -105,7 +95,7 @@ function coachDetailCtrl($stateParams, metadataService, $http, mtcData, $log, $s
 	};
 	
 
-
+	}
 };
 
 })();

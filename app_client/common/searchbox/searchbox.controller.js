@@ -4,7 +4,7 @@ angular
 	.module('mtcApp')
 	.controller('SearchBoxController', SearchBoxController);
 
-SearchBoxController.$inject = ['$state', 'mtcData', '$timeout', '$http'];
+SearchBoxController.$inject = ['$state', 'mtcData', '$timeout', 'Restangular'];
 
 
 //For IE 8-9
@@ -12,9 +12,8 @@ if (window.location.pathname !== '/') {
 window.location.href = '/#' + window.location.pathname;
 }
 
-function SearchBoxController ($state, mtcData, $timeout, $http) {
-	
-	
+function SearchBoxController ($state, mtcData, $timeout, Restangular) {	
+	this.$onInit = function() {
 	var vm = this;
 	vm.text = "";
 	// vm.message = {};
@@ -24,8 +23,7 @@ function SearchBoxController ($state, mtcData, $timeout, $http) {
         vm.$label = $label;
     };
 
-	vm.onSubmit = function(err) {
-		
+	vm.onSubmit = function(err) {	
 		if (vm.text !== "") {
 			// $http.get('api/coaches/search/?text=' + vm.text)
 			$state.go('search', {text: vm.text})
@@ -34,43 +32,32 @@ function SearchBoxController ($state, mtcData, $timeout, $http) {
 
 	// vm.limit= 10;
 
-	// // loadMore function
+	// loadMore function
 	// vm.loadMore = function() {
 	//   vm.limit +=10;
 	// }
-
 // Search Category Schema
 	vm.searching = function(val) {
-		return $http.get('api/coaches/searchCat', {params: {text:val}})
-		.then(function(response) {
-			return response.data;
-		})
+		return Restangular.all('coaches').all("searchCat").getList({text:val});
 	};
 
 	activate();
 
-	function activate() {
-		return mtcData.allCats()
+	function activate() {	
+		mtcData.allCats()
 			.then(function(data) {			
-				vm.data = { cat: data.data }
+				vm.data = { cat: data };
 			})
 			.catch(function (e) {
 				vm.message = "Sorry, something's gone wrong";
 			});
 	};
-	
-
 	vm.addModel = function (select) {
 		vm.text = select;
 		$state.go('search', {text: vm.text});
+	}		
+	
 	}
-
-
-
-		
-	};
-
-
-
+};
 
 })();

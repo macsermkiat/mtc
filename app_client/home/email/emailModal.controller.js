@@ -7,7 +7,8 @@ angular
 emailModalController.$inject = ['$uibModalInstance', 'mtcData', '$timeout'];
 
 function emailModalController ($uibModalInstance, mtcData, $timeout) {
-	
+	this.$onInit = function() {
+
 	var vm = this;
 
 
@@ -29,7 +30,8 @@ function emailModalController ($uibModalInstance, mtcData, $timeout) {
 			email: formLetter.email
 		}).then(function(success) {
 			console.log("Your coupon was deliverec to" + email);
-		}, function(error) {
+		})
+		.catch(function(error) {
 			console.log("Something went wrong: " + error)
 		})
 	};
@@ -45,7 +47,8 @@ function emailModalController ($uibModalInstance, mtcData, $timeout) {
 			$timeout(function() {
 				vm.uibModal.close(success);
 			},3000);
-		}, function(error) {
+		})
+		.catch(function(error) {
 			vm.formError = "Your request has not been sent, possible from duplicate Email";
 		})
 	};
@@ -58,6 +61,6 @@ function emailModalController ($uibModalInstance, mtcData, $timeout) {
 			$uibModalInstance.dismiss('cancel');
 		}
 	};
-}
+}};
 
 })();

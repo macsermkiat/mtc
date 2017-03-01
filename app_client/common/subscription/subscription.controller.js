@@ -7,6 +7,7 @@ angular
 	subscriptionCtrl.$inject = ['userService', '$state', '$timeout','$window', 'Upload','$scope', 'awsPolicy', 'mtcData'];
 
 	function subscriptionCtrl (userService, $state, $timeout, $window, Upload, $scope, awsPolicy, mtcData) {
+		this.$onInit = function() {
 		var vm = this;
 		
 		var sign =awsPolicy.getSign();
@@ -69,7 +70,8 @@ angular
 							$timeout (function(){
 								$window.location.reload();},2500);
 						}
-					}, function(error) {
+					})
+			        .catch(function(error) {
 						var vals = Object.keys(error).map(function (key) {
     					return error[key];	
 						});					
@@ -134,6 +136,6 @@ angular
 	// 	}
 	// };
 	
-	};
-
+	}
+};
 })();

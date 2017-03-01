@@ -7,7 +7,7 @@ angular
 requestModalCtrl.$inject = ['$uibModalInstance', 'mtcData', 'coachData', '$timeout'];
 
 function requestModalCtrl ($uibModalInstance, mtcData, coachData, $timeout) {
-	
+	this.$onInit = function() {
 	var vm = this;
 	vm.coachData = coachData;
 	var now = new Date;
@@ -27,26 +27,8 @@ function requestModalCtrl ($uibModalInstance, mtcData, coachData, $timeout) {
 	vm.success = false;
 	vm.isDisabled = false;
 
-	var studentMatchingFee;
-	var matchingCalc = function () {
-		if (coachData.rating === 5) {
-				studentMatchingFee = 490
-		} else {
-				studentMatchingFee = 290
-		}
-	};
-	matchingCalc();
-
-	var coachMatchingFee;
-	var matchingCoachCalc = function () {
-		if (coachData.price <= 5000) {
-				coachMatchingFee = 490
-		} else {
-				coachMatchingFee = coachData.price / 10
-		}
-	};	
-	matchingCoachCalc();
-
+	var studentMatchingFee = parseInt((coachData.price / coachData.length)*2);
+	var coachMatchingFee = studentMatchingFee;
 	vm.onSubmit = function () {
 		vm.formError = "";
 		if(!vm.formData.time || !vm.formData.place || 
@@ -89,7 +71,8 @@ function requestModalCtrl ($uibModalInstance, mtcData, coachData, $timeout) {
 		.then(function(success) {
 			vm.success = true;
 			vm.uibModal.close(success);
-		}, function(error) {
+		})
+		.catch(function(error) {
 			vm.formError = "Your request has not been sent, try again";
 		})
 		// .success(function (data) {
@@ -109,7 +92,7 @@ function requestModalCtrl ($uibModalInstance, mtcData, coachData, $timeout) {
 			$uibModalInstance.dismiss('cancel');
 		}
 	};
-
-}
+	}
+};
 
 })();

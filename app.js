@@ -29,8 +29,6 @@ var router = express.Router();
 var routesApi = require('./app_api/routes/index');
 
 
-
-
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server', 'views'));
 app.set('view engine', 'ejs');
@@ -70,9 +68,6 @@ app.use(serveStatic(path.join(__dirname, 'node_modules'),{maxAge:'1d'}));
 app.use(serveStatic(path.join(__dirname, 'app_client'),{maxAge:'1d'}));
 app.use(compression());
 
-
-
-
 var appClientFiles = [
         './app_client/common/services/mtcData.service.js',
         './app_client/common/services/user.service.js',
@@ -102,6 +97,7 @@ var appClientFiles = [
         './app_client/common/services/metadata.service.js',
         './app_client/common/services/addHtmlLineBreak.filter.js'
     ];
+
 var uglified = uglifyJs.minify(appClientFiles, { compress : false });
 
 fs.writeFile('public/angular/mtc.min.js', uglified.code, function (err){

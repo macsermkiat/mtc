@@ -13,7 +13,8 @@ window.location.href = '/#' + window.location.pathname;
 }
 
 	function categoryController () {
-		var vm = this;
+		this.$onInit = function() {
+    var vm = this;
 		vm.addModel = function (select) {
 				vm.formData.category = select;
 		};
@@ -30,4 +31,5 @@ window.location.href = '/#' + window.location.pathname;
       name: 'Milan'
     }];	
 }
+};
 })();

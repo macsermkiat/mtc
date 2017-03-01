@@ -7,7 +7,7 @@ angular
 twitCtrl.$inject = ['$http', '$timeout'];
 
 	function twitCtrl ($http, $timeout) {
-	
+		this.$onInit = function() {
 		var vm = this;
 		vm.groupReply = [];
 		vm.nameAdded = [];
@@ -68,8 +68,8 @@ twitCtrl.$inject = ['$http', '$timeout'];
 					console.log("Something wrong")
 				}
 				vm.isLoading = false;
-			}
-			, function (e) {
+			})
+			.catch(function (e) {
 				console.log(e);
 				vm.isLoading = false;
 			});
@@ -87,8 +87,8 @@ twitCtrl.$inject = ['$http', '$timeout'];
 				$timeout(function () {
 				    vm.message.success = false;
 				}, 1000);
-			}
-			, function (e) {
+			})
+			.catch(function (e) {
 				console.log(e);
 				vm.formError = "Something wrong! Tweet not sent."
 			});
@@ -97,6 +97,6 @@ twitCtrl.$inject = ['$http', '$timeout'];
 		var postTwitter = function(data) {
 			return $http.post('/api/tweet', data)	
 		};
-	};
-
+	}
+};
 })();

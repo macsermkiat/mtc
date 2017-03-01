@@ -4,6 +4,8 @@ var app = angular.module('mtcApp', 	['ui.router',
 									 'angular.filter',
 									 'youtube-embed',
 									 'ngFileUpload',
+									 'restangular',
+									 // 'oc.lazyLoad',
 									 // 'ngImgCrop',
 									 // 'updateMeta',
 									 'w11k.angular-seo-header',
@@ -21,8 +23,20 @@ var app = angular.module('mtcApp', 	['ui.router',
 									 'duScroll']);
 
 
-function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $locationProvider, $httpProvider, $stateProvider, $urlRouterProvider, $translateProvider) {
-
+function config (RestangularProvider, $sceDelegateProvider, lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $locationProvider, $httpProvider, $stateProvider, $urlRouterProvider, $translateProvider) {
+	RestangularProvider.setBaseUrl('/api');
+	RestangularProvider.configuration.getIdFromElem = function(elem) {
+  // if route is customers ==> returns customerID
+  	return elem[_.initial(elem.route).join('') + "ID"];
+	}
+	// RestangularProvider.setFullResponse(true);
+	
+	$sceDelegateProvider.resourceUrlWhitelist([
+    // Allow same origin resource loads.
+    'self',
+    // Allow loading from our assets domain.  Notice the difference between * and **.
+    'https://www.matchthecoach.com/**'
+    ]);
 
 	lockProvider.init({
       domain: 'royyak.auth0.com',
@@ -86,16 +100,30 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		templateUrl: 'home/home.view.html',
 		controller: 'homeCtrl',
 		controllerAs :'vm',
+		// views: {
+		//     "lazyLoadView": {
+	    //   	controller: 'homeCtrl',
+				// controllerAs :'vm',
+		//       // controller: 'AppCtrl', // This view will use AppCtrl loaded below in the resolve
+		//       templateUrl: 'home/home.view.html'
+		//     }
+		// },
+		// resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
+		//     loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+		//       // you can lazy load files for an existing module
+		//              return $ocLazyLoad.load(['css/main.css','https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css']);
+		//     }]
+        // },
 		metadata : {
-			 title: 'หาครูสอนพิเศษ เรียนภาษา เรียนดนตรี: MatchTheCoach',
-			 description: 'หาครูสอนพิเศษ เรียนภาษาอังกฤษ เรียนภาษาจีน ติวสอบ เรียนเปียโนดนตรี กีฬา  หรือหา trainer สอนภาษาสำหรับพนักงาน ธุรกิจ โรงงานหรือหน่วยงานต่างๆ: English course, or find teacher in any subjects. Post a teaching job for free'
+			 title: 'รับหาครูสอนพิเศษ tutor รับสอนพิเศษติวอังกฤษ ภาษาจีน ติวคณิตศาสตร์ เรียนดนตรี อบรมพนักงาน: MatchTheCoach',
+			 description: 'รับรองถูกกว่าสถาบัน! จัดหา tutor อันดับหนึ่ง เฉพาะติวเตอร์ที่ดีสุด ติวเตอร์จากจุฬา ธรรมศาสตร์ เรียนกวดวิชาที่บ้าน รับหาครูสอนพิเศษหรือ tutor ติวคณิตศาสตร์ เรียนเปียโนดนตรีไทย กีตาร์ หรือหาครูสอนภาษาอังกฤษเรียนตัวต่อตัว ฝึกบทสนทนาภาษาอังกฤษ คำศัพท์ เรียนภาษาจีน หาครูสอนพิเศษให้ลูก อบรมพนักงานองค์กร : Private teacher or tutor for your kids. Employees training.'
 		},
 		data: {
                 head: {
                 	canonical: "https://www.matchthecoach.com"
                 }
             }
-		// // parent: 'mtc'
+		// parent: 'mtc'
 	})
 	.state('become', {
 		url: '/become-a-coach',
@@ -103,8 +131,8 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		controller: 'loginController',
 		controllerAs :'lgin',
 		metadata : {
-			 title: 'สมัครเป็นครู เป็นติวเตอร์ เป็นโค้ช: MatchTheCoach',
-			 description: "สมัครเป็นครูหรือติวเตอร์ ลงประกาศได้ฟรี"
+			 title: 'สมัครเป็นครู เป็นติวเตอร์ เป็นโค้ช ครูสอนพิเศษ ติวเตอร์ลงประกาศฟรี: Tutor and teacher can post jobs for free.',
+			 description: "สมัครเป็นครูสอนพิเศษหรือติวเตอร์ ไม่ว่าจะเป็นภาษาอังกฤษ ภาษาจีน คนิตศาสตร์ ดนตรี รวมถึงวิชาอื่นๆ ลงประกาศได้ฟรี Tutor and teacher can post jobs for free."
 		},
 		data: {
                 head: {
@@ -118,7 +146,10 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		url: '/profile',
 		templateUrl: 'common/profile/profile.template.html',
 		controller: 'profileController',
-		controllerAs: 'user'
+		controllerAs: 'user',
+		metadata : {
+			title: 'User Profile'
+		}
 		// parent: 'mtc'
 		// template: '<ui-view>'
 	})
@@ -126,18 +157,27 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		url: '/courses',
 		templateUrl: 'common/profile/profile.courses.template.html',
 		controller: 'profileCoursesController',
-		controllerAs: 'user'
+		controllerAs: 'user',
+		metadata : {
+			title: 'รายละเอียดคอร์สอน'
+		}
 	})
 	.state('profile.bio', {
 		url: '/bio',
 		templateUrl: 'common/profile/profile.bio.template.html',
 		controller: 'profileController',
-		controllerAs: 'user'
+		controllerAs: 'user',
+		metadata : {
+			title: 'รายละเอียดโค้ช'
+		}
 	})
 	.state('profile.edit', {
 		url: '/edit',
 		templateUrl: 'common/profile/profile.edit.template.html',
-		controller: 'profileEditController'
+		controller: 'profileEditController',
+		metadata : {
+			title: 'แก้ไขโปร์ไฟล์'
+		}
 	})
 	.state('pricing', {
 		url: '/pricing',
@@ -213,7 +253,10 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		url: '/coachEdit/:coachid',
 		templateUrl: 'common/addCoach/addCoach.view.html',
 		controller: 'coachEditCtrl',
-		controllerAs : 'vm'
+		controllerAs : 'vm',
+		metadata : {
+			title: 'แก้ไขรายละดอียดวิชา'
+		}
 		// parent: 'mtc'
 	})
 	.state('addCoach', {		
@@ -221,14 +264,21 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 		templateUrl: 'common/addCoach/addCoach.view.html',
 		controller: 'addCoachCtrl',
 		controllerAs: 'vm',
-		redirectTo: 'addPic'
+		redirectTo: 'addPic',
+		metadata : {
+			title: 'เพิ่มคิร์สสอน'
+		}
 		// parent: 'mtc'
 	})
 	.state('subscription', {		
 		url: '/subscription',
 		templateUrl: 'common/subscription/subscription.template.html',
 		controller: 'subscriptionCtrl',
-		controllerAs: 'vm'
+		controllerAs: 'vm',
+		metadata : {
+			title: 'สมัครเป็นโค้ช',
+			description: 'Apply for a coach / teacher / tutor for free.' 
+		}
 		// parent: 'mtc'
 	})
 	.state('team', {		
@@ -249,7 +299,7 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 	// 	templateUrl: 'common/twit/twit.template.html',
 	// 	controller: 'twitCtrl',
 	// 	controllerAs: 'vm'
-	// 	// parent: 'mtc'
+	// parent: 'mtc'
 	// })
 
 	$urlRouterProvider.otherwise('/');
@@ -282,14 +332,11 @@ function config (lockProvider, jwtOptionsProvider, jwtInterceptorProvider, $loca
 	    // .useCookieStorage() // Store the user's lang preference
     	.useSanitizeValueStrategy('sanitizeParameters'); // Prevent hacking of interpoloated strings
 
-	};
+	
 
-
-
-
-app.config(['lockProvider', 'jwtOptionsProvider', 'jwtInterceptorProvider', '$locationProvider', '$httpProvider', '$stateProvider', '$urlRouterProvider', '$translateProvider', config]);
-
-
+	
+    };
+app.config(['RestangularProvider','$sceDelegateProvider', 'lockProvider', 'jwtOptionsProvider', 'jwtInterceptorProvider', '$locationProvider', '$httpProvider', '$stateProvider', '$urlRouterProvider', '$translateProvider', config]);
 
 app.run(function($rootScope, metadataService, $state, authService, authManager, lock) {
 		// Route change handler, sets the route's defined metadata

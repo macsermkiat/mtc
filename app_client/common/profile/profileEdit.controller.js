@@ -8,7 +8,7 @@ angular
 
 	function profileEditController ($scope, userService, $state, $timeout, awsPolicy, $http) {
 		// var$scope = this;
-		
+		this.$onInit = function() {
 		var sign =awsPolicy.getSign();
 
 		var accessData = localStorage.getItem('profile');
@@ -56,7 +56,8 @@ angular
 					$timeout (function(){
 						$state.go('profile.bio')},2000);
 					
-				}, function(error) {
+				})
+				.catch(function(error) {
 					var vals = Object.keys(error).map(function (key) {
     					return error[key];	
 					});					
@@ -69,6 +70,6 @@ angular
 			$scope.subscription.$setPristine();
 			};
 
-	};
-
+	}
+};
 })();

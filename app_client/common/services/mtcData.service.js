@@ -4,16 +4,15 @@ angular
 	.module('mtcApp')
 	.factory('mtcData', mtcData);
 
-mtcData.$inject = ['$http', '$log'];
+mtcData.$inject = ['$http', '$log', 'Restangular'];
 
-function mtcData ($http, $log) {
+function mtcData ($http, $log, Restangular) {
 
 	
 	var searchCategoryService = function (text) {
-		// var searchCategory;
-		// searchCategory = {};
-		// searchCategory.arrSearchResults = [];
-		return $http.get('/api/coaches/search/?text=' + text);
+		return Restangular.one('coaches/search/?text=' + text).getList();
+		
+		// return $http.get('/api/coaches/search/?text=' + text);
 	};
 
 	var allCoaches = function() {
@@ -22,7 +21,8 @@ function mtcData ($http, $log) {
 	};
 
 	var allCats = function() {
-		return $http.get('/api/allcats')
+		return Restangular.all('allCats').getList();
+		// return $http.get('/api/allcats')
 	};
 
 	var requestCoach = function (data) {
@@ -31,11 +31,13 @@ function mtcData ($http, $log) {
 
 	
 	var coachById = function (coachid) {
-		return $http.get('/api/coaches/' + coachid);
+		return Restangular.one('coaches').customGET(coachid);
+		// return $http.get('/api/coaches/' + coachid);
 	};
 
 	var userById = function (userid) {
-		return $http.get('/api/user/' + userid);
+		return Restangular.one('user').customGET(userid);
+		// return $http.get('/api/user/' + userid);
 	};
 
 	function createCoach(data) {
@@ -43,7 +45,9 @@ function mtcData ($http, $log) {
 		.then(function(response) {
 			return response.data;
 		})
-
+		.catch(function(e) {
+			console.log(e);
+		})
 	};
 
 	function deleteCoach(coachid){
@@ -57,12 +61,18 @@ function mtcData ($http, $log) {
 		.then(function(response) {
 			return response.news;
 		})
+		.catch(function(e) {
+			console.log(e);
+		})
 	};
 
 	var sendFirstLetter = function(mail) {
 		return $http.post('/api/sendNews', mail)
 		.then(function(response) {
 			return response.mail;
+		})
+		.catch(function(e) {
+			console.log(e);
 		})
 	};
 
