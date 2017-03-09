@@ -19,15 +19,15 @@
   "HOME": {
     "HEADERWRAP": {
       "SIMPLE": "Simple, Choosable way to find private teacher / tutor in any field.",
-      "DATA": "We have more than 300 coaches, data online still updating. Please contact us to find one"
+      "DATA": "We have more than 300 coaches/tutors, with online data still being updated. Please search or contact us to find a suitable coach/tutor"
     },
     "GRAYWRAP": {
       "EASY": "Easy",
       "EASY-TEXT": "From the newest technology and the largest and most powerful cloudbase database. We offer the better and easier way to choose the right coach or tutor for you.",
       "CHOICE": "Choice",
-      "CHOICE-TEXT": "We open choices for you to made. Your can search the teacher or coach from their experience or specialist. ",
+      "CHOICE-TEXT": "We open choices for you to make. Your can search for a teacher or coach with the most suitable experience or specialty.",
       "LOVE": "Love",
-      "LOVE-TEXT": "All the coaches practice with love. They love teaching, they evaluated, and they are the best! "
+      "LOVE-TEXT": "All the coaches teach or tutor with love. They love teaching, they are evaluated, and they are the best! "
     },
     "FREE" : {
       "LINE1" : "Want to use FREE!?",
@@ -43,12 +43,12 @@
      "BECOME-COACH": {
       "HEADING1": "Find a coach",
       "SUB1": "Simple as a-b-c",
-      "LI-A": "Sign in and fill subscription form",
-      "LI-B": "Search a coach from our list",
+      "LI-A": "Click 'Find Coach' at top and fill in the form",
+      "LI-B": "Choose a coach from our list",
       "LI-C": "Request to Match!",
       "HEADING2": "Become a coach",
       "SUB2": "Simple as 1-2-3",
-      "LI-1": "Signin in and fill subscription form",
+      "LI-1": "Sign in and fill subscription form",
       "LI-2": "Create a course",
       "LI-3": "Prepare yourself for coaching!",
       "LI-4": "Signin in",
@@ -81,7 +81,7 @@
       "PAR-1": "126/185 Pracha U-tit 78/1, ",
       "PAR-2": " Thung Khru, Bangkok 10140",
       "SUB2": "Newsletter",
-      "TEXT-2": "Register to our newsletter and be updated with the latests information regarding our services, offers and much more.",
+      "TEXT-2": "Register for our newsletter and be updated with the latests information regarding our services, offers and much more.",
       "EMAIL": "Email",
       "NAME": "Your name",
       "BUTTON": "Please send me a newsletter",
@@ -118,12 +118,12 @@
       "PAR-5-2": "Siam Commercial Bank : 407-570270-4",
       "PAR-5-3": "Kasikorn Thai Bank : 018-3-92793-0",
       "PAR-5-4": "Bangkok Bank : 151-4-28523-6",
-      "PAR-6-1": "For Student: Transfer<mark> when you get an Email confirmation.</mark>",
+      "PAR-6-1": "We encourage for 1-2 testing class, just pay after everything worked for both teacher and student.",
       "PAR-6-2": "For Coach/ Teacher : Transfer<mark> after the student already transfer</mark>, we will send you a second Email when the time come.",
-      "PAR-6-3": "After you transfer,<mark> please reply an Email with a transfer document</mark> back to us.",
-      "PAR-7": "Please do a transfer process within 7 days after you got a confirmation Email",
-      "PAR-8": "Cancellation would not cost anything if made it before the course at least 2 days. If you canceled within 48 hours, you will not get the matching fee back.",
-      "PAR-9": "If you think the coach's teaching is not your style, or you feel not right. You can ask us to change the coach. If you would like to cancel the course, please inform us after finish the class as soon as possible. We will refund your matching fee back right away.",
+      "PAR-6-3": "After you transfer,<mark> please send us a transfer document</mark> back to us via LINE or Email.",
+      "PAR-7": "After 1-2 testing class",
+      "PAR-8": "Cancellation would not cost anything if made it during a testing class. However, you will not get the matching fee back if cancel after that.",
+      "PAR-9": "If you think the coach's teaching is not your style, or you feel not right. You can ask us to change the coach. If you would like to cancel the course, please inform us after finish the class as soon as possible.",
       "PAR-10-1": "We recommend that you shouldn't accept or contact each other personally outside the web. We concerned about your securit and personal informations most. You also loss many benefits that will occuring, and loss the cancellation protection.",
       "PAR-10-2": "Please report to us if someone try to contact you personally before the matching done"
     }

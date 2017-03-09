@@ -116,7 +116,7 @@ function config (RestangularProvider, $sceDelegateProvider, lockProvider, jwtOpt
         // },
 		metadata : {
 			 title: 'รับหาครูสอนพิเศษ tutor รับสอนพิเศษติวอังกฤษ ภาษาจีน ติวคณิตศาสตร์ เรียนดนตรี อบรมพนักงาน: MatchTheCoach',
-			 description: 'รับรองถูกกว่าสถาบัน! จัดหา tutor อันดับหนึ่ง เฉพาะติวเตอร์ที่ดีสุด ติวเตอร์จากจุฬา ธรรมศาสตร์ เรียนกวดวิชาที่บ้าน รับหาครูสอนพิเศษหรือ tutor ติวคณิตศาสตร์ เรียนเปียโนดนตรีไทย กีตาร์ หรือหาครูสอนภาษาอังกฤษเรียนตัวต่อตัว ฝึกบทสนทนาภาษาอังกฤษ คำศัพท์ เรียนภาษาจีน หาครูสอนพิเศษให้ลูก อบรมพนักงานองค์กร : Private teacher or tutor for your kids. Employees training.'
+			 description: 'จัดหาครูสอนพิเศษ เฉพาะครูติวเตอร์ที่ดีสุด เรียนกวดวิชาที่บ้าน ติวคณิตศาสตร์ ภาษาอังกฤษเรียนตัวต่อตัว ภาษาจีน เรียนดนตรี หาครูสอนพิเศษให้ลูก อบรมพนักงานองค์กร : Private teacher or tutor for your kids. Employees training.'
 		},
 		data: {
                 head: {
