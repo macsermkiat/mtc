@@ -266,7 +266,7 @@ function config (RestangularProvider, $sceDelegateProvider, lockProvider, jwtOpt
 		controllerAs: 'vm',
 		redirectTo: 'addPic',
 		metadata : {
-			title: 'เพิ่มคิร์สสอน'
+			title: 'เพิ่มคอร์สสอน'
 		}
 		// parent: 'mtc'
 	})
