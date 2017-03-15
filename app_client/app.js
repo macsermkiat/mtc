@@ -281,19 +281,19 @@ function config (RestangularProvider, $sceDelegateProvider, lockProvider, jwtOpt
 		}
 		// parent: 'mtc'
 	})
-	.state('team', {		
-		url: '/team',
-		templateUrl: 'home/team.view.html',
-		metadata : {
-			title: 'บริษัท รอยหยัก จำกัด',
-			description: 'Our Team'
-		},
-		data: {
-                head: {                                        
-                    canonical: 'https://www.matchthecoach.com/#!/team'
-                }
-            }
-	})
+	// .state('team', {		
+	// 	url: '/team',
+	// 	templateUrl: 'home/team.view.html',
+	// 	metadata : {
+	// 		title: 'บริษัท รอยหยัก จำกัด',
+	// 		description: 'Our Team'
+	// 	},
+	// 	data: {
+ //                head: {                                        
+ //                    canonical: 'https://www.matchthecoach.com/#!/team'
+ //                }
+ //            }
+	// })
 	// .state('twit', {		
 	// 	url: '/twit',
 	// 	templateUrl: 'common/twit/twit.template.html',

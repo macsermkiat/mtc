@@ -11,10 +11,22 @@
   <loc>https://www.matchthecoach.com/</loc>
   <image:image>
       <image:loc>https://www.matchthecoach.com/image/hand.jpg</image:loc>
-    </image:image>
-    <image:image>
+  </image:image>
+  <image:image>
       <image:loc>https://www.matchthecoach.com/image/match.jpg</image:loc>
-    </image:image>
+  </image:image>
+  <image:image>
+      <image:loc>https://www.matchthecoach.com/image/pp.jpg</image:loc>
+  </image:image>
+  <image:image>
+      <image:loc>https://www.matchthecoach.com/image/jonathan.jpg</image:loc>
+  </image:image>
+  <image:image>
+      <image:loc>https://www.matchthecoach.com/image/kai-small.jpg</image:loc>
+  </image:image>
+  <image:image>
+      <image:loc>https://www.matchthecoach.com/image/grad.jpg</image:loc>
+  </image:image>
   <lastmod>2017-03-09T01:01:59+00:00</lastmod>
  </url>
  <url>
@@ -26,8 +38,23 @@
   <lastmod>2017-02-26T01:01:59+00:00</lastmod>
  </url>
  <url>
-  <loc>https://www.matchthecoach.com/#!/team</loc>
-  <lastmod>2016-11-29T11:01:59+00:00</lastmod>
+  <loc>https://www.matchthecoach.com/team.html</loc>
+  <lastmod>2016-03-15T11:01:59+00:00</lastmod>
+  <image:image>
+      <image:loc>https://www.matchthecoach.com/image/mac.jpg</image:loc>
+  </image:image>
+  <image:image>
+      <image:loc>https://www.matchthecoach.com/image/pao.jpg</image:loc>
+  </image:image>
+  <image:image>
+      <image:loc>https://www.matchthecoach.com/image/house.jpg</image:loc>
+  </image:image>
+  <image:image>
+      <image:loc>https://www.matchthecoach.com/image/oil.jpg</image:loc>
+  </image:image>
+  <image:image>
+      <image:loc>https://www.matchthecoach.com/image/pom.jpg</image:loc>
+  </image:image>
   <changefreq>never</changefreq>
  </url>
 <url>
@@ -78,6 +105,18 @@
  </url>
  <url>
   <loc>https://www.matchthecoach.com/homethai.html</loc>
+   <image:image>
+      <image:loc>https://www.matchthecoach.com/image/pp.jpg</image:loc>
+  </image:image>
+  <image:image>
+      <image:loc>https://www.matchthecoach.com/image/jonathan.jpg</image:loc>
+  </image:image>
+  <image:image>
+      <image:loc>https://www.matchthecoach.com/image/kai-small.jpg</image:loc>
+  </image:image>
+  <image:image>
+      <image:loc>https://www.matchthecoach.com/image/grad.jpg</image:loc>
+  </image:image>
   <lastmod>2017-03-09T01:01:59+00:00</lastmod>
  </url>
  <url>
@@ -107,6 +146,7 @@
  </url>
 <url>
   <loc>https://www.matchthecoach.com/blog/choose.html</loc>
+  <image:loc>https://s3-ap-southeast-1.amazonaws.com/matchthecoach/blog/choosetutor.jpg</image:loc>
   <lastmod>2017-02-08T01:01:59+00:00</lastmod>
  </url>
  <url>
@@ -135,10 +175,24 @@
  </url>
 <url>
   <loc>https://www.matchthecoach.com/blog/memory.html</loc>
+  <image:loc>https://s3-ap-southeast-1.amazonaws.com/matchthecoach/blog/stress.png</image:loc>
+  <image:loc>https://s3-ap-southeast-1.amazonaws.com/matchthecoach/blog/heart.jpg</image:loc>
+  <image:loc>https://s3-ap-southeast-1.amazonaws.com/matchthecoach/blog/doors.jpg</image:loc>
+  <image:loc>https://s3-ap-southeast-1.amazonaws.com/matchthecoach/blog/flashcards.jpg</image:loc>
   <lastmod>2017-02-21T01:01:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.matchthecoach.com/blog/kid.html</loc>
+  <image:image>
+      <image:loc>https://s3-ap-southeast-1.amazonaws.com/matchthecoach/blog/growthmind.png
+      </image:loc>
+      <image:loc>https://s3-ap-southeast-1.amazonaws.com/matchthecoach/blog/brain.jpg
+      </image:loc>
+      <image:loc>https://s3-ap-southeast-1.amazonaws.com/matchthecoach/blog/girl.jpg
+      </image:loc>
+      <image:loc>https://s3-ap-southeast-1.amazonaws.com/matchthecoach/blog/book-light.jpg
+      </image:loc>
+  </image:image>
   <lastmod>2017-03-04T15:01:59+00:00</lastmod>
 </url>
 </urlset>
