@@ -139,20 +139,22 @@
 <url>
   <loc>https://www.matchthecoach.com/blog/refresh_brain.html</loc>
   <lastmod>2017-02-08T01:01:59+00:00</lastmod>
- </url>
+</url>
 <url>
   <loc>https://www.matchthecoach.com/blog/improve.html</loc>
   <lastmod>2017-02-08T01:01:59+00:00</lastmod>
- </url>
+</url>
 <url>
   <loc>https://www.matchthecoach.com/blog/choose.html</loc>
+  <image:image>
   <image:loc>https://s3-ap-southeast-1.amazonaws.com/matchthecoach/blog/choosetutor.jpg</image:loc>
+  </image:image>
   <lastmod>2017-02-08T01:01:59+00:00</lastmod>
- </url>
- <url>
+</url>
+<url>
   <loc>https://www.matchthecoach.com/21stcentury.html</loc>
   <lastmod>2017-02-08T01:01:59+00:00</lastmod>
- </url>
+</url>
  <url>
   <loc>https://www.matchthecoach.com/blog/ingographic/very.html</loc>
   <lastmod>2017-02-08T01:01:59+00:00</lastmod>
@@ -175,10 +177,18 @@
  </url>
 <url>
   <loc>https://www.matchthecoach.com/blog/memory.html</loc>
+  <image:image>
   <image:loc>https://s3-ap-southeast-1.amazonaws.com/matchthecoach/blog/stress.png</image:loc>
+  </image:image>
+  <image:image>
   <image:loc>https://s3-ap-southeast-1.amazonaws.com/matchthecoach/blog/heart.jpg</image:loc>
+  </image:image>
+  <image:image>
   <image:loc>https://s3-ap-southeast-1.amazonaws.com/matchthecoach/blog/doors.jpg</image:loc>
+  </image:image>
+  <image:image>
   <image:loc>https://s3-ap-southeast-1.amazonaws.com/matchthecoach/blog/flashcards.jpg</image:loc>
+  </image:image>
   <lastmod>2017-02-21T01:01:59+00:00</lastmod>
 </url>
 <url>
@@ -186,10 +196,16 @@
   <image:image>
       <image:loc>https://s3-ap-southeast-1.amazonaws.com/matchthecoach/blog/growthmind.png
       </image:loc>
+  </image:image>
+  <image:image>
       <image:loc>https://s3-ap-southeast-1.amazonaws.com/matchthecoach/blog/brain.jpg
       </image:loc>
+  </image:image>
+  <image:image>
       <image:loc>https://s3-ap-southeast-1.amazonaws.com/matchthecoach/blog/girl.jpg
       </image:loc>
+  </image:image>
+  <image:image>
       <image:loc>https://s3-ap-southeast-1.amazonaws.com/matchthecoach/blog/book-light.jpg
       </image:loc>
   </image:image>
