@@ -310,7 +310,7 @@ a:after {
    ========================================================================== */
 
 #headerwrap {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('../image/hand.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url('../image/hand.jpg');
     /*margin-top: -50px;*/
     padding-top: 60px;
     text-align: center;
@@ -584,7 +584,7 @@ screen and (max-width:1050px) {
         /*padding-bottom: 0px;*/
     }
     #headerwrap {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(../image/hand-small.jpg);
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url(../image/hand-small.jpg);
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
