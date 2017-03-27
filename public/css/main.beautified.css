@@ -310,7 +310,7 @@ a:after {
    ========================================================================== */
 
 #headerwrap {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url('../image/hand.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('../image/hand.jpg');
     /*margin-top: -50px;*/
     padding-top: 60px;
     text-align: center;
@@ -337,6 +337,11 @@ a:after {
     letter-spacing: 8px;
     font-size: 2em;
     font-weight: bold;
+    text-shadow: 2px 2px 2px #000;
+}
+
+#headerwrap h2 {
+    color: #ffffff;
     text-shadow: 2px 2px 2px #000;
 }
 
@@ -553,13 +558,16 @@ screen and (max-width:1050px) {
 /*ipad portrait*/
 
 @media (min-width:768px) and (max-width: 1024px) and (orientation: portrait) {
-    .header {
+.header {
         background-attachment: scroll;
     }
-}
 
 #headerwrap h1 {
-    font-size: 80px;
+    font-size: 40px;
+}
+
+#headerwrap h2 {
+    font-size: 30px;
 }
 
 #headerwrap p {
@@ -571,20 +579,23 @@ screen and (max-width:1050px) {
 #headerwrap h3 {
     font-size: 25px;
 }
-
+}
 
 /*@media screen and (max-device-width : 767px) {*/
 
 @media (max-width:767px) {
     #headerwrap h1 {
-        font-size: 60px;
+        font-size: 30px;
         margin-top: 0px;
         padding-top: 0;
         /*margin-bottom: 0;*/
         /*padding-bottom: 0px;*/
     }
+    #headerwrap h2 {
+        font-size: 20px;
+    }
     #headerwrap {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url(../image/hand-small.jpg);
+        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url(../image/hand-small.jpg);
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
