@@ -667,6 +667,14 @@ screen and (max-width:1050px) {
     padding: 0;
 }
 
+.clearfix::after { 
+   content: "."; 
+   visibility: hidden; 
+   display: block; 
+   height: 0; 
+   clear: both;
+}
+
 .social-text {
     vertical-align: top !important;
 }
