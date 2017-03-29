@@ -214,7 +214,7 @@
 <url>
   <loc>https://www.matchthecoach.com/blog/infographic/stop_your_child_from_multitasking.html</loc>
   <image:image>
-      <image:loc>https://s3-ap-southeast-1.amazonaws.com/matchthecoach/blog/STOP! your child header.png
+      <image:loc>https://s3-ap-southeast-1.amazonaws.com/matchthecoach/blog/reading.jpg
       </image:loc>
   </image:image>
   <image:image>
@@ -227,4 +227,24 @@
   </image:image>
   <lastmod>2017-03-27T15:01:59+00:00</lastmod>
 </url>
+ <url>
+  <loc>https://www.matchthecoach.com/blog/5ความเชื่อในการเรียนสองภาษา.html</loc>
+  <image:image>
+      <image:loc>https://s3-ap-southeast-1.amazonaws.com/matchthecoach/blog/wrong.jpg
+      </image:loc>
+  </image:image>
+  <image:image>
+      <image:loc>https://s3-ap-southeast-1.amazonaws.com/matchthecoach/blog/mistake.jpg
+      </image:loc>
+  </image:image>
+  <image:image>
+      <image:loc>https://s3-ap-southeast-1.amazonaws.com/matchthecoach/blog/babysmile.jpg
+      </image:loc>
+  </image:image>
+  <image:image>
+      <image:loc>https://s3-ap-southeast-1.amazonaws.com/matchthecoach/blog/accidental.jpg
+      </image:loc>
+  </image:image>
+  <lastmod>2017-03-29T06:01:59+00:00</lastmod>
+ </url>
 </urlset>
