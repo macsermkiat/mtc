@@ -26,6 +26,7 @@
                     <script type="text/javascript">
                     $( '#searchButton' ).click(function() {
                         fbq('track', 'Search', {
+                        search_string: vm.text
                         });
                     });
                     </script>
