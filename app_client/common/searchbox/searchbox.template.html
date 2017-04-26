@@ -19,9 +19,18 @@
                 ng-keyup="$event.keyCode == 13 && vm.onSubmit()"
                 uib-typeahead="search.category as search.category for search in vm.searching($viewValue)">
                 <span class="input-group-addon">
-                    <button type="button" ng-click="vm.onSubmit()" href="javascript:void(0)">
+                    <button id="searchButton" type="button" ng-click="vm.onSubmit()" href="javascript:void(0)">
                         <!-- <a href="/#/coaches"> --><span class="icon ion-ios-search"></span><!-- </a> -->
-                    </button>  
+                    </button>
+                    <!-- Add event to the button's click handler -->
+                    <script type="text/javascript">
+                    $( '#searchButton' ).click(function() {
+                        fbq('track', 'Search', {
+                        });
+                    });
+                    </script>
+
+  
                 </span>
              </div>                 
         </div>
