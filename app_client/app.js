@@ -115,8 +115,8 @@ function config (RestangularProvider, $sceDelegateProvider, lockProvider, jwtOpt
 		//     }]
         // },
 		metadata : {
-			 title: 'หาครูสอนภาษาอังกฤษ หาครูสอนพิเศษ tutor รับสอนพิเศษติวอังกฤษ ภาษาจีน ติวคณิตศาสตร์ เรียนดนตรี อบรมพนักงาน: MatchTheCoach',
-			 description: 'หาครูสอนภาษาอังกฤษ หาครูสอนพิเศษหรือติวเตอร์ ติวคณิตศาสตร์ เรียนเปียโนดนตรี เรียนภาษาอังกฤษตัวต่อตัว ภาษาจีน อบรมพนักงานองค์กร : Private teacher or tutor for your kids. Employees training.'
+			 title: 'หาครูสอนภาษาอังกฤษ หาครูสอนพิเศษ tutor รับสอนพิเศษติวอังกฤษ ภาษาจีน กับครูชาวต่างชาติ: MatchTheCoach',
+			 description: 'หาครูสอนภาษาอังกฤษ หาครูสอนพิเศษหรือติวเตอร์ เรียนภาษาอังกฤษตัวต่อตัว ภาษาจีน โดยชาวต่างชาติ เลี้ยงลูก 2 ภาษา อบรมพนักงานองค์กร : Private foreigner or Thai Language teacher'
 		},
 		data: {
                 head: {
