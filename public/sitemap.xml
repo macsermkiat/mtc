@@ -283,4 +283,20 @@
   <loc>https://www.matchthecoach.com/blog/เลือกโรงเรียนให้ลูก.html</loc>
   <lastmod>2017-05-15T01:01:59+00:00</lastmod>
  </url>
+<url>
+  <loc>https://www.matchthecoach.com/blog/ยิ่งอ่านเยอะ-ยิ่งเก่ง-ภาษาอังกฤษ.html</loc>
+  <lastmod>2017-06-05T01:01:59+00:00</lastmod>
+  <image:image>
+      <image:loc>https://s3-ap-southeast-1.amazonaws.com/matchthecoach/blog/readonsaofa.jpg
+      </image:loc>
+  </image:image>
+  <image:image>
+      <image:loc>https://s3-ap-southeast-1.amazonaws.com/matchthecoach/blog/harry-resize.jpg
+      </image:loc>
+  </image:image>
+  <image:image>
+      <image:loc>https://s3-ap-southeast-1.amazonaws.com/matchthecoach/blog/score1.jpg
+      </image:loc>
+  </image:image>
+ </url>
 </urlset>
